@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://ctgiyan6csixu"]
+
+[ext_resource type="Script" uid="uid://bun1yugwwxyl3" path="res://scenes/battle_scene/battle_scene.gd" id="1_5o34f"]
+[ext_resource type="Texture2D" uid="uid://28s3ifkaora" path="res://art/maps/sas_map.png" id="2_5vyks"]
+[ext_resource type="PackedScene" uid="uid://cifwypi1j3oks" path="res://scenes/ui_elements_scene/ui_elements.tscn" id="3_5o34f"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_niihm"]
+font_size = 106
+font_color = Color(0.1526528, 0, 0.9187322, 1)
+
+[node name="battle_scene" type="Node2D" unique_id=713771731]
+script = ExtResource("1_5o34f")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1395628561]
+position = Vector2(-1, 0)
+limit_left = 0
+limit_top = 0
+limit_right = 1920
+limit_bottom = 1080
+
+[node name="level_image" type="TextureRect" parent="." unique_id=1023742962]
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("2_5vyks")
+
+[node name="Label" type="Label" parent="." unique_id=1581403466]
+visible = false
+offset_left = 426.0
+offset_top = 293.0
+offset_right = 1506.0
+offset_bottom = 439.0
+text = "Chuds compromised!"
+label_settings = SubResource("LabelSettings_niihm")
+
+[node name="ui_elements" parent="." unique_id=1319210199 instance=ExtResource("3_5o34f")]
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 1708.0
+offset_top = 5.0
+offset_right = 1708.0
+offset_bottom = 5.0
+grow_horizontal = 1
+grow_vertical = 1
+scale = Vector2(0.77, 0.77)
+size_flags_horizontal = 4

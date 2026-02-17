@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://cifwypi1j3oks"]
+
+[ext_resource type="Texture2D" uid="uid://d4ewn111rc61p" path="res://art/misc/purrrency(1).png" id="1_28bky"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_28bky"]
+font_size = 49
+font_color = Color(0.8478096, 0.76048464, 0.34048545, 1)
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
+
+[node name="ui_elements" type="Control" unique_id=1319210199 groups=["ui"]]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="HBoxContainer" parent="." unique_id=1519714376]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.90500003
+anchor_right = 1.0
+anchor_bottom = 0.068
+offset_left = -94.80005
+offset_right = -121.19995
+offset_bottom = 9.559998
+grow_horizontal = 0
+scale = Vector2(1.77, 1.77)
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer" unique_id=1024778909]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("1_28bky")
+expand_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer" unique_id=374413824]
+layout_mode = 2
+text = "0"
+label_settings = SubResource("LabelSettings_28bky")

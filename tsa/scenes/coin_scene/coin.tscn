@@ -1,0 +1,124 @@
+[gd_scene format=3 uid="uid://nnmw0hp41ppt"]
+
+[ext_resource type="Script" uid="uid://bwlp6nu8yl4oy" path="res://scenes/test/coin.gd" id="1_pukyi"]
+[ext_resource type="Texture2D" uid="uid://d4ewn111rc61p" path="res://art/misc/purrrency(1).png" id="1_q2dao"]
+[ext_resource type="AudioStream" uid="uid://dshe12o0ls4bi" path="res://sounds/cat_meow.mp3" id="3_pp747"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pukyi"]
+atlas = ExtResource("1_q2dao")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pp747"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pukyi")
+}],
+"loop": true,
+"name": &"coin_anim",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_ospjg"]
+length = 0.033333335
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimatedSprite2D:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_duxek"]
+resource_name = "coin"
+length = 0.7
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.06666667, 0.13333334, 0.2, 0.26666668),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, -1.31), Vector2(0, -1.31), Vector2(0, -3.64), Vector2(0, -6.845), Vector2(0, -12.235)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimatedSprite2D:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.06666667, 0.13333334, 0.2, 0.26666668),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.06, 1.06), Vector2(1.125, 1.125), Vector2(1.27, 1.27), Vector2(1.515, 1.515)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7jt6y"]
+_data = {
+&"RESET": SubResource("Animation_ospjg"),
+&"coin": SubResource("Animation_duxek")
+}
+
+[node name="coin" type="Node2D" unique_id=2123167575]
+z_index = 735
+script = ExtResource("1_pukyi")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=636638619]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_pp747")
+animation = &"coin_anim"
+
+[node name="coin_sfx" type="AudioStreamPlayer2D" parent="." unique_id=2054331204]
+stream = ExtResource("3_pp747")
+volume_db = 16.545
+pitch_scale = 1.54
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=783422327]
+libraries/ = SubResource("AnimationLibrary_7jt6y")
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

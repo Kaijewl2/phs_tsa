@@ -1,0 +1,155 @@
+[gd_scene format=3 uid="uid://dd11l81fddnsb"]
+
+[ext_resource type="Texture2D" uid="uid://geuv31ccg3un" path="res://art/biped_robot/robot_red.png" id="1_4k2lw"]
+[ext_resource type="Script" uid="uid://bapv7idhow58n" path="res://scenes/test/walking_bot_enemy.gd" id="2_2axeb"]
+[ext_resource type="PackedScene" uid="uid://bes6m6c7gdswg" path="res://scenes/test/health_bar.tscn" id="3_6oadl"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gb4ap"]
+atlas = ExtResource("1_4k2lw")
+region = Rect2(32, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3j38q"]
+atlas = ExtResource("1_4k2lw")
+region = Rect2(96, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lxoq3"]
+atlas = ExtResource("1_4k2lw")
+region = Rect2(128, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xxley"]
+atlas = ExtResource("1_4k2lw")
+region = Rect2(160, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_anyeu"]
+atlas = ExtResource("1_4k2lw")
+region = Rect2(32, 192, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6oadl"]
+atlas = ExtResource("1_4k2lw")
+region = Rect2(0, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i67ca"]
+atlas = ExtResource("1_4k2lw")
+region = Rect2(32, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d21pn"]
+atlas = ExtResource("1_4k2lw")
+region = Rect2(64, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w5m4x"]
+atlas = ExtResource("1_4k2lw")
+region = Rect2(96, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2a8d1"]
+atlas = ExtResource("1_4k2lw")
+region = Rect2(128, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aomhi"]
+atlas = ExtResource("1_4k2lw")
+region = Rect2(160, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p243u"]
+atlas = ExtResource("1_4k2lw")
+region = Rect2(0, 192, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yxpcg"]
+atlas = ExtResource("1_4k2lw")
+region = Rect2(32, 192, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gb4ap"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gb4ap")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3j38q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lxoq3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xxley")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lxoq3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3j38q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gb4ap")
+}],
+"loop": false,
+"name": &"attack",
+"speed": 9.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_anyeu")
+}],
+"loop": false,
+"name": &"death",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6oadl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i67ca")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d21pn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w5m4x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2a8d1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aomhi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p243u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yxpcg")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4k2lw"]
+radius = 5.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6oadl"]
+radius = 13.0
+
+[node name="walking_bot_enemy" type="CharacterBody2D" unique_id=122927017 groups=["enemies"]]
+z_index = 28
+script = ExtResource("2_2axeb")
+SPEED = 3
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=126498863]
+sprite_frames = SubResource("SpriteFrames_gb4ap")
+animation = &"death"
+frame_progress = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=330135714]
+shape = SubResource("CircleShape2D_4k2lw")
+disabled = true
+
+[node name="health_bar" parent="." unique_id=1839495860 instance=ExtResource("3_6oadl")]
+offset_top = -17.785
+offset_bottom = -7.784996
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1306935703]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D" unique_id=338052010]
+shape = SubResource("CircleShape2D_6oadl")
+
+[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]

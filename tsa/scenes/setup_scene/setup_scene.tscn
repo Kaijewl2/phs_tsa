@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://btprfw2nquh3x"]
+
+[ext_resource type="Script" uid="uid://bd7hbfsfnqvlb" path="res://scenes/test/card_manager.gd" id="1_p3t0o"]
+[ext_resource type="Script" uid="uid://dc67op6qmbthq" path="res://scenes/test/player_hand.gd" id="2_5kvid"]
+[ext_resource type="PackedScene" uid="uid://hjiyca61oul5" path="res://scenes/test/placement_container.tscn" id="3_yw0n5"]
+[ext_resource type="Script" uid="uid://ddvel6elx2b4m" path="res://scenes/test/button.gd" id="4_gtlfo"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ow0st"]
+font_size = 26
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+
+[node name="setup_scene" type="Node2D" unique_id=985433820]
+
+[node name="card_manager" type="Node2D" parent="." unique_id=24658242]
+script = ExtResource("1_p3t0o")
+
+[node name="player_hand" type="Node2D" parent="." unique_id=1961346094]
+script = ExtResource("2_5kvid")
+
+[node name="placement_container" parent="." unique_id=686105759 instance=ExtResource("3_yw0n5")]
+position = Vector2(-2, -1)
+
+[node name="enter_battle_button" type="Control" parent="." unique_id=2143986003]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1475.0
+offset_top = 47.0
+offset_right = 1475.0
+offset_bottom = 47.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Button" type="Button" parent="enter_battle_button" unique_id=444350915]
+layout_mode = 0
+offset_right = 211.0
+offset_bottom = 76.0
+script = ExtResource("4_gtlfo")
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="enter_battle_button" unique_id=1641993012]
+layout_mode = 0
+offset_left = 22.0
+offset_top = 18.0
+offset_right = 186.0
+offset_bottom = 54.0
+text = "remove virus"
+label_settings = SubResource("LabelSettings_ow0st")
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="enter_battle_button/Button" to="enter_battle_button/Button" method="_on_pressed"]

@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://hjiyca61oul5"]
+
+[ext_resource type="PackedScene" uid="uid://c51s1q0o8diqi" path="res://scenes/test/card_slot.tscn" id="1_8y8bw"]
+
+[node name="placement_container" type="Node2D" unique_id=686105759]
+
+[node name="card_slot" parent="." unique_id=1412094762 instance=ExtResource("1_8y8bw")]
+position = Vector2(647.07, 203.195)
+scale = Vector2(0.63, 0.63)
+
+[node name="card_slot2" parent="." unique_id=424587978 instance=ExtResource("1_8y8bw")]
+position = Vector2(908.74, 203.195)
+scale = Vector2(0.63, 0.63)
+
+[node name="card_slot3" parent="." unique_id=295229042 instance=ExtResource("1_8y8bw")]
+position = Vector2(1174.965, 203.195)
+scale = Vector2(0.63, 0.63)
+
+[node name="card_slot4" parent="." unique_id=1887625908 instance=ExtResource("1_8y8bw")]
+position = Vector2(647.07, 398.235)
+scale = Vector2(0.63, 0.63)
+
+[node name="card_slot5" parent="." unique_id=1067255294 instance=ExtResource("1_8y8bw")]
+position = Vector2(908.74, 398.235)
+scale = Vector2(0.63, 0.63)
+
+[node name="card_slot6" parent="." unique_id=163617918 instance=ExtResource("1_8y8bw")]
+position = Vector2(1174.965, 398.235)
+scale = Vector2(0.63, 0.63)
+
+[node name="card_slot7" parent="." unique_id=1295058330 instance=ExtResource("1_8y8bw")]
+position = Vector2(647.07, 581.405)
+scale = Vector2(0.63, 0.63)
+
+[node name="card_slot8" parent="." unique_id=739652874 instance=ExtResource("1_8y8bw")]
+position = Vector2(908.74, 581.405)
+scale = Vector2(0.63, 0.63)
+
+[node name="card_slot9" parent="." unique_id=2099573144 instance=ExtResource("1_8y8bw")]
+position = Vector2(1174.965, 581.405)
+scale = Vector2(0.63, 0.63)

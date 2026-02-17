@@ -1,0 +1,14 @@
+extends Node2D
+ 
+
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var coin_sfx: AudioStreamPlayer2D = $coin_sfx
+
+
+func _ready() -> void:
+	animation_player.play("coin")
+	coin_sfx.play()
+
+
+func _on_animation_player_animation_finished(anim_name: StringName) -> void:
+	queue_free()
