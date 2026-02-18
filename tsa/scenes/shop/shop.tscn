@@ -1,8 +1,9 @@
 [gd_scene format=3 uid="uid://hg8lqjow1lb7"]
 
-[ext_resource type="Texture2D" uid="uid://crga3prlswqoa" path="res://scenes/shop/shop_layout.png" id="1_4mg61"]
 [ext_resource type="Script" uid="uid://ccdskuqj63gbt" path="res://scenes/shop/shop.gd" id="1_qaxay"]
 [ext_resource type="PackedScene" uid="uid://cwfnhwgq5hgi7" path="res://scenes/shop/sell_card.tscn" id="2_7lxhl"]
+[ext_resource type="Texture2D" uid="uid://ctmlgbuhnxk4d" path="res://art/misc/shop_layout_re.png" id="3_7lxhl"]
+[ext_resource type="PackedScene" uid="uid://bsnxlsarich36" path="res://scenes/coin_counter_ui_scene/coin_counter.tscn" id="4_jp048"]
 
 [node name="shop" type="Control" unique_id=821942042 node_paths=PackedStringArray("card_container")]
 layout_mode = 3
@@ -18,15 +19,22 @@ card_container = NodePath("card_container")
 [node name="shop_img" type="TextureRect" parent="." unique_id=904827350]
 texture_filter = 1
 layout_mode = 0
-offset_right = 943.0
-offset_bottom = 750.0
-texture = ExtResource("1_4mg61")
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("3_7lxhl")
 
 [node name="card_container" type="HBoxContainer" parent="." unique_id=912727982]
 layout_mode = 0
-offset_left = 312.0
-offset_top = 195.00002
-offset_right = 992.0
-offset_bottom = 440.0
+offset_left = 483.0
+offset_top = 273.0
+offset_right = 2401.1816
+offset_bottom = 651.78784
 scale = Vector2(0.66, 0.66)
 theme_override_constants/separation = 32
+
+[node name="coin_counter" parent="." unique_id=190551430 instance=ExtResource("4_jp048")]
+layout_mode = 1
+offset_left = 90.0
+offset_top = 236.0
+offset_right = -19.44001
+offset_bottom = 157.16

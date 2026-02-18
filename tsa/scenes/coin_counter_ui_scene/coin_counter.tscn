@@ -1,0 +1,106 @@
+[gd_scene format=3 uid="uid://bsnxlsarich36"]
+
+[ext_resource type="Script" uid="uid://0jxqvxid178u" path="res://scenes/coin_counter_ui_scene/coin_counter.gd" id="1_58kiw"]
+[ext_resource type="Texture2D" uid="uid://d4ewn111rc61p" path="res://art/icons/purrrency.png" id="1_xl5ug"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_28bky"]
+font_size = 49
+font_color = Color(0.8478096, 0.76048464, 0.34048545, 1)
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Animation" id="Animation_58kiw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_v25xt"]
+resource_name = "insufficient_funds"
+length = 0.43333334
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(9, 0), Vector2(-9, 0), Vector2(9, 0), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.13333334, 0.3, 0.43333334),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.6637295, 0, 0, 1), Color(0.6627451, 0, 0, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_dueeg"]
+resource_name = "none"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dueeg"]
+_data = {
+&"RESET": SubResource("Animation_58kiw"),
+&"insufficient_funds": SubResource("Animation_v25xt"),
+&"none": SubResource("Animation_dueeg")
+}
+
+[node name="coin_counter" type="Control" unique_id=190551430]
+layout_mode = 3
+anchor_right = 0.057000004
+anchor_bottom = 0.07300001
+offset_right = -109.43986
+offset_bottom = -78.840004
+script = ExtResource("1_58kiw")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1852354330]
+texture_filter = 1
+layout_mode = 0
+offset_left = 3.999939
+offset_right = 86.99994
+offset_bottom = 83.0
+size_flags_horizontal = 4
+texture = ExtResource("1_xl5ug")
+expand_mode = 2
+
+[node name="Label" type="Label" parent="." unique_id=749578237]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 7.0
+offset_right = 128.0
+offset_bottom = 75.0
+text = "0"
+label_settings = SubResource("LabelSettings_28bky")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=493758333]
+active = false
+libraries/ = SubResource("AnimationLibrary_dueeg")

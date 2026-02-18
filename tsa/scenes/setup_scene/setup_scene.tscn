@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://btprfw2nquh3x"]
 
-[ext_resource type="Script" uid="uid://bd7hbfsfnqvlb" path="res://scenes/test/card_manager.gd" id="1_p3t0o"]
-[ext_resource type="Script" uid="uid://dc67op6qmbthq" path="res://scenes/test/player_hand.gd" id="2_5kvid"]
-[ext_resource type="PackedScene" uid="uid://hjiyca61oul5" path="res://scenes/test/placement_container.tscn" id="3_yw0n5"]
-[ext_resource type="Script" uid="uid://ddvel6elx2b4m" path="res://scenes/test/button.gd" id="4_gtlfo"]
+[ext_resource type="Script" uid="uid://bd7hbfsfnqvlb" path="res://scenes/card_manager/card_manager.gd" id="1_p3t0o"]
+[ext_resource type="Script" uid="uid://dc67op6qmbthq" path="res://scenes/player_hand_scene/player_hand.gd" id="2_5kvid"]
+[ext_resource type="PackedScene" uid="uid://hjiyca61oul5" path="res://scenes/placement_container_scene/placement_container.tscn" id="3_yw0n5"]
+[ext_resource type="Script" uid="uid://ddvel6elx2b4m" path="res://scenes/button_scene/button.gd" id="4_gtlfo"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ow0st"]
 font_size = 26

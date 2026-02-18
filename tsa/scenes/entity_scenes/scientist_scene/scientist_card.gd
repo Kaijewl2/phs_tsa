@@ -10,11 +10,6 @@ func _ready() -> void:
 	# All cards must be children of CardManager or err
 	get_parent().connect_card_signals(self)
 
-
-func _process(delta: float) -> void:
-	pass
-
-
 func _on_area_2d_mouse_entered() -> void:
 	emit_signal("hovered", self)
 

@@ -2,11 +2,17 @@
 
 [ext_resource type="Script" uid="uid://bun1yugwwxyl3" path="res://scenes/battle_scene/battle_scene.gd" id="1_5o34f"]
 [ext_resource type="Texture2D" uid="uid://28s3ifkaora" path="res://art/maps/sas_map.png" id="2_5vyks"]
-[ext_resource type="PackedScene" uid="uid://cifwypi1j3oks" path="res://scenes/ui_elements_scene/ui_elements.tscn" id="3_5o34f"]
+[ext_resource type="PackedScene" uid="uid://bsnxlsarich36" path="res://scenes/coin_counter_ui_scene/coin_counter.tscn" id="3_t2c54"]
+[ext_resource type="Script" uid="uid://bqxw15htkt78r" path="res://scenes/enter_shop_button_scene/button.gd" id="4_t2c54"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_niihm"]
 font_size = 106
 font_color = Color(0.1526528, 0, 0.9187322, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_joy3q"]
+font_size = 55
+outline_size = 16
+outline_color = Color(0, 0, 0, 1)
 
 [node name="battle_scene" type="Node2D" unique_id=713771731]
 script = ExtResource("1_5o34f")
@@ -32,15 +38,55 @@ offset_bottom = 439.0
 text = "Chuds compromised!"
 label_settings = SubResource("LabelSettings_niihm")
 
-[node name="ui_elements" parent="." unique_id=1319210199 instance=ExtResource("3_5o34f")]
-anchors_preset = 0
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_left = 1708.0
+[node name="VBoxContainer" type="HBoxContainer" parent="." unique_id=656320963]
+anchors_preset = -1
+anchor_left = 0.90500003
+anchor_right = 1.0
+anchor_bottom = 0.068
+offset_left = 1523.0
 offset_top = 5.0
-offset_right = 1708.0
-offset_bottom = 5.0
-grow_horizontal = 1
-grow_vertical = 1
-scale = Vector2(0.77, 0.77)
-size_flags_horizontal = 4
+offset_right = 1523.0
+offset_bottom = 14.559998
+grow_horizontal = 0
+scale = Vector2(1.77, 1.77)
+
+[node name="coin_counter" parent="VBoxContainer" unique_id=190551430 instance=ExtResource("3_t2c54")]
+layout_mode = 2
+
+[node name="enter_shop_button" type="Control" parent="." unique_id=944402592]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = 763.0
+offset_top = 669.0
+offset_right = 1058.0
+offset_bottom = 754.0
+
+[node name="Button" type="Button" parent="enter_shop_button" unique_id=21095005]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0580001
+anchor_bottom = 1.2240001
+offset_right = -0.11001587
+offset_bottom = -0.040008545
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("4_t2c54")
+
+[node name="Label" type="Label" parent="enter_shop_button" unique_id=1570807050]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -136.525
+offset_top = -31.825
+offset_right = 151.475
+offset_bottom = 44.175003
+grow_horizontal = 2
+grow_vertical = 2
+text = "enter shop"
+label_settings = SubResource("LabelSettings_joy3q")
+
+[connection signal="pressed" from="enter_shop_button/Button" to="enter_shop_button/Button" method="_on_pressed"]

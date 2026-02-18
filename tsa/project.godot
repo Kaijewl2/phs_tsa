@@ -21,8 +21,6 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-InteractionManager="*res://scenes/interaction/interaction_manager.tscn"
-DialogManager="*res://singleton/DialogManager.gd"
 GameData="*uid://buqr53hg67mmb"
 
 [display]
@@ -36,7 +34,6 @@ player=""
 active_entity=""
 enemies=""
 commrades=""
-ui=""
 
 [input]
 

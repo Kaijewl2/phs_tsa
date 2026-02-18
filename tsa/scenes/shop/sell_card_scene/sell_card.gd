@@ -3,7 +3,10 @@ class_name SellCard
 
 
 @export var card_frame: TextureRect
+
+
 var hovering: bool
+var value: int = 100
 
 
 func _process(_delta: float) -> void:
@@ -25,7 +28,10 @@ func _input(event: InputEvent) -> void:
 	# Checks if input is mouse click and mouse is hovering over card
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 		if hovering and event.is_pressed():
-			
-			print("Card purchased")
-			# Delete card
-			self.queue_free()
+			if GameData.get_balance() >= value:
+				GameData.change_balance(value, "subtract")
+				print("Card purchased; new balance:", (GameData.get_balance()))
+				# Delete card
+				self.queue_free()
+			else:
+				get_tree().get_node("coin_counter") # IP: ADD INSUFFICIENT FUND ANIM

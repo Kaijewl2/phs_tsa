@@ -2,7 +2,8 @@ extends Node2D
 
 
 @onready var label: Label = $Label
-@onready var balance_label = $ui_elements/VBoxContainer/Label
+@onready var enter_shop_button: Control = $enter_shop_button
+@onready var balance_label: Control = $VBoxContainer/coin_counter
 
 
 const WALKING_BOT_ENEMY = preload("uid://dd11l81fddnsb")
@@ -13,11 +14,10 @@ var active_units
 var active_commrades
 var active_enemies
 
+
 func _ready() -> void:
-	#update_balance_display()
-	
 	GameData.balance_changed.connect(update_balance_display)
-	balance_label.text = str(GameData.get_balance())
+	balance_label.get_node("Label").text = str(GameData.get_balance())
 	
 	for data in GameData.active_units:
 		spawn_commrades()
@@ -30,6 +30,7 @@ func _process(_delta: float) -> void:
 		print("Chuds have prevailed!")
 	elif(GameData.active_enemies.is_empty()):
 		label.show()
+		enter_shop_button.show()
  
 
 func spawn_commrades():
@@ -57,4 +58,4 @@ func spawn_enemy():
 
 
 func update_balance_display(new_balance):
-	balance_label.text = str(new_balance)
+	balance_label.get_node("Label").text = str(new_balance)

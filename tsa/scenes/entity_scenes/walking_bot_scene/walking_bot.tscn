@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://bdpc8podu70pj"]
 
-[ext_resource type="Texture2D" uid="uid://r1ik30imn2vx" path="res://art/biped_robot/robot_blue.png" id="1_sjsju"]
-[ext_resource type="Script" uid="uid://bnhgs45iwn7es" path="res://scenes/test/walking_bot.gd" id="2_i7no5"]
-[ext_resource type="PackedScene" uid="uid://bes6m6c7gdswg" path="res://scenes/test/health_bar.tscn" id="3_qpbe0"]
+[ext_resource type="Texture2D" uid="uid://r1ik30imn2vx" path="res://art/entities/walking_bot/robot_blue.png" id="1_sjsju"]
+[ext_resource type="Script" uid="uid://bnhgs45iwn7es" path="res://scenes/entity_scenes/walking_bot_scene/walking_bot.gd" id="2_i7no5"]
+[ext_resource type="PackedScene" uid="uid://bes6m6c7gdswg" path="res://scenes/health_bar_scene/health_bar.tscn" id="3_qpbe0"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xatvq"]
 atlas = ExtResource("1_sjsju")
