@@ -3,10 +3,14 @@ class_name SellCard
 
 
 @export var card_frame: TextureRect
+@export var value: int = 100
 
 
 var hovering: bool
-var value: int = 100
+var press_count: int
+var coin_counter_original_pos: Vector2
+var is_first_shake = true 
+var shake_tween: Tween = null
 
 
 func _process(_delta: float) -> void:
@@ -34,4 +38,32 @@ func _input(event: InputEvent) -> void:
 				# Delete card
 				self.queue_free()
 			else:
-				get_tree().get_node("coin_counter") # IP: ADD INSUFFICIENT FUND ANIM
+				var coin_counter: Control = get_parent().get_parent().get_node("coin_counter")
+				coin_counter.get_node("AnimationPlayer").play("insufficient_funds")
+				anim_shake(coin_counter)
+				
+				if press_count >= 10:
+					var brick: Control = get_parent().get_parent().get_node("brick")
+					brick.show()
+					await get_tree().create_timer(2.0).timeout
+					brick.hide()
+					
+					press_count = 0
+				
+func anim_shake(node):
+	if is_first_shake:
+		coin_counter_original_pos = node.position
+		is_first_shake = false
+	
+	# Kill previous tween
+	if shake_tween and shake_tween.is_running():
+		shake_tween.kill()
+	
+	# Always shake from the saved original position
+	shake_tween = create_tween()
+	shake_tween.tween_property(node, "position", coin_counter_original_pos + Vector2(-10, 0), 0.05)
+	shake_tween.tween_property(node, "position", coin_counter_original_pos + Vector2(10, 0), 0.05)
+	shake_tween.tween_property(node, "position", coin_counter_original_pos + Vector2(-5, 0), 0.05)
+	shake_tween.tween_property(node, "position", coin_counter_original_pos + Vector2(5, 0), 0.05)
+	shake_tween.tween_property(node, "position", coin_counter_original_pos, 0.05)
+	press_count+=1

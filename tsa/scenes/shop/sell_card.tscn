@@ -17,6 +17,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_yoeyb")
 card_frame = NodePath("card_img")
+value = null
 
 [node name="card_img" type="TextureRect" parent="." unique_id=1059001722]
 layout_mode = 0

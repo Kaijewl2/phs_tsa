@@ -4,6 +4,16 @@
 [ext_resource type="PackedScene" uid="uid://cwfnhwgq5hgi7" path="res://scenes/shop/sell_card.tscn" id="2_7lxhl"]
 [ext_resource type="Texture2D" uid="uid://ctmlgbuhnxk4d" path="res://art/misc/shop_layout_re.png" id="3_7lxhl"]
 [ext_resource type="PackedScene" uid="uid://bsnxlsarich36" path="res://scenes/coin_counter_ui_scene/coin_counter.tscn" id="4_jp048"]
+[ext_resource type="Texture2D" uid="uid://bsui2yoc7cmyw" path="res://art/icons/brick_mad.png" id="5_ctpgp"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ptf86"]
+font_size = 62
+font_color = Color(1, 0, 0, 1)
+outline_size = 9
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ctpgp"]
+font_size = 43
 
 [node name="shop" type="Control" unique_id=821942042 node_paths=PackedStringArray("card_container")]
 layout_mode = 3
@@ -34,7 +44,61 @@ theme_override_constants/separation = 32
 
 [node name="coin_counter" parent="." unique_id=190551430 instance=ExtResource("4_jp048")]
 layout_mode = 1
-offset_left = 90.0
-offset_top = 236.0
-offset_right = -19.44001
-offset_bottom = 157.16
+anchor_left = 0.046000004
+anchor_top = 0.22100002
+anchor_right = 0.119
+anchor_bottom = 0.286
+offset_left = -0.32000732
+offset_top = -4.680023
+offset_right = -140.48001
+offset_bottom = -74.880005
+
+[node name="brick" type="Control" parent="." unique_id=482986730]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="brick_img" type="TextureRect" parent="brick" unique_id=1647996187]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.66700006
+anchor_top = -0.24100001
+anchor_right = -0.43100002
+offset_left = -815.99994
+offset_top = -477.99994
+offset_right = -783.99994
+offset_bottom = -445.99994
+scale = Vector2(5.125, 5.125)
+texture = ExtResource("5_ctpgp")
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="brick" unique_id=1738395556]
+layout_mode = 0
+offset_left = -288.0
+offset_top = -137.0
+offset_right = 263.0
+offset_bottom = -51.0
+text = "YOU ANGER BRICK"
+label_settings = SubResource("LabelSettings_ptf86")
+horizontal_alignment = 1
+
+[node name="to_setup_button" type="Button" parent="." unique_id=831436066]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+
+[node name="Label" type="Label" parent="to_setup_button" unique_id=182409608]
+layout_mode = 0
+offset_left = 103.0
+offset_top = 340.0
+offset_right = 274.0
+offset_bottom = 399.0
+text = "to setup"
+label_settings = SubResource("LabelSettings_ctpgp")
