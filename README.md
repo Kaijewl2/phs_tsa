@@ -4,6 +4,9 @@ ART RESOURCES ARE PLACEHOLDERS AS OF (02/17/2026) AND WILL NOT BE USED IN FINAL 
 <img width="1715" height="956" alt="image" src="https://github.com/user-attachments/assets/5dcd046f-7e57-4682-bd53-f05614bb695a" />
 
 
+<img width="807" height="451" alt="image" src="https://github.com/user-attachments/assets/86f95570-4761-416b-9f23-d28e370f41ca" />
+
+
 <img width="938" height="742" alt="image" src="https://github.com/user-attachments/assets/1b8935f8-79aa-4dbf-8558-612edfeea271" />
 
 
