@@ -3,12 +3,7 @@
 [ext_resource type="Script" uid="uid://bd7hbfsfnqvlb" path="res://scenes/card_manager/card_manager.gd" id="1_p3t0o"]
 [ext_resource type="Script" uid="uid://dc67op6qmbthq" path="res://scenes/player_hand_scene/player_hand.gd" id="2_5kvid"]
 [ext_resource type="PackedScene" uid="uid://hjiyca61oul5" path="res://scenes/placement_container_scene/placement_container.tscn" id="3_yw0n5"]
-[ext_resource type="Script" uid="uid://ddvel6elx2b4m" path="res://scenes/button_scene/button.gd" id="4_gtlfo"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_ow0st"]
-font_size = 26
-outline_size = 5
-outline_color = Color(0, 0, 0, 1)
+[ext_resource type="PackedScene" uid="uid://d2dwgl2aubu7e" path="res://scenes/change_scene_button_scene/change_scene_button.tscn" id="4_n1dyv"]
 
 [node name="setup_scene" type="Node2D" unique_id=985433820]
 
@@ -21,34 +16,13 @@ script = ExtResource("2_5kvid")
 [node name="placement_container" parent="." unique_id=686105759 instance=ExtResource("3_yw0n5")]
 position = Vector2(-2, -1)
 
-[node name="enter_battle_button" type="Control" parent="." unique_id=2143986003]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 1475.0
-offset_top = 47.0
-offset_right = 1475.0
-offset_bottom = 47.0
-grow_horizontal = 2
-grow_vertical = 2
-metadata/_edit_use_anchors_ = true
-
-[node name="Button" type="Button" parent="enter_battle_button" unique_id=444350915]
-layout_mode = 0
-offset_right = 211.0
-offset_bottom = 76.0
-script = ExtResource("4_gtlfo")
-metadata/_edit_use_anchors_ = true
-
-[node name="Label" type="Label" parent="enter_battle_button" unique_id=1641993012]
-layout_mode = 0
-offset_left = 22.0
-offset_top = 18.0
-offset_right = 186.0
-offset_bottom = 54.0
-text = "remove virus"
-label_settings = SubResource("LabelSettings_ow0st")
-metadata/_edit_use_anchors_ = true
-
-[connection signal="pressed" from="enter_battle_button/Button" to="enter_battle_button/Button" method="_on_pressed"]
+[node name="change_scene_button" parent="." unique_id=2077746840 instance=ExtResource("4_n1dyv")]
+anchor_right = 0.768
+anchor_bottom = 0.044000003
+offset_left = 1305.0
+offset_top = 67.0
+offset_right = 1520.6201
+offset_bottom = 145.0
+scale = Vector2(1.385, 1.385)
+scene_path = "res://scenes/battle_scene/battle_scene.tscn"
+label_text = "remove virus"

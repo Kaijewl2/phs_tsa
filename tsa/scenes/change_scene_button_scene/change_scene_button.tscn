@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://d2dwgl2aubu7e"]
+
+[ext_resource type="Script" uid="uid://dy0ittwq4k0rs" path="res://scenes/change_scene_button_scene/change_scene_button.gd" id="1_mvww8"]
+[ext_resource type="FontFile" uid="uid://crdmvv8dc23b3" path="res://art/fonts/blue_winter/Blue Winter.ttf" id="2_mvww8"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ow0st"]
+font = ExtResource("2_mvww8")
+font_size = 80
+font_color = Color(0, 0, 0, 1)
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+
+[node name="change_scene_button" type="Control" unique_id=2077746840]
+layout_mode = 3
+anchor_right = 0.11000001
+anchor_bottom = 0.071
+offset_right = 0.7999878
+offset_bottom = 0.3199997
+script = ExtResource("1_mvww8")
+
+[node name="Button" type="Button" parent="." unique_id=1490372151]
+layout_mode = 0
+offset_right = 211.0
+offset_bottom = 76.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="." unique_id=1345280553]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 18.0
+offset_right = 570.0
+offset_bottom = 124.0
+scale = Vector2(0.355, 0.355)
+text = "placeholder"
+label_settings = SubResource("LabelSettings_ow0st")
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

@@ -5,6 +5,8 @@
 [ext_resource type="Texture2D" uid="uid://ctmlgbuhnxk4d" path="res://art/misc/shop_layout_re.png" id="3_7lxhl"]
 [ext_resource type="PackedScene" uid="uid://bsnxlsarich36" path="res://scenes/coin_counter_ui_scene/coin_counter.tscn" id="4_jp048"]
 [ext_resource type="Texture2D" uid="uid://bsui2yoc7cmyw" path="res://art/icons/brick_mad.png" id="5_ctpgp"]
+[ext_resource type="FontFile" uid="uid://crdmvv8dc23b3" path="res://art/fonts/blue_winter/Blue Winter.ttf" id="6_ptf86"]
+[ext_resource type="PackedScene" uid="uid://d2dwgl2aubu7e" path="res://scenes/change_scene_button_scene/change_scene_button.tscn" id="7_ge4d2"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ptf86"]
 font_size = 62
@@ -12,8 +14,15 @@ font_color = Color(1, 0, 0, 1)
 outline_size = 9
 outline_color = Color(0, 0, 0, 1)
 
-[sub_resource type="LabelSettings" id="LabelSettings_ctpgp"]
-font_size = 43
+[sub_resource type="LabelSettings" id="LabelSettings_xcdpw"]
+font = ExtResource("6_ptf86")
+font_size = 53
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_tp26b"]
+font = ExtResource("6_ptf86")
+font_size = 64
+font_color = Color(0, 0, 0, 1)
 
 [node name="shop" type="Control" unique_id=821942042 node_paths=PackedStringArray("card_container")]
 layout_mode = 3
@@ -44,14 +53,46 @@ theme_override_constants/separation = 32
 
 [node name="coin_counter" parent="." unique_id=190551430 instance=ExtResource("4_jp048")]
 layout_mode = 1
-anchor_left = 0.046000004
-anchor_top = 0.22100002
-anchor_right = 0.119
-anchor_bottom = 0.286
-offset_left = -0.32000732
-offset_top = -4.680023
-offset_right = -140.48001
-offset_bottom = -74.880005
+anchor_left = 0.065000005
+anchor_top = 0.223
+anchor_right = 0.15100001
+anchor_bottom = 0.303
+offset_left = 14.199989
+offset_top = 7.1599884
+offset_right = -0.9200134
+offset_bottom = -0.23999023
+
+[node name="change_scene_button" parent="." unique_id=2077746840 instance=ExtResource("7_ge4d2")]
+layout_mode = 1
+offset_left = 202.0
+offset_top = 926.0
+offset_right = 474.8
+offset_bottom = 933.32
+scene_path = "res://scenes/setup_scene/setup_scene.tscn"
+label_text = "to motherboard"
+
+[node name="Button" parent="change_scene_button" index="0" unique_id=1490372151]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 2.0
+offset_bottom = 0.0
+flat = true
+
+[node name="Label" parent="change_scene_button" index="1" unique_id=1345280553]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.089
+anchor_top = 0.012
+anchor_right = 0.762
+anchor_bottom = 0.85400003
+offset_left = -24.076004
+offset_top = 3.992014
+offset_right = 192.19199
+offset_bottom = 42.941505
+scale = Vector2(0.645, 0.645)
+text = "to hardware"
 
 [node name="brick" type="Control" parent="." unique_id=482986730]
 visible = false
@@ -89,16 +130,22 @@ text = "YOU ANGER BRICK"
 label_settings = SubResource("LabelSettings_ptf86")
 horizontal_alignment = 1
 
-[node name="to_setup_button" type="Button" parent="." unique_id=831436066]
+[node name="ssd_label" type="Label" parent="." unique_id=734811107]
 layout_mode = 0
-offset_right = 8.0
-offset_bottom = 8.0
+offset_left = 815.0
+offset_top = 54.0
+offset_right = 921.0
+offset_bottom = 124.0
+text = "SSD"
+label_settings = SubResource("LabelSettings_xcdpw")
 
-[node name="Label" type="Label" parent="to_setup_button" unique_id=182409608]
+[node name="ram_label" type="Label" parent="." unique_id=222346944]
 layout_mode = 0
-offset_left = 103.0
-offset_top = 340.0
-offset_right = 274.0
-offset_bottom = 399.0
-text = "to setup"
-label_settings = SubResource("LabelSettings_ctpgp")
+offset_left = 1460.0
+offset_top = 55.0
+offset_right = 1617.0
+offset_bottom = 140.0
+text = "RAM"
+label_settings = SubResource("LabelSettings_tp26b")
+
+[editable path="change_scene_button"]
