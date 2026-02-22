@@ -1,28 +1,58 @@
 [gd_scene format=3 uid="uid://btprfw2nquh3x"]
 
+[ext_resource type="Texture2D" uid="uid://ds65usmhcgwqh" path="res://art/misc/motherboard_layout.png" id="1_8egkc"]
 [ext_resource type="Script" uid="uid://bd7hbfsfnqvlb" path="res://scenes/card_manager/card_manager.gd" id="1_p3t0o"]
-[ext_resource type="Script" uid="uid://dc67op6qmbthq" path="res://scenes/player_hand_scene/player_hand.gd" id="2_5kvid"]
-[ext_resource type="PackedScene" uid="uid://hjiyca61oul5" path="res://scenes/placement_container_scene/placement_container.tscn" id="3_yw0n5"]
+[ext_resource type="Texture2D" uid="uid://bvoxt0q220sbc" path="res://art/misc/storage_layout.png" id="2_35cec"]
+[ext_resource type="PackedScene" uid="uid://cljeiymukf2k0" path="res://scenes/player_hand_scene/player_hand.tscn" id="4_8egkc"]
 [ext_resource type="PackedScene" uid="uid://d2dwgl2aubu7e" path="res://scenes/change_scene_button_scene/change_scene_button.tscn" id="4_n1dyv"]
+[ext_resource type="PackedScene" uid="uid://c51s1q0o8diqi" path="res://scenes/card_slot_scene/card_slot.tscn" id="5_8egkc"]
 
 [node name="setup_scene" type="Node2D" unique_id=985433820]
+
+[node name="motherboard_layout" type="TextureRect" parent="." unique_id=807965341]
+texture_filter = 1
+offset_right = 1354.0
+offset_bottom = 1080.0
+texture = ExtResource("1_8egkc")
+
+[node name="storage_img" type="TextureRect" parent="." unique_id=1935910072]
+texture_filter = 1
+offset_left = 1280.0
+offset_top = -36.0
+offset_right = 2291.0
+offset_bottom = 1080.0
+texture = ExtResource("2_35cec")
 
 [node name="card_manager" type="Node2D" parent="." unique_id=24658242]
 script = ExtResource("1_p3t0o")
 
-[node name="player_hand" type="Node2D" parent="." unique_id=1961346094]
-script = ExtResource("2_5kvid")
+[node name="player_hand" parent="." unique_id=24999969 instance=ExtResource("4_8egkc")]
 
-[node name="placement_container" parent="." unique_id=686105759 instance=ExtResource("3_yw0n5")]
-position = Vector2(-2, -1)
+[node name="placement_container" type="Node2D" parent="." unique_id=1121865257]
+
+[node name="card_slot" parent="placement_container" unique_id=1412094762 instance=ExtResource("5_8egkc")]
+position = Vector2(197, 811)
+scale = Vector2(0.865, 0.865)
+
+[node name="card_slot2" parent="placement_container" unique_id=1962802523 instance=ExtResource("5_8egkc")]
+position = Vector2(404, 809.00006)
+scale = Vector2(0.895, 0.895)
+
+[node name="card_slot3" parent="placement_container" unique_id=1173748078 instance=ExtResource("5_8egkc")]
+position = Vector2(591, 814)
+scale = Vector2(0.92, 0.92)
+
+[node name="card_slot4" parent="placement_container" unique_id=733837735 instance=ExtResource("5_8egkc")]
+position = Vector2(798.99994, 810.9999)
+scale = Vector2(0.905, 0.905)
 
 [node name="change_scene_button" parent="." unique_id=2077746840 instance=ExtResource("4_n1dyv")]
 anchor_right = 0.768
 anchor_bottom = 0.044000003
-offset_left = 1305.0
-offset_top = 67.0
-offset_right = 1520.6201
-offset_bottom = 145.0
+offset_left = 1364.0001
+offset_top = 975.0
+offset_right = 1566.166
+offset_bottom = 1039.9819
 scale = Vector2(1.385, 1.385)
 scene_path = "res://scenes/battle_scene/battle_scene.tscn"
 label_text = "remove virus"

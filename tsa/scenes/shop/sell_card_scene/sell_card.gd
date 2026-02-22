@@ -6,11 +6,19 @@ class_name SellCard
 @export var value: int = 100
 
 
+const PLAYER_HAND_SCENE = preload("uid://cljeiymukf2k0")
+
+
 var hovering: bool
 var press_count: int
 var coin_counter_original_pos: Vector2
 var is_first_shake = true 
 var shake_tween: Tween = null
+var player_hand
+
+
+func _ready() -> void:
+	player_hand = PLAYER_HAND_SCENE.instantiate()
 
 
 func _process(_delta: float) -> void:
@@ -35,6 +43,10 @@ func _input(event: InputEvent) -> void:
 			if GameData.get_balance() >= value:
 				GameData.change_balance(value, "subtract")
 				print("Card purchased; new balance:", (GameData.get_balance()))
+				
+				# EOD: Add card to player's storage
+				
+				
 				# Delete card
 				self.queue_free()
 			else:
