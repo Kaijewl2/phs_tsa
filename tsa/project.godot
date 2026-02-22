@@ -35,6 +35,7 @@ player=""
 active_entity=""
 enemies=""
 commrades=""
+player_hand=""
 
 [input]
 

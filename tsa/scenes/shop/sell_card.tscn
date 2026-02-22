@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cwfnhwgq5hgi7"]
 
 [ext_resource type="Script" uid="uid://c068yktpo27e8" path="res://scenes/shop/sell_card_scene/sell_card.gd" id="1_yoeyb"]
-[ext_resource type="Texture2D" uid="uid://cf621x1hvkf8i" path="res://art/cards/Baron.png" id="2_bliam"]
+[ext_resource type="Texture2D" uid="uid://bnt2000665m77" path="res://art/cards/dropkick.png" id="2_yoeyb"]
 [ext_resource type="Texture2D" uid="uid://d4ewn111rc61p" path="res://art/icons/purrrency.png" id="3_8bbjf"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_apoln"]
@@ -17,13 +17,13 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_yoeyb")
 card_frame = NodePath("card_img")
-value = null
+value = 10
 
 [node name="card_img" type="TextureRect" parent="." unique_id=1059001722]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
-texture = ExtResource("2_bliam")
+texture = ExtResource("2_yoeyb")
 
 [node name="price_label" type="Label" parent="card_img" unique_id=705920495]
 texture_filter = 1
@@ -32,7 +32,7 @@ offset_left = 52.0
 offset_top = 189.0
 offset_right = 127.0
 offset_bottom = 250.0
-text = "100"
+text = "10"
 label_settings = SubResource("LabelSettings_apoln")
 
 [node name="purrrency_img" type="TextureRect" parent="card_img/price_label" unique_id=1084031942]

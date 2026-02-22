@@ -4,9 +4,9 @@ extends Node2D
 @onready var card_manager: Node2D = $"../card_manager"
 
 
-const HAND_COUNT = 4
+const HAND_COUNT = 3
 const WALKING_BOT_CARD_SCENE_PATH = "res://scenes/card_scenes/card_scene/card.tscn"
-const SCIENTIST_CARD_SCENE_PATH = "res://scenes/entity_scenes/scientist_scene/scientist_card.tscn"
+#const SCIENTIST_CARD_SCENE_PATH = "res://scenes/entity_scenes/scientist_scene/scientist_card.tscn"
 const CARD_WIDTH = 200
 const HAND_Y_POSITION = 890
 
@@ -17,24 +17,25 @@ var center_screen_x
 func _ready() -> void:
 	center_screen_x = get_viewport().size.x / 2
 	
+	GameData.hand_changed.connect(add_card_to_hand)
+	
 	var walking_bot_card_scene = preload(WALKING_BOT_CARD_SCENE_PATH)
-	var scientist_card_scene = preload(SCIENTIST_CARD_SCENE_PATH)
+	#var scientist_card_scene = preload(SCIENTIST_CARD_SCENE_PATH)
 	
 	for i in range(HAND_COUNT):
 		var new_walking_bot_card = walking_bot_card_scene.instantiate()
-		var new_scientist_card = scientist_card_scene.instantiate()
-		
-		card_manager.add_child(new_walking_bot_card)
-		card_manager.add_child(new_scientist_card)
 		
 		new_walking_bot_card.name = "walking_bot_card"
-		new_scientist_card.name = "scientist_card"
 		
+		# EOD: ADD PURCHASED CARD TO PLAYER HAND
 		add_card_to_hand(new_walking_bot_card)
-		add_card_to_hand(new_scientist_card)
+		
+		#GameData.add_card_to_array(WALKING_BOT_CARD_SCENE_PATH)
 
 
 func add_card_to_hand(card):
+	print(card)
+	card_manager.add_child(card)
 	if card not in player_hand:
 		player_hand.insert(0, card)
 		update_hand_positions()

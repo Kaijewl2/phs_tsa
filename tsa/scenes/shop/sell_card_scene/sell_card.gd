@@ -6,7 +6,10 @@ class_name SellCard
 @export var value: int = 100
 
 
-const PLAYER_HAND_SCENE = preload("uid://cljeiymukf2k0")
+@onready var player_hand = get_tree().get_first_node_in_group("player_hand")
+
+
+const SELL_CARD_PATH:String = "res://scenes/shop/sell_card_scene/sell_card.tscn" 
 
 
 var hovering: bool
@@ -14,11 +17,6 @@ var press_count: int
 var coin_counter_original_pos: Vector2
 var is_first_shake = true 
 var shake_tween: Tween = null
-var player_hand
-
-
-func _ready() -> void:
-	player_hand = PLAYER_HAND_SCENE.instantiate()
 
 
 func _process(_delta: float) -> void:
@@ -40,15 +38,16 @@ func _input(event: InputEvent) -> void:
 	# Checks if input is mouse click and mouse is hovering over card
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 		if hovering and event.is_pressed():
+			# Successful purchase
 			if GameData.get_balance() >= value:
 				GameData.change_balance(value, "subtract")
-				print("Card purchased; new balance:", (GameData.get_balance()))
 				
-				# EOD: Add card to player's storage
-				
+				# Add card to player's storage
+				GameData.add_card_to_array(SELL_CARD_PATH)
 				
 				# Delete card
 				self.queue_free()
+			# Insufficient funds
 			else:
 				var coin_counter: Control = get_parent().get_parent().get_node("coin_counter")
 				coin_counter.get_node("AnimationPlayer").play("insufficient_funds")

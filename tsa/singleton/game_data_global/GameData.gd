@@ -2,11 +2,13 @@ extends Node
 
 
 signal balance_changed(new_balance)
+signal hand_changed(new_card)
 
 
 var active_units = []
 var active_commrades = []
 var active_enemies = []
+var player_hand_cards = []
 var balance: int
 
 
@@ -16,14 +18,32 @@ func get_active_units():
 
 func get_active_commrades():
 	return active_commrades
-	
+
 
 func get_active_enemies():
 	return active_enemies
 
 
+func get_player_hand_cards():
+	print("Gobal array of cards: ")
+	for i in player_hand_cards:
+		print("card: ", i)
+
+	
+	return player_hand_cards
+
+
 func get_balance():
 	return balance
+
+
+func add_card_to_array(card_path:String):
+	player_hand_cards.push_back(card_path)
+	
+	var card_scene = load(card_path)
+	var card = card_scene.instantiate()
+	# Emit most recently added card as argument
+	hand_changed.emit(card)
 
 
 func change_balance(value, operation):
