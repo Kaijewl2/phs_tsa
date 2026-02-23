@@ -19,28 +19,27 @@ func _ready() -> void:
 	
 	GameData.hand_changed.connect(add_card_to_hand)
 	
-	var walking_bot_card_scene = preload(WALKING_BOT_CARD_SCENE_PATH)
-	#var scientist_card_scene = preload(SCIENTIST_CARD_SCENE_PATH)
-	
-	for i in range(HAND_COUNT):
-		var new_walking_bot_card = walking_bot_card_scene.instantiate()
-		
-		new_walking_bot_card.name = "walking_bot_card"
-		
-		# EOD: ADD PURCHASED CARD TO PLAYER HAND
-		add_card_to_hand(new_walking_bot_card)
-		
-		#GameData.add_card_to_array(WALKING_BOT_CARD_SCENE_PATH)
+	load_cards_from_backpack()
 
 
+# Called automatically whenever GameData.add_card_to_array(str) is called
 func add_card_to_hand(card):
-	print(card)
 	card_manager.add_child(card)
 	if card not in player_hand:
 		player_hand.insert(0, card)
 		update_hand_positions()
-	else:
-		animate_card_to_position(card, card.hand_position)
+	#else:
+		#animate_card_to_position(card, card.hand_position)
+
+
+func load_cards_from_backpack():
+	player_hand.clear()
+	
+	for card_path in GameData.player_hand_cards:
+		var card_scene = load(card_path)
+		var card = card_scene.instantiate()
+		
+		add_card_to_hand(card)
 
 
 func update_hand_positions():
@@ -49,7 +48,7 @@ func update_hand_positions():
 		var new_position = Vector2(calculate_card_position(i), HAND_Y_POSITION)
 		var card = player_hand[i]
 		
-		card.hand_position = new_position
+		#card.hand_position = new_position
 		
 		animate_card_to_position(card, new_position)
 

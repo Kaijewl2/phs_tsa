@@ -9,7 +9,8 @@ class_name SellCard
 @onready var player_hand = get_tree().get_first_node_in_group("player_hand")
 
 
-const SELL_CARD_PATH:String = "res://scenes/shop/sell_card_scene/sell_card.tscn" 
+const SELL_CARD_PATH:String = "res://scenes/shop/sell_card_scene/sell_card.tscn"
+const WALKING_BOT_CARD_SCENE_PATH = "res://scenes/card_scenes/card_scene/card.tscn"
 
 
 var hovering: bool
@@ -43,7 +44,7 @@ func _input(event: InputEvent) -> void:
 				GameData.change_balance(value, "subtract")
 				
 				# Add card to player's storage
-				GameData.add_card_to_array(SELL_CARD_PATH)
+				GameData.add_card_to_array(WALKING_BOT_CARD_SCENE_PATH)
 				
 				# Delete card
 				self.queue_free()

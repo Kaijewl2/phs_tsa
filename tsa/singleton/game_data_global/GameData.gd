@@ -12,6 +12,12 @@ var player_hand_cards = []
 var balance: int
 
 
+func _ready() -> void:
+	if player_hand_cards.is_empty():
+		for i in range(3):
+			add_card_to_array("res://scenes/card_scenes/card_scene/card.tscn")
+
+
 func get_active_units():
 	return active_units
 
@@ -38,10 +44,12 @@ func get_balance():
 
 
 func add_card_to_array(card_path:String):
+	print("fired add_card_to_array and added: ", card_path)
 	player_hand_cards.push_back(card_path)
 	
 	var card_scene = load(card_path)
 	var card = card_scene.instantiate()
+	
 	# Emit most recently added card as argument
 	hand_changed.emit(card)
 
