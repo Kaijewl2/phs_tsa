@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://deh5t7xa35jdd"]
+
+[ext_resource type="Texture2D" uid="uid://bnt2000665m77" path="res://art/cards/dropkick.png" id="1_28fw0"]
+[ext_resource type="Script" uid="uid://1ct3lecet6sw" path="res://scenes/backpack_card_scene/backpack_card.gd" id="1_u6bpu"]
+
+[node name="backpack_card" type="Control" unique_id=1231329556]
+custom_minimum_size = Vector2(100, 150)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_u6bpu")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1261989855]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_28fw0")
+
+[node name="Button" type="Button" parent="." unique_id=796278141]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 194.0
+offset_right = 165.0
+offset_bottom = 261.0
+text = "chud"

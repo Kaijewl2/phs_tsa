@@ -3,19 +3,30 @@ extends Node
 
 signal balance_changed(new_balance)
 signal hand_changed(new_card)
+signal backpack_changed()
+signal deck_changed()
+
+
+const MAX_DECK_SIZE = 4
 
 
 var active_units = []
 var active_commrades = []
 var active_enemies = []
 var player_hand_cards = []
+
+var deck_cards = []
+var backpack_cards = []
 var balance: int
 
 
 func _ready() -> void:
 	if player_hand_cards.is_empty():
+		for i in range(5):
+			add_card_to_backpack("res://scenes/card_scenes/card_scene/card.tscn")
+		
 		for i in range(3):
-			add_card_to_array("res://scenes/card_scenes/card_scene/card.tscn")
+			add_card_to_deck(backpack_cards[i])
 
 
 func get_active_units():
@@ -41,6 +52,24 @@ func get_player_hand_cards():
 
 func get_balance():
 	return balance
+
+
+func add_card_to_backpack(card_path:String):
+	backpack_cards.append(card_path)
+	backpack_changed.emit()
+
+
+func add_card_to_deck(card_path:String):
+	if deck_cards.size() <= MAX_DECK_SIZE:
+		deck_cards.append(card_path)
+		deck_changed.emit()
+		return true
+	return false
+
+
+func remove_card_from_deck(card_path: String):
+	deck_cards.erase(card_path)
+	deck_changed.emit()
 
 
 func add_card_to_array(card_path:String):

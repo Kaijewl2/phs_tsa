@@ -17,9 +17,8 @@ var center_screen_x
 func _ready() -> void:
 	center_screen_x = get_viewport().size.x / 2
 	
-	GameData.hand_changed.connect(add_card_to_hand)
-	
-	load_cards_from_backpack()
+	GameData.deck_changed.connect(load_cards_from_deck)
+	load_cards_from_deck()
 
 
 # Called automatically whenever GameData.add_card_to_array(str) is called
@@ -30,6 +29,17 @@ func add_card_to_hand(card):
 		update_hand_positions()
 	#else:
 		#animate_card_to_position(card, card.hand_position)
+
+
+func load_cards_from_deck():
+	for card in player_hand:
+		card.queue_free()
+	player_hand.clear()
+	
+	for card_path in GameData.deck_cards:
+		var card_scene = load(card_path)
+		var card = card_scene.instantiate()
+		add_card_to_hand(card)
 
 
 func load_cards_from_backpack():
@@ -48,7 +58,6 @@ func update_hand_positions():
 		var new_position = Vector2(calculate_card_position(i), HAND_Y_POSITION)
 		var card = player_hand[i]
 		
-		#card.hand_position = new_position
 		
 		animate_card_to_position(card, new_position)
 

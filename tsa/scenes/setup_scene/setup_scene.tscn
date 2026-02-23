@@ -2,7 +2,9 @@
 
 [ext_resource type="Texture2D" uid="uid://ds65usmhcgwqh" path="res://art/misc/motherboard_layout.png" id="1_8egkc"]
 [ext_resource type="Script" uid="uid://bd7hbfsfnqvlb" path="res://scenes/card_manager/card_manager.gd" id="1_p3t0o"]
+[ext_resource type="Script" uid="uid://dujiew21aukhh" path="res://scenes/setup_scene/backpack_container.gd" id="2_0u8xd"]
 [ext_resource type="Texture2D" uid="uid://bvoxt0q220sbc" path="res://art/misc/storage_layout.png" id="2_35cec"]
+[ext_resource type="PackedScene" uid="uid://deh5t7xa35jdd" path="res://scenes/backpack_card_scene/backpack_card.tscn" id="4_0u8xd"]
 [ext_resource type="PackedScene" uid="uid://cljeiymukf2k0" path="res://scenes/player_hand_scene/player_hand.tscn" id="4_8egkc"]
 [ext_resource type="PackedScene" uid="uid://d2dwgl2aubu7e" path="res://scenes/change_scene_button_scene/change_scene_button.tscn" id="4_n1dyv"]
 [ext_resource type="PackedScene" uid="uid://c51s1q0o8diqi" path="res://scenes/card_slot_scene/card_slot.tscn" id="5_8egkc"]
@@ -15,13 +17,51 @@ offset_right = 1354.0
 offset_bottom = 1080.0
 texture = ExtResource("1_8egkc")
 
-[node name="storage_img" type="TextureRect" parent="." unique_id=1935910072]
+[node name="backpack_container" type="Control" parent="." unique_id=1568474870]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 1355.0
+offset_top = 17.0
+offset_right = 2288.0
+offset_bottom = 1079.0
+script = ExtResource("2_0u8xd")
+
+[node name="storage_img" type="TextureRect" parent="backpack_container" unique_id=1935910072]
 texture_filter = 1
-offset_left = 1280.0
-offset_top = -36.0
-offset_right = 2291.0
-offset_bottom = 1080.0
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.528
+anchor_bottom = 0.63500005
+offset_left = -47.0
+offset_top = -34.0
+offset_right = 471.376
+offset_bottom = 407.62994
 texture = ExtResource("2_35cec")
+
+[node name="GridContainer" type="GridContainer" parent="backpack_container/storage_img" unique_id=55250096]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.123
+anchor_top = 0.12100001
+anchor_right = 0.549
+anchor_bottom = 0.84900004
+offset_left = -0.35300446
+offset_top = -0.036010742
+offset_right = -0.039001465
+offset_bottom = 0.5159302
+columns = 3
+
+[node name="backpack_card" parent="backpack_container/storage_img/GridContainer" unique_id=1231329556 instance=ExtResource("4_0u8xd")]
+layout_mode = 2
+
+[node name="backpack_card2" parent="backpack_container/storage_img/GridContainer" unique_id=675617672 instance=ExtResource("4_0u8xd")]
+layout_mode = 2
+
+[node name="backpack_card3" parent="backpack_container/storage_img/GridContainer" unique_id=295022530 instance=ExtResource("4_0u8xd")]
+layout_mode = 2
+
+[node name="backpack_card4" parent="backpack_container/storage_img/GridContainer" unique_id=469908922 instance=ExtResource("4_0u8xd")]
+layout_mode = 2
 
 [node name="card_manager" type="Node2D" parent="." unique_id=24658242]
 script = ExtResource("1_p3t0o")

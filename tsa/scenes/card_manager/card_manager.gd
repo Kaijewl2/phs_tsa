@@ -2,6 +2,7 @@ extends Node2D
 
 @onready var player_hand: Node2D = $"../player_hand"
 @onready var placement_container: Node2D = $"../placement_container"
+@onready var card_slot: Node2D = $"../placement_container/card_slot"
 
 
 const WALKING_BOT_PATH = "res://scenes/entity_scenes/walking_bot_scene/walking_bot.tscn"
@@ -23,7 +24,9 @@ func _ready() -> void:
 	
 	walking_bot_scene = preload(WALKING_BOT_PATH)
 
+
 func _process(_delta: float) -> void:
+	
 	if card_being_dragged:
 		var mouse_pos = get_global_mouse_position()
 		card_being_dragged.position = Vector2(clamp(mouse_pos.x, 0, screen_size.x),
@@ -48,6 +51,7 @@ func start_drag(card):
 func finish_drag():
 	card_being_dragged.scale = Vector2(1.05, 1.05)
 	var card_slot_found = raycast_check_for_card_slot()
+	
 	if card_slot_found and not card_slot_found.card_in_slot:
 		player_hand_reference.remove_card_from_hand(card_being_dragged)
 		# Card dropped in empty card slot
@@ -67,11 +71,13 @@ func finish_drag():
 		})
 	
 		unit.position = card_slot_found.position
+		card_slot_found.hide()
 		unit.get_node("AnimatedSprite2D").animation = "placeholder"
 		unit.get_node("AnimatedSprite2D").play()
 		
 	else:
-		player_hand_reference.add_card_to_hand(card_being_dragged)
+		# Card released outside of card_slot
+		player_hand_reference.update_hand_positions()
 	card_being_dragged = null
 
 

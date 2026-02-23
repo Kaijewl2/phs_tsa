@@ -43,8 +43,8 @@ func _input(event: InputEvent) -> void:
 			if GameData.get_balance() >= value:
 				GameData.change_balance(value, "subtract")
 				
-				# Add card to player's storage
-				GameData.add_card_to_array(WALKING_BOT_CARD_SCENE_PATH)
+				# Add card to player's backpack
+				GameData.add_card_to_backpack(WALKING_BOT_CARD_SCENE_PATH)
 				
 				# Delete card
 				self.queue_free()
