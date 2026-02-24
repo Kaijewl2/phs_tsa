@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://cqstt17qkpirl"]
+
+[ext_resource type="Texture2D" uid="uid://bnt2000665m77" path="res://art/cards/dropkick.png" id="1_8k8m8"]
+[ext_resource type="Script" uid="uid://dx6yd2uou04vn" path="res://scenes/setup_card_scene/setup_card.gd" id="1_q26v0"]
+[ext_resource type="FontFile" uid="uid://crdmvv8dc23b3" path="res://art/fonts/blue_winter/Blue Winter.ttf" id="2_q26v0"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_8br7c"]
+font = ExtResource("2_q26v0")
+font_size = 27
+font_color = Color(0, 0, 0, 1)
+
+[node name="setup_card" type="Control" unique_id=1758279345]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 100.0
+offset_bottom = 150.0
+script = ExtResource("1_q26v0")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=893683200]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_8k8m8")
+
+[node name="Button" type="Button" parent="." unique_id=2873125]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 196.0
+offset_right = 146.0
+offset_bottom = 248.0
+
+[node name="Label" type="Label" parent="Button" unique_id=1192261053]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 8.0
+offset_right = 126.0
+offset_bottom = 44.0
+text = "remove"
+label_settings = SubResource("LabelSettings_8br7c")
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="Button" to="." method="_on_button_mouse_entered"]
+[connection signal="mouse_exited" from="Button" to="." method="_on_button_mouse_exited"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

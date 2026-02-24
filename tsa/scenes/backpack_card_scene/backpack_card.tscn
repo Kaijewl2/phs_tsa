@@ -6,9 +6,10 @@
 [node name="backpack_card" type="Control" unique_id=1231329556]
 custom_minimum_size = Vector2(100, 150)
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchor_right = 0.086
+anchor_bottom = 0.24400002
+offset_right = 0.8799896
+offset_bottom = -0.52001953
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_u6bpu")
@@ -20,9 +21,15 @@ offset_bottom = 40.0
 texture = ExtResource("1_28fw0")
 
 [node name="Button" type="Button" parent="." unique_id=796278141]
+visible = false
 layout_mode = 0
 offset_left = 3.0
 offset_top = 194.0
 offset_right = 165.0
 offset_bottom = 261.0
 text = "chud"
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="Button" to="." method="_on_button_mouse_entered"]
+[connection signal="mouse_exited" from="Button" to="." method="_on_button_mouse_exited"]

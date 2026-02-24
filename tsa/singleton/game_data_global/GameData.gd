@@ -5,9 +5,11 @@ signal balance_changed(new_balance)
 signal hand_changed(new_card)
 signal backpack_changed()
 signal deck_changed()
+signal setup_changed()
 
 
 const MAX_DECK_SIZE = 4
+const MAX_SETUP_SIZE = 4
 
 
 var active_units = []
@@ -16,6 +18,7 @@ var active_enemies = []
 var player_hand_cards = []
 
 var deck_cards = []
+var setup_cards = []
 var backpack_cards = []
 var balance: int
 
@@ -23,10 +26,10 @@ var balance: int
 func _ready() -> void:
 	if player_hand_cards.is_empty():
 		for i in range(5):
-			add_card_to_backpack("res://scenes/card_scenes/card_scene/card.tscn")
+			add_card_to_backpack("res://scenes/setup_card_scene/setup_card.tscn")
 		
-		for i in range(3):
-			add_card_to_deck(backpack_cards[i])
+		for i in range(1):
+			add_card_to_setup(backpack_cards[i])
 
 
 func get_active_units():
@@ -65,11 +68,23 @@ func add_card_to_deck(card_path:String):
 		deck_changed.emit()
 		return true
 	return false
+	
+func add_card_to_setup(card_path:String):
+	if setup_cards.size() <= MAX_SETUP_SIZE:
+		setup_cards.append(card_path)
+		setup_changed.emit()
+		return true
+	return false
 
 
 func remove_card_from_deck(card_path: String):
 	deck_cards.erase(card_path)
 	deck_changed.emit()
+	
+
+func remove_card_from_setup(card_path: String):
+	setup_cards.erase(card_path)
+	setup_changed.emit()
 
 
 func add_card_to_array(card_path:String):

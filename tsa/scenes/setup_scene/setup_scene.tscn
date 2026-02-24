@@ -1,13 +1,11 @@
 [gd_scene format=3 uid="uid://btprfw2nquh3x"]
 
 [ext_resource type="Texture2D" uid="uid://ds65usmhcgwqh" path="res://art/misc/motherboard_layout.png" id="1_8egkc"]
-[ext_resource type="Script" uid="uid://bd7hbfsfnqvlb" path="res://scenes/card_manager/card_manager.gd" id="1_p3t0o"]
 [ext_resource type="Script" uid="uid://dujiew21aukhh" path="res://scenes/setup_scene/backpack_container.gd" id="2_0u8xd"]
 [ext_resource type="Texture2D" uid="uid://bvoxt0q220sbc" path="res://art/misc/storage_layout.png" id="2_35cec"]
 [ext_resource type="PackedScene" uid="uid://deh5t7xa35jdd" path="res://scenes/backpack_card_scene/backpack_card.tscn" id="4_0u8xd"]
-[ext_resource type="PackedScene" uid="uid://cljeiymukf2k0" path="res://scenes/player_hand_scene/player_hand.tscn" id="4_8egkc"]
 [ext_resource type="PackedScene" uid="uid://d2dwgl2aubu7e" path="res://scenes/change_scene_button_scene/change_scene_button.tscn" id="4_n1dyv"]
-[ext_resource type="PackedScene" uid="uid://c51s1q0o8diqi" path="res://scenes/card_slot_scene/card_slot.tscn" id="5_8egkc"]
+[ext_resource type="Script" uid="uid://n50oojmw5grn" path="res://scenes/setup_scene/player_setup.gd" id="7_0u8xd"]
 
 [node name="setup_scene" type="Node2D" unique_id=985433820]
 
@@ -63,28 +61,27 @@ layout_mode = 2
 [node name="backpack_card4" parent="backpack_container/storage_img/GridContainer" unique_id=469908922 instance=ExtResource("4_0u8xd")]
 layout_mode = 2
 
-[node name="card_manager" type="Node2D" parent="." unique_id=24658242]
-script = ExtResource("1_p3t0o")
+[node name="backpack_card5" parent="backpack_container/storage_img/GridContainer" unique_id=1267177752 instance=ExtResource("4_0u8xd")]
+layout_mode = 2
 
-[node name="player_hand" parent="." unique_id=24999969 instance=ExtResource("4_8egkc")]
+[node name="active_cards_container" type="Control" parent="." unique_id=1052810598]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 110.0
+offset_top = 751.0
+offset_right = 110.0
+offset_bottom = 751.0
 
-[node name="placement_container" type="Node2D" parent="." unique_id=1121865257]
+[node name="HBoxContainer" type="HBoxContainer" parent="active_cards_container" unique_id=1695121259]
+layout_mode = 0
+offset_left = -2.0
+offset_top = -10.0
+offset_right = 1219.7054
+offset_bottom = 134.0
+scale = Vector2(0.575, 0.575)
 
-[node name="card_slot" parent="placement_container" unique_id=1412094762 instance=ExtResource("5_8egkc")]
-position = Vector2(197, 811)
-scale = Vector2(0.865, 0.865)
-
-[node name="card_slot2" parent="placement_container" unique_id=1962802523 instance=ExtResource("5_8egkc")]
-position = Vector2(404, 809.00006)
-scale = Vector2(0.895, 0.895)
-
-[node name="card_slot3" parent="placement_container" unique_id=1173748078 instance=ExtResource("5_8egkc")]
-position = Vector2(591, 814)
-scale = Vector2(0.92, 0.92)
-
-[node name="card_slot4" parent="placement_container" unique_id=733837735 instance=ExtResource("5_8egkc")]
-position = Vector2(798.99994, 810.9999)
-scale = Vector2(0.905, 0.905)
+[node name="player_setup" type="Node2D" parent="." unique_id=1242920136]
+script = ExtResource("7_0u8xd")
 
 [node name="change_scene_button" parent="." unique_id=2077746840 instance=ExtResource("4_n1dyv")]
 anchor_right = 0.768
