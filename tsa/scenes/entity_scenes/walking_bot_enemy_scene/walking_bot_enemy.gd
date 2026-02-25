@@ -53,7 +53,6 @@ func death_logic():
 		get_parent().add_child(coin)
 		coin.global_position = Vector2(randf_range(self.global_position.x - 50, self.global_position.x + 50), randi_range(self.global_position.y - 50, self.global_position.y + 50))
 		GameData.change_balance(DEATH_VALUE, "add")
-		print(GameData.get_balance())
 		
 		animated_sprite_2d.play("death")
 		GameData.active_enemies.erase(self)

@@ -9,8 +9,9 @@ class_name SellCard
 @onready var player_hand = get_tree().get_first_node_in_group("player_hand")
 
 
-const SELL_CARD_PATH:String = "res://scenes/shop/sell_card_scene/sell_card.tscn"
-const WALKING_BOT_CARD_SCENE_PATH = "res://scenes/card_scenes/card_scene/card.tscn"
+const SELL_CARD_PATH: String = "res://scenes/shop/sell_card_scene/sell_card.tscn"
+const SETUP_CARD_PATH: String = "res://scenes/setup_card_scene/setup_card.tscn"
+const WALKING_BOT_CARD_SCENE_PATH: String = "res://scenes/card_scenes/card_scene/card.tscn"
 
 
 var hovering: bool
@@ -40,11 +41,11 @@ func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 		if hovering and event.is_pressed():
 			# Successful purchase
-			if GameData.get_balance() >= value:
+			if GameData.get_balance() >= value && GameData.backpack_cards.size() < GameData.MAX_BACKPACK_SIZE:
 				GameData.change_balance(value, "subtract")
 				
 				# Add card to player's backpack
-				GameData.add_card_to_backpack(WALKING_BOT_CARD_SCENE_PATH)
+				GameData.add_card_to_backpack(SETUP_CARD_PATH)
 				
 				# Delete card
 				self.queue_free()

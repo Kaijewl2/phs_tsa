@@ -12,24 +12,30 @@ outline_color = Color(0, 0, 0, 1)
 
 [node name="change_scene_button" type="Control" unique_id=2077746840]
 layout_mode = 3
-anchor_right = 0.11000001
-anchor_bottom = 0.071
-offset_right = 0.7999878
-offset_bottom = 0.3199997
+anchor_right = 0.12200001
+anchor_bottom = 0.05
+offset_right = 28.75998
 script = ExtResource("1_mvww8")
 
 [node name="Button" type="Button" parent="." unique_id=1490372151]
-layout_mode = 0
-offset_right = 211.0
-offset_bottom = 76.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.004716981
+anchor_top = 0.037037037
+anchor_right = 1.095057
+anchor_bottom = 0.9120001
+offset_bottom = -0.001247406
 metadata/_edit_use_anchors_ = true
 
 [node name="Label" type="Label" parent="." unique_id=1345280553]
-layout_mode = 0
-offset_left = 6.0
-offset_top = 18.0
-offset_right = 570.0
-offset_bottom = 124.0
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.07
+anchor_bottom = 0.87000006
+offset_left = 12.0
+offset_top = 3.0
+offset_right = 448.89987
+offset_bottom = 79.96365
 scale = Vector2(0.355, 0.355)
 text = "placeholder"
 label_settings = SubResource("LabelSettings_ow0st")

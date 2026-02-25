@@ -10,7 +10,7 @@ font_size = 27
 font_color = Color(0, 0, 0, 1)
 
 [node name="setup_card" type="Control" unique_id=1758279345]
-custom_minimum_size = Vector2(150, 0)
+custom_minimum_size = Vector2(375, 0)
 layout_mode = 3
 anchors_preset = 0
 offset_right = 100.0
@@ -24,9 +24,10 @@ offset_bottom = 40.0
 texture = ExtResource("1_8k8m8")
 
 [node name="Button" type="Button" parent="." unique_id=2873125]
+visible = false
 layout_mode = 0
 offset_left = 5.0
-offset_top = 196.0
+offset_top = 189.0
 offset_right = 146.0
 offset_bottom = 248.0
 

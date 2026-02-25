@@ -10,11 +10,12 @@ var card_path: String
 
 func setup(path: String):
 	card_path = path
-	button.pressed.connect(add_to_deck)
+	button.pressed.connect(add_to_setup)
 	
-func add_to_deck():
+func add_to_setup():
 	if GameData.add_card_to_setup(card_path):
 		print("Added to deck!")
+		queue_free()
 	else:
 		print("Deck full!")
 

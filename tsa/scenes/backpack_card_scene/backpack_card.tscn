@@ -2,13 +2,18 @@
 
 [ext_resource type="Texture2D" uid="uid://bnt2000665m77" path="res://art/cards/dropkick.png" id="1_28fw0"]
 [ext_resource type="Script" uid="uid://1ct3lecet6sw" path="res://scenes/backpack_card_scene/backpack_card.gd" id="1_u6bpu"]
+[ext_resource type="FontFile" uid="uid://crdmvv8dc23b3" path="res://art/fonts/blue_winter/Blue Winter.ttf" id="3_5tngm"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_j4dn1"]
+font = ExtResource("3_5tngm")
+font_size = 22
 
 [node name="backpack_card" type="Control" unique_id=1231329556]
-custom_minimum_size = Vector2(100, 150)
+custom_minimum_size = Vector2(237, 262)
 layout_mode = 3
 anchor_right = 0.086
 anchor_bottom = 0.24400002
-offset_right = 0.8799896
+offset_right = 71.87999
 offset_bottom = -0.52001953
 grow_horizontal = 2
 grow_vertical = 2
@@ -24,10 +29,21 @@ texture = ExtResource("1_28fw0")
 visible = false
 layout_mode = 0
 offset_left = 3.0
-offset_top = 194.0
+offset_top = 190.0
 offset_right = 165.0
-offset_bottom = 261.0
-text = "chud"
+offset_bottom = 234.0
+
+[node name="Label" type="Label" parent="Button" unique_id=488570580]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 12.0
+offset_top = 4.0
+offset_right = -11.0
+offset_bottom = -10.0
+text = "add to deck"
+label_settings = SubResource("LabelSettings_j4dn1")
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

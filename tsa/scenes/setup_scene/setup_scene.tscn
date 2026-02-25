@@ -30,10 +30,10 @@ layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.528
 anchor_bottom = 0.63500005
-offset_left = -47.0
-offset_top = -34.0
-offset_right = 471.376
-offset_bottom = 407.62994
+offset_left = -50.0
+offset_top = -68.0
+offset_right = 468.376
+offset_bottom = 389.62994
 texture = ExtResource("2_35cec")
 
 [node name="GridContainer" type="GridContainer" parent="backpack_container/storage_img" unique_id=55250096]
@@ -41,12 +41,13 @@ layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.123
 anchor_top = 0.12100001
-anchor_right = 0.549
-anchor_bottom = 0.84900004
-offset_left = -0.35300446
-offset_top = -0.036010742
-offset_right = -0.039001465
-offset_bottom = 0.5159302
+anchor_right = 0.592
+anchor_bottom = 0.85200006
+offset_left = -0.35299683
+offset_top = -9.036011
+offset_right = 244.48798
+offset_bottom = 430.23553
+scale = Vector2(0.66, 0.66)
 columns = 3
 
 [node name="backpack_card" parent="backpack_container/storage_img/GridContainer" unique_id=1231329556 instance=ExtResource("4_0u8xd")]
@@ -64,6 +65,27 @@ layout_mode = 2
 [node name="backpack_card5" parent="backpack_container/storage_img/GridContainer" unique_id=1267177752 instance=ExtResource("4_0u8xd")]
 layout_mode = 2
 
+[node name="backpack_card6" parent="backpack_container/storage_img/GridContainer" unique_id=389343536 instance=ExtResource("4_0u8xd")]
+layout_mode = 2
+
+[node name="backpack_card7" parent="backpack_container/storage_img/GridContainer" unique_id=710565551 instance=ExtResource("4_0u8xd")]
+layout_mode = 2
+
+[node name="backpack_card8" parent="backpack_container/storage_img/GridContainer" unique_id=1635247963 instance=ExtResource("4_0u8xd")]
+layout_mode = 2
+
+[node name="backpack_card9" parent="backpack_container/storage_img/GridContainer" unique_id=382294607 instance=ExtResource("4_0u8xd")]
+layout_mode = 2
+
+[node name="backpack_card10" parent="backpack_container/storage_img/GridContainer" unique_id=2135613285 instance=ExtResource("4_0u8xd")]
+layout_mode = 2
+
+[node name="backpack_card11" parent="backpack_container/storage_img/GridContainer" unique_id=584791292 instance=ExtResource("4_0u8xd")]
+layout_mode = 2
+
+[node name="backpack_card12" parent="backpack_container/storage_img/GridContainer" unique_id=1561571689 instance=ExtResource("4_0u8xd")]
+layout_mode = 2
+
 [node name="active_cards_container" type="Control" parent="." unique_id=1052810598]
 layout_mode = 3
 anchors_preset = 0
@@ -74,11 +96,11 @@ offset_bottom = 751.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="active_cards_container" unique_id=1695121259]
 layout_mode = 0
-offset_left = -2.0
+offset_left = 66.99999
 offset_top = -10.0
-offset_right = 1219.7054
+offset_right = 1102.0366
 offset_bottom = 134.0
-scale = Vector2(0.575, 0.575)
+scale = Vector2(0.685, 0.685)
 
 [node name="player_setup" type="Node2D" parent="." unique_id=1242920136]
 script = ExtResource("7_0u8xd")
@@ -86,10 +108,10 @@ script = ExtResource("7_0u8xd")
 [node name="change_scene_button" parent="." unique_id=2077746840 instance=ExtResource("4_n1dyv")]
 anchor_right = 0.768
 anchor_bottom = 0.044000003
-offset_left = 1364.0001
-offset_top = 975.0
-offset_right = 1566.166
-offset_bottom = 1039.9819
+offset_left = 1460.0
+offset_top = 984.0
+offset_right = 1662.1659
+offset_bottom = 1048.9819
 scale = Vector2(1.385, 1.385)
 scene_path = "res://scenes/battle_scene/battle_scene.tscn"
 label_text = "remove virus"

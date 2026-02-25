@@ -23,6 +23,7 @@ func _ready() -> void:
 
 # Called automatically whenever GameData.add_card_to_setup(str) is called
 func add_card_to_setup(card):
+	print("add_card")
 	h_box_container.add_child(card)
 	if card not in player_hand:
 		player_hand.insert(0, card)
@@ -47,8 +48,3 @@ func load_cards_from_backpack():
 		var card = card_scene.instantiate()
 		
 		add_card_to_setup(card)
-
-
-func remove_card_from_hand(card):
-	if card in player_hand:
-		player_hand.erase(card)
