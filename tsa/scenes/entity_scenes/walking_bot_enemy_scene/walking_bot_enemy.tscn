@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://dd11l81fddnsb"]
 
-[ext_resource type="Texture2D" uid="uid://geuv31ccg3un" path="res://art/biped_robot/robot_red.png" id="1_4k2lw"]
-[ext_resource type="Script" uid="uid://bapv7idhow58n" path="res://scenes/test/walking_bot_enemy.gd" id="2_2axeb"]
-[ext_resource type="PackedScene" uid="uid://bes6m6c7gdswg" path="res://scenes/test/health_bar.tscn" id="3_6oadl"]
+[ext_resource type="Texture2D" uid="uid://geuv31ccg3un" path="res://art/entities/walking_bot/robot_red.png" id="1_4k2lw"]
+[ext_resource type="Script" uid="uid://bapv7idhow58n" path="res://scenes/entity_scenes/walking_bot_enemy_scene/walking_bot_enemy.gd" id="2_2axeb"]
+[ext_resource type="PackedScene" uid="uid://bes6m6c7gdswg" path="res://scenes/health_bar_scene/health_bar.tscn" id="3_6oadl"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gb4ap"]
 atlas = ExtResource("1_4k2lw")
@@ -135,8 +135,7 @@ SPEED = 3
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=126498863]
 sprite_frames = SubResource("SpriteFrames_gb4ap")
-animation = &"death"
-frame_progress = 1.0
+animation = &"idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=330135714]
 shape = SubResource("CircleShape2D_4k2lw")

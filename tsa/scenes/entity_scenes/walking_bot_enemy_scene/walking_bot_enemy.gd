@@ -16,7 +16,7 @@ const UI_ELEMENTS_SCENE = preload("uid://cifwypi1j3oks")
 enum Context {IDLE, BATTLE, DEATH}
 var target = null
 var commrades = []
-var current_context = Context.BATTLE
+var current_context = Context.IDLE
 var attack_cooldown:float = 5.0
 var attack_timer:float = 0.0
 var is_attacking: bool = false
@@ -25,6 +25,10 @@ var ui_elements
 
 func _ready() -> void:
 	health_bar._setup_health_bar(HEALTH)
+	
+	# Random start attack time
+	await get_tree().create_timer(randf_range(0.5, 1.5)).timeout
+	current_context = Context.BATTLE
 
 
 func _process(delta: float) -> void:

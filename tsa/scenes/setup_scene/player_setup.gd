@@ -23,7 +23,6 @@ func _ready() -> void:
 
 # Called automatically whenever GameData.add_card_to_setup(str) is called
 func add_card_to_setup(card):
-	print("add_card")
 	h_box_container.add_child(card)
 	if card not in player_hand:
 		player_hand.insert(0, card)

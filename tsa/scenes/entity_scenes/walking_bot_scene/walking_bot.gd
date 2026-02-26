@@ -27,6 +27,10 @@ func _ready() -> void:
 	speed_text.text += str(SPEED)
 	
 	health_bar._setup_health_bar(HEALTH)
+	
+	# Random start attack time
+	await get_tree().create_timer(randf_range(0.5, 1.5)).timeout
+	current_context = Context.BATTLE
 
 
 func _process(delta) -> void:
@@ -75,10 +79,10 @@ func take_damage(damage):
 
 func death_logic():
 	animated_sprite_2d.play("death")
+ 
 
 func _on_area_2d_mouse_entered() -> void:
 	stats_ui.show()
-	current_context = Context.BATTLE
 
 
 func _on_area_2d_mouse_exited() -> void:

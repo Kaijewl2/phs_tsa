@@ -80,6 +80,7 @@ func remove_card_from_deck(card_path: String):
 
 func remove_card_from_setup(card_path: String):
 	setup_cards.erase(card_path)
+	active_units.erase(card_path)
 	setup_changed.emit()
 
 

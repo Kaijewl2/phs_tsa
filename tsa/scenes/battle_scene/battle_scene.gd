@@ -18,8 +18,7 @@ var active_enemies
 func _ready() -> void:
 	GameData.balance_changed.connect(update_balance_display)
 	balance_label.get_node("Label").text = str(GameData.get_balance())
-	
-	for data in GameData.active_units:
+	for unit in GameData.active_units:
 		spawn_commrades()
 		spawn_enemy()
 
