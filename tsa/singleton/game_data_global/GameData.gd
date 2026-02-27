@@ -21,6 +21,7 @@ var deck_cards = []
 var setup_cards = []
 var backpack_cards = []
 var balance: int
+var PlayerClass: String
 
 
 func _ready() -> void:
@@ -50,6 +51,10 @@ func get_player_hand_cards():
 
 func get_balance():
 	return balance
+
+
+func get_player_class():
+	return PlayerClass
 
 
 func add_card_to_backpack(card_path:String):
@@ -105,3 +110,7 @@ func change_balance(value, operation):
 		balance *= value
 
 	balance_changed.emit(balance)
+
+
+func change_player_class(new_class:String):
+	PlayerClass = new_class

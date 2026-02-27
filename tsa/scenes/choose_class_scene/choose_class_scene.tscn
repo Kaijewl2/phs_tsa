@@ -1,7 +1,9 @@
 [gd_scene format=3 uid="uid://cbvm4jjmhb7le"]
 
 [ext_resource type="FontFile" uid="uid://crdmvv8dc23b3" path="res://art/fonts/blue_winter/Blue Winter.ttf" id="1_e4gfb"]
-[ext_resource type="Texture2D" uid="uid://dmq4oheqs2oq8" path="res://art/misc/sevenstar.png" id="2_aflmc"]
+[ext_resource type="Texture2D" uid="uid://xhdc6tds456w" path="res://art/icons/windows.png" id="3_0plyd"]
+[ext_resource type="PackedScene" uid="uid://o20hswvwfbsb" path="res://scenes/class_pick_scene/class_pick_scene.tscn" id="3_aflmc"]
+[ext_resource type="Texture2D" uid="uid://b15bel56vuxkc" path="res://art/icons/apple.png" id="5_vbc54"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_jpwuq"]
 font = ExtResource("1_e4gfb")
@@ -40,20 +42,56 @@ grow_vertical = 2
 text = "choose your Operating System"
 label_settings = SubResource("LabelSettings_jpwuq")
 
-[node name="Container" type="Container" parent="." unique_id=859348807]
-layout_mode = 0
-offset_left = -49.77
-offset_right = -9.77
-offset_bottom = 40.0
+[node name="class_pick_scene" parent="." unique_id=1016465311 instance=ExtResource("3_aflmc")]
+layout_mode = 1
+anchor_bottom = 0.642
+offset_left = 51.0
+offset_top = 384.0
+offset_right = 50.880005
+offset_bottom = 384.0727
+scale = Vector2(0.515, 0.515)
+node_class = "windows"
 
-[node name="TextureRect" type="TextureRect" parent="Container" unique_id=285138993]
-layout_mode = 2
-texture = ExtResource("2_aflmc")
+[node name="icon_img" parent="class_pick_scene" index="1" unique_id=2056045065]
+offset_left = 248.5437
+offset_top = 264.0777
+offset_right = 690.5437
+offset_bottom = 776.0777
+texture = ExtResource("3_0plyd")
 
-[node name="TextureRect2" type="TextureRect" parent="Container" unique_id=679361689]
-layout_mode = 2
-texture = ExtResource("2_aflmc")
+[node name="class_pick_scene2" parent="." unique_id=1380742104 instance=ExtResource("3_aflmc")]
+layout_mode = 1
+anchor_bottom = 0.642
+offset_left = 693.0
+offset_top = 384.0
+offset_right = 692.88
+offset_bottom = 384.0727
+scale = Vector2(0.515, 0.515)
+node_class = "linux"
 
-[node name="TextureRect3" type="TextureRect" parent="Container" unique_id=1223979808]
-layout_mode = 2
-texture = ExtResource("2_aflmc")
+[node name="class_pick_scene3" parent="." unique_id=2015309116 instance=ExtResource("3_aflmc")]
+layout_mode = 1
+anchor_bottom = 0.642
+offset_left = 1335.0
+offset_top = 384.0
+offset_right = 1334.88
+offset_bottom = 384.0727
+scale = Vector2(0.515, 0.515)
+node_class = "mac"
+
+[node name="background_img" parent="class_pick_scene3" index="0" unique_id=175451320]
+rotation = 6.112105
+
+[node name="icon_img" parent="class_pick_scene3" index="1" unique_id=2056045065]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.711
+anchor_bottom = 1.0
+offset_left = 256.3107
+offset_top = 205.82526
+offset_right = -33.30829
+offset_bottom = 24.392517
+texture = ExtResource("5_vbc54")
+
+[editable path="class_pick_scene"]
+[editable path="class_pick_scene3"]
