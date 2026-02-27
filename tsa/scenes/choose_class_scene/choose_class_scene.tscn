@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://cbvm4jjmhb7le"]
+
+[ext_resource type="FontFile" uid="uid://crdmvv8dc23b3" path="res://art/fonts/blue_winter/Blue Winter.ttf" id="1_e4gfb"]
+[ext_resource type="Texture2D" uid="uid://dmq4oheqs2oq8" path="res://art/misc/sevenstar.png" id="2_aflmc"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_jpwuq"]
+font = ExtResource("1_e4gfb")
+font_size = 92
+
+[node name="choose_class_scene" type="Control" unique_id=1433978546]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=379503694]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.11874751, 0.11874729, 0.11696043, 1)
+
+[node name="Label" type="Label" parent="." unique_id=1483643020]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -741.0
+offset_top = -385.0
+offset_right = 741.0
+offset_bottom = -265.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "choose your Operating System"
+label_settings = SubResource("LabelSettings_jpwuq")
+
+[node name="Container" type="Container" parent="." unique_id=859348807]
+layout_mode = 0
+offset_left = -49.77
+offset_right = -9.77
+offset_bottom = 40.0
+
+[node name="TextureRect" type="TextureRect" parent="Container" unique_id=285138993]
+layout_mode = 2
+texture = ExtResource("2_aflmc")
+
+[node name="TextureRect2" type="TextureRect" parent="Container" unique_id=679361689]
+layout_mode = 2
+texture = ExtResource("2_aflmc")
+
+[node name="TextureRect3" type="TextureRect" parent="Container" unique_id=1223979808]
+layout_mode = 2
+texture = ExtResource("2_aflmc")
