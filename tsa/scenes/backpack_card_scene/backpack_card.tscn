@@ -1,12 +1,24 @@
 [gd_scene format=3 uid="uid://deh5t7xa35jdd"]
 
-[ext_resource type="Texture2D" uid="uid://bnt2000665m77" path="res://art/cards/dropkick.png" id="1_28fw0"]
 [ext_resource type="Script" uid="uid://1ct3lecet6sw" path="res://scenes/backpack_card_scene/backpack_card.gd" id="1_u6bpu"]
+[ext_resource type="Texture2D" uid="uid://co5cigw212hby" path="res://art/cards/linux_card_template.png" id="2_j4dn1"]
 [ext_resource type="FontFile" uid="uid://crdmvv8dc23b3" path="res://art/fonts/blue_winter/Blue Winter.ttf" id="3_5tngm"]
+[ext_resource type="Texture2D" uid="uid://ckimedgxf2230" path="res://art/entities/penguin/penguin.png" id="3_c4ux8"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_j4dn1"]
 font = ExtResource("3_5tngm")
 font_size = 22
+
+[sub_resource type="LabelSettings" id="LabelSettings_c4ux8"]
+font = ExtResource("3_5tngm")
+font_size = 12
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_pdpf5"]
+line_spacing = 0.83
+font = ExtResource("3_5tngm")
+font_size = 8
+font_color = Color(0, 0, 0, 1)
 
 [node name="backpack_card" type="Control" unique_id=1231329556]
 custom_minimum_size = Vector2(237, 262)
@@ -20,10 +32,21 @@ grow_vertical = 2
 script = ExtResource("1_u6bpu")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1261989855]
+texture_filter = 1
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
-texture = ExtResource("1_28fw0")
+scale = Vector2(3.59, 3.59)
+texture = ExtResource("2_j4dn1")
+
+[node name="TextureRect" type="TextureRect" parent="TextureRect" unique_id=356638567]
+layout_mode = 0
+offset_left = 18.384403
+offset_top = 16.155989
+offset_right = 58.384403
+offset_bottom = 56.15599
+scale = Vector2(0.59, 0.59)
+texture = ExtResource("3_c4ux8")
 
 [node name="Button" type="Button" parent="." unique_id=796278141]
 visible = false
@@ -44,6 +67,28 @@ offset_right = -11.0
 offset_bottom = -10.0
 text = "add to deck"
 label_settings = SubResource("LabelSettings_j4dn1")
+
+[node name="card_name" type="Label" parent="." unique_id=1135186055]
+texture_filter = 1
+layout_mode = 0
+offset_left = 90.0
+offset_top = 30.0
+offset_right = 158.0
+offset_bottom = 52.0
+text = "penguin"
+label_settings = SubResource("LabelSettings_c4ux8")
+
+[node name="card_desc" type="Label" parent="." unique_id=761700902]
+layout_mode = 0
+offset_left = 61.0
+offset_top = 151.0
+offset_right = 169.0
+offset_bottom = 194.0
+text = "standard issue penguin "
+label_settings = SubResource("LabelSettings_pdpf5")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

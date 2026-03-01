@@ -1,12 +1,24 @@
 [gd_scene format=3 uid="uid://cqstt17qkpirl"]
 
-[ext_resource type="Texture2D" uid="uid://bnt2000665m77" path="res://art/cards/dropkick.png" id="1_8k8m8"]
 [ext_resource type="Script" uid="uid://dx6yd2uou04vn" path="res://scenes/setup_card_scene/setup_card.gd" id="1_q26v0"]
 [ext_resource type="FontFile" uid="uid://crdmvv8dc23b3" path="res://art/fonts/blue_winter/Blue Winter.ttf" id="2_q26v0"]
+[ext_resource type="Texture2D" uid="uid://co5cigw212hby" path="res://art/cards/linux_card_template.png" id="4_on6wq"]
+[ext_resource type="Texture2D" uid="uid://ckimedgxf2230" path="res://art/entities/penguin/penguin.png" id="5_s5ekk"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_8br7c"]
 font = ExtResource("2_q26v0")
 font_size = 27
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_axgru"]
+font = ExtResource("2_q26v0")
+font_size = 12
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_2arc3"]
+line_spacing = 0.83
+font = ExtResource("2_q26v0")
+font_size = 8
 font_color = Color(0, 0, 0, 1)
 
 [node name="setup_card" type="Control" unique_id=1758279345]
@@ -16,12 +28,6 @@ anchors_preset = 0
 offset_right = 100.0
 offset_bottom = 150.0
 script = ExtResource("1_q26v0")
-
-[node name="TextureRect" type="TextureRect" parent="." unique_id=893683200]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-texture = ExtResource("1_8k8m8")
 
 [node name="Button" type="Button" parent="." unique_id=2873125]
 visible = false
@@ -39,6 +45,45 @@ offset_right = 126.0
 offset_bottom = 44.0
 text = "remove"
 label_settings = SubResource("LabelSettings_8br7c")
+
+[node name="TextureRect2" type="TextureRect" parent="." unique_id=556071561]
+texture_filter = 1
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(3.59, 3.59)
+texture = ExtResource("4_on6wq")
+
+[node name="TextureRect" type="TextureRect" parent="TextureRect2" unique_id=29853150]
+layout_mode = 0
+offset_left = 18.384403
+offset_top = 16.155989
+offset_right = 58.384403
+offset_bottom = 56.15599
+scale = Vector2(0.59, 0.59)
+texture = ExtResource("5_s5ekk")
+
+[node name="card_name" type="Label" parent="." unique_id=1272388267]
+texture_filter = 1
+layout_mode = 0
+offset_left = 90.0
+offset_top = 30.0
+offset_right = 158.0
+offset_bottom = 52.0
+text = "penguin"
+label_settings = SubResource("LabelSettings_axgru")
+
+[node name="card_desc" type="Label" parent="." unique_id=699097831]
+layout_mode = 0
+offset_left = 61.0
+offset_top = 151.0
+offset_right = 169.0
+offset_bottom = 194.0
+text = "standard issue penguin"
+label_settings = SubResource("LabelSettings_2arc3")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

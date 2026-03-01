@@ -51,6 +51,26 @@ offset_bottom = 651.78784
 scale = Vector2(0.66, 0.66)
 theme_override_constants/separation = 32
 
+[node name="sell_card" parent="card_container" unique_id=378176936 instance=ExtResource("2_ge4d2")]
+custom_minimum_size = Vector2(176.175, 0)
+layout_mode = 2
+
+[node name="card_img" parent="card_container/sell_card" index="0" unique_id=1934516013]
+offset_left = -49.09
+offset_right = 14.91
+
+[node name="sell_card2" parent="card_container" unique_id=316215494 instance=ExtResource("2_ge4d2")]
+layout_mode = 2
+
+[node name="sell_card3" parent="card_container" unique_id=595304576 instance=ExtResource("2_ge4d2")]
+layout_mode = 2
+
+[node name="sell_card4" parent="card_container" unique_id=1093587715 instance=ExtResource("2_ge4d2")]
+layout_mode = 2
+
+[node name="sell_card5" parent="card_container" unique_id=1558311604 instance=ExtResource("2_ge4d2")]
+layout_mode = 2
+
 [node name="coin_counter" parent="." unique_id=190551430 instance=ExtResource("4_jp048")]
 layout_mode = 1
 anchor_left = 0.065000005
@@ -149,4 +169,5 @@ offset_bottom = 140.0
 text = "RAM"
 label_settings = SubResource("LabelSettings_tp26b")
 
+[editable path="card_container/sell_card"]
 [editable path="change_scene_button"]

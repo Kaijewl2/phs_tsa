@@ -19,15 +19,20 @@ var press_count: int
 var coin_counter_original_pos: Vector2
 var is_first_shake = true 
 var shake_tween: Tween = null
+var card_frame_scale: Vector2
+
+
+func _ready() -> void:
+	card_frame_scale = card_frame.scale
 
 
 func _process(_delta: float) -> void:
 	if is_mouse_over_card():
 		hovering = true
-		card_frame.scale = Vector2(1.15, 1.15)
+		card_frame.scale = Vector2(card_frame_scale.x + 0.15, card_frame_scale.y + 0.15)
 	else:
 		hovering = false
-		card_frame.scale = Vector2(1, 1)
+		card_frame.scale = card_frame_scale
 
 
 func is_mouse_over_card():

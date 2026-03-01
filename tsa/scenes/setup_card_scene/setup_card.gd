@@ -5,7 +5,7 @@ const SELF_PATH = "res://scenes/setup_card_scene/setup_card.tscn"
 var card_path: String
 
 
-@onready var texture_rect: TextureRect = $TextureRect
+
 @onready var button: Button = $Button
 
 

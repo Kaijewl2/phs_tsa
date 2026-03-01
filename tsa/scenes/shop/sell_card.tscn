@@ -1,37 +1,62 @@
 [gd_scene format=3 uid="uid://cwfnhwgq5hgi7"]
 
 [ext_resource type="Script" uid="uid://c068yktpo27e8" path="res://scenes/shop/sell_card_scene/sell_card.gd" id="1_yoeyb"]
-[ext_resource type="Texture2D" uid="uid://bnt2000665m77" path="res://art/cards/dropkick.png" id="2_yoeyb"]
+[ext_resource type="Texture2D" uid="uid://co5cigw212hby" path="res://art/cards/linux_card_template.png" id="2_8bbjf"]
 [ext_resource type="Texture2D" uid="uid://d4ewn111rc61p" path="res://art/icons/purrrency.png" id="3_8bbjf"]
+[ext_resource type="Texture2D" uid="uid://ckimedgxf2230" path="res://art/entities/penguin/penguin.png" id="3_apoln"]
+[ext_resource type="FontFile" uid="uid://crdmvv8dc23b3" path="res://art/fonts/blue_winter/Blue Winter.ttf" id="5_1slgu"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_apoln"]
 font_size = 44
 
+[sub_resource type="LabelSettings" id="LabelSettings_ng2uk"]
+line_spacing = 0.83
+font = ExtResource("5_1slgu")
+font_size = 8
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_w3e7i"]
+font = ExtResource("5_1slgu")
+font_size = 12
+font_color = Color(0, 0, 0, 1)
+
 [node name="sell_card" type="Control" unique_id=378176936 node_paths=PackedStringArray("card_frame")]
-custom_minimum_size = Vector2(142, 190)
+custom_minimum_size = Vector2(142, 0)
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+anchor_right = 0.078
+anchor_bottom = 0.231
+offset_left = -52.76
+offset_right = 0.47999573
+offset_bottom = -0.480011
 script = ExtResource("1_yoeyb")
 card_frame = NodePath("card_img")
 value = 10
 
-[node name="card_img" type="TextureRect" parent="." unique_id=1059001722]
+[node name="card_img" type="TextureRect" parent="." unique_id=1934516013]
+texture_filter = 1
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-texture = ExtResource("2_yoeyb")
+offset_right = 64.0
+offset_bottom = 64.0
+scale = Vector2(3.59, 3.59)
+texture = ExtResource("2_8bbjf")
+
+[node name="card_icon" type="TextureRect" parent="card_img" unique_id=165231949]
+layout_mode = 0
+offset_left = 18.384403
+offset_top = 16.155989
+offset_right = 58.384403
+offset_bottom = 56.15599
+scale = Vector2(0.59, 0.59)
+texture = ExtResource("3_apoln")
 
 [node name="price_label" type="Label" parent="card_img" unique_id=705920495]
 texture_filter = 1
 layout_mode = 0
-offset_left = 52.0
-offset_top = 189.0
-offset_right = 127.0
-offset_bottom = 250.0
+offset_left = 30.74
+offset_top = 52.646
+offset_right = 105.74
+offset_bottom = 113.64611
+scale = Vector2(0.275, 0.275)
 text = "10"
 label_settings = SubResource("LabelSettings_apoln")
 
@@ -43,3 +68,27 @@ offset_top = 2.0
 offset_right = 4.0
 offset_bottom = 63.0
 texture = ExtResource("3_8bbjf")
+
+[node name="card_desc" type="Label" parent="card_img" unique_id=592417348]
+layout_mode = 0
+offset_left = 16.991642
+offset_top = 42.06128
+offset_right = 126.386444
+offset_bottom = 85.61662
+scale = Vector2(0.275, 0.275)
+text = "standard issue penguin"
+label_settings = SubResource("LabelSettings_ng2uk")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="card_name" type="Label" parent="card_img" unique_id=592410685]
+texture_filter = 1
+layout_mode = 0
+offset_left = 24.791086
+offset_top = 7.520891
+offset_right = 84.41089
+offset_bottom = 27.068373
+scale = Vector2(0.275, 0.275)
+text = "penguin"
+label_settings = SubResource("LabelSettings_w3e7i")
