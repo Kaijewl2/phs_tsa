@@ -14,12 +14,11 @@ func setup(path: String):
 
 
 func _on_mouse_entered() -> void:
-	button.show()
+	pass
 
 
 func _on_mouse_exited() -> void:
-	if not button.is_hovered():
-		button.hide()
+	pass
 
 
 func _on_button_mouse_entered() -> void:
@@ -34,3 +33,12 @@ func _on_button_pressed() -> void:
 	print("remove card")
 	GameData.remove_card_from_setup(SELF_PATH)
 	#GameData.add_card_to_backpack(SELF_PATH)
+
+
+func _on_texture_rect_mouse_entered() -> void:
+	button.show()
+
+
+func _on_texture_rect_mouse_exited() -> void:
+	if not button.is_hovered():
+		button.hide()

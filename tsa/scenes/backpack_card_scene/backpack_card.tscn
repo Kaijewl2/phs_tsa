@@ -7,7 +7,8 @@
 
 [sub_resource type="LabelSettings" id="LabelSettings_j4dn1"]
 font = ExtResource("3_5tngm")
-font_size = 22
+font_size = 15
+font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_c4ux8"]
 font = ExtResource("3_5tngm")
@@ -21,12 +22,12 @@ font_size = 8
 font_color = Color(0, 0, 0, 1)
 
 [node name="backpack_card" type="Control" unique_id=1231329556]
-custom_minimum_size = Vector2(237, 262)
+custom_minimum_size = Vector2(234, 267)
 layout_mode = 3
-anchor_right = 0.086
-anchor_bottom = 0.24400002
-offset_right = 71.87999
-offset_bottom = -0.52001953
+anchor_right = 0.066
+anchor_bottom = 0.19000001
+offset_right = 143.28
+offset_bottom = 61.799988
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_u6bpu")
@@ -34,63 +35,66 @@ script = ExtResource("1_u6bpu")
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1261989855]
 texture_filter = 1
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 34.0
+offset_bottom = 57.381615
 scale = Vector2(3.59, 3.59)
 texture = ExtResource("2_j4dn1")
+stretch_mode = 2
 
 [node name="TextureRect" type="TextureRect" parent="TextureRect" unique_id=356638567]
 layout_mode = 0
-offset_left = 18.384403
-offset_top = 16.155989
-offset_right = 58.384403
-offset_bottom = 56.15599
+offset_left = 3.3426194
+offset_top = 8.077993
+offset_right = 43.34262
+offset_bottom = 48.077995
 scale = Vector2(0.59, 0.59)
 texture = ExtResource("3_c4ux8")
 
 [node name="Button" type="Button" parent="." unique_id=796278141]
 visible = false
 layout_mode = 0
-offset_left = 3.0
-offset_top = 190.0
-offset_right = 165.0
-offset_bottom = 234.0
+offset_left = 6.0
+offset_top = 178.0
+offset_right = 116.0
+offset_bottom = 204.0
 
 [node name="Label" type="Label" parent="Button" unique_id=488570580]
 layout_mode = 1
 anchors_preset = -1
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 12.0
-offset_top = 4.0
-offset_right = -11.0
-offset_bottom = -10.0
+anchor_left = 0.074
+anchor_top = 0.091000006
+anchor_right = 0.938
+anchor_bottom = 0.86
+offset_left = 0.012000084
+offset_top = -0.004000187
+offset_right = -29.864006
+offset_bottom = -8.170002
 text = "add to deck"
 label_settings = SubResource("LabelSettings_j4dn1")
 
 [node name="card_name" type="Label" parent="." unique_id=1135186055]
 texture_filter = 1
 layout_mode = 0
-offset_left = 90.0
-offset_top = 30.0
-offset_right = 158.0
-offset_bottom = 52.0
+offset_left = 36.0
+offset_top = 1.0
+offset_right = 104.0
+offset_bottom = 23.0
 text = "penguin"
 label_settings = SubResource("LabelSettings_c4ux8")
 
 [node name="card_desc" type="Label" parent="." unique_id=761700902]
 layout_mode = 0
-offset_left = 61.0
-offset_top = 151.0
-offset_right = 169.0
-offset_bottom = 194.0
+offset_left = 7.0
+offset_top = 122.0
+offset_right = 115.0
+offset_bottom = 165.0
 text = "standard issue penguin "
 label_settings = SubResource("LabelSettings_pdpf5")
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 
-[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="TextureRect" to="." method="_on_texture_rect_mouse_entered"]
+[connection signal="mouse_exited" from="TextureRect" to="." method="_on_texture_rect_mouse_exited"]
 [connection signal="mouse_entered" from="Button" to="." method="_on_button_mouse_entered"]
 [connection signal="mouse_exited" from="Button" to="." method="_on_button_mouse_exited"]

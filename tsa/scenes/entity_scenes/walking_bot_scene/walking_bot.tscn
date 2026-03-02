@@ -2,27 +2,17 @@
 
 [ext_resource type="Texture2D" uid="uid://r1ik30imn2vx" path="res://art/entities/walking_bot/robot_blue.png" id="1_sjsju"]
 [ext_resource type="Script" uid="uid://bnhgs45iwn7es" path="res://scenes/entity_scenes/walking_bot_scene/walking_bot.gd" id="2_i7no5"]
+[ext_resource type="Texture2D" uid="uid://cknqh2n7ivtdj" path="res://art/entities/penguin/penguin_attack_ss.png" id="2_larew"]
+[ext_resource type="Texture2D" uid="uid://ckimedgxf2230" path="res://art/entities/penguin/penguin.png" id="3_67sjn"]
 [ext_resource type="PackedScene" uid="uid://bes6m6c7gdswg" path="res://scenes/health_bar_scene/health_bar.tscn" id="3_qpbe0"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_xatvq"]
-atlas = ExtResource("1_sjsju")
-region = Rect2(32, 32, 32, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_0rvqr"]
+atlas = ExtResource("2_larew")
+region = Rect2(0, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_p1d4s"]
-atlas = ExtResource("1_sjsju")
-region = Rect2(96, 32, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_dcf1m"]
-atlas = ExtResource("1_sjsju")
-region = Rect2(128, 32, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_fguls"]
-atlas = ExtResource("1_sjsju")
-region = Rect2(160, 32, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_yxjye"]
-atlas = ExtResource("1_sjsju")
-region = Rect2(32, 128, 32, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_w324o"]
+atlas = ExtResource("2_larew")
+region = Rect2(16, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ac03j"]
 atlas = ExtResource("1_sjsju")
@@ -56,36 +46,21 @@ region = Rect2(160, 0, 32, 32)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_xatvq")
+"texture": SubResource("AtlasTexture_0rvqr")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_p1d4s")
+"texture": SubResource("AtlasTexture_w324o")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_dcf1m")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_fguls")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_fguls")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_dcf1m")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_p1d4s")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_xatvq")
+"texture": SubResource("AtlasTexture_0rvqr")
 }],
 "loop": false,
 "name": &"attack",
-"speed": 11.0
+"speed": 3.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_yxjye")
+"texture": ExtResource("3_67sjn")
 }],
 "loop": true,
 "name": &"death",
@@ -322,15 +297,17 @@ outline_color = Color(0, 0, 0, 1)
 
 [node name="walking_bot" type="CharacterBody2D" unique_id=955721681 groups=["active_entity", "commrades"]]
 z_index = 86
-scale = Vector2(1.67, 1.67)
 collision_layer = 128
 collision_mask = 128
 script = ExtResource("2_i7no5")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1818770368]
-scale = Vector2(0.99999994, 0.99999994)
+texture_filter = 1
+scale = Vector2(1.64, 1.64)
 sprite_frames = SubResource("SpriteFrames_qgnth")
-animation = &"death"
+animation = &"attack"
+frame = 2
+frame_progress = 1.0
 
 [node name="Area2D" type="Area2D" parent="." unique_id=294397583]
 scale = Vector2(0.99999994, 0.99999994)

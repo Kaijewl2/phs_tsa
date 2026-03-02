@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://geuv31ccg3un" path="res://art/entities/walking_bot/robot_red.png" id="1_4k2lw"]
 [ext_resource type="Script" uid="uid://bapv7idhow58n" path="res://scenes/entity_scenes/walking_bot_enemy_scene/walking_bot_enemy.gd" id="2_2axeb"]
 [ext_resource type="PackedScene" uid="uid://bes6m6c7gdswg" path="res://scenes/health_bar_scene/health_bar.tscn" id="3_6oadl"]
+[ext_resource type="Texture2D" uid="uid://ckimedgxf2230" path="res://art/entities/penguin/penguin.png" id="3_7lw4e"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gb4ap"]
 atlas = ExtResource("1_4k2lw")
@@ -19,10 +20,6 @@ region = Rect2(128, 96, 32, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_xxley"]
 atlas = ExtResource("1_4k2lw")
 region = Rect2(160, 96, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_anyeu"]
-atlas = ExtResource("1_4k2lw")
-region = Rect2(32, 192, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6oadl"]
 atlas = ExtResource("1_4k2lw")
@@ -86,7 +83,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_anyeu")
+"texture": ExtResource("3_7lw4e")
 }],
 "loop": false,
 "name": &"death",
@@ -134,6 +131,8 @@ script = ExtResource("2_2axeb")
 SPEED = 3
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=126498863]
+modulate = Color(0.99999994, 0.22953579, 0.17418489, 1)
+texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_gb4ap")
 animation = &"idle"
 
@@ -142,6 +141,7 @@ shape = SubResource("CircleShape2D_4k2lw")
 disabled = true
 
 [node name="health_bar" parent="." unique_id=1839495860 instance=ExtResource("3_6oadl")]
+modulate = Color(1, 0, 0, 1)
 offset_top = -17.785
 offset_bottom = -7.784996
 

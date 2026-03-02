@@ -20,18 +20,18 @@ func add_to_setup():
 		print("Deck full!")
 
 
-func _on_mouse_entered() -> void:
-	button.show()
-
-
-func _on_mouse_exited() -> void:
-	if not button.is_hovered():
-		button.hide()
-
-
 func _on_button_mouse_entered() -> void:
 	button.show()
 
 
 func _on_button_mouse_exited() -> void:
 	button.hide()
+
+
+func _on_texture_rect_mouse_entered() -> void:
+	button.show()
+
+
+func _on_texture_rect_mouse_exited() -> void:
+	if not button.is_hovered():
+		button.hide()

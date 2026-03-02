@@ -26,21 +26,6 @@ func _ready() -> void:
 	card_frame_scale = card_frame.scale
 
 
-func _process(_delta: float) -> void:
-	if is_mouse_over_card():
-		hovering = true
-		card_frame.scale = Vector2(card_frame_scale.x + 0.15, card_frame_scale.y + 0.15)
-	else:
-		hovering = false
-		card_frame.scale = card_frame_scale
-
-
-func is_mouse_over_card():
-	var mouse_pos = get_global_mouse_position()
-	var card_rect = Rect2(card_frame.global_position, card_frame.texture.get_size())
-	return card_rect.has_point(mouse_pos)
-
-
 func _input(event: InputEvent) -> void:
 	# Checks if input is mouse click and mouse is hovering over card
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
@@ -85,3 +70,13 @@ func anim_shake(node):
 	shake_tween.tween_property(node, "position", coin_counter_original_pos + Vector2(5, 0), 0.05)
 	shake_tween.tween_property(node, "position", coin_counter_original_pos, 0.05)
 	press_count+=1
+
+
+func _on_card_img_mouse_entered() -> void:
+	hovering = true
+	card_frame.scale = Vector2(card_frame_scale.x + 0.15, card_frame_scale.y + 0.15)
+
+
+func _on_card_img_mouse_exited() -> void:
+	hovering = false
+	card_frame.scale = card_frame_scale

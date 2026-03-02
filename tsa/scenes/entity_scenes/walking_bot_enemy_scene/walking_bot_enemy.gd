@@ -57,7 +57,7 @@ func death_logic():
 		get_parent().add_child(coin)
 		coin.global_position = Vector2(randf_range(self.global_position.x - 50, self.global_position.x + 50), randi_range(self.global_position.y - 50, self.global_position.y + 50))
 		GameData.change_balance(DEATH_VALUE, "add")
-		
+		animated_sprite_2d.flip_h = true
 		animated_sprite_2d.play("death")
 		GameData.active_enemies.erase(self)
 		remove_from_group("enemies")
@@ -88,7 +88,7 @@ func find_target():
 
 func _on_area_2d_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 	if event is InputEventMouseButton:
-		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed and current_context != Context.DEATH:
 			take_damage(50)
 
 
