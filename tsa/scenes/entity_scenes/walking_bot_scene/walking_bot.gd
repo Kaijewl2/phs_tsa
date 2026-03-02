@@ -70,15 +70,27 @@ func find_target():
 
 func take_damage(damage):
 	HEALTH -= damage
-	health_bar.change_value(HEALTH)
-	if HEALTH <= 0:
-		GameData.active_commrades.erase(self)
-		#queue_free()
-		remove_from_group("commrades")
+	
+	if current_context != Context.DEATH:
+		health_bar.change_value(HEALTH)
+		
+	if HEALTH <= 0 and current_context != Context.DEATH:
+		current_context = Context.DEATH
+		print(GameData.get_active_commrades())
+		death_logic()
 
 
 func death_logic():
+	current_context = Context.DEATH
+	
+	animated_sprite_2d.rotation = -20
 	animated_sprite_2d.play("death")
+	GameData.active_commrades.erase(self)
+	remove_from_group("commrades")
+	
+	await animated_sprite_2d.animation_finished
+	queue_free()
+
  
 
 func _on_area_2d_mouse_entered() -> void:

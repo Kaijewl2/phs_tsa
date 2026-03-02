@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://dmqa372mbo74j"]
+
+[ext_resource type="Script" uid="uid://jawk53g0gxhd" path="res://scenes/ice_scene/ice_scene.gd" id="1_2ismb"]
+[ext_resource type="Texture2D" uid="uid://72bu2vl5e83p" path="res://art/entities/penguin/ice_shoot.png" id="1_134yv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2ismb"]
+atlas = ExtResource("1_134yv")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_f8yk4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2ismb")
+}],
+"loop": false,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1b6f4"]
+radius = 7.615773
+
+[node name="ice_scene" type="Node2D" unique_id=434408871]
+script = ExtResource("1_2ismb")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=283573801]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_f8yk4")
+frame_progress = 1.0
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1005509310]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=576639144]
+shape = SubResource("CircleShape2D_1b6f4")
