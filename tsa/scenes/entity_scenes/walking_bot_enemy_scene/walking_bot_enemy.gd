@@ -1,9 +1,12 @@
 extends CharacterBody2D
 
+@export var unit_name:String = "walking bot"
 @export var HEALTH: float = 50.0
 @export var DAMAGE = 3
 @export var SPEED = 5
 @export var DEATH_VALUE = 5
+@export var unit_sprite: Texture2D
+@export var attack_cooldown:float = 5.0
 
 @onready var health_bar: CustomHealthBar = $health_bar
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
@@ -17,7 +20,6 @@ enum Context {IDLE, BATTLE, DEATH}
 var target = null
 var commrades = []
 var current_context = Context.IDLE
-var attack_cooldown:float = 5.0
 var attack_timer:float = 0.0
 var is_attacking: bool = false
 var ui_elements
@@ -72,7 +74,6 @@ func death_logic():
 
 func attack(commrade):
 	if not is_instance_valid(commrade) or commrade is ProgressBar:
-		#print("progress bar")
 		return
 	
 	animated_sprite_2d.play("attack")
@@ -92,10 +93,7 @@ func take_damage(damage):
 func find_target():
 	commrades = get_tree().get_nodes_in_group("commrades")
 	if not commrades.is_empty():
-		if commrades[0] is CharacterBody2D:
 			target = commrades[0]
-		else:
-			print(commrades)
 
 
 func _on_area_2d_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:

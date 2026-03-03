@@ -18,7 +18,7 @@ font_color = Color(0, 0, 0, 1)
 [sub_resource type="LabelSettings" id="LabelSettings_pdpf5"]
 line_spacing = 0.83
 font = ExtResource("3_5tngm")
-font_size = 8
+font_size = 10
 font_color = Color(0, 0, 0, 1)
 
 [node name="backpack_card" type="Control" unique_id=1231329556]

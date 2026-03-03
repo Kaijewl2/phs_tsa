@@ -1,30 +1,43 @@
 extends CharacterBody2D
 
+
+@export var unit_data: UnitData
+
+
+var unit_name:String
+var HEALTH:float
+var DAMAGE:int
+var SPEED:int
+var attack_cooldown:float
+
+
 @onready var stats_ui: Control = $stats_UI
 @onready var health_text: Label = $stats_UI/ColorRect/stats_container/health_text
 @onready var damage_text: Label = $stats_UI/ColorRect/stats_container/damage_text
 @onready var speed_text: Label = $stats_UI/ColorRect/stats_container/speed_text
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+@onready var name_text: Label = $stats_UI/ColorRect/stats_container/name_text
 @onready var health_bar: CustomHealthBar = $health_bar
-
-
-@export var HEALTH = 50
-@export var DAMAGE = 5
-@export var SPEED = 5
-
 
 enum Context {IDLE, BATTLE, DEATH}
 var current_context = Context.IDLE
 var target = null
-var attack_cooldown:float = 3.0
 var attack_timer:float = 0.0
-var is_attacking: bool = false
 
 
 func _ready() -> void:
+	
+	if unit_data:
+		unit_name = unit_data.unit_name
+		HEALTH = unit_data.health
+		DAMAGE = unit_data.damage
+		SPEED = unit_data.speed
+		attack_cooldown = unit_data.attack_cooldown
+	
 	health_text.text += str(HEALTH)
 	damage_text.text += str(DAMAGE)
 	speed_text.text += str(SPEED)
+	name_text.text += str(unit_name)
 	
 	health_bar._setup_health_bar(HEALTH)
 	
@@ -75,8 +88,6 @@ func take_damage(damage):
 		health_bar.change_value(HEALTH)
 		
 	if HEALTH <= 0 and current_context != Context.DEATH:
-		current_context = Context.DEATH
-		print(GameData.get_active_commrades())
 		death_logic()
 
 

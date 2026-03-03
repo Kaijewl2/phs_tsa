@@ -79,7 +79,6 @@ radius = 13.0
 [node name="walking_bot_enemy" type="CharacterBody2D" unique_id=122927017 groups=["enemies"]]
 z_index = 28
 script = ExtResource("2_2axeb")
-SPEED = 3
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=126498863]
 texture_filter = 1

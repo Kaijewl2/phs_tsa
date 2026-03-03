@@ -14,7 +14,7 @@ font_color = Color(0.84705883, 0.7607843, 0.34117648, 1)
 [sub_resource type="LabelSettings" id="LabelSettings_ng2uk"]
 line_spacing = 0.83
 font = ExtResource("5_1slgu")
-font_size = 8
+font_size = 11
 font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_w3e7i"]
@@ -25,11 +25,10 @@ font_color = Color(0, 0, 0, 1)
 [node name="sell_card" type="Control" unique_id=378176936 node_paths=PackedStringArray("card_frame")]
 custom_minimum_size = Vector2(269.66, 0)
 layout_mode = 3
-anchor_right = 0.126
-anchor_bottom = 0.312
-offset_right = -119.16
-offset_bottom = -114.96002
-scale = Vector2(1.945, 1.945)
+anchor_right = 0.14
+anchor_bottom = 0.20600002
+offset_right = -146.04
+offset_bottom = -0.480011
 script = ExtResource("1_yoeyb")
 card_frame = NodePath("card_img")
 value = 10
@@ -73,7 +72,6 @@ offset_bottom = 63.0
 texture = ExtResource("3_8bbjf")
 
 [node name="card_desc" type="Label" parent="card_img" unique_id=592417348]
-texture_filter = 2
 layout_mode = 0
 offset_left = 1.8830082
 offset_top = 33.98329

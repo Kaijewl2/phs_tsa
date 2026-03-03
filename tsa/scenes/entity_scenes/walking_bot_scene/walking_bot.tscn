@@ -2,9 +2,11 @@
 
 [ext_resource type="Script" uid="uid://bnhgs45iwn7es" path="res://scenes/entity_scenes/walking_bot_scene/walking_bot.gd" id="2_i7no5"]
 [ext_resource type="Texture2D" uid="uid://cknqh2n7ivtdj" path="res://art/entities/penguin/penguin_attack_ss.png" id="2_larew"]
+[ext_resource type="Resource" uid="uid://dg8015keied05" path="res://data/units/tank_bot_data.tres" id="2_w324o"]
 [ext_resource type="Texture2D" uid="uid://ckimedgxf2230" path="res://art/entities/penguin/penguin.png" id="3_67sjn"]
 [ext_resource type="PackedScene" uid="uid://bes6m6c7gdswg" path="res://scenes/health_bar_scene/health_bar.tscn" id="3_qpbe0"]
 [ext_resource type="Texture2D" uid="uid://bm5ilici6qsr1" path="res://art/entities/penguin/penguin_idle.png" id="4_0rvqr"]
+[ext_resource type="FontFile" uid="uid://crdmvv8dc23b3" path="res://art/fonts/blue_winter/Blue Winter.ttf" id="5_0rvqr"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0rvqr"]
 atlas = ExtResource("2_larew")
@@ -102,11 +104,12 @@ animations = [{
 radius = 13.785467
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_i7no5"]
-radius = 13.509601
+radius = 14.035672
 
 [sub_resource type="LabelSettings" id="LabelSettings_i7no5"]
-font_size = 25
-outline_size = 5
+font = ExtResource("5_0rvqr")
+font_size = 19
+font_color = Color(0, 0, 0, 1)
 outline_color = Color(0, 0, 0, 1)
 
 [node name="walking_bot" type="CharacterBody2D" unique_id=955721681 groups=["active_entity", "commrades"]]
@@ -114,6 +117,7 @@ z_index = 86
 collision_layer = 128
 collision_mask = 128
 script = ExtResource("2_i7no5")
+unit_data = ExtResource("2_w324o")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1818770368]
 texture_filter = 1
@@ -138,6 +142,7 @@ debug_color = Color(0, 0.59763116, 0.7153533, 0.41960785)
 
 [node name="stats_UI" type="Control" parent="." unique_id=1977458941]
 visible = false
+texture_filter = 2
 layout_mode = 3
 anchors_preset = 0
 offset_left = 14.75
@@ -151,15 +156,22 @@ offset_left = 0.22006017
 offset_top = -0.016346455
 offset_right = 76.26796
 offset_bottom = 43.69623
-color = Color(0.047058824, 0.047058824, 0.047058824, 0.42745098)
+color = Color(1, 1, 1, 0.42745098)
 
 [node name="stats_container" type="VBoxContainer" parent="stats_UI/ColorRect" unique_id=1635680713]
+texture_filter = 1
 layout_mode = 0
 offset_left = 4.315
 offset_top = 0.805
 offset_right = 108.315
 offset_bottom = 113.805
 scale = Vector2(0.35, 0.35)
+
+[node name="name_text" type="Label" parent="stats_UI/ColorRect/stats_container" unique_id=1727807319]
+texture_filter = 1
+layout_mode = 2
+text = "name: "
+label_settings = SubResource("LabelSettings_i7no5")
 
 [node name="health_text" type="Label" parent="stats_UI/ColorRect/stats_container" unique_id=2067946875]
 layout_mode = 2
@@ -176,7 +188,7 @@ layout_mode = 2
 text = "speed: "
 label_settings = SubResource("LabelSettings_i7no5")
 
-[node name="health_bar" parent="." unique_id=1839495860 groups=["commrades"] instance=ExtResource("3_qpbe0")]
+[node name="health_bar" parent="." unique_id=1839495860 instance=ExtResource("3_qpbe0")]
 offset_left = -8.383233
 offset_top = -18.562874
 offset_right = 71.61677

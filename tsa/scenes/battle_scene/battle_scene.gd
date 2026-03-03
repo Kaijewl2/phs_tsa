@@ -35,19 +35,26 @@ func _process(_delta: float) -> void:
 func spawn_commrades():
 	var commrade = WALKING_BOT.instantiate()
 	
+	#commrade.unit_name = "Glaiel"
+	#commrade.HEALTH = 15.0
+	#commrade.DAMAGE = 10.0
+	#commrade.attack_cooldown = 8.0
 	commrade.position = Vector2(randi_range(400, 700), randi_range(730, 870))
-	commrade.get_node("AnimatedSprite2D").animation = "idle"
-	commrade.get_node("AnimatedSprite2D").play()
 	commrade.scale = Vector2(5.75,5.75)
+	
+	add_child(commrade)
 	
 	commrade.add_to_group("commrades")
 	GameData.active_commrades.push_back(commrade)
-	add_child(commrade)
 
 
 func spawn_enemy():
 	var enemy = WALKING_BOT_ENEMY.instantiate()
 	
+	enemy.unit_name = "Glaiel"
+	enemy.HEALTH = 15.0
+	enemy.DAMAGE = 10.0
+	enemy.attack_cooldown = 8.0
 	enemy.position = Vector2(randi_range(1200, 1550), randi_range(805, 850))
 	enemy.scale = Vector2(6.325, 6.325)
 	

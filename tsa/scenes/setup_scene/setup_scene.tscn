@@ -51,7 +51,6 @@ scale = Vector2(0.66, 0.66)
 columns = 3
 
 [node name="backpack_card2" parent="backpack_container/storage_img/GridContainer" unique_id=675617672 instance=ExtResource("4_0u8xd")]
-custom_minimum_size = Vector2(234, 267)
 layout_mode = 2
 
 [node name="backpack_card3" parent="backpack_container/storage_img/GridContainer" unique_id=295022530 instance=ExtResource("4_0u8xd")]
