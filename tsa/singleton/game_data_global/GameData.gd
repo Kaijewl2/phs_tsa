@@ -16,13 +16,15 @@ var active_units = []
 var active_commrades = []
 var active_enemies = []
 var player_hand_cards = []
-
 var deck_cards = []
 var setup_cards = []
 var backpack_cards = []
 var balance: int
 var PlayerClass: String
-
+var unit_types = {
+	"penguin": preload("uid://1p5h1g0b1o30"),
+	"cat": preload("uid://dd8sqowg4kx7p"),
+}
 
 func _ready() -> void:
 	if player_hand_cards.is_empty():
@@ -31,6 +33,12 @@ func _ready() -> void:
 		
 		for i in range(1):
 			add_card_to_setup(backpack_cards[i])
+
+
+func get_unit_id(unit_id:String):
+	if unit_types.has(unit_id):
+		return unit_types[unit_id]
+	return "no valid unit"
 
 
 func get_active_units():
@@ -97,6 +105,16 @@ func add_card_to_array(card_path:String):
 	
 	# Emit most recently added card as argument
 	hand_changed.emit(card)
+
+
+func get_random_entity_data():
+	var unit_list = unit_types.values()
+	
+	return unit_list.pick_random()
+
+
+func get_random_card_data():
+	pass
 
 
 func change_balance(value, operation):

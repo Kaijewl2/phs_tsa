@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="UnitData" format=3 uid="uid://dg8015keied05"]
+
+[ext_resource type="Script" uid="uid://bo4u7fiofkecs" path="res://data/UnitData.gd" id="1_klxxt"]
+[ext_resource type="SpriteFrames" uid="uid://l3xmsvt5c1gq" path="res://data/units/penguin/penguin_sprite_frames.tres" id="2_nwu8f"]
+
+[resource]
+script = ExtResource("1_klxxt")
+unit_name = "tank"
+damage = 3
+speed = 2
+attack_cooldown = 7.0
+sprite_animations = ExtResource("2_nwu8f")
+metadata/_custom_type_script = "uid://bo4u7fiofkecs"

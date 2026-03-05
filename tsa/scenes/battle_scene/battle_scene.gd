@@ -9,7 +9,6 @@ extends Node2D
 const WALKING_BOT_ENEMY = preload("uid://dd11l81fddnsb")
 const WALKING_BOT = preload("uid://bdpc8podu70pj")
 
-
 var active_units
 var active_commrades
 var active_enemies
@@ -34,11 +33,12 @@ func _process(_delta: float) -> void:
 
 func spawn_commrades():
 	var commrade = WALKING_BOT.instantiate()
+
+	# random unit spawned (TEMP)
+	var commrade_type = GameData.get_random_entity_data()
 	
-	#commrade.unit_name = "Glaiel"
-	#commrade.HEALTH = 15.0
-	#commrade.DAMAGE = 10.0
-	#commrade.attack_cooldown = 8.0
+	commrade.unit_data = commrade_type
+		
 	commrade.position = Vector2(randi_range(400, 700), randi_range(730, 870))
 	commrade.scale = Vector2(5.75,5.75)
 	

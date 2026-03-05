@@ -9,6 +9,7 @@ var HEALTH:float
 var DAMAGE:int
 var SPEED:int
 var attack_cooldown:float
+var sprite_animation: SpriteFrames
 
 
 @onready var stats_ui: Control = $stats_UI
@@ -33,6 +34,7 @@ func _ready() -> void:
 		DAMAGE = unit_data.damage
 		SPEED = unit_data.speed
 		attack_cooldown = unit_data.attack_cooldown
+		animated_sprite_2d.sprite_frames = unit_data.sprite_animations
 	
 	health_text.text += str(HEALTH)
 	damage_text.text += str(DAMAGE)

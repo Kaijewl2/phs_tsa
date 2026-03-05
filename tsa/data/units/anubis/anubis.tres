@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="UnitData" format=3 uid="uid://dd8sqowg4kx7p"]
+
+[ext_resource type="Script" uid="uid://bo4u7fiofkecs" path="res://data/UnitData.gd" id="1_q5v3m"]
+[ext_resource type="SpriteFrames" uid="uid://dtkw6o2emhqpj" path="res://data/units/anubis/anubis_sprite_frames.tres" id="2_u1fbx"]
+
+[resource]
+script = ExtResource("1_q5v3m")
+unit_name = "cat"
+health = 20.0
+damage = 7
+speed = 6
+attack_cooldown = 1.5
+death_value = 15
+sprite_animations = ExtResource("2_u1fbx")
+metadata/_custom_type_script = "uid://bo4u7fiofkecs"
