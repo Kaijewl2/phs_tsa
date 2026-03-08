@@ -1,13 +1,15 @@
-ART RESOURCES ARE PLACEHOLDERS AS OF (02/17/2026) AND WILL NOT BE USED IN FINAL PRODUCTION
+COPYWRITTEN ART RESOURCES ARE PLACEHOLDERS AS OF (03/7/2026) AND WILL NOT BE USED IN FINAL PRODUCTION
 
 
-<img width="1715" height="956" alt="image" src="https://github.com/user-attachments/assets/5dcd046f-7e57-4682-bd53-f05614bb695a" />
+<img width="1838" height="981" alt="Screenshot 2026-03-07 235729" src="https://github.com/user-attachments/assets/304b988a-e7d6-486f-a70b-fa9c12558b9e" />
 
 
-<img width="807" height="451" alt="image" src="https://github.com/user-attachments/assets/86f95570-4761-416b-9f23-d28e370f41ca" />
+<img width="1832" height="992" alt="Screenshot 2026-03-07 235750" src="https://github.com/user-attachments/assets/7c136aae-6e98-4275-a38c-31a93fbbea2a" />
 
 
-<img width="938" height="742" alt="image" src="https://github.com/user-attachments/assets/1b8935f8-79aa-4dbf-8558-612edfeea271" />
+<img width="1903" height="1021" alt="Screenshot 2026-03-07 235859" src="https://github.com/user-attachments/assets/6480a3e1-7c99-4df3-96a9-4751098fd655" />
 
 
-<img width="1711" height="962" alt="image" src="https://github.com/user-attachments/assets/4a779233-d2a6-41f3-a7a4-3b1fefa2af42" />
+<img width="1513" height="849" alt="Screenshot 2026-03-07 235929" src="https://github.com/user-attachments/assets/1f5c216f-3e8f-4e19-83e2-e8e52f5fd25d" />
+
+
