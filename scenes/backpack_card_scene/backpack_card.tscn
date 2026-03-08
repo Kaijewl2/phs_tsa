@@ -32,7 +32,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_u6bpu")
 
-[node name="TextureRect" type="TextureRect" parent="." unique_id=1261989855]
+[node name="card_frame" type="TextureRect" parent="." unique_id=1261989855]
 texture_filter = 1
 layout_mode = 0
 offset_right = 34.0
@@ -41,7 +41,15 @@ scale = Vector2(3.59, 3.59)
 texture = ExtResource("2_j4dn1")
 stretch_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="TextureRect" unique_id=356638567]
+[node name="card_background" type="ColorRect" parent="card_frame" unique_id=105876419]
+layout_mode = 0
+offset_left = 3.899721
+offset_top = 6.9637876
+offset_right = 30.083565
+offset_bottom = 30.083565
+color = Color(0.3328807, 0.33288068, 0.33288068, 1)
+
+[node name="card_image" type="TextureRect" parent="card_frame" unique_id=356638567]
 layout_mode = 0
 offset_left = 3.3426194
 offset_top = 8.077993
@@ -94,7 +102,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 
-[connection signal="mouse_entered" from="TextureRect" to="." method="_on_texture_rect_mouse_entered"]
-[connection signal="mouse_exited" from="TextureRect" to="." method="_on_texture_rect_mouse_exited"]
+[connection signal="mouse_entered" from="card_frame" to="." method="_on_texture_rect_mouse_entered"]
+[connection signal="mouse_exited" from="card_frame" to="." method="_on_texture_rect_mouse_exited"]
 [connection signal="mouse_entered" from="Button" to="." method="_on_button_mouse_entered"]
 [connection signal="mouse_exited" from="Button" to="." method="_on_button_mouse_exited"]

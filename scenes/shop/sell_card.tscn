@@ -22,7 +22,7 @@ font = ExtResource("5_1slgu")
 font_size = 12
 font_color = Color(0, 0, 0, 1)
 
-[node name="sell_card" type="Control" unique_id=378176936 node_paths=PackedStringArray("card_frame")]
+[node name="sell_card" type="Control" unique_id=378176936]
 custom_minimum_size = Vector2(269.66, 0)
 layout_mode = 3
 anchor_right = 0.14
@@ -30,8 +30,6 @@ anchor_bottom = 0.20600002
 offset_right = -146.04
 offset_bottom = -0.480011
 script = ExtResource("1_yoeyb")
-card_frame = NodePath("card_img")
-value = 10
 
 [node name="card_img" type="TextureRect" parent="." unique_id=1934516013]
 texture_filter = 1
@@ -42,12 +40,20 @@ scale = Vector2(3.59, 3.59)
 texture = ExtResource("2_8bbjf")
 stretch_mode = 2
 
+[node name="card_background" type="ColorRect" parent="card_img" unique_id=1726521614]
+layout_mode = 0
+offset_left = 4.4568243
+offset_top = 6.685237
+offset_right = 30.640667
+offset_bottom = 29.805012
+color = Color(0.13682577, 0.13682574, 0.13682571, 1)
+
 [node name="card_icon" type="TextureRect" parent="card_img" unique_id=165231949]
 layout_mode = 0
 offset_left = 3.832869
 offset_top = 7.5208917
 offset_right = 43.83287
-offset_bottom = 47.520893
+offset_bottom = 48.123325
 scale = Vector2(0.59, 0.59)
 texture = ExtResource("3_apoln")
 
@@ -59,7 +65,7 @@ offset_top = 45.682213
 offset_right = 90.63136
 offset_bottom = 106.68233
 scale = Vector2(0.275, 0.275)
-text = "10"
+text = "67"
 label_settings = SubResource("LabelSettings_apoln")
 
 [node name="purrrency_img" type="TextureRect" parent="card_img/price_label" unique_id=1084031942]

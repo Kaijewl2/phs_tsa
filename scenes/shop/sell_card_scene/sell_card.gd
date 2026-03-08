@@ -1,12 +1,16 @@
 extends Control
 class_name SellCard
 
-
-@export var card_frame: TextureRect
-@export var value: int = 100
+@export var sell_card_data: SellCardData
 
 
+@onready var card_frame: TextureRect = $card_img
+@onready var card_background: ColorRect = $card_img/card_background
+@onready var card_icon: TextureRect = $card_img/card_icon
 @onready var player_hand = get_tree().get_first_node_in_group("player_hand")
+@onready var price_label: Label = $card_img/price_label
+@onready var card_desc: Label = $card_img/card_desc
+@onready var card_name: Label = $card_img/card_name
 
 
 const SELL_CARD_PATH: String = "res://scenes/shop/sell_card_scene/sell_card.tscn"
@@ -14,6 +18,13 @@ const SETUP_CARD_PATH: String = "res://scenes/setup_card_scene/setup_card.tscn"
 const WALKING_BOT_CARD_SCENE_PATH: String = "res://scenes/card_scenes/card_scene/card.tscn"
 
 
+# Used for hover info
+var unit_name: String
+var health: float
+var damage: int
+var speed: int
+
+var value: int
 var hovering: bool
 var press_count: int
 var coin_counter_original_pos: Vector2
@@ -23,6 +34,21 @@ var card_frame_scale: Vector2
 
 
 func _ready() -> void:
+	if sell_card_data:
+		card_frame.texture = sell_card_data.card_frame
+		card_background.color = sell_card_data.card_background
+		card_icon.texture = sell_card_data.card_icon
+		unit_name = sell_card_data.sell_card_name
+		health = sell_card_data.health
+		damage = sell_card_data.damage
+		speed = sell_card_data.speed
+		value = sell_card_data.value
+		card_desc.text = sell_card_data.sell_card_desc
+		card_name.text = sell_card_data.sell_card_name
+	
+	price_label.text = str(value)
+	
+
 	card_frame_scale = card_frame.scale
 
 

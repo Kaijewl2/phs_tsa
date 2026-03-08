@@ -26,6 +26,13 @@ var unit_types = {
 	"cat": preload("uid://dd8sqowg4kx7p"),
 }
 
+var sell_card_types = {
+	"penguin": preload("uid://ctslcvel45hud"),
+	"cat": preload("uid://2kvmrlos8s2h"),
+	
+}
+
+
 func _ready() -> void:
 	if player_hand_cards.is_empty():
 		for i in range(MAX_BACKPACK_SIZE - 3):
@@ -65,6 +72,7 @@ func get_player_class():
 	return PlayerClass
 
 
+# Add sell correct sell card to backpack when purchased
 func add_card_to_backpack(card_path:String):
 	backpack_cards.append(card_path)
 	backpack_changed.emit()
@@ -113,8 +121,10 @@ func get_random_entity_data():
 	return unit_list.pick_random()
 
 
-func get_random_card_data():
-	pass
+func get_random_sell_card_data():
+	var sell_card_list = sell_card_types.values()
+	
+	return sell_card_list.pick_random()
 
 
 func change_balance(value, operation):

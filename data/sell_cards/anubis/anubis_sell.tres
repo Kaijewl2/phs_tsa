@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="SellCardData" format=3 uid="uid://2kvmrlos8s2h"]
+
+[ext_resource type="Texture2D" uid="uid://co5cigw212hby" path="res://art/cards/linux_card_template.png" id="1_74lw5"]
+[ext_resource type="Script" uid="uid://c6rkw8aflunst" path="res://data/SellCardData.gd" id="1_pwb7n"]
+[ext_resource type="Texture2D" uid="uid://cqbltcjc6bult" path="res://art/entities/anubis/anubis_single.png" id="2_74lw5"]
+
+[resource]
+script = ExtResource("1_pwb7n")
+card_frame = ExtResource("1_74lw5")
+card_background = Color(0.33660764, 0.3366076, 0.3366076, 1)
+card_icon = ExtResource("2_74lw5")
+sell_card_name = "cat"
+sell_card_desc = "hardend from the alleys"
+value = 5
+metadata/_custom_type_script = "uid://c6rkw8aflunst"
