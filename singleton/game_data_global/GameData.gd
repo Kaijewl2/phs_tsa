@@ -19,24 +19,22 @@ var player_hand_cards = []
 var deck_cards = []
 var setup_cards = []
 var backpack_cards = []
+var backpack_card_types = []
 var balance: int
 var PlayerClass: String
 var unit_types = {
 	"penguin": preload("uid://1p5h1g0b1o30"),
 	"cat": preload("uid://dd8sqowg4kx7p"),
 }
-
 var sell_card_types = {
 	"penguin": preload("uid://ctslcvel45hud"),
 	"cat": preload("uid://2kvmrlos8s2h"),
-	
 }
 
 
 func _ready() -> void:
 	if player_hand_cards.is_empty():
-		for i in range(MAX_BACKPACK_SIZE - 3):
-			add_card_to_backpack("res://scenes/setup_card_scene/setup_card.tscn")
+		add_card_to_backpack("res://scenes/setup_card_scene/setup_card.tscn", sell_card_types["cat"])
 		
 		for i in range(1):
 			add_card_to_setup(backpack_cards[i])
@@ -73,8 +71,10 @@ func get_player_class():
 
 
 # Add sell correct sell card to backpack when purchased
-func add_card_to_backpack(card_path:String):
+func add_card_to_backpack(card_path:String, card_type:SellCardData):
 	backpack_cards.append(card_path)
+	print("adding card type: ", card_type)
+	backpack_card_types.append(card_type)
 	backpack_changed.emit()
 
 

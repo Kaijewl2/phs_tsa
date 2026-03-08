@@ -8,6 +8,7 @@
 script = ExtResource("1_pwb7n")
 card_frame = ExtResource("1_74lw5")
 card_background = Color(0.33660764, 0.3366076, 0.3366076, 1)
+card_borders = Color(0.92099476, 0.9209946, 0.9209946, 1)
 card_icon = ExtResource("2_74lw5")
 sell_card_name = "cat"
 sell_card_desc = "hardend from the alleys"

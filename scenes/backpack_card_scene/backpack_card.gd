@@ -1,7 +1,7 @@
 extends Control
 
 
-@export var backpack_card_data: BackpackCardData
+@export var backpack_card_data: SellCardData
 
 
 @onready var card_frame: TextureRect = $card_frame
@@ -9,6 +9,7 @@ extends Control
 @onready var card_image: TextureRect = $card_frame/card_image
 @onready var card_name: Label = $card_name
 @onready var card_desc: Label = $card_desc
+@onready var card_borders: Control = $card_frame/card_borders
 
 @onready var button: Button = $Button
 
@@ -16,20 +17,23 @@ extends Control
 var health: float = 6.7
 var damage: int = 67
 var speed: int = 67
+var value: int = 76
 
 var card_path: String
 
 
 func _ready() -> void:
 	if backpack_card_data:
+		card_borders.modulate = backpack_card_data.card_borders
 		card_frame.texture = backpack_card_data.card_frame
 		card_background.color = backpack_card_data.card_background
 		card_image.texture = backpack_card_data.card_icon
-		card_name.text = backpack_card_data.backpack_card_name
-		card_desc.text = backpack_card_data.backpack_card_desc
+		card_name.text = backpack_card_data.sell_card_name
+		card_desc.text = backpack_card_data.sell_card_desc
 		health = backpack_card_data.health
 		damage = backpack_card_data.damage
 		speed = backpack_card_data.speed
+		value = backpack_card_data.value
 
 
 func setup(path: String):

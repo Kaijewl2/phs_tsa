@@ -16,7 +16,7 @@ var center_screen_x
 
 func _ready() -> void:
 	center_screen_x = get_viewport().size.x / 2
-	
+
 	GameData.setup_changed.connect(load_cards_from_setup)
 	load_cards_from_setup()
 

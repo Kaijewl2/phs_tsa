@@ -1,9 +1,14 @@
 extends Control
 class_name SellCard
 
+
+signal card_sold(card_type)
+
+
 @export var sell_card_data: SellCardData
 
 
+@onready var card_borders: Control = $card_img/card_borders
 @onready var card_frame: TextureRect = $card_img
 @onready var card_background: ColorRect = $card_img/card_background
 @onready var card_icon: TextureRect = $card_img/card_icon
@@ -36,6 +41,7 @@ var card_frame_scale: Vector2
 func _ready() -> void:
 	if sell_card_data:
 		card_frame.texture = sell_card_data.card_frame
+		card_borders.modulate = sell_card_data.card_borders
 		card_background.color = sell_card_data.card_background
 		card_icon.texture = sell_card_data.card_icon
 		unit_name = sell_card_data.sell_card_name
@@ -56,29 +62,9 @@ func _input(event: InputEvent) -> void:
 	# Checks if input is mouse click and mouse is hovering over card
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 		if hovering and event.is_pressed():
-			# Successful purchase
-			if GameData.get_balance() >= value && GameData.backpack_cards.size() < GameData.MAX_BACKPACK_SIZE:
-				GameData.change_balance(value, "subtract")
-				
-				# Add card to player's backpack
-				GameData.add_card_to_backpack(SETUP_CARD_PATH)
-				
-				# Delete card
-				self.queue_free()
-			# Insufficient funds
-			else:
-				var coin_counter: Control = get_parent().get_parent().get_node("coin_counter")
-				coin_counter.get_node("AnimationPlayer").play("insufficient_funds")
-				anim_shake(coin_counter)
-				
-				if press_count >= 10:
-					var brick: Control = get_parent().get_parent().get_node("brick")
-					brick.show()
-					await get_tree().create_timer(2.0).timeout
-					brick.hide()
-					
-					press_count = 0
-				
+			handle_purchase()
+
+
 func anim_shake(node):
 	if is_first_shake:
 		coin_counter_original_pos = node.position
@@ -96,6 +82,32 @@ func anim_shake(node):
 	shake_tween.tween_property(node, "position", coin_counter_original_pos + Vector2(5, 0), 0.05)
 	shake_tween.tween_property(node, "position", coin_counter_original_pos, 0.05)
 	press_count+=1
+
+func handle_purchase():
+	# Successful purchase
+	if GameData.get_balance() >= value && GameData.backpack_cards.size() < GameData.MAX_BACKPACK_SIZE:
+		GameData.change_balance(value, "subtract")
+
+		# Add card to player's backpack
+		print("card type: ", sell_card_data)
+		card_sold.emit(sell_card_data.sell_card_name)
+		GameData.add_card_to_backpack(SETUP_CARD_PATH, sell_card_data)
+
+		# Delete card
+		self.queue_free()
+	# Insufficient funds
+	else:
+		var coin_counter: Control = get_parent().get_parent().get_node("coin_counter")
+		coin_counter.get_node("AnimationPlayer").play("insufficient_funds")
+		anim_shake(coin_counter)
+
+		if press_count >= 10:
+			var brick: Control = get_parent().get_parent().get_node("brick")
+			brick.show()
+			await get_tree().create_timer(2.0).timeout
+			brick.hide()
+
+			press_count = 0
 
 
 func _on_card_img_mouse_entered() -> void:

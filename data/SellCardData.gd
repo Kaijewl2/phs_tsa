@@ -4,6 +4,7 @@ class_name SellCardData
 
 @export var card_frame: Texture2D
 @export var card_background: Color
+@export var card_borders: Color
 @export var card_icon: Texture2D
 @export var sell_card_name: String = "Base sell card"
 @export var sell_card_desc: String = "Azad's greatest player"

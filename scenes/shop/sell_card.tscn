@@ -27,8 +27,10 @@ custom_minimum_size = Vector2(269.66, 0)
 layout_mode = 3
 anchor_right = 0.14
 anchor_bottom = 0.20600002
-offset_right = -146.04
-offset_bottom = -0.480011
+offset_left = -32.0
+offset_top = -77.0
+offset_right = -31.139984
+offset_bottom = -77.48001
 script = ExtResource("1_yoeyb")
 
 [node name="card_img" type="TextureRect" parent="." unique_id=1934516013]
@@ -47,6 +49,60 @@ offset_top = 6.685237
 offset_right = 30.640667
 offset_bottom = 29.805012
 color = Color(0.13682577, 0.13682574, 0.13682571, 1)
+
+[node name="card_borders" type="Control" parent="card_img" unique_id=233632782]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ColorRect" type="ColorRect" parent="card_img/card_borders" unique_id=1645606327]
+layout_mode = 0
+offset_left = 1.1142063
+offset_top = 0.5571041
+offset_right = 2.2284124
+offset_bottom = 46.239555
+
+[node name="ColorRect2" type="ColorRect" parent="card_img/card_borders" unique_id=1326393382]
+layout_mode = 0
+offset_left = 1.1142063
+offset_top = 0.8356552
+offset_right = 33.147636
+offset_bottom = 1.9498613
+
+[node name="ColorRect3" type="ColorRect" parent="card_img/card_borders" unique_id=598905471]
+layout_mode = 0
+offset_left = 32.039
+offset_top = 0.5569992
+offset_right = 33.15327
+offset_bottom = 46.23945
+
+[node name="ColorRect4" type="ColorRect" parent="card_img/card_borders" unique_id=199545660]
+layout_mode = 0
+offset_left = 8.356545
+offset_top = 2.3360004
+offset_right = 26.462395
+offset_bottom = 4.456825
+
+[node name="ColorRect5" type="ColorRect" parent="card_img/card_borders" unique_id=1015484874]
+layout_mode = 0
+offset_left = 8.913648
+offset_top = 4.1782722
+offset_right = 25.069637
+offset_bottom = 5.2924786
+
+[node name="ColorRect6" type="ColorRect" parent="card_img/card_borders" unique_id=92417880]
+layout_mode = 0
+offset_left = 1.1142063
+offset_top = 45.682446
+offset_right = 33.14763
+offset_bottom = 46.79665
+
+[node name="ColorRect7" type="ColorRect" parent="card_img/card_borders" unique_id=1809205838]
+layout_mode = 0
+offset_left = 1.1142063
+offset_top = 32.03343
+offset_right = 33.14763
+offset_bottom = 34.261837
 
 [node name="card_icon" type="TextureRect" parent="card_img" unique_id=165231949]
 layout_mode = 0
@@ -91,6 +147,7 @@ vertical_alignment = 1
 autowrap_mode = 3
 
 [node name="card_name" type="Label" parent="card_img" unique_id=592410685]
+z_index = 1
 texture_filter = 2
 layout_mode = 0
 offset_left = 9.682451

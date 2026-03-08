@@ -53,36 +53,6 @@ columns = 3
 [node name="backpack_card2" parent="backpack_container/storage_img/GridContainer" unique_id=675617672 instance=ExtResource("4_0u8xd")]
 layout_mode = 2
 
-[node name="backpack_card3" parent="backpack_container/storage_img/GridContainer" unique_id=295022530 instance=ExtResource("4_0u8xd")]
-layout_mode = 2
-
-[node name="backpack_card4" parent="backpack_container/storage_img/GridContainer" unique_id=469908922 instance=ExtResource("4_0u8xd")]
-layout_mode = 2
-
-[node name="backpack_card5" parent="backpack_container/storage_img/GridContainer" unique_id=1267177752 instance=ExtResource("4_0u8xd")]
-layout_mode = 2
-
-[node name="backpack_card6" parent="backpack_container/storage_img/GridContainer" unique_id=389343536 instance=ExtResource("4_0u8xd")]
-layout_mode = 2
-
-[node name="backpack_card7" parent="backpack_container/storage_img/GridContainer" unique_id=710565551 instance=ExtResource("4_0u8xd")]
-layout_mode = 2
-
-[node name="backpack_card8" parent="backpack_container/storage_img/GridContainer" unique_id=1635247963 instance=ExtResource("4_0u8xd")]
-layout_mode = 2
-
-[node name="backpack_card9" parent="backpack_container/storage_img/GridContainer" unique_id=382294607 instance=ExtResource("4_0u8xd")]
-layout_mode = 2
-
-[node name="backpack_card10" parent="backpack_container/storage_img/GridContainer" unique_id=2135613285 instance=ExtResource("4_0u8xd")]
-layout_mode = 2
-
-[node name="backpack_card11" parent="backpack_container/storage_img/GridContainer" unique_id=584791292 instance=ExtResource("4_0u8xd")]
-layout_mode = 2
-
-[node name="backpack_card12" parent="backpack_container/storage_img/GridContainer" unique_id=1561571689 instance=ExtResource("4_0u8xd")]
-layout_mode = 2
-
 [node name="active_cards_container" type="Control" parent="." unique_id=1052810598]
 layout_mode = 3
 anchors_preset = 0

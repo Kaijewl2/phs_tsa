@@ -8,6 +8,7 @@
 script = ExtResource("2_me5ws")
 card_frame = ExtResource("1_ob0qv")
 card_background = Color(0.14301556, 0.6262839, 0.99999565, 1)
+card_borders = Color(0, 0.24995548, 0.36783233, 1)
 card_icon = ExtResource("2_n5gv3")
 sell_card_name = "penguin"
 sell_card_desc = "Straight off the iceberg"
