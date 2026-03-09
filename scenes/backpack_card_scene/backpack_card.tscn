@@ -41,6 +41,68 @@ scale = Vector2(3.59, 3.59)
 texture = ExtResource("2_j4dn1")
 stretch_mode = 2
 
+[node name="card_borders" type="Control" parent="card_frame" unique_id=145303682]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+
+[node name="ColorRect" type="ColorRect" parent="card_frame/card_borders" unique_id=1805507262]
+layout_mode = 0
+offset_left = 1.1142061
+offset_top = 1.9498606
+offset_right = 2.2284122
+offset_bottom = 45.961002
+mouse_filter = 2
+
+[node name="ColorRect2" type="ColorRect" parent="card_frame/card_borders" unique_id=794532640]
+layout_mode = 0
+offset_left = 32.019
+offset_top = 1.95
+offset_right = 33.033
+offset_bottom = 45.961002
+mouse_filter = 2
+
+[node name="ColorRect3" type="ColorRect" parent="card_frame/card_borders" unique_id=801610272]
+layout_mode = 0
+offset_left = 1.1142061
+offset_top = 1.3927578
+offset_right = 33.127205
+offset_bottom = 2.5067577
+mouse_filter = 2
+
+[node name="ColorRect4" type="ColorRect" parent="card_frame/card_borders" unique_id=2026014496]
+layout_mode = 0
+offset_left = 1.114
+offset_top = 46.148
+offset_right = 33.112
+offset_bottom = 47.14
+mouse_filter = 2
+
+[node name="ColorRect5" type="ColorRect" parent="card_frame/card_borders" unique_id=1979230691]
+layout_mode = 0
+offset_left = 1.004
+offset_top = 32.108
+offset_right = 33.027
+offset_bottom = 34.173
+mouse_filter = 2
+
+[node name="ColorRect6" type="ColorRect" parent="card_frame/card_borders" unique_id=635307046]
+layout_mode = 0
+offset_left = 8.077994
+offset_top = 2.2284122
+offset_right = 26.183994
+offset_bottom = 4.2634125
+mouse_filter = 2
+
+[node name="ColorRect7" type="ColorRect" parent="card_frame/card_borders" unique_id=1878381732]
+layout_mode = 0
+offset_left = 8.91365
+offset_top = 4.178273
+offset_right = 25.069637
+offset_bottom = 5.2924795
+mouse_filter = 2
+
 [node name="card_background" type="ColorRect" parent="card_frame" unique_id=105876419]
 layout_mode = 0
 offset_left = 3.899721
@@ -57,60 +119,6 @@ offset_right = 43.34262
 offset_bottom = 48.077995
 scale = Vector2(0.59, 0.59)
 texture = ExtResource("3_c4ux8")
-
-[node name="card_borders" type="Control" parent="card_frame" unique_id=145303682]
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="ColorRect" type="ColorRect" parent="card_frame/card_borders" unique_id=1805507262]
-layout_mode = 0
-offset_left = 1.1142061
-offset_top = 1.9498606
-offset_right = 2.2284122
-offset_bottom = 45.961002
-
-[node name="ColorRect2" type="ColorRect" parent="card_frame/card_borders" unique_id=794532640]
-layout_mode = 0
-offset_left = 32.019
-offset_top = 1.95
-offset_right = 33.033
-offset_bottom = 45.961002
-
-[node name="ColorRect3" type="ColorRect" parent="card_frame/card_borders" unique_id=801610272]
-layout_mode = 0
-offset_left = 1.1142061
-offset_top = 1.3927578
-offset_right = 33.127205
-offset_bottom = 2.5067577
-
-[node name="ColorRect4" type="ColorRect" parent="card_frame/card_borders" unique_id=2026014496]
-layout_mode = 0
-offset_left = 1.114
-offset_top = 46.148
-offset_right = 33.112
-offset_bottom = 47.14
-
-[node name="ColorRect5" type="ColorRect" parent="card_frame/card_borders" unique_id=1979230691]
-layout_mode = 0
-offset_left = 1.004
-offset_top = 32.108
-offset_right = 33.027
-offset_bottom = 34.173
-
-[node name="ColorRect6" type="ColorRect" parent="card_frame/card_borders" unique_id=635307046]
-layout_mode = 0
-offset_left = 8.077994
-offset_top = 2.2284122
-offset_right = 26.183994
-offset_bottom = 4.2634125
-
-[node name="ColorRect7" type="ColorRect" parent="card_frame/card_borders" unique_id=1878381732]
-layout_mode = 0
-offset_left = 8.91365
-offset_top = 4.178273
-offset_right = 25.069637
-offset_bottom = 5.2924795
 
 [node name="Button" type="Button" parent="." unique_id=796278141]
 visible = false

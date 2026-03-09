@@ -42,7 +42,7 @@ func setup(path: String):
 
 	
 func add_to_setup():
-	if GameData.add_card_to_setup(card_path):
+	if GameData.move_backpack_card_to_setup(card_path):
 		print("Added to deck!")
 		queue_free()
 	else:

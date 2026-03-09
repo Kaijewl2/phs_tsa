@@ -18,8 +18,10 @@ var active_enemies = []
 var player_hand_cards = []
 var deck_cards = []
 var setup_cards = []
+var setup_card_types = []
 var backpack_cards = []
 var backpack_card_types = []
+
 var balance: int
 var PlayerClass: String
 var unit_types = {
@@ -36,8 +38,8 @@ func _ready() -> void:
 	if player_hand_cards.is_empty():
 		add_card_to_backpack("res://scenes/setup_card_scene/setup_card.tscn", sell_card_types["cat"])
 		
-		for i in range(1):
-			add_card_to_setup(backpack_cards[i])
+		if backpack_cards.size() > 0:
+			add_card_to_setup(backpack_cards[0], backpack_card_types[0])
 
 
 func get_unit_id(unit_id:String):
@@ -72,10 +74,20 @@ func get_player_class():
 
 # Add sell correct sell card to backpack when purchased
 func add_card_to_backpack(card_path:String, card_type:SellCardData):
-	backpack_cards.append(card_path)
 	print("adding card type: ", card_type)
+	backpack_cards.append(card_path)
 	backpack_card_types.append(card_type)
 	backpack_changed.emit()
+
+
+func add_card_to_setup(card_path:String, card_type:SellCardData):
+	if setup_cards.size() < MAX_SETUP_SIZE:
+		active_units.append(card_path)
+		setup_cards.append(card_path)
+		setup_card_types.append(card_type)
+		setup_changed.emit()
+		return true
+	return false
 
 
 func add_card_to_deck(card_path:String):
@@ -85,14 +97,6 @@ func add_card_to_deck(card_path:String):
 		return true
 	return false
 	
-func add_card_to_setup(card_path:String):
-	if setup_cards.size() < MAX_SETUP_SIZE:
-		active_units.append(card_path)
-		setup_cards.append(card_path)
-		setup_changed.emit()
-		return true
-	return false
-
 
 func remove_card_from_deck(card_path: String):
 	deck_cards.erase(card_path)
@@ -103,6 +107,15 @@ func remove_card_from_setup(card_path: String):
 	setup_cards.erase(card_path)
 	active_units.erase(card_path)
 	setup_changed.emit()
+
+
+func remove_card_from_backpack(card_path: String):
+	var index = backpack_cards.find(card_path)
+	if index != -1:
+		backpack_cards.remove_at(index)
+		backpack_card_types.remove_at(index)
+		
+	backpack_changed.emit()
 
 
 func add_card_to_array(card_path:String):
@@ -138,6 +151,23 @@ func change_balance(value, operation):
 		balance *= value
 
 	balance_changed.emit(balance)
+
+
+func move_backpack_card_to_setup(card_path:String):
+	var index = backpack_cards.find(card_path)
+
+	if index == -1:
+		return false
+
+	var card_type = backpack_card_types[index]
+
+	if add_card_to_setup(card_path, card_type):
+		backpack_cards.remove_at(index)
+		backpack_card_types.remove_at(index)
+		backpack_changed.emit()
+		return true
+
+	return false
 
 
 func change_player_class(new_class:String):
