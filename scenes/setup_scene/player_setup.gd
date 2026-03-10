@@ -23,23 +23,26 @@ func _ready() -> void:
 
 # Called automatically whenever GameData.add_card_to_setup(str) is called
 func add_card_to_setup(card):
-	# INVALID CALL FIX BAN
 	card.sell_card_data = GameData.setup_card_types[GameData.setup_cards.find(card)]
-	print(GameData.setup_card_types)
 	h_box_container.add_child(card)
 	if card not in player_hand:
 		player_hand.insert(0, card)
 
 
 func load_cards_from_setup():
-	for card in player_hand:
+	for card in h_box_container.get_children():
 		card.queue_free()
 	player_hand.clear()
 	
+	var temp = 0
+	
 	for card_path in GameData.setup_cards:
 		var card_scene = load(card_path)
-		var card = card_scene.instantiate()
-		add_card_to_setup(card)
+		var setup_card = card_scene.instantiate()
+		setup_card.sell_card_data = GameData.setup_card_types[temp]
+		h_box_container.add_child(setup_card)
+		
+		temp+=1
 
 
 func load_cards_from_backpack():
