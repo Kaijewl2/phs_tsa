@@ -6,8 +6,8 @@ extends Node2D
 @onready var balance_label: Control = $VBoxContainer/coin_counter
 
 
-const WALKING_BOT_ENEMY = preload("uid://dd11l81fddnsb")
-const WALKING_BOT = preload("uid://bdpc8podu70pj")
+const ENENEMY_SCENE = preload("uid://dd11l81fddnsb")
+const COMMRADE_SCENE = preload("uid://bdpc8podu70pj")
 
 var active_units
 var active_commrades
@@ -17,9 +17,8 @@ var active_enemies
 func _ready() -> void:
 	GameData.balance_changed.connect(update_balance_display)
 	balance_label.get_node("Label").text = str(GameData.get_balance())
-	for unit in GameData.active_units:
-		spawn_commrades()
-		spawn_enemy()
+	spawn_commrades()
+	spawn_enemy()
 
 
 func _process(_delta: float) -> void:
@@ -32,24 +31,26 @@ func _process(_delta: float) -> void:
  
 
 func spawn_commrades():
-	var commrade = WALKING_BOT.instantiate()
+	clear_commrades()
+	
+	for card_data in GameData.setup_card_types:
+		var commrade = COMMRADE_SCENE.instantiate()
 
-	# random unit spawned (TEMP)
-	var commrade_type = GameData.get_random_entity_data()
+		var commrade_type = GameData.unit_types.get(card_data.sell_card_name)
 	
-	commrade.unit_data = commrade_type
+		commrade.unit_data = commrade_type
 		
-	commrade.position = Vector2(randi_range(400, 700), randi_range(730, 870))
-	commrade.scale = Vector2(5.75,5.75)
+		commrade.position = Vector2(randi_range(400, 700), randi_range(730, 870))
+		commrade.scale = Vector2(5.75,5.75)
 	
-	add_child(commrade)
+		add_child(commrade)
 	
-	commrade.add_to_group("commrades")
-	GameData.active_commrades.push_back(commrade)
+		commrade.add_to_group("commrades")
+		GameData.active_commrades.push_back(commrade)
 
 
 func spawn_enemy():
-	var enemy = WALKING_BOT_ENEMY.instantiate()
+	var enemy = ENENEMY_SCENE.instantiate()
 	
 	enemy.unit_name = "Glaiel"
 	enemy.HEALTH = 15.0
@@ -61,6 +62,15 @@ func spawn_enemy():
 	enemy.add_to_group("enemies")
 	GameData.active_enemies.push_back(enemy)
 	add_child(enemy)
+
+
+func clear_commrades():
+	for commrade in GameData.active_commrades:
+		if is_instance_valid(commrade):
+			GameData.active_units.erase(commrade)
+			commrade.queue_free()
+			
+	GameData.active_commrades.clear()
 
 
 func update_balance_display(new_balance):

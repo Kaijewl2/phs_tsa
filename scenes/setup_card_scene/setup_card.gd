@@ -61,9 +61,10 @@ func _on_button_mouse_exited() -> void:
 
 
 func _on_button_pressed() -> void:
+	# INCORRECT REMOVE
 	print("remove card")
 	GameData.remove_card_from_setup(SELF_PATH)
-	#GameData.add_card_to_backpack(SELF_PATH)
+	GameData.add_card_to_backpack(SELF_PATH, sell_card_data)
 
 
 func _on_texture_rect_mouse_entered() -> void:
