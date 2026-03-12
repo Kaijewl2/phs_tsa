@@ -160,13 +160,13 @@ func change_balance(value, operation):
 	balance_changed.emit(balance)
 
 
-func move_backpack_card_to_setup(card_path:String):
-	var index = backpack_cards.find(card_path)
+func move_backpack_card_to_setup(card_type:SellCardData):
+	var index = backpack_card_types.find(card_type)
 
 	if index == -1:
 		return false
 
-	var card_type = backpack_card_types[index]
+	var card_path = backpack_cards[index]
 
 	if add_card_to_setup(card_path, card_type):
 		backpack_cards.remove_at(index)
