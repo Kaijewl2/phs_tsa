@@ -12,6 +12,7 @@ const COMMRADE_SCENE = preload("uid://bdpc8podu70pj")
 var active_units
 var active_commrades
 var active_enemies
+var player_power:int
 
 
 func _ready() -> void:
@@ -52,10 +53,7 @@ func spawn_commrades():
 func spawn_enemy():
 	var enemy = ENENEMY_SCENE.instantiate()
 	
-	enemy.unit_name = "Glaiel"
-	enemy.HEALTH = 15.0
-	enemy.DAMAGE = 10.0
-	enemy.attack_cooldown = 8.0
+	enemy.unit_data = GameData.get_random_entity_data()
 	enemy.position = Vector2(randi_range(1200, 1550), randi_range(805, 850))
 	enemy.scale = Vector2(6.325, 6.325)
 	

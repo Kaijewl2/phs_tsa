@@ -1,12 +1,11 @@
 extends CharacterBody2D
 
-@export var unit_name:String = "walking bot"
-@export var HEALTH: float = 50.0
-@export var DAMAGE = 3
-@export var SPEED = 5
+@export var unit_data: UnitData
+
+
 @export var DEATH_VALUE = 5
 @export var unit_sprite: Texture2D
-@export var attack_cooldown:float = 5.0
+
 
 @onready var health_bar: CustomHealthBar = $health_bar
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
@@ -17,6 +16,12 @@ const UI_ELEMENTS_SCENE = preload("uid://cifwypi1j3oks")
 
 
 enum Context {IDLE, BATTLE, DEATH}
+var unit_name:String
+var HEALTH:float
+var DAMAGE:int
+var SPEED:int
+var attack_cooldown:float
+var sprite_animation: SpriteFrames
 var target = null
 var commrades = []
 var current_context = Context.IDLE
@@ -26,6 +31,14 @@ var ui_elements
 
 
 func _ready() -> void:
+	if unit_data:
+		unit_name = unit_data.unit_name
+		HEALTH = unit_data.health
+		DAMAGE = unit_data.damage
+		SPEED = unit_data.speed
+		attack_cooldown = unit_data.attack_cooldown
+		animated_sprite_2d.sprite_frames = unit_data.sprite_animations
+	
 	animated_sprite_2d.flip_h = true
 	
 	health_bar._setup_health_bar(HEALTH)

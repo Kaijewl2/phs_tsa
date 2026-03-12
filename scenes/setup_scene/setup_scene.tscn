@@ -2,10 +2,50 @@
 
 [ext_resource type="Texture2D" uid="uid://ds65usmhcgwqh" path="res://art/misc/motherboard_layout.png" id="1_8egkc"]
 [ext_resource type="Script" uid="uid://dujiew21aukhh" path="res://scenes/setup_scene/backpack_container.gd" id="2_0u8xd"]
+[ext_resource type="FontFile" uid="uid://crdmvv8dc23b3" path="res://art/fonts/blue_winter/Blue Winter.ttf" id="2_1jyb6"]
 [ext_resource type="Texture2D" uid="uid://bvoxt0q220sbc" path="res://art/misc/storage_layout.png" id="2_35cec"]
+[ext_resource type="FontFile" uid="uid://gmv3du7nrgom" path="res://art/fonts/blue_winter/Blue Winter.otf" id="3_l0wi0"]
 [ext_resource type="PackedScene" uid="uid://deh5t7xa35jdd" path="res://scenes/backpack_card_scene/backpack_card.tscn" id="4_0u8xd"]
+[ext_resource type="Texture2D" uid="uid://cw0hc4y8bi0l4" path="res://art/misc/basic_frame.png" id="4_l0wi0"]
 [ext_resource type="PackedScene" uid="uid://d2dwgl2aubu7e" path="res://scenes/change_scene_button_scene/change_scene_button.tscn" id="4_n1dyv"]
+[ext_resource type="Texture2D" uid="uid://bsui2yoc7cmyw" path="res://art/icons/brick_mad.png" id="5_ikacj"]
 [ext_resource type="Script" uid="uid://n50oojmw5grn" path="res://scenes/setup_scene/player_setup.gd" id="7_0u8xd"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ikacj"]
+bg_color = Color(0.60038817, 0.60038817, 0.60038817, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8xhab"]
+bg_color = Color(0, 0.69143635, 3.85046e-07, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_oyk4i"]
+font = ExtResource("2_1jyb6")
+font_size = 26
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lrgj0"]
+bg_color = Color(0.60038817, 0.60038817, 0.60038817, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2nera"]
+bg_color = Color(0.16470589, 0.4392157, 0.5019608, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_it6vi"]
+font = ExtResource("3_l0wi0")
+font_size = 26
+
+[sub_resource type="LabelSettings" id="LabelSettings_8xhab"]
+line_spacing = 201.37
+font = ExtResource("2_1jyb6")
+font_size = 26
+font_color = Color(0.735357, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0u8xd"]
+bg_color = Color(0.60038817, 0.60038817, 0.60038817, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1jyb6"]
+bg_color = Color(0.7194535, 2.5509298e-06, 5.7756904e-07, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_fjxpj"]
+font = ExtResource("2_1jyb6")
+font_size = 24
 
 [node name="setup_scene" type="Node2D" unique_id=985433820]
 
@@ -14,6 +54,166 @@ texture_filter = 1
 offset_right = 1354.0
 offset_bottom = 1080.0
 texture = ExtResource("1_8egkc")
+
+[node name="stats_container" type="Control" parent="motherboard_layout" unique_id=1661711530]
+anchors_preset = 0
+offset_left = 953.0
+offset_top = 53.0
+offset_right = 1271.0
+offset_bottom = 1047.0
+
+[node name="storage_bar" type="ProgressBar" parent="motherboard_layout/stats_container" unique_id=1237934672]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.040000003
+offset_left = 13.0
+offset_top = 51.0
+offset_right = -12.0
+offset_bottom = 51.239998
+theme_override_styles/background = SubResource("StyleBoxFlat_ikacj")
+theme_override_styles/fill = SubResource("StyleBoxFlat_8xhab")
+value = 100.0
+show_percentage = false
+
+[node name="storage_label" type="Label" parent="motherboard_layout/stats_container/storage_bar" unique_id=180417888]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -29.5
+offset_top = -11.5
+offset_right = 29.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "storage"
+label_settings = SubResource("LabelSettings_oyk4i")
+
+[node name="ram_bar" type="ProgressBar" parent="motherboard_layout/stats_container" unique_id=1574355758]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.041
+anchor_top = 0.123
+anchor_right = 0.95900005
+anchor_bottom = 0.16100001
+offset_left = -0.038000107
+offset_top = -0.26200104
+offset_right = 0.037994385
+offset_bottom = 3.9659882
+theme_override_styles/background = SubResource("StyleBoxFlat_lrgj0")
+theme_override_styles/fill = SubResource("StyleBoxFlat_2nera")
+value = 100.0
+show_percentage = false
+
+[node name="ram_label" type="Label" parent="motherboard_layout/stats_container/ram_bar" unique_id=1113756542]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = -17.5
+offset_right = 32.0
+offset_bottom = 17.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "RAM"
+label_settings = SubResource("LabelSettings_it6vi")
+
+[node name="next_virus_container" type="Control" parent="motherboard_layout/stats_container" unique_id=1201230038]
+layout_mode = 1
+anchor_left = 0.006
+anchor_top = 0.252
+anchor_right = 1.0
+anchor_bottom = 0.439
+offset_left = 0.09200001
+offset_top = -0.4880066
+offset_bottom = -0.3659973
+
+[node name="next_virus_frame" type="TextureRect" parent="motherboard_layout/stats_container/next_virus_container" unique_id=777456685]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -101.0
+offset_top = -37.0
+offset_right = 102.0
+offset_bottom = 144.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_l0wi0")
+stretch_mode = 5
+
+[node name="TextureRect" type="TextureRect" parent="motherboard_layout/stats_container/next_virus_container/next_virus_frame" unique_id=1719827894]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(3.56, 3.56)
+pivot_offset = Vector2(20, 20)
+texture = ExtResource("5_ikacj")
+stretch_mode = 4
+
+[node name="next_virus_label" type="Label" parent="motherboard_layout/stats_container/next_virus_container" unique_id=619434232]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -77.0
+offset_top = -83.0
+offset_right = 78.0
+offset_bottom = 188.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "next virus: brick"
+label_settings = SubResource("LabelSettings_8xhab")
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="encounter_bar" type="ProgressBar" parent="motherboard_layout/stats_container" unique_id=843555100]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 642.0
+offset_right = 305.0
+offset_bottom = 730.0
+theme_override_styles/background = SubResource("StyleBoxFlat_0u8xd")
+theme_override_styles/fill = SubResource("StyleBoxFlat_1jyb6")
+value = 100.0
+show_percentage = false
+
+[node name="encounter_label" type="Label" parent="motherboard_layout/stats_container/encounter_bar" unique_id=521758205]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -146.5
+offset_top = -33.5
+offset_right = 146.5
+offset_bottom = 33.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "encounters until        system-critical virus: "
+label_settings = SubResource("LabelSettings_fjxpj")
+horizontal_alignment = 1
+autowrap_mode = 3
 
 [node name="backpack_container" type="Control" parent="." unique_id=1568474870]
 layout_mode = 3

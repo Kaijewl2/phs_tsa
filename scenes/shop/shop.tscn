@@ -14,10 +14,22 @@ font_size = 176
 font_color = Color(1, 0, 0, 1)
 outline_color = Color(0, 0, 0, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ge4d2"]
+bg_color = Color(0.60038817, 0.60038817, 0.60038817, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xcdpw"]
+bg_color = Color(0, 0.6901961, 0, 1)
+
 [sub_resource type="LabelSettings" id="LabelSettings_xcdpw"]
 font = ExtResource("6_ptf86")
 font_size = 53
 font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tp26b"]
+bg_color = Color(0.23529412, 0.23529412, 0.23529412, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vk20h"]
+bg_color = Color(0.16470589, 0.4392157, 0.5019608, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_tp26b"]
 font = ExtResource("6_ptf86")
@@ -134,21 +146,57 @@ text = "BRICK HUNGERS"
 label_settings = SubResource("LabelSettings_ptf86")
 horizontal_alignment = 1
 
-[node name="ssd_label" type="Label" parent="." unique_id=734811107]
+[node name="storage_bar" type="ProgressBar" parent="." unique_id=1800086943]
 layout_mode = 0
-offset_left = 815.0
-offset_top = 54.0
-offset_right = 921.0
-offset_bottom = 124.0
-text = "SSD"
+offset_left = 510.0
+offset_top = 50.41
+offset_right = 1229.9995
+offset_bottom = 136.0
+theme_override_styles/background = SubResource("StyleBoxFlat_ge4d2")
+theme_override_styles/fill = SubResource("StyleBoxFlat_xcdpw")
+value = 100.0
+show_percentage = false
+
+[node name="storage_label" type="Label" parent="storage_bar" unique_id=734811107]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -109.0
+offset_top = -35.0
+offset_right = 109.0
+offset_bottom = 35.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "storage"
 label_settings = SubResource("LabelSettings_xcdpw")
 
-[node name="ram_label" type="Label" parent="." unique_id=222346944]
+[node name="ram_bar" type="ProgressBar" parent="." unique_id=1874075813]
 layout_mode = 0
-offset_left = 1460.0
-offset_top = 55.0
-offset_right = 1617.0
-offset_bottom = 140.0
+offset_left = 1320.0
+offset_top = 50.0
+offset_right = 1740.0
+offset_bottom = 152.0
+theme_override_styles/background = SubResource("StyleBoxFlat_tp26b")
+theme_override_styles/fill = SubResource("StyleBoxFlat_vk20h")
+value = 100.0
+show_percentage = false
+
+[node name="ram_label" type="Label" parent="ram_bar" unique_id=222346944]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -78.5
+offset_top = -42.5
+offset_right = 78.5
+offset_bottom = 42.5
+grow_horizontal = 2
+grow_vertical = 2
 text = "RAM"
 label_settings = SubResource("LabelSettings_tp26b")
 
