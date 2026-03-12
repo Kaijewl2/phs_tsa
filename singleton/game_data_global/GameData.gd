@@ -36,6 +36,7 @@ var sell_card_types = {
 
 func _ready() -> void:
 	if player_hand_cards.is_empty():
+		print("runnig on e")
 		add_card_to_backpack("res://scenes/setup_card_scene/setup_card.tscn", sell_card_types["cat"])
 		
 		if backpack_cards.size() > 0:
@@ -74,7 +75,7 @@ func get_player_class():
 
 # Add sell correct sell card to backpack when purchased
 func add_card_to_backpack(card_path:String, card_type:SellCardData):
-	print("adding card type: ", card_type)
+	print("adding card to backpack: ", card_type)
 	backpack_cards.append(card_path)
 	backpack_card_types.append(card_type)
 	backpack_changed.emit()
@@ -103,9 +104,15 @@ func remove_card_from_deck(card_path: String):
 	deck_changed.emit()
 	
 
-func remove_card_from_setup(card_path: String):
-	setup_cards.erase(card_path)
-	active_units.erase(card_path)
+func remove_card_from_setup(card_type: SellCardData):
+	var index = setup_card_types.find(card_type)
+	
+	if index != -1:
+		setup_cards.remove_at(index)
+		setup_card_types.remove_at(index)
+		active_units.remove_at(index)
+	else:
+		print("remove_card_from_setup(card_type): no index found")
 	setup_changed.emit()
 
 
