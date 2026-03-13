@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://btprfw2nquh3x"]
 
 [ext_resource type="Texture2D" uid="uid://ds65usmhcgwqh" path="res://art/misc/motherboard_layout.png" id="1_8egkc"]
+[ext_resource type="Script" uid="uid://c4lmw4sjfc5uj" path="res://scenes/setup_scene/setup_scene.gd" id="1_ikacj"]
 [ext_resource type="Script" uid="uid://dujiew21aukhh" path="res://scenes/setup_scene/backpack_container.gd" id="2_0u8xd"]
 [ext_resource type="FontFile" uid="uid://crdmvv8dc23b3" path="res://art/fonts/blue_winter/Blue Winter.ttf" id="2_1jyb6"]
 [ext_resource type="Texture2D" uid="uid://bvoxt0q220sbc" path="res://art/misc/storage_layout.png" id="2_35cec"]
@@ -8,7 +9,6 @@
 [ext_resource type="PackedScene" uid="uid://deh5t7xa35jdd" path="res://scenes/backpack_card_scene/backpack_card.tscn" id="4_0u8xd"]
 [ext_resource type="Texture2D" uid="uid://cw0hc4y8bi0l4" path="res://art/misc/basic_frame.png" id="4_l0wi0"]
 [ext_resource type="PackedScene" uid="uid://d2dwgl2aubu7e" path="res://scenes/change_scene_button_scene/change_scene_button.tscn" id="4_n1dyv"]
-[ext_resource type="Texture2D" uid="uid://bsui2yoc7cmyw" path="res://art/icons/brick_mad.png" id="5_ikacj"]
 [ext_resource type="Script" uid="uid://n50oojmw5grn" path="res://scenes/setup_scene/player_setup.gd" id="7_0u8xd"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ikacj"]
@@ -32,22 +32,17 @@ font = ExtResource("3_l0wi0")
 font_size = 26
 
 [sub_resource type="LabelSettings" id="LabelSettings_8xhab"]
-line_spacing = 201.37
 font = ExtResource("2_1jyb6")
 font_size = 26
-font_color = Color(0.735357, 0, 0, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0u8xd"]
-bg_color = Color(0.60038817, 0.60038817, 0.60038817, 0)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1jyb6"]
-bg_color = Color(0.7194535, 2.5509298e-06, 5.7756904e-07, 1)
+font_color = Color(0.8745098, 0.8235294, 0.11764706, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_fjxpj"]
 font = ExtResource("2_1jyb6")
-font_size = 24
+font_size = 25
+font_color = Color(0.8745098, 0.8235294, 0.11764706, 1)
 
 [node name="setup_scene" type="Node2D" unique_id=985433820]
+script = ExtResource("1_ikacj")
 
 [node name="motherboard_layout" type="TextureRect" parent="." unique_id=807965341]
 texture_filter = 1
@@ -150,7 +145,7 @@ grow_vertical = 2
 texture = ExtResource("4_l0wi0")
 stretch_mode = 5
 
-[node name="TextureRect" type="TextureRect" parent="motherboard_layout/stats_container/next_virus_container/next_virus_frame" unique_id=1719827894]
+[node name="next_virus_icon" type="TextureRect" parent="motherboard_layout/stats_container/next_virus_container/next_virus_frame" unique_id=1719827894]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -163,9 +158,8 @@ offset_right = 20.0
 offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(3.56, 3.56)
+scale = Vector2(2.68, 2.68)
 pivot_offset = Vector2(20, 20)
-texture = ExtResource("5_ikacj")
 stretch_mode = 4
 
 [node name="next_virus_label" type="Label" parent="motherboard_layout/stats_container/next_virus_container" unique_id=619434232]
@@ -175,27 +169,30 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -77.0
-offset_top = -83.0
-offset_right = 78.0
-offset_bottom = 188.0
+offset_left = -120.0
+offset_top = -75.0
+offset_right = 129.0
+offset_bottom = 216.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "next virus: brick"
+text = "next virus: 
+
+
+
+
+
+"
 label_settings = SubResource("LabelSettings_8xhab")
 horizontal_alignment = 1
 autowrap_mode = 3
 
-[node name="encounter_bar" type="ProgressBar" parent="motherboard_layout/stats_container" unique_id=843555100]
+[node name="encounter_bar" type="ColorRect" parent="motherboard_layout/stats_container" unique_id=337364771]
 layout_mode = 0
-offset_left = 12.0
+offset_left = 7.0
 offset_top = 642.0
-offset_right = 305.0
-offset_bottom = 730.0
-theme_override_styles/background = SubResource("StyleBoxFlat_0u8xd")
-theme_override_styles/fill = SubResource("StyleBoxFlat_1jyb6")
-value = 100.0
-show_percentage = false
+offset_right = 308.0
+offset_bottom = 750.0
+color = Color(0.1254902, 0.1254902, 0.1254902, 1)
 
 [node name="encounter_label" type="Label" parent="motherboard_layout/stats_container/encounter_bar" unique_id=521758205]
 layout_mode = 1
@@ -204,15 +201,16 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -146.5
-offset_top = -33.5
-offset_right = 146.5
-offset_bottom = 33.5
+offset_left = -147.0
+offset_top = -54.0
+offset_right = 147.0
+offset_bottom = 54.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "encounters until        system-critical virus: "
 label_settings = SubResource("LabelSettings_fjxpj")
 horizontal_alignment = 1
+vertical_alignment = 1
 autowrap_mode = 3
 
 [node name="backpack_container" type="Control" parent="." unique_id=1568474870]

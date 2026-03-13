@@ -10,6 +10,7 @@ signal setup_changed()
 
 const MAX_BACKPACK_SIZE = 15
 const MAX_SETUP_SIZE = 3
+const BOSS_INTERVAL:int = 4
 
 
 var active_units = []
@@ -21,6 +22,7 @@ var setup_cards = []
 var setup_card_types = []
 var backpack_cards = []
 var backpack_card_types = []
+var battle_number:int = 1
 
 var balance: int
 var PlayerClass: String
@@ -32,6 +34,9 @@ var sell_card_types = {
 	"penguin": preload("uid://ctslcvel45hud"),
 	"cat": preload("uid://2kvmrlos8s2h"),
 }
+var minor_virus_names = ["Trojan Commanders", "Spyware Syndicates", "Botnet Breachers", "Adware Swarm"]
+var boss_virus_names = ["Ransomware Tyrant", "Kernel Hydra", "Malware Prime", "Backdoor Kingpin"]
+var final_virus_names = ["Singularity Virus", "Root Admin", "Black Hat", "Eternal Botnet"]
 
 
 func _ready() -> void:
@@ -71,6 +76,10 @@ func get_balance():
 
 func get_player_class():
 	return PlayerClass
+
+
+func is_boss_encounter() -> bool:
+	return battle_number % BOSS_INTERVAL == 0
 
 
 # Add sell correct sell card to backpack when purchased
@@ -133,6 +142,15 @@ func add_card_to_array(card_path:String):
 	
 	# Emit most recently added card as argument
 	hand_changed.emit(card)
+
+
+func get_random_minor_virus_name():
+	return minor_virus_names.pick_random()
+
+
+func get_random_boss_virus_name():
+	return boss_virus_names.pick_random()
+
 
 
 func get_random_entity_data():
