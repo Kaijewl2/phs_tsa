@@ -50,7 +50,7 @@ offset_top = 384.0
 offset_right = 50.880005
 offset_bottom = 384.0727
 scale = Vector2(0.515, 0.515)
-node_class = "windows"
+node_class_type = "windows"
 
 [node name="icon_img" parent="class_pick_scene" index="1" unique_id=2056045065]
 offset_left = 248.5437
@@ -61,13 +61,16 @@ texture = ExtResource("3_0plyd")
 
 [node name="class_pick_scene2" parent="." unique_id=1380742104 instance=ExtResource("3_aflmc")]
 layout_mode = 1
-anchor_bottom = 0.642
-offset_left = 693.0
-offset_top = 384.0
-offset_right = 692.88
-offset_bottom = 384.0727
+anchor_left = 0.36100003
+anchor_top = 0.356
+anchor_right = 0.637
+anchor_bottom = 0.68600005
+offset_left = -0.12005615
+offset_top = -0.480011
+offset_right = 498.95996
+offset_bottom = 336.55267
 scale = Vector2(0.515, 0.515)
-node_class = "linux"
+node_class_type = "linux"
 
 [node name="class_pick_scene3" parent="." unique_id=2015309116 instance=ExtResource("3_aflmc")]
 layout_mode = 1
@@ -77,7 +80,7 @@ offset_top = 384.0
 offset_right = 1334.88
 offset_bottom = 384.0727
 scale = Vector2(0.515, 0.515)
-node_class = "mac"
+node_class_type = "mac"
 
 [node name="background_img" parent="class_pick_scene3" index="0" unique_id=175451320]
 rotation = 6.112105

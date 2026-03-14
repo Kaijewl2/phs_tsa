@@ -1,7 +1,7 @@
 extends Control
 
 
-@export var node_class: String
+@export var node_class_type: String
 
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
@@ -22,11 +22,12 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
+
 # Change scene to setup when class is chosen
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and hovering == true:
 		if event.is_pressed():
-			GameData.change_player_class(node_class)
+			GameData.change_player_class(node_class_type)
 			get_tree().change_scene_to_file(scene_path)
 
 

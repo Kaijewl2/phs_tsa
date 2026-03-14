@@ -52,6 +52,7 @@ _data = {
 }
 
 [node name="coin_counter" type="Control" unique_id=190551430]
+texture_filter = 1
 layout_mode = 3
 anchor_right = 0.057000004
 anchor_bottom = 0.07300001
@@ -70,6 +71,7 @@ texture = ExtResource("1_xl5ug")
 expand_mode = 2
 
 [node name="Label" type="Label" parent="." unique_id=749578237]
+texture_filter = 1
 layout_mode = 0
 offset_left = 100.0
 offset_top = 7.0

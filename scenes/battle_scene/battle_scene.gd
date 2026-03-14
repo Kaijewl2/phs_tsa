@@ -4,6 +4,8 @@ extends Node2D
 @onready var label: Label = $Label
 @onready var enter_shop_button: Control = $enter_shop_button
 @onready var balance_label: Control = $VBoxContainer/coin_counter
+@onready var final_boss_win_label: Label = $final_boss_win_label
+@onready var enter_win_scene_button: TextureRect = $enter_win_scene_button
 
 
 const ENENEMY_SCENE = preload("uid://dd11l81fddnsb")
@@ -13,6 +15,7 @@ var active_units
 var active_commrades
 var active_enemies
 var battle_over: bool = false
+var enemy_type: String
 
 func _ready() -> void:
 	GameData.balance_changed.connect(update_balance_display)
@@ -35,8 +38,18 @@ func _process(_delta: float) -> void:
 	elif(GameData.active_enemies.is_empty()):
 		label.show()
 		enter_shop_button.show()
-		GameData.battle_number += 1
 		battle_over = true
+		GameData.battle_number += 1
+		
+		if(enemy_type == "boss"):
+			GameData.increment_security_sweep()
+		elif(enemy_type == "final_boss"):
+			label.hide()
+			enter_shop_button.hide()
+			
+			final_boss_win_label.show()
+			enter_win_scene_button.show()
+			
  
 
 func spawn_commrades():
@@ -61,6 +74,8 @@ func spawn_commrades():
 func spawn_enemy():
 	if GameData.is_boss_encounter():
 		spawn_boss_virus()
+	elif GameData.is_final_boss_encounter():
+		spawn_final_boss_virus()
 	else:
 		spawn_minor_virus()
 
@@ -77,6 +92,7 @@ func spawn_minor_virus():
 		enemy.add_to_group("enemies")
 		GameData.active_enemies.push_back(enemy)
 		add_child(enemy)
+		enemy_type = "minor"
 
 
 func spawn_boss_virus():
@@ -96,6 +112,28 @@ func spawn_boss_virus():
 	
 	print("boss health: ", boss.HEALTH)
 	print("boss dmg: ", boss.DAMAGE)
+	enemy_type = "boss"
+
+
+func spawn_final_boss_virus():
+	var final_boss = ENENEMY_SCENE.instantiate()
+
+	final_boss.unit_data = GameData.get_random_entity_data()
+	final_boss.position = Vector2(1350,660)
+	final_boss.scale = Vector2(25,25)
+
+
+	final_boss.add_to_group("enemies")
+	GameData.active_enemies.push_back(final_boss)
+	add_child(final_boss)
+	
+	final_boss.HEALTH *= 5
+	final_boss.DAMAGE *= 3
+	final_boss.modulate = Color(1.0, 0.118, 0.078, 1.0)
+	
+	print("final boss health: ", final_boss.HEALTH)
+	print("final boss dmg: ", final_boss.DAMAGE)
+	enemy_type = "final_boss"
 
 
 func clear_commrades():

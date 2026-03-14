@@ -122,7 +122,7 @@ layout_mode = 0
 offset_left = 7.9174027
 offset_top = 1.364
 offset_right = 25.966152
-offset_bottom = 3.3483324
+offset_bottom = 3.4311419
 
 [node name="ColorRect7" type="ColorRect" parent="card_frame/card_borders" unique_id=1933694449]
 layout_mode = 0

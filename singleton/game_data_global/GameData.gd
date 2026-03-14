@@ -11,6 +11,8 @@ signal setup_changed()
 const MAX_BACKPACK_SIZE = 15
 const MAX_SETUP_SIZE = 3
 const BOSS_INTERVAL:int = 4
+const FINAL_BOSS_ROUND:int = 5
+const SETUP_CARD_SCENE_PATH:String = "res://scenes/setup_card_scene/setup_card.tscn"
 
 
 var active_units = []
@@ -23,7 +25,8 @@ var setup_card_types = []
 var backpack_cards = []
 var backpack_card_types = []
 var battle_number:int = 1
-
+var current_security_sweep:int = 1
+var added_starting_card:bool = false
 var balance: int
 var PlayerClass: String
 var unit_types = {
@@ -37,15 +40,6 @@ var sell_card_types = {
 var minor_virus_names = ["Trojan Commanders", "Spyware Syndicates", "Botnet Breachers", "Adware Swarm"]
 var boss_virus_names = ["Ransomware Tyrant", "Kernel Hydra", "Malware Prime", "Backdoor Kingpin"]
 var final_virus_names = ["Singularity Virus", "Root Admin", "Black Hat", "Eternal Botnet"]
-
-
-func _ready() -> void:
-	if player_hand_cards.is_empty():
-		print("runnig on e")
-		add_card_to_backpack("res://scenes/setup_card_scene/setup_card.tscn", sell_card_types["cat"])
-		
-		if backpack_cards.size() > 0:
-			add_card_to_setup(backpack_cards[0], backpack_card_types[0])
 
 
 func get_unit_id(unit_id:String):
@@ -78,8 +72,30 @@ func get_player_class():
 	return PlayerClass
 
 
+func increment_security_sweep():
+	current_security_sweep+=1
+
+
 func is_boss_encounter() -> bool:
 	return battle_number % BOSS_INTERVAL == 0
+
+
+func is_final_boss_encounter() -> bool:
+	return battle_number % FINAL_BOSS_ROUND == 0
+
+
+func add_starting_card():
+	if player_hand_cards.is_empty():
+		print("Player class: ", PlayerClass)
+		#add_card_to_backpack(SETUP_CARD_SCENE_PATH, sell_card_types["cat"])
+		if(PlayerClass == "linux"):
+			add_card_to_setup(SETUP_CARD_SCENE_PATH, sell_card_types["penguin"])
+		elif(PlayerClass == "mac"):
+			add_card_to_setup(SETUP_CARD_SCENE_PATH, sell_card_types["cat"])
+		else:
+			add_card_to_setup(SETUP_CARD_SCENE_PATH, sell_card_types["cat"])
+			
+		added_starting_card = true
 
 
 # Add sell correct sell card to backpack when purchased
@@ -151,6 +167,9 @@ func get_random_minor_virus_name():
 func get_random_boss_virus_name():
 	return boss_virus_names.pick_random()
 
+
+func get_random_final_boss_virus_name():
+	return final_virus_names.pick_random()
 
 
 func get_random_entity_data():
