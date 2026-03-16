@@ -6,11 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://ckimedgxf2230" path="res://art/entities/penguin/penguin.png" id="3_apoln"]
 [ext_resource type="FontFile" uid="uid://crdmvv8dc23b3" path="res://art/fonts/blue_winter/Blue Winter.ttf" id="5_1slgu"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_apoln"]
-font = ExtResource("5_1slgu")
-font_size = 46
-font_color = Color(0.84705883, 0.7607843, 0.34117648, 1)
-
 [sub_resource type="LabelSettings" id="LabelSettings_ng2uk"]
 line_spacing = 0.83
 font = ExtResource("5_1slgu")
@@ -21,6 +16,11 @@ font_color = Color(0, 0, 0, 1)
 font = ExtResource("5_1slgu")
 font_size = 12
 font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_apoln"]
+font = ExtResource("5_1slgu")
+font_size = 147
+font_color = Color(0.84705883, 0.7607843, 0.34117648, 1)
 
 [node name="sell_card" type="Control" unique_id=378176936]
 custom_minimum_size = Vector2(269.66, 0)
@@ -111,26 +111,6 @@ offset_right = 33.14763
 offset_bottom = 34.261837
 mouse_filter = 2
 
-[node name="price_label" type="Label" parent="card_img" unique_id=705920495]
-texture_filter = 1
-layout_mode = 0
-offset_left = 15.631364
-offset_top = 45.682213
-offset_right = 90.63136
-offset_bottom = 106.68233
-scale = Vector2(0.275, 0.275)
-text = "67"
-label_settings = SubResource("LabelSettings_apoln")
-
-[node name="purrrency_img" type="TextureRect" parent="card_img/price_label" unique_id=1084031942]
-texture_filter = 1
-layout_mode = 0
-offset_left = -57.0
-offset_top = 2.0
-offset_right = 4.0
-offset_bottom = 63.0
-texture = ExtResource("3_8bbjf")
-
 [node name="card_desc" type="Label" parent="card_img" unique_id=592417348]
 layout_mode = 0
 offset_left = 1.8830082
@@ -164,6 +144,26 @@ offset_right = 43.83287
 offset_bottom = 48.12332
 scale = Vector2(0.59, 0.59)
 texture = ExtResource("3_apoln")
+
+[node name="price_label" type="Label" parent="." unique_id=705920495]
+texture_filter = 1
+layout_mode = 0
+offset_left = 61.0
+offset_top = 176.0
+offset_right = 264.0
+offset_bottom = 403.0
+scale = Vector2(0.275, 0.275)
+text = "67"
+label_settings = SubResource("LabelSettings_apoln")
+
+[node name="purrrency_img" type="TextureRect" parent="price_label" unique_id=1084031942]
+texture_filter = 1
+layout_mode = 0
+offset_left = -207.27272
+offset_top = 7.2727165
+offset_right = -7.2727203
+offset_bottom = 207.27272
+texture = ExtResource("3_8bbjf")
 
 [connection signal="mouse_entered" from="card_img" to="." method="_on_card_img_mouse_entered"]
 [connection signal="mouse_exited" from="card_img" to="." method="_on_card_img_mouse_exited"]

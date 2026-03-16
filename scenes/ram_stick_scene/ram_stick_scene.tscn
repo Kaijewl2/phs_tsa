@@ -1,23 +1,49 @@
 [gd_scene format=3 uid="uid://b11vc6ohy6mxh"]
 
-[ext_resource type="Script" uid="uid://btkue8bp4g5xk" path="res://ram_stick_scene.gd" id="1_og02v"]
+[ext_resource type="Script" uid="uid://btkue8bp4g5xk" path="res://scenes/ram_stick_scene/ram_stick_scene.gd" id="1_og02v"]
 [ext_resource type="Texture2D" uid="uid://ckyams8bw0x00" path="res://art/misc/damage_ram_stick.png" id="2_og02v"]
+[ext_resource type="FontFile" uid="uid://crdmvv8dc23b3" path="res://art/fonts/blue_winter/Blue Winter.ttf" id="3_p0lc6"]
+[ext_resource type="Texture2D" uid="uid://d4ewn111rc61p" path="res://art/icons/purrrency.png" id="4_x5oly"]
 
-[node name="ram_stick_scene" type="Control" unique_id=385452333]
+[node name="ram_stick_scene" type="Control" unique_id=548070670]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-pivot_offset = Vector2(20.365, 51.62)
 script = ExtResource("1_og02v")
 
-[node name="ram_stick_image" type="TextureRect" parent="." unique_id=607414731]
+[node name="ram_stick_image" type="TextureRect" parent="." unique_id=848850964]
 texture_filter = 1
 layout_mode = 0
-offset_right = 87.375
-offset_bottom = 233.0
+offset_right = 90.048004
+offset_bottom = 231.0
 texture = ExtResource("2_og02v")
-expand_mode = 3
+expand_mode = 4
 stretch_mode = 4
+
+[node name="currency_label" type="Label" parent="." unique_id=1790942934]
+texture_filter = 1
+layout_mode = 0
+offset_left = 44.0
+offset_top = 244.0
+offset_right = 95.0
+offset_bottom = 297.0
+theme_override_colors/font_color = Color(0.84705883, 0.7607843, 0.34117648, 1)
+theme_override_fonts/font = ExtResource("3_p0lc6")
+theme_override_font_sizes/font_size = 40
+text = "32"
+
+[node name="currency_image" type="TextureRect" parent="currency_label" unique_id=1692547652]
+texture_filter = 1
+layout_mode = 0
+offset_left = -60.0
+offset_top = -3.0
+offset_right = -20.0
+offset_bottom = 37.0
+scale = Vector2(1.615, 1.615)
+texture = ExtResource("4_x5oly")
+
+[connection signal="mouse_entered" from="ram_stick_image" to="." method="_on_ram_stick_image_mouse_entered"]
+[connection signal="mouse_exited" from="ram_stick_image" to="." method="_on_ram_stick_image_mouse_exited"]

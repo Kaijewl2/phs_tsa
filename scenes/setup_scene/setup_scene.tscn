@@ -9,10 +9,10 @@
 [ext_resource type="PackedScene" uid="uid://deh5t7xa35jdd" path="res://scenes/backpack_card_scene/backpack_card.tscn" id="4_0u8xd"]
 [ext_resource type="Texture2D" uid="uid://cw0hc4y8bi0l4" path="res://art/misc/basic_frame.png" id="4_l0wi0"]
 [ext_resource type="PackedScene" uid="uid://d2dwgl2aubu7e" path="res://scenes/change_scene_button_scene/change_scene_button.tscn" id="4_n1dyv"]
+[ext_resource type="Script" uid="uid://cs8lbsip8q0fi" path="res://scenes/setup_scene/ram_sticks_container.gd" id="6_2nera"]
 [ext_resource type="Texture2D" uid="uid://cxp8ck14wx1dh" path="res://art/misc/ram_slot.png" id="6_ikacj"]
 [ext_resource type="Script" uid="uid://n50oojmw5grn" path="res://scenes/setup_scene/player_setup.gd" id="7_0u8xd"]
-[ext_resource type="PackedScene" uid="uid://b11vc6ohy6mxh" path="res://scenes/ram_stick_scene/ram_stick_scene.tscn" id="7_8xhab"]
-[ext_resource type="Resource" uid="uid://d1yj44foo08a0" path="res://data/ram_sticks/damage_ram/damage_ram.tres" id="8_oyk4i"]
+[ext_resource type="PackedScene" uid="uid://6ki2o21rtfen" path="res://scenes/backpack_ram_scene/backpack_ram.tscn" id="12_lrgj0"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ikacj"]
 bg_color = Color(0.60038817, 0.60038817, 0.60038817, 0)
@@ -252,6 +252,7 @@ offset_left = 485.0
 offset_top = 84.0
 offset_right = 849.0
 offset_bottom = 317.0
+script = ExtResource("6_2nera")
 
 [node name="ram_sticks_container" type="HBoxContainer" parent="motherboard_layout/ram_sticks_container" unique_id=1482775937]
 layout_mode = 0
@@ -264,10 +265,6 @@ layout_mode = 2
 texture = ExtResource("6_ikacj")
 expand_mode = 3
 
-[node name="ram_stick_scene" parent="motherboard_layout/ram_sticks_container/ram_sticks_container/ram_slot_1_image" unique_id=385452333 instance=ExtResource("7_8xhab")]
-layout_mode = 1
-ram_stick_data = ExtResource("8_oyk4i")
-
 [node name="ram_slot_2_image" type="TextureRect" parent="motherboard_layout/ram_sticks_container/ram_sticks_container" unique_id=766339801]
 layout_mode = 2
 texture = ExtResource("6_ikacj")
@@ -277,10 +274,6 @@ expand_mode = 3
 layout_mode = 2
 texture = ExtResource("6_ikacj")
 expand_mode = 3
-
-[node name="ram_stick_scene" parent="motherboard_layout/ram_sticks_container/ram_sticks_container/ram_slot_3_image" unique_id=321225889 instance=ExtResource("7_8xhab")]
-layout_mode = 1
-ram_stick_data = ExtResource("8_oyk4i")
 
 [node name="ram_slot_4_image" type="TextureRect" parent="motherboard_layout/ram_sticks_container/ram_sticks_container" unique_id=620012337]
 layout_mode = 2
@@ -323,6 +316,15 @@ scale = Vector2(0.66, 0.66)
 columns = 3
 
 [node name="backpack_card2" parent="backpack_container/storage_img/GridContainer" unique_id=675617672 instance=ExtResource("4_0u8xd")]
+layout_mode = 2
+
+[node name="backpack_card" parent="backpack_container/storage_img/GridContainer" unique_id=1231329556 instance=ExtResource("4_0u8xd")]
+layout_mode = 2
+
+[node name="backpack_ram" parent="backpack_container/storage_img/GridContainer" unique_id=1826135843 instance=ExtResource("12_lrgj0")]
+layout_mode = 2
+
+[node name="backpack_ram3" parent="backpack_container/storage_img/GridContainer" unique_id=1437807799 instance=ExtResource("12_lrgj0")]
 layout_mode = 2
 
 [node name="active_cards_container" type="Control" parent="." unique_id=1052810598]

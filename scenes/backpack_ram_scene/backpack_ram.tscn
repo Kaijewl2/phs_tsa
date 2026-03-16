@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://6ki2o21rtfen"]
+
+[ext_resource type="Script" uid="uid://ctmx523j7xcrl" path="res://scenes/backpack_ram_scene/backpack_ram.gd" id="1_7i5pf"]
+[ext_resource type="Texture2D" uid="uid://ckyams8bw0x00" path="res://art/misc/damage_ram_stick.png" id="2_xghr7"]
+[ext_resource type="FontFile" uid="uid://crdmvv8dc23b3" path="res://art/fonts/blue_winter/Blue Winter.ttf" id="3_xghr7"]
+
+[node name="backpack_ram" type="Control" unique_id=548070670]
+custom_minimum_size = Vector2(237.975, 267)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 159.0
+offset_right = 159.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7i5pf")
+
+[node name="ram_stick_image" type="TextureRect" parent="." unique_id=848850964]
+texture_filter = 1
+layout_mode = 0
+offset_left = 28.952
+offset_right = 80.951996
+offset_bottom = 174.0
+texture = ExtResource("2_xghr7")
+expand_mode = 4
+stretch_mode = 4
+
+[node name="equip_button" type="Button" parent="." unique_id=1420253418]
+visible = false
+texture_filter = 1
+layout_mode = 0
+offset_left = -16.0
+offset_top = 140.0
+offset_right = 130.0
+offset_bottom = 181.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_xghr7")
+theme_override_font_sizes/font_size = 25
+text = "equip RAM"
+
+[connection signal="mouse_entered" from="ram_stick_image" to="." method="_on_ram_stick_image_mouse_entered"]
+[connection signal="mouse_exited" from="ram_stick_image" to="." method="_on_ram_stick_image_mouse_exited"]
+[connection signal="mouse_entered" from="equip_button" to="." method="_on_equip_button_mouse_entered"]
+[connection signal="mouse_exited" from="equip_button" to="." method="_on_equip_button_mouse_exited"]

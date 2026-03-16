@@ -13,7 +13,7 @@ signal card_sold(card_type)
 @onready var card_background: ColorRect = $card_img/card_background
 @onready var card_icon: TextureRect = $card_img/card_icon
 @onready var player_hand = get_tree().get_first_node_in_group("player_hand")
-@onready var price_label: Label = $card_img/price_label
+@onready var price_label: Label = $price_label
 @onready var card_desc: Label = $card_img/card_desc
 @onready var card_name: Label = $card_img/card_name
 

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="RamData" format=3 uid="uid://dtqn1dmjrrb1g"]
+
+[ext_resource type="Texture2D" uid="uid://dsesb2snrgipu" path="res://art/misc/health_ram_stick.png" id="1_g5tyr"]
+[ext_resource type="Script" uid="uid://csts7gyo8l4sn" path="res://data/RamData.gd" id="1_wv55x"]
+
+[resource]
+script = ExtResource("1_wv55x")
+ram_stick_image = ExtResource("1_g5tyr")
+ram_stick_name = "Health RAM stick"
+damage_enhancer = 1.0
+health_enhancer = 1.5
+cost = 5
+metadata/_custom_type_script = "uid://csts7gyo8l4sn"
