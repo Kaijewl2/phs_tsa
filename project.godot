@@ -14,7 +14,7 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 
 [application]
 
-config/name="Phs Tsa Main(1)"
+config/name="phs_tsa (Copy) (Copy)"
 run/main_scene="uid://bsk1nsiqx4g3j"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
