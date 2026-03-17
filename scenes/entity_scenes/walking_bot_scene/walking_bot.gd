@@ -79,9 +79,6 @@ func apply_hardware_buffs() -> void:
 	var new_max_health = base_health + (base_health * (ram_bonuses["health"] + gpu_bonuses["health"]))
 	current_health = new_max_health - damage_taken
 
-	health_text.text = "HP: " + str(current_health)
-	damage_text.text = "DMG: " + str(current_damage)
-	speed_text.text = "SPD: " + str(current_speed)
 	health_bar._setup_health_bar(current_health)
 
 

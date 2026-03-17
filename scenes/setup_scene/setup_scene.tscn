@@ -14,8 +14,9 @@
 [ext_resource type="Script" uid="uid://n50oojmw5grn" path="res://scenes/setup_scene/player_setup.gd" id="7_0u8xd"]
 [ext_resource type="Texture2D" uid="uid://dguy8q0fdxdaa" path="res://art/misc/pcie_slot.png" id="8_2nera"]
 [ext_resource type="Script" uid="uid://cldkglaufaawr" path="res://scenes/setup_scene/gpu_slot_container.gd" id="8_it6vi"]
-[ext_resource type="Texture2D" uid="uid://bpe2j1xlgn6xx" path="res://art/misc/speed_gpu.png" id="9_2nera"]
+[ext_resource type="Script" uid="uid://d1ye6cy6tnqdj" path="res://scenes/setup_scene/cpu_container.gd" id="10_fjxpj"]
 [ext_resource type="PackedScene" uid="uid://6ki2o21rtfen" path="res://scenes/backpack_ram_scene/backpack_ram.tscn" id="12_lrgj0"]
+[ext_resource type="PackedScene" uid="uid://7yn14yiyxpk6" path="res://scenes/backpack_gpu_scene/backpack_gpu.tscn" id="14_it6vi"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ikacj"]
 bg_color = Color(0.60038817, 0.60038817, 0.60038817, 0)
@@ -304,7 +305,20 @@ offset_left = -21.709
 offset_top = -28.329
 offset_right = 849.425
 offset_bottom = 164.77101
-texture = ExtResource("9_2nera")
+
+[node name="cpu_container" type="Control" parent="motherboard_layout" unique_id=1739386764]
+anchors_preset = 0
+offset_left = 119.0
+offset_top = 109.0
+offset_right = 309.0
+offset_bottom = 276.0
+script = ExtResource("10_fjxpj")
+
+[node name="cpu_slot_image" type="TextureRect" parent="motherboard_layout/cpu_container" unique_id=1822792270]
+layout_mode = 0
+offset_right = 184.0
+offset_bottom = 167.0
+texture = ExtResource("6_ikacj")
 
 [node name="backpack_container" type="Control" parent="." unique_id=1568474870]
 layout_mode = 3
@@ -352,6 +366,12 @@ layout_mode = 2
 
 [node name="backpack_ram3" parent="backpack_container/storage_img/GridContainer" unique_id=1437807799 instance=ExtResource("12_lrgj0")]
 layout_mode = 2
+
+[node name="backpack_gpu" parent="backpack_container/storage_img/GridContainer" unique_id=501742269 instance=ExtResource("14_it6vi")]
+layout_mode = 2
+
+[node name="backpack_ram" parent="backpack_container/storage_img/GridContainer/backpack_gpu" unique_id=548070670 instance=ExtResource("12_lrgj0")]
+layout_mode = 1
 
 [node name="active_cards_container" type="Control" parent="." unique_id=1052810598]
 layout_mode = 3

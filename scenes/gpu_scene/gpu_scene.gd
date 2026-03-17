@@ -65,9 +65,9 @@ func handle_purchase():
 
 func _on_gpu_image_mouse_entered() -> void:
 	hovering = true
-	gpu_image.scale = Vector2(1.05, 1.05)
+	gpu_image.scale = Vector2(0.4, 0.4)
 
 
 func _on_gpu_image_mouse_exited() -> void:
 	hovering = false
-	gpu_image.scale = Vector2(1.0, 1.0)
+	gpu_image.scale = Vector2(0.37, 0.37)
