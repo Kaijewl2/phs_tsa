@@ -12,6 +12,9 @@
 [ext_resource type="Script" uid="uid://cs8lbsip8q0fi" path="res://scenes/setup_scene/ram_sticks_container.gd" id="6_2nera"]
 [ext_resource type="Texture2D" uid="uid://cxp8ck14wx1dh" path="res://art/misc/ram_slot.png" id="6_ikacj"]
 [ext_resource type="Script" uid="uid://n50oojmw5grn" path="res://scenes/setup_scene/player_setup.gd" id="7_0u8xd"]
+[ext_resource type="Texture2D" uid="uid://dguy8q0fdxdaa" path="res://art/misc/pcie_slot.png" id="8_2nera"]
+[ext_resource type="Script" uid="uid://cldkglaufaawr" path="res://scenes/setup_scene/gpu_slot_container.gd" id="8_it6vi"]
+[ext_resource type="Texture2D" uid="uid://bpe2j1xlgn6xx" path="res://art/misc/speed_gpu.png" id="9_2nera"]
 [ext_resource type="PackedScene" uid="uid://6ki2o21rtfen" path="res://scenes/backpack_ram_scene/backpack_ram.tscn" id="12_lrgj0"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ikacj"]
@@ -279,6 +282,29 @@ expand_mode = 3
 layout_mode = 2
 texture = ExtResource("6_ikacj")
 expand_mode = 3
+
+[node name="gpu_slot_container" type="Control" parent="motherboard_layout" unique_id=1237887167]
+anchors_preset = 0
+offset_left = 125.0
+offset_top = 497.0
+offset_right = 851.0
+offset_bottom = 615.0
+script = ExtResource("8_it6vi")
+
+[node name="gpu_slot_image" type="TextureRect" parent="motherboard_layout/gpu_slot_container" unique_id=548844584]
+layout_mode = 0
+offset_right = 829.0
+offset_bottom = 139.0
+scale = Vector2(0.875, 0.875)
+texture = ExtResource("8_2nera")
+
+[node name="gpu_image" type="TextureRect" parent="motherboard_layout/gpu_slot_container/gpu_slot_image" unique_id=312298940]
+layout_mode = 0
+offset_left = -21.709
+offset_top = -28.329
+offset_right = 849.425
+offset_bottom = 164.77101
+texture = ExtResource("9_2nera")
 
 [node name="backpack_container" type="Control" parent="." unique_id=1568474870]
 layout_mode = 3

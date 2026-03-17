@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://7yn14yiyxpk6"]
+
+[ext_resource type="Texture2D" uid="uid://ctky17av0k51a" path="res://art/misc/base_gpu.png" id="1_bt4m5"]
+[ext_resource type="Script" uid="uid://q08umli16wgu" path="res://scenes/backpack_gpu_scene/backpack_gpu.gd" id="1_on144"]
+[ext_resource type="FontFile" uid="uid://crdmvv8dc23b3" path="res://art/fonts/blue_winter/Blue Winter.ttf" id="2_on144"]
+
+[node name="backpack_gpu" type="Control" unique_id=501742269]
+layout_mode = 3
+anchor_right = 0.11800001
+anchor_bottom = 0.054
+offset_right = 648.44
+offset_bottom = 39.861816
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.275, 0.275)
+script = ExtResource("1_on144")
+
+[node name="backpack_gpu_image" type="TextureRect" parent="." unique_id=1216064518]
+texture_filter = 1
+layout_mode = 0
+offset_left = -42.54
+offset_top = 26.705
+offset_right = 695.63904
+offset_bottom = 273.39755
+scale = Vector2(0.275, 0.275)
+texture = ExtResource("1_bt4m5")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="backpack_gpu_button" type="Button" parent="." unique_id=1536326320]
+visible = false
+layout_mode = 0
+offset_left = 25.454548
+offset_top = 87.27273
+offset_right = 220.45454
+offset_bottom = 183.27274
+scale = Vector2(0.345, 0.345)
+theme_override_fonts/font = ExtResource("2_on144")
+theme_override_font_sizes/font_size = 67
+text = "equip"
+
+[connection signal="mouse_entered" from="backpack_gpu_image" to="." method="_on_backpack_gpu_image_mouse_entered"]
+[connection signal="mouse_exited" from="backpack_gpu_image" to="." method="_on_backpack_gpu_image_mouse_exited"]
+[connection signal="mouse_entered" from="backpack_gpu_button" to="." method="_on_backpack_gpu_button_mouse_entered"]
+[connection signal="mouse_exited" from="backpack_gpu_button" to="." method="_on_backpack_gpu_button_mouse_exited"]

@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="GpuData" format=3 uid="uid://daf61snfrfxjs"]
+
+[ext_resource type="Texture2D" uid="uid://uhj7gtf1k1qb" path="res://art/misc/health_gpu.png" id="1_2kvt6"]
+[ext_resource type="Script" uid="uid://cxak8dq6ycube" path="res://data/GpuData.gd" id="1_3jb5b"]
+
+[resource]
+script = ExtResource("1_3jb5b")
+gpu_image = ExtResource("1_2kvt6")
+health_enhancer = 0.5
+metadata/_custom_type_script = "uid://cxak8dq6ycube"

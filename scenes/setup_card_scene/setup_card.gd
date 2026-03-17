@@ -61,7 +61,6 @@ func _on_button_mouse_exited() -> void:
 
 
 func _on_button_pressed() -> void:
-	print("remove card")
 	GameData.remove_card_from_setup(sell_card_data)
 	GameData.add_card_to_backpack(SELF_PATH, sell_card_data)
 

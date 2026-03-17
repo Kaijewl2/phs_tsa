@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://nllcci5mx8v4"]
+
+[ext_resource type="Script" uid="uid://cokxu5s3j506v" path="res://scenes/gpu_scene/gpu_scene.gd" id="1_6wpbj"]
+[ext_resource type="Texture2D" uid="uid://ctky17av0k51a" path="res://art/misc/base_gpu.png" id="1_wg65o"]
+[ext_resource type="FontFile" uid="uid://crdmvv8dc23b3" path="res://art/fonts/blue_winter/Blue Winter.ttf" id="2_6wpbj"]
+[ext_resource type="Texture2D" uid="uid://d4ewn111rc61p" path="res://art/icons/purrrency.png" id="3_01cop"]
+
+[node name="gpu_scene" type="Control" unique_id=1477814000]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6wpbj")
+
+[node name="gpu_image" type="TextureRect" parent="." unique_id=792342321]
+texture_filter = 1
+layout_mode = 0
+offset_right = 871.134
+offset_bottom = 193.1
+texture = ExtResource("1_wg65o")
+
+[node name="currency_label" type="Label" parent="." unique_id=86531191]
+texture_filter = 1
+layout_mode = 0
+offset_left = 440.0
+offset_top = 212.0
+offset_right = 539.0
+offset_bottom = 315.0
+theme_override_colors/font_color = Color(1, 0.78431374, 0.40392157, 1)
+theme_override_fonts/font = ExtResource("2_6wpbj")
+theme_override_font_sizes/font_size = 78
+text = "32"
+
+[node name="currency_image" type="TextureRect" parent="currency_label" unique_id=2132661332]
+layout_mode = 0
+offset_left = -100.0
+offset_top = 6.0
+offset_bottom = 106.0
+texture = ExtResource("3_01cop")
+
+[connection signal="mouse_entered" from="gpu_image" to="." method="_on_gpu_image_mouse_entered"]
+[connection signal="mouse_exited" from="gpu_image" to="." method="_on_gpu_image_mouse_exited"]

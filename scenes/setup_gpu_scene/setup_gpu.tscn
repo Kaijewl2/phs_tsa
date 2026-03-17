@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://bhgmgqp4c1yd4"]
+
+[ext_resource type="Script" uid="uid://c7qwrjqkkpgc1" path="res://scenes/setup_gpu_scene/setup_gpu.gd" id="1_3oo8o"]
+[ext_resource type="Texture2D" uid="uid://ctky17av0k51a" path="res://art/misc/base_gpu.png" id="1_3y7p3"]
+[ext_resource type="FontFile" uid="uid://crdmvv8dc23b3" path="res://art/fonts/blue_winter/Blue Winter.ttf" id="2_3oo8o"]
+
+[node name="setup_gpu" type="Control" unique_id=1886166878]
+layout_mode = 3
+anchor_right = 0.45600003
+anchor_bottom = 0.23400001
+offset_right = 0.47991943
+offset_bottom = 0.27998352
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_3oo8o")
+
+[node name="setup_gpu_image" type="TextureRect" parent="." unique_id=1965743812]
+texture_filter = 1
+layout_mode = 0
+offset_right = 871.134
+offset_bottom = 270.0
+texture = ExtResource("1_3y7p3")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="remove_button" type="Button" parent="." unique_id=158333871]
+texture_filter = 1
+layout_mode = 0
+offset_left = 270.0
+offset_top = 257.0
+offset_right = 623.0
+offset_bottom = 377.0
+theme_override_fonts/font = ExtResource("2_3oo8o")
+theme_override_font_sizes/font_size = 85
+text = "remove"
+
+[connection signal="mouse_entered" from="setup_gpu_image" to="." method="_on_setup_gpu_image_mouse_entered"]
+[connection signal="mouse_exited" from="setup_gpu_image" to="." method="_on_setup_gpu_image_mouse_exited"]
+[connection signal="mouse_entered" from="remove_button" to="." method="_on_remove_button_mouse_entered"]
+[connection signal="mouse_exited" from="remove_button" to="." method="_on_remove_button_mouse_exited"]
+[connection signal="pressed" from="remove_button" to="." method="_on_remove_button_pressed"]

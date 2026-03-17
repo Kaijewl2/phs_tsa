@@ -3,13 +3,13 @@ extends CharacterBody2D
 @export var unit_data: UnitData
 var unit_name: String
 
-# Base stats — never modified after _ready
+# Base stats; never modified after _ready
 var base_health: float
 var base_damage: int
 var base_speed: int
 var attack_cooldown: float
 
-# Current stats — what actually gets used in combat
+# Current stats; what actually gets used in combat
 var current_health: float
 var current_damage: float
 var current_speed: float
@@ -38,8 +38,8 @@ func _ready() -> void:
 		animated_sprite_2d.sprite_frames = unit_data.sprite_animations
 
 	# Apply RAM buffs first, which sets current_health/damage/speed
-	GameData.setup_changed.connect(apply_ram_buffs)
-	apply_ram_buffs()
+	GameData.setup_changed.connect(apply_hardware_buffs)
+	apply_hardware_buffs()
 
 	# UI reflects buffed stats
 	health_text.text += str(current_health)
@@ -58,12 +58,30 @@ func apply_ram_buffs() -> void:
 	current_damage = base_damage + (base_damage * bonuses["damage"])
 	current_speed = base_speed + (base_speed * bonuses["speed"])
 
-	# Recalculate max health but preserve current damage taken
+	# Recalculate max health but keep current damage taken
 	var damage_taken = (base_health - current_health) if current_health > 0 else 0.0
+	print("curr health: ", current_health)
 	var new_max_health = base_health + (base_health * bonuses["health"])
 	current_health = new_max_health - damage_taken
 
 	# Update UI to reflect new stats
+	health_bar._setup_health_bar(current_health)
+
+
+func apply_hardware_buffs() -> void:
+	var ram_bonuses = GameData.get_ram_stat_bonuses()
+	var gpu_bonuses = GameData.get_gpu_stat_bonuses()
+
+	current_damage = base_damage + (base_damage * (ram_bonuses["damage"] + gpu_bonuses["damage"]))
+	current_speed = base_speed + (base_speed * (ram_bonuses["speed"] + gpu_bonuses["speed"]))
+
+	var damage_taken = (base_health - current_health) if current_health > 0 else 0.0
+	var new_max_health = base_health + (base_health * (ram_bonuses["health"] + gpu_bonuses["health"]))
+	current_health = new_max_health - damage_taken
+
+	health_text.text = "HP: " + str(current_health)
+	damage_text.text = "DMG: " + str(current_damage)
+	speed_text.text = "SPD: " + str(current_speed)
 	health_bar._setup_health_bar(current_health)
 
 

@@ -15,8 +15,12 @@ const BOSS_INTERVAL:int = 4
 const FINAL_BOSS_ROUND:int = 5
 const SETUP_CARD_SCENE_PATH:String = "res://scenes/setup_card_scene/setup_card.tscn"
 const BACKPACK_RAM_STICK_SCENE_PATH:String = "res://scenes/backpack_ram_scene/backpack_ram.tscn"
+const BACKPACK_GPU_SCENE_PATH: String = "res://scenes/backpack_gpu_scene/backpack_gpu.tscn"
+const MAX_GPU_SLOTS: int = 1
 
 
+var setup_gpus = []
+var setup_gpu_types = []
 var backpack_items = []
 var active_units = []
 var active_commrades = []
@@ -46,6 +50,11 @@ var harware_part_types = {
 	"damage_ram": preload("uid://d1yj44foo08a0"),
 	"speed_ram": preload("uid://djv75ht8apx3y"),
 	"health_ram": preload("uid://dtqn1dmjrrb1g")
+}
+var gpu_types = {
+	"damage_gpu": preload("uid://dcss64215a6ww"),
+	"speed_gpu": preload("uid://bafbjwry44ic5"),
+	"health_gpu": preload("uid://daf61snfrfxjs"),
 }
 var minor_virus_names = ["Trojan Commanders", "Spyware Syndicates", "Botnet Breachers", "Adware Swarm"]
 var boss_virus_names = ["Ransomware Tyrant", "Kernel Hydra", "Malware Prime", "Backdoor Kingpin"]
@@ -141,6 +150,11 @@ func add_ram_stick_to_setup(ram_stick_path:String, ram_stick_type:RamData):
 	return false
 
 
+func add_gpu_to_backpack(gpu_path: String, gpu_type: GpuData):
+	backpack_items.append({ "path": gpu_path, "data": gpu_type, "type": "gpu" })
+	backpack_changed.emit()
+
+
 func add_card_to_deck(card_path:String):
 	if deck_cards.size() <= MAX_BACKPACK_SIZE:
 		deck_cards.append(card_path)
@@ -174,7 +188,7 @@ func remove_ram_from_setup(ram_type: RamData):
 		setup_ram_types.remove_at(index)
 		add_ram_stick_to_backpack(BACKPACK_RAM_STICK_SCENE_PATH, ram_type)
 	else:
-		print("remove_card_from_setup(card_type): no index found")
+		print("remove_ram_from_setup(ram_type): no index found")
 	setup_changed.emit()
 
 
@@ -239,6 +253,16 @@ func get_random_hardware_part_data():
 	return harware_part_list.pick_random()
 
 
+func get_random_gpu_data() -> GpuData:
+	var gpu_list = gpu_types.values()
+	return gpu_list.pick_random()
+
+
+func get_random_ram_data() -> RamData:
+	var ram_list = harware_part_types.values()
+	return ram_list.pick_random()
+
+
 func change_balance(value, operation):
 	if operation == "add" :
 		balance += value
@@ -276,3 +300,40 @@ func move_ram_stick_to_setup(ram_stick_type: RamData):
 
 func change_player_class(new_class:String):
 	PlayerClass = new_class
+
+
+func add_gpu_to_setup(gpu_path: String, gpu_type: GpuData):
+	if setup_gpus.size() < MAX_GPU_SLOTS:
+		setup_gpus.append(gpu_path)
+		setup_gpu_types.append(gpu_type)
+		setup_changed.emit()
+		return true
+	return false
+
+func remove_gpu_from_setup(index: int):
+	if index < 0 or index >= setup_gpu_types.size():
+		print("remove_gpu_from_setup: invalid index ", index)
+		return
+	var gpu_type = setup_gpu_types[index]
+	setup_gpus.remove_at(index)
+	setup_gpu_types.remove_at(index)
+	add_gpu_to_backpack(BACKPACK_GPU_SCENE_PATH, gpu_type)
+	setup_changed.emit()
+
+func move_gpu_to_setup(gpu_type: GpuData):
+	for i in range(backpack_items.size()):
+		var item = backpack_items[i]
+		if item["type"] == "gpu" and item["data"] == gpu_type:
+			if add_gpu_to_setup(item["path"], gpu_type):
+				backpack_items.remove_at(i)
+				backpack_changed.emit()
+				return true
+	return false
+
+func get_gpu_stat_bonuses() -> Dictionary:
+	var bonuses = { "damage": 0.0, "speed": 0.0, "health": 0.0 }
+	for gpu in setup_gpu_types:
+		bonuses["damage"] += gpu.damage_enhancer
+		bonuses["speed"] += gpu.speed_enhancer
+		bonuses["health"] += gpu.health_enhancer
+	return bonuses

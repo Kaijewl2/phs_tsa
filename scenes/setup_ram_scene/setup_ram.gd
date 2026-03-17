@@ -24,13 +24,12 @@ func _ready() -> void:
 	if ram_stick_data:
 		ram_stick_image.texture = ram_stick_data.ram_stick_image
 	button.hide()
-	button.pressed.connect(remove_from_setup)
-
 
 
 func remove_from_setup():
 	# You'll need a GameData function to remove RAM from setup
 	GameData.remove_ram_from_setup(ram_stick_data)
+
 
 func _on_equip_button_mouse_entered() -> void:
 	button.show()
@@ -50,5 +49,4 @@ func _on_ram_stick_image_mouse_exited() -> void:
 
 
 func _on_remove_button_pressed() -> void:
-	print("remove card")
 	GameData.remove_ram_from_setup(ram_stick_data)

@@ -7,7 +7,8 @@
 script = ExtResource("1_wv55x")
 ram_stick_image = ExtResource("1_g5tyr")
 ram_stick_name = "Health RAM stick"
-damage_enhancer = 1.0
-health_enhancer = 1.5
+speed_enhancer = 0.0
+damage_enhancer = 0.0
+health_enhancer = 0.5
 cost = 5
 metadata/_custom_type_script = "uid://csts7gyo8l4sn"

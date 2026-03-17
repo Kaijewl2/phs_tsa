@@ -17,9 +17,7 @@ func refresh_ram_slots():
 	for slot in ram_slots:
 		for child in slot.get_children():
 			child.queue_free()
-	print("before iter")
 	for i in range(GameData.setup_ram_types.size()):
-		print("during iter")
 		if i >= ram_slots.size():
 			break
 		var setup_ram = SETUP_RAM_SCENE.instantiate()
