@@ -16,11 +16,15 @@ const FINAL_BOSS_ROUND:int = 5
 const SETUP_CARD_SCENE_PATH:String = "res://scenes/setup_card_scene/setup_card.tscn"
 const BACKPACK_RAM_STICK_SCENE_PATH:String = "res://scenes/backpack_ram_scene/backpack_ram.tscn"
 const BACKPACK_GPU_SCENE_PATH: String = "res://scenes/backpack_gpu_scene/backpack_gpu.tscn"
+const BACKPACK_CPU_SCENE_PATH: String = "res://scenes/backpack_cpu/backpack_cpu.tscn"
 const MAX_GPU_SLOTS: int = 1
+const MAX_CPU_SLOTS: int = 1
 
 
 var setup_gpus = []
+var setup_cpus = []
 var setup_gpu_types = []
+var setup_cpu_types = []
 var backpack_items = []
 var active_units = []
 var active_commrades = []
@@ -55,6 +59,11 @@ var gpu_types = {
 	"damage_gpu": preload("uid://dcss64215a6ww"),
 	"speed_gpu": preload("uid://bafbjwry44ic5"),
 	"health_gpu": preload("uid://daf61snfrfxjs"),
+}
+var cpu_types = {
+	"damage_cpu": preload("uid://cmyb285lel60r"),
+	"speed_cpu": preload("uid://yqqgnc4gswl"),
+	"health_cpu": preload("uid://fsrci6pogw1b"),
 }
 var minor_virus_names = ["Trojan Commanders", "Spyware Syndicates", "Botnet Breachers", "Adware Swarm"]
 var boss_virus_names = ["Ransomware Tyrant", "Kernel Hydra", "Malware Prime", "Backdoor Kingpin"]
@@ -152,6 +161,11 @@ func add_ram_stick_to_setup(ram_stick_path:String, ram_stick_type:RamData):
 
 func add_gpu_to_backpack(gpu_path: String, gpu_type: GpuData):
 	backpack_items.append({ "path": gpu_path, "data": gpu_type, "type": "gpu" })
+	backpack_changed.emit()
+
+
+func add_cpu_to_backpack(cpu_path: String, cpu_type: CpuData):
+	backpack_items.append({ "path": cpu_path, "data": cpu_type, "type": "cpu" })
 	backpack_changed.emit()
 
 
@@ -258,6 +272,11 @@ func get_random_gpu_data() -> GpuData:
 	return gpu_list.pick_random()
 
 
+func get_random_cpu_data() -> CpuData:
+	var cpu_list = cpu_types.values()
+	return cpu_list.pick_random()
+
+
 func get_random_ram_data() -> RamData:
 	var ram_list = harware_part_types.values()
 	return ram_list.pick_random()
@@ -310,6 +329,16 @@ func add_gpu_to_setup(gpu_path: String, gpu_type: GpuData):
 		return true
 	return false
 
+
+func add_cpu_to_setup(cpu_path: String, cpu_type: CpuData):
+	if setup_cpus.size() < MAX_CPU_SLOTS:
+		setup_cpus.append(cpu_path)
+		setup_cpu_types.append(cpu_type)
+		setup_changed.emit()
+		return true
+	return false
+
+
 func remove_gpu_from_setup(index: int):
 	if index < 0 or index >= setup_gpu_types.size():
 		print("remove_gpu_from_setup: invalid index ", index)
@@ -319,6 +348,18 @@ func remove_gpu_from_setup(index: int):
 	setup_gpu_types.remove_at(index)
 	add_gpu_to_backpack(BACKPACK_GPU_SCENE_PATH, gpu_type)
 	setup_changed.emit()
+
+
+func remove_cpu_from_setup(index: int):
+	if index < 0 or index >= setup_cpu_types.size():
+		print("remove_cpu_from_setup: invalid index ", index)
+		return
+	var cpu_type = setup_cpu_types[index]
+	setup_cpus.remove_at(index)
+	setup_cpu_types.remove_at(index)
+	add_cpu_to_backpack(BACKPACK_CPU_SCENE_PATH, cpu_type)
+	setup_changed.emit()
+
 
 func move_gpu_to_setup(gpu_type: GpuData):
 	for i in range(backpack_items.size()):
@@ -330,10 +371,31 @@ func move_gpu_to_setup(gpu_type: GpuData):
 				return true
 	return false
 
+
+func move_cpu_to_setup(cpu_type: CpuData):
+	for i in range(backpack_items.size()):
+		var item = backpack_items[i]
+		if item["type"] == "cpu" and item["data"] == cpu_type:
+			if add_cpu_to_setup(item["path"], cpu_type):
+				backpack_items.remove_at(i)
+				backpack_changed.emit()
+				return true
+	return false
+
+
 func get_gpu_stat_bonuses() -> Dictionary:
 	var bonuses = { "damage": 0.0, "speed": 0.0, "health": 0.0 }
 	for gpu in setup_gpu_types:
 		bonuses["damage"] += gpu.damage_enhancer
 		bonuses["speed"] += gpu.speed_enhancer
 		bonuses["health"] += gpu.health_enhancer
+	return bonuses
+	
+	
+func get_cpu_stat_bonuses() -> Dictionary:
+	var bonuses = { "damage": 0.0, "speed": 0.0, "health": 0.0 }
+	for cpu in setup_cpu_types:
+		bonuses["damage"] += cpu.damage_enhancer
+		bonuses["speed"] += cpu.speed_enhancer
+		bonuses["health"] += cpu.health_enhancer
 	return bonuses

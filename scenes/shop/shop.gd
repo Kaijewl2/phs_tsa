@@ -11,8 +11,14 @@ class_name Shop
 const SELL_CARD = preload("uid://cwfnhwgq5hgi7")
 const RAM_STICK = preload("uid://b11vc6ohy6mxh")
 const GPU_SCENE = preload("uid://nllcci5mx8v4")
+const CPU_SCENE = preload("uid://bwbxpnl8s8apm")
 
 func _ready() -> void:
+	for i in range(2):
+		var cpu = CPU_SCENE.instantiate()
+		cpu.cpu_data = GameData.get_random_cpu_data()
+		hardware_container.add_child(cpu)
+	
 	for i in range(4):
 		var sell_card = SELL_CARD.instantiate()
 		sell_card.sell_card_data = GameData.get_random_sell_card_data()

@@ -71,17 +71,15 @@ func apply_ram_buffs() -> void:
 func apply_hardware_buffs() -> void:
 	var ram_bonuses = GameData.get_ram_stat_bonuses()
 	var gpu_bonuses = GameData.get_gpu_stat_bonuses()
+	var cpu_bonuses = GameData.get_cpu_stat_bonuses()
 
-	current_damage = base_damage + (base_damage * (ram_bonuses["damage"] + gpu_bonuses["damage"]))
-	current_speed = base_speed + (base_speed * (ram_bonuses["speed"] + gpu_bonuses["speed"]))
+	current_damage = base_damage + (base_damage * (ram_bonuses["damage"] + gpu_bonuses["damage"] + cpu_bonuses["damage"]))
+	current_speed = base_speed + (base_speed * (ram_bonuses["speed"] + gpu_bonuses["speed"]) + cpu_bonuses["speed"])
 
 	var damage_taken = (base_health - current_health) if current_health > 0 else 0.0
-	var new_max_health = base_health + (base_health * (ram_bonuses["health"] + gpu_bonuses["health"]))
+	var new_max_health = base_health + (base_health * (ram_bonuses["health"] + gpu_bonuses["health"] + cpu_bonuses["health"]))
 	current_health = new_max_health - damage_taken
 
-	health_text.text = "HP: " + str(current_health)
-	damage_text.text = "DMG: " + str(current_damage)
-	speed_text.text = "SPD: " + str(current_speed)
 	health_bar._setup_health_bar(current_health)
 
 

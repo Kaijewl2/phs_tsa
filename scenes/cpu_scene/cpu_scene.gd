@@ -1,21 +1,21 @@
 extends Control
 
 
-signal gpu_sold(gpu_type)
+signal cpu_sold(cpu_type)
 
 
-@export var gpu_data: GpuData
+@export var cpu_data: CpuData
 
 
-@onready var gpu_image: TextureRect = $gpu_image
+@onready var cpu_image: TextureRect = $cpu_image
 @onready var currency_label: Label = $currency_label
 
 
-const GPU_PATH = "res://scenes/gpu_scene/gpu_scene.tscn"
+const CPU_PATH = "res://scenes/cpu_scene/cpu_scene.tscn"
 
 
-var gpu_name: String
-var gpu_desc: String
+var cpu_name: String
+var cpu_desc: String
 var speed_enhancer: float
 var damage_enhancer: float
 var health_enhancer: float
@@ -27,15 +27,15 @@ var card_path: String
 
 
 func _ready() -> void:
-	if gpu_data:
-		gpu_image.texture = gpu_data.gpu_image
-		gpu_name = gpu_data.gpu_name
-		gpu_desc = gpu_data.gpu_desc
-		speed_enhancer = gpu_data.speed_enhancer
-		damage_enhancer = gpu_data.damage_enhancer
-		health_enhancer = gpu_data.health_enhancer
-		gb_size = gpu_data.gb_size
-		cost = gpu_data.cost 
+	if cpu_data:
+		cpu_image.texture = cpu_data.cpu_image
+		cpu_name = cpu_data.cpu_name
+		cpu_desc = cpu_data.cpu_desc
+		speed_enhancer = cpu_data.speed_enhancer
+		damage_enhancer = cpu_data.damage_enhancer
+		health_enhancer = cpu_data.health_enhancer
+		gb_size = cpu_data.gb_size
+		cost = cpu_data.cost 
 		
 		currency_label.text = str(cost)
 		currency_label.show()
@@ -53,21 +53,21 @@ func handle_purchase():
 	if GameData.get_balance() >= cost && GameData.backpack_cards.size() < GameData.MAX_BACKPACK_SIZE:
 		GameData.change_balance(cost, "subtract")
 
-		# Add GPU to player's backpack
-		print("GPU type: ", gpu_data)
-		gpu_sold.emit(gpu_data.gpu_name)
+		# Add CPU to player's backpack
+		print("CPU type: ", cpu_data)
+		cpu_sold.emit(cpu_data.cpu_name)
 		
-		GameData.add_gpu_to_backpack(GPU_PATH, gpu_data)
+		GameData.add_cpu_to_backpack(CPU_PATH, cpu_data)
 
 		# Delete card
 		self.queue_free()
 
 
-func _on_gpu_image_mouse_entered() -> void:
+func _on_cpu_image_mouse_entered() -> void:
 	hovering = true
-	gpu_image.scale = Vector2(0.4, 0.4)
+	cpu_image.scale = Vector2(1.4, 1.4)
 
 
-func _on_gpu_image_mouse_exited() -> void:
+func _on_cpu_image_mouse_exited() -> void:
 	hovering = false
-	gpu_image.scale = Vector2(0.37, 0.37)
+	cpu_image.scale = Vector2(1.135, 1.135)

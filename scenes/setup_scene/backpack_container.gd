@@ -4,6 +4,7 @@ extends Control
 const BACKPACK_CARD_SCENE = preload("res://scenes/backpack_card_scene/backpack_card.tscn")
 const BACKPACK_RAM_SCENE = preload("res://scenes/backpack_ram_scene/backpack_ram.tscn")
 const BACKPACK_GPU_SCENE = preload("res://scenes/backpack_gpu_scene/backpack_gpu.tscn")
+const BACKPACK_CPU_SCENE = preload("res://scenes/backpack_cpu/backpack_cpu.tscn")
 
 
 func _ready() -> void:
@@ -31,6 +32,11 @@ func refresh_backpack():
 			backpack_gpu.gpu_data = item["data"]
 			card_grid.add_child(backpack_gpu)
 			backpack_gpu.setup(item["path"])
+		elif item["type"] == "cpu":
+			var backpack_cpu = BACKPACK_CPU_SCENE.instantiate()
+			backpack_cpu.cpu_data = item["data"]
+			card_grid.add_child(backpack_cpu)
+			backpack_cpu.setup(item["path"])
 			
 func toggle_visibility():
 	visible = !visible

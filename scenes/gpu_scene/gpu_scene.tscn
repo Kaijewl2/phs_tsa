@@ -17,17 +17,22 @@ script = ExtResource("1_6wpbj")
 [node name="gpu_image" type="TextureRect" parent="." unique_id=792342321]
 texture_filter = 1
 layout_mode = 0
-offset_right = 871.134
-offset_bottom = 193.1
+offset_top = 253.0
+offset_right = 685.68134
+offset_bottom = 446.09998
+rotation = -1.5707964
+scale = Vector2(0.37, 0.37)
 texture = ExtResource("1_wg65o")
+stretch_mode = 4
 
 [node name="currency_label" type="Label" parent="." unique_id=86531191]
 texture_filter = 1
 layout_mode = 0
-offset_left = 440.0
-offset_top = 212.0
-offset_right = 539.0
-offset_bottom = 315.0
+offset_left = 29.085
+offset_top = 253.0
+offset_right = 128.08499
+offset_bottom = 356.0
+scale = Vector2(0.37, 0.37)
 theme_override_colors/font_color = Color(1, 0.78431374, 0.40392157, 1)
 theme_override_fonts/font = ExtResource("2_6wpbj")
 theme_override_font_sizes/font_size = 78

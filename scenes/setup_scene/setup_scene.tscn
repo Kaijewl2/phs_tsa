@@ -6,7 +6,6 @@
 [ext_resource type="FontFile" uid="uid://crdmvv8dc23b3" path="res://art/fonts/blue_winter/Blue Winter.ttf" id="2_1jyb6"]
 [ext_resource type="Texture2D" uid="uid://bvoxt0q220sbc" path="res://art/misc/storage_layout.png" id="2_35cec"]
 [ext_resource type="FontFile" uid="uid://gmv3du7nrgom" path="res://art/fonts/blue_winter/Blue Winter.otf" id="3_l0wi0"]
-[ext_resource type="PackedScene" uid="uid://deh5t7xa35jdd" path="res://scenes/backpack_card_scene/backpack_card.tscn" id="4_0u8xd"]
 [ext_resource type="Texture2D" uid="uid://cw0hc4y8bi0l4" path="res://art/misc/basic_frame.png" id="4_l0wi0"]
 [ext_resource type="PackedScene" uid="uid://d2dwgl2aubu7e" path="res://scenes/change_scene_button_scene/change_scene_button.tscn" id="4_n1dyv"]
 [ext_resource type="Script" uid="uid://cs8lbsip8q0fi" path="res://scenes/setup_scene/ram_sticks_container.gd" id="6_2nera"]
@@ -14,8 +13,8 @@
 [ext_resource type="Script" uid="uid://n50oojmw5grn" path="res://scenes/setup_scene/player_setup.gd" id="7_0u8xd"]
 [ext_resource type="Texture2D" uid="uid://dguy8q0fdxdaa" path="res://art/misc/pcie_slot.png" id="8_2nera"]
 [ext_resource type="Script" uid="uid://cldkglaufaawr" path="res://scenes/setup_scene/gpu_slot_container.gd" id="8_it6vi"]
-[ext_resource type="Texture2D" uid="uid://bpe2j1xlgn6xx" path="res://art/misc/speed_gpu.png" id="9_2nera"]
-[ext_resource type="PackedScene" uid="uid://6ki2o21rtfen" path="res://scenes/backpack_ram_scene/backpack_ram.tscn" id="12_lrgj0"]
+[ext_resource type="Script" uid="uid://d1ye6cy6tnqdj" path="res://scenes/setup_scene/cpu_container.gd" id="10_fjxpj"]
+[ext_resource type="Texture2D" uid="uid://bmdylqptfk1jd" path="res://art/misc/cpu_slot.png" id="11_kwufy"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ikacj"]
 bg_color = Color(0.60038817, 0.60038817, 0.60038817, 0)
@@ -304,7 +303,31 @@ offset_left = -21.709
 offset_top = -28.329
 offset_right = 849.425
 offset_bottom = 164.77101
-texture = ExtResource("9_2nera")
+
+[node name="cpu_container" type="Control" parent="motherboard_layout" unique_id=1739386764]
+anchors_preset = 0
+offset_left = 86.0
+offset_top = 67.0
+offset_right = 341.0
+offset_bottom = 306.0
+script = ExtResource("10_fjxpj")
+
+[node name="cpu_slot_image" type="TextureRect" parent="motherboard_layout/cpu_container" unique_id=1822792270]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -136.025
+offset_top = -132.635
+offset_right = 65.484406
+offset_bottom = 65.855545
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.325, 1.325)
+texture = ExtResource("11_kwufy")
+stretch_mode = 4
 
 [node name="backpack_container" type="Control" parent="." unique_id=1568474870]
 layout_mode = 3
@@ -340,18 +363,6 @@ offset_right = 244.30096
 offset_bottom = 456.29962
 scale = Vector2(0.66, 0.66)
 columns = 3
-
-[node name="backpack_card2" parent="backpack_container/storage_img/GridContainer" unique_id=675617672 instance=ExtResource("4_0u8xd")]
-layout_mode = 2
-
-[node name="backpack_card" parent="backpack_container/storage_img/GridContainer" unique_id=1231329556 instance=ExtResource("4_0u8xd")]
-layout_mode = 2
-
-[node name="backpack_ram" parent="backpack_container/storage_img/GridContainer" unique_id=1826135843 instance=ExtResource("12_lrgj0")]
-layout_mode = 2
-
-[node name="backpack_ram3" parent="backpack_container/storage_img/GridContainer" unique_id=1437807799 instance=ExtResource("12_lrgj0")]
-layout_mode = 2
 
 [node name="active_cards_container" type="Control" parent="." unique_id=1052810598]
 layout_mode = 3
