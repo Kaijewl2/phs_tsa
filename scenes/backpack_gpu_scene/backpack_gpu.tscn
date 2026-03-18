@@ -5,6 +5,7 @@
 [ext_resource type="FontFile" uid="uid://crdmvv8dc23b3" path="res://art/fonts/blue_winter/Blue Winter.ttf" id="2_on144"]
 
 [node name="backpack_gpu" type="Control" unique_id=501742269]
+custom_minimum_size = Vector2(237, 0)
 layout_mode = 3
 anchor_right = 0.11800001
 anchor_bottom = 0.054

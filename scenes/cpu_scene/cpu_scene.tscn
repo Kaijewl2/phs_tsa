@@ -27,9 +27,9 @@ texture = ExtResource("1_pla78")
 [node name="currency_label" type="Label" parent="." unique_id=1607593393]
 layout_mode = 0
 offset_left = 123.0
-offset_top = 262.0
+offset_top = 219.0
 offset_right = 164.0
-offset_bottom = 305.0
+offset_bottom = 262.0
 theme_override_colors/font_color = Color(1, 0.78431374, 0.40392157, 1)
 theme_override_fonts/font = ExtResource("3_35olv")
 theme_override_font_sizes/font_size = 32
