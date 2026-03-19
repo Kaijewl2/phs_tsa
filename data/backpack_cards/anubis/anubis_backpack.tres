@@ -9,6 +9,4 @@ script = ExtResource("1_mm8yh")
 card_frame = ExtResource("1_op4tt")
 card_background = Color(0.3372549, 0.3372549, 0.3372549, 1)
 card_icon = ExtResource("2_pt1gp")
-backpack_card_name = "cat"
-backpack_card_desc = "hardend from the alleys"
 metadata/_custom_type_script = "uid://c2jw8hy2bi36y"

@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="SellCardData" format=3 uid="uid://c7s7gv5or1lrs"]
+
+[ext_resource type="Script" uid="uid://c6rkw8aflunst" path="res://data/SellCardData.gd" id="1_lbw8j"]
+[ext_resource type="Texture2D" uid="uid://co5cigw212hby" path="res://art/cards/linux_card_template.png" id="1_w2btp"]
+[ext_resource type="Texture2D" uid="uid://ekyvwuwcujbr" path="res://art/entities/ox/ox_single.png" id="2_3vmcf"]
+
+[resource]
+script = ExtResource("1_lbw8j")
+card_frame = ExtResource("1_w2btp")
+card_background = Color(0.6502614, 0.31137332, 0.015270444, 1)
+card_borders = Color(0.47143298, 0.3815839, 0.14465562, 1)
+card_icon = ExtResource("2_3vmcf")
+sell_card_name = "Geeno"
+sell_card_desc = "Geeno's Not Unstoppable. But close."
+health = 100.0
+damage = 5
+speed = 2
+value = 5
+metadata/_custom_type_script = "uid://c6rkw8aflunst"

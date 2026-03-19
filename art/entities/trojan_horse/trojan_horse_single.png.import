@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://r1ik30imn2vx"
-path="res://.godot/imported/robot_blue.png-57716a386fbc24728bcfa133c3b320c0.ctex"
+uid="uid://c8brie37x2y11"
+path="res://.godot/imported/trojan_horse_single.png-ecd7bb329726571a93580efb1959555e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/entities/walking_bot/robot_blue.png"
-dest_files=["res://.godot/imported/robot_blue.png-57716a386fbc24728bcfa133c3b320c0.ctex"]
+source_file="res://art/entities/trojan_horse/trojan_horse_single.png"
+dest_files=["res://.godot/imported/trojan_horse_single.png-ecd7bb329726571a93580efb1959555e.ctex"]
 
 [params]
 

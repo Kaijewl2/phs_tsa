@@ -5,12 +5,12 @@
 [ext_resource type="FontFile" uid="uid://crdmvv8dc23b3" path="res://art/fonts/blue_winter/Blue Winter.ttf" id="2_on144"]
 
 [node name="backpack_gpu" type="Control" unique_id=501742269]
-custom_minimum_size = Vector2(237, 0)
+custom_minimum_size = Vector2(237, 267)
 layout_mode = 3
 anchor_right = 0.11800001
 anchor_bottom = 0.054
 offset_right = 648.44
-offset_bottom = 39.861816
+offset_bottom = 208.68
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.275, 0.275)

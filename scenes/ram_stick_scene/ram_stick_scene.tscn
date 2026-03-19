@@ -19,6 +19,7 @@ texture_filter = 1
 layout_mode = 0
 offset_right = 90.048004
 offset_bottom = 231.0
+pivot_offset = Vector2(42.885, 124.57)
 texture = ExtResource("2_og02v")
 expand_mode = 4
 stretch_mode = 4

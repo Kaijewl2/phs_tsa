@@ -16,7 +16,6 @@
 [ext_resource type="Script" uid="uid://d1ye6cy6tnqdj" path="res://scenes/setup_scene/cpu_container.gd" id="10_fjxpj"]
 [ext_resource type="Texture2D" uid="uid://bmdylqptfk1jd" path="res://art/misc/cpu_slot.png" id="11_kwufy"]
 [ext_resource type="PackedScene" uid="uid://brbsyxris1py7" path="res://scenes/setup_cpu_scene/setup_cpu.tscn" id="12_it6vi"]
-[ext_resource type="PackedScene" uid="uid://6ki2o21rtfen" path="res://scenes/backpack_ram_scene/backpack_ram.tscn" id="15_c1pce"]
 [ext_resource type="PackedScene" uid="uid://7yn14yiyxpk6" path="res://scenes/backpack_gpu_scene/backpack_gpu.tscn" id="16_kwufy"]
 [ext_resource type="PackedScene" uid="uid://cs3wsbc77dnuc" path="res://scenes/backpack_cpu/backpack_cpu.tscn" id="17_kwufy"]
 
@@ -375,22 +374,10 @@ offset_bottom = 456.29962
 scale = Vector2(0.66, 0.66)
 columns = 3
 
-[node name="backpack_ram" parent="backpack_container/storage_img/GridContainer" unique_id=548070670 instance=ExtResource("15_c1pce")]
+[node name="backpack_cpu" parent="backpack_container/storage_img/GridContainer" unique_id=1232808357 instance=ExtResource("17_kwufy")]
 layout_mode = 2
 
 [node name="backpack_gpu" parent="backpack_container/storage_img/GridContainer" unique_id=501742269 instance=ExtResource("16_kwufy")]
-layout_mode = 2
-
-[node name="backpack_ram2" parent="backpack_container/storage_img/GridContainer" unique_id=2049776021 instance=ExtResource("15_c1pce")]
-layout_mode = 2
-
-[node name="backpack_gpu2" parent="backpack_container/storage_img/GridContainer" unique_id=1787646312 instance=ExtResource("16_kwufy")]
-layout_mode = 2
-
-[node name="backpack_gpu3" parent="backpack_container/storage_img/GridContainer" unique_id=1374472235 instance=ExtResource("16_kwufy")]
-layout_mode = 2
-
-[node name="backpack_cpu" parent="backpack_container/storage_img/GridContainer" unique_id=1232808357 instance=ExtResource("17_kwufy")]
 layout_mode = 2
 
 [node name="active_cards_container" type="Control" parent="." unique_id=1052810598]

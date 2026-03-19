@@ -17,11 +17,13 @@ script = ExtResource("1_6wpbj")
 [node name="gpu_image" type="TextureRect" parent="." unique_id=792342321]
 texture_filter = 1
 layout_mode = 0
-offset_top = 253.0
-offset_right = 685.68134
-offset_bottom = 446.09998
+offset_left = -304.0
+offset_top = 26.000015
+offset_right = 381.68134
+offset_bottom = 219.09999
 rotation = -1.5707964
 scale = Vector2(0.37, 0.37)
+pivot_offset = Vector2(339.4, 92.84)
 texture = ExtResource("1_wg65o")
 stretch_mode = 4
 

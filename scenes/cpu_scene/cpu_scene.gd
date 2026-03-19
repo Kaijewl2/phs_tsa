@@ -70,4 +70,4 @@ func _on_cpu_image_mouse_entered() -> void:
 
 func _on_cpu_image_mouse_exited() -> void:
 	hovering = false
-	cpu_image.scale = Vector2(1.135, 1.135)
+	cpu_image.scale = Vector2(1.3, 1.3)

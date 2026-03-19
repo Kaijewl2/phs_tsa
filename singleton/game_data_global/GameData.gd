@@ -9,7 +9,7 @@ signal setup_changed()
 
 
 const MAX_BACKPACK_SIZE = 15
-const MAX_SETUP_SIZE = 3
+const MAX_SETUP_SIZE = 4
 const MAX_RAM_SLOTS:int = 4
 const BOSS_INTERVAL:int = 4
 const FINAL_BOSS_ROUND:int = 5
@@ -45,10 +45,12 @@ var PlayerClass: String
 var unit_types = {
 	"penguin": preload("uid://1p5h1g0b1o30"),
 	"cat": preload("uid://dd8sqowg4kx7p"),
+	"Geeno": preload("uid://baft574watmnq")
 }
 var sell_card_types = {
 	"penguin": preload("uid://ctslcvel45hud"),
 	"cat": preload("uid://2kvmrlos8s2h"),
+	"Geeno": preload("uid://c7s7gv5or1lrs"),
 }
 var harware_part_types = {
 	"damage_ram": preload("uid://d1yj44foo08a0"),

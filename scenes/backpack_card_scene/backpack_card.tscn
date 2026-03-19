@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://deh5t7xa35jdd"]
 
 [ext_resource type="Script" uid="uid://1ct3lecet6sw" path="res://scenes/backpack_card_scene/backpack_card.gd" id="1_u6bpu"]
+[ext_resource type="Resource" uid="uid://ctslcvel45hud" path="res://data/sell_cards/penguin/penguin_sell.tres" id="2_c4ux8"]
 [ext_resource type="Texture2D" uid="uid://co5cigw212hby" path="res://art/cards/linux_card_template.png" id="2_j4dn1"]
 [ext_resource type="FontFile" uid="uid://crdmvv8dc23b3" path="res://art/fonts/blue_winter/Blue Winter.ttf" id="3_5tngm"]
 [ext_resource type="Texture2D" uid="uid://ckimedgxf2230" path="res://art/entities/penguin/penguin.png" id="3_c4ux8"]
@@ -31,6 +32,7 @@ offset_bottom = 61.799988
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_u6bpu")
+backpack_card_data = ExtResource("2_c4ux8")
 
 [node name="card_frame" type="TextureRect" parent="." unique_id=1261989855]
 texture_filter = 1
@@ -40,6 +42,14 @@ offset_bottom = 57.381615
 scale = Vector2(3.59, 3.59)
 texture = ExtResource("2_j4dn1")
 stretch_mode = 2
+
+[node name="card_background" type="ColorRect" parent="card_frame" unique_id=105876419]
+layout_mode = 0
+offset_left = 3.8997207
+offset_top = 6.963787
+offset_right = 30.083565
+offset_bottom = 30.083565
+color = Color(0.3328807, 0.33288068, 0.33288068, 1)
 
 [node name="card_borders" type="Control" parent="card_frame" unique_id=145303682]
 anchors_preset = 0
@@ -103,22 +113,15 @@ offset_right = 25.069637
 offset_bottom = 5.2924795
 mouse_filter = 2
 
-[node name="card_background" type="ColorRect" parent="card_frame" unique_id=105876419]
-layout_mode = 0
-offset_left = 3.899721
-offset_top = 6.9637876
-offset_right = 30.083565
-offset_bottom = 30.083565
-color = Color(0.3328807, 0.33288068, 0.33288068, 1)
-
 [node name="card_image" type="TextureRect" parent="card_frame" unique_id=356638567]
 layout_mode = 0
-offset_left = 3.3426194
-offset_top = 8.077993
-offset_right = 43.34262
-offset_bottom = 48.077995
+offset_left = 4.4568243
+offset_top = 6.128134
+offset_right = 49.780464
+offset_bottom = 46.73056
 scale = Vector2(0.59, 0.59)
 texture = ExtResource("3_c4ux8")
+stretch_mode = 4
 
 [node name="Button" type="Button" parent="." unique_id=796278141]
 visible = false
@@ -145,12 +148,13 @@ label_settings = SubResource("LabelSettings_j4dn1")
 [node name="card_name" type="Label" parent="." unique_id=1135186055]
 texture_filter = 1
 layout_mode = 0
-offset_left = 36.0
+offset_left = 20.0
 offset_top = 1.0
 offset_right = 104.0
 offset_bottom = 23.0
 text = "penguin"
 label_settings = SubResource("LabelSettings_c4ux8")
+horizontal_alignment = 1
 
 [node name="card_desc" type="Label" parent="." unique_id=761700902]
 layout_mode = 0

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dtkhepy4pditl"
-path="res://.godot/imported/robot_green.png-0b7492c574faeffa7f47dbe20ca562ae.ctex"
+uid="uid://ph0kaojfmnky"
+path="res://.godot/imported/red_hat_single.png-f5961da0b3389f2a5c25a57671fd740e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/entities/walking_bot/robot_green.png"
-dest_files=["res://.godot/imported/robot_green.png-0b7492c574faeffa7f47dbe20ca562ae.ctex"]
+source_file="res://art/entities/red_hat/red_hat_single.png"
+dest_files=["res://.godot/imported/red_hat_single.png-f5961da0b3389f2a5c25a57671fd740e.ctex"]
 
 [params]
 

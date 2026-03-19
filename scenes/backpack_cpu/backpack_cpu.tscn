@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://c3346g0d31l8d" path="res://art/misc/health_cpu.png" id="2_sxhwv"]
 
 [node name="backpack_cpu" type="Control" unique_id=1232808357]
+custom_minimum_size = Vector2(237, 0)
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -29,10 +30,10 @@ stretch_mode = 4
 visible = false
 texture_filter = 1
 layout_mode = 0
-offset_left = 73.0
-offset_top = 218.0
-offset_right = 165.0
-offset_bottom = 266.0
+offset_left = 30.0
+offset_top = 172.0
+offset_right = 122.0
+offset_bottom = 220.0
 theme_override_fonts/font = ExtResource("2_few7b")
 theme_override_font_sizes/font_size = 30
 text = "equip"

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d1ptocldauu2n"
-path="res://.godot/imported/robot_orange.png-cf7c47e4e934df3c842970067a919cd5.ctex"
+uid="uid://ekyvwuwcujbr"
+path="res://.godot/imported/ox_single.png-0970617c4d286a5290f413695e1d5dec.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/entities/walking_bot/robot_orange.png"
-dest_files=["res://.godot/imported/robot_orange.png-cf7c47e4e934df3c842970067a919cd5.ctex"]
+source_file="res://art/entities/ox/ox_single.png"
+dest_files=["res://.godot/imported/ox_single.png-0970617c4d286a5290f413695e1d5dec.ctex"]
 
 [params]
 
