@@ -383,25 +383,6 @@ offset_top = -0.53
 offset_right = -0.6300049
 offset_bottom = -0.5299988
 
-[node name="add_card_message_container" type="ColorRect" parent="motherboard_layout" unique_id=1982255904 groups=["add_card_message"]]
-visible = false
-z_index = 2
-layout_mode = 0
-offset_left = 349.0
-offset_top = 413.0
-offset_right = 1477.0
-offset_bottom = 567.0
-color = Color(0.7137255, 0, 0, 0.46666667)
-
-[node name="add_card_message_label" type="Label" parent="motherboard_layout/add_card_message_container" unique_id=942976209]
-layout_mode = 0
-offset_right = 1129.0
-offset_bottom = 156.0
-theme_override_font_sizes/font_size = 75
-text = "Add at least one card to hand"
-horizontal_alignment = 1
-vertical_alignment = 1
-
 [node name="insufficient_ram_container" parent="motherboard_layout" unique_id=1975654364 groups=["insufficient_ram"] instance=ExtResource("13_kwufy")]
 visible = false
 layout_mode = 0

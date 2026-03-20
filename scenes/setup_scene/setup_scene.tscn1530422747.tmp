@@ -384,7 +384,6 @@ offset_right = -0.6300049
 offset_bottom = -0.5299988
 
 [node name="add_card_message_container" type="ColorRect" parent="motherboard_layout" unique_id=1982255904 groups=["add_card_message"]]
-visible = false
 z_index = 2
 layout_mode = 0
 offset_left = 349.0

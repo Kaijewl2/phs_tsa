@@ -19,6 +19,10 @@ var damage: int = 67
 var speed: int = 67
 var value: int = 76
 var ram_cost: int
+var is_first_shake = true 
+var shake_tween: Tween = null
+var container_original_pos: Vector2
+var insufficient_ram_container: ColorRect
 
 var card_path: String
 
@@ -36,6 +40,13 @@ func _ready() -> void:
 		speed = backpack_card_data.speed
 		value = backpack_card_data.value
 		ram_cost = backpack_card_data.ram_cost
+	
+	
+	await get_tree().process_frame
+	await  get_tree().process_frame
+	insufficient_ram_container = get_tree().get_first_node_in_group("insufficient_ram")
+	insufficient_ram_container.position = Vector2(757.0, 413.0)
+	container_original_pos = insufficient_ram_container.position
 
 
 func setup(path: String):
@@ -53,6 +64,32 @@ func add_to_setup():
 			queue_free()
 		else:
 			print("Deck full!")
+	elif GameData.setup_cards.size() >= GameData.MAX_SETUP_SIZE:
+		insufficient_ram_container.show()
+		insufficient_ram_container.get_node("insufficient_ram_label").text = "Hand full!"
+		anim_shake(insufficient_ram_container)
+	else:
+		insufficient_ram_container.show()
+		insufficient_ram_container.get_node("insufficient_ram_label").text = "Not enough RAM!"
+		anim_shake(insufficient_ram_container)
+
+
+func anim_shake(node):
+	insufficient_ram_container.position = Vector2(757.0, 413.0)
+	container_original_pos = insufficient_ram_container.position
+	
+	if shake_tween and shake_tween.is_running():
+		shake_tween.kill()
+		node.position = container_original_pos 
+	
+	shake_tween = create_tween()
+	shake_tween.tween_property(node, "position", container_original_pos + Vector2(-10, 0), 0.05)
+	shake_tween.tween_property(node, "position", container_original_pos + Vector2(10, 0), 0.05)
+	shake_tween.tween_property(node, "position", container_original_pos + Vector2(-5, 0), 0.05)
+	shake_tween.tween_property(node, "position", container_original_pos + Vector2(5, 0), 0.05)
+	shake_tween.tween_property(node, "position", container_original_pos, 0.05)
+	shake_tween.tween_interval(0.5)
+	shake_tween.tween_callback(node.hide)
 
 
 func _on_button_mouse_entered() -> void:

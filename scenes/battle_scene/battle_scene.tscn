@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://28s3ifkaora" path="res://art/maps/sas_map.png" id="2_5vyks"]
 [ext_resource type="PackedScene" uid="uid://bsnxlsarich36" path="res://scenes/coin_counter_ui_scene/coin_counter.tscn" id="3_t2c54"]
 [ext_resource type="Script" uid="uid://bqxw15htkt78r" path="res://scenes/enter_shop_button_scene/button.gd" id="4_t2c54"]
+[ext_resource type="Script" uid="uid://gyv87yjk3yvb" path="res://scenes/battle_scene/loss_restart.gd" id="7_8r7ii"]
 [ext_resource type="FontFile" uid="uid://crdmvv8dc23b3" path="res://art/fonts/blue_winter/Blue Winter.ttf" id="7_dle0h"]
 [ext_resource type="Script" uid="uid://cu6eb6lmq630d" path="res://scenes/battle_scene/button.gd" id="8_dle0h"]
 
@@ -193,7 +194,25 @@ offset_bottom = 54.151978
 text = "finalize cleanup"
 label_settings = SubResource("LabelSettings_dle0h")
 
+[node name="loss_restart_button" type="TextureRect" parent="." unique_id=124893604]
+visible = false
+offset_left = 712.0
+offset_top = 639.0
+offset_right = 1206.0
+offset_bottom = 780.0
+
+[node name="Button" type="Button" parent="loss_restart_button" unique_id=1175306999]
+layout_mode = 0
+offset_right = 491.0
+offset_bottom = 149.0
+theme_override_colors/font_color = Color(0.6745098, 0, 0, 1)
+theme_override_font_sizes/font_size = 112
+text = "Restart"
+flat = true
+script = ExtResource("7_8r7ii")
+
 [connection signal="mouse_entered" from="enter_shop_button/Button" to="enter_shop_button/Button" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="enter_shop_button/Button" to="enter_shop_button/Button" method="_on_mouse_exited"]
 [connection signal="pressed" from="enter_shop_button/Button" to="enter_shop_button/Button" method="_on_pressed"]
 [connection signal="pressed" from="enter_win_scene_button/Button" to="enter_win_scene_button/Button" method="_on_pressed"]
+[connection signal="pressed" from="loss_restart_button/Button" to="loss_restart_button/Button" method="_on_pressed"]

@@ -6,6 +6,7 @@ extends Node2D
 @onready var balance_label: Control = $VBoxContainer/coin_counter
 @onready var final_boss_win_label: Label = $final_boss_win_label
 @onready var enter_win_scene_button: TextureRect = $enter_win_scene_button
+@onready var loss_restart_button: TextureRect = $loss_restart_button
 
 
 const ENENEMY_SCENE = preload("uid://dd11l81fddnsb")
@@ -30,7 +31,7 @@ func _process(_delta: float) -> void:
 	
 	# Commrades lose
 	if(GameData.active_commrades.is_empty()):
-		print("Chuds have prevailed!")
+		loss_restart_button.show()
 		battle_over = true
 	
 	# Commrades win

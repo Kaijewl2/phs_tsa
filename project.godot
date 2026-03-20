@@ -36,6 +36,8 @@ active_entity=""
 enemies=""
 commrades=""
 player_hand=""
+insufficient_ram=""
+add_card_message=""
 
 [gui]
 

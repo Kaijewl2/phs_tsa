@@ -32,10 +32,9 @@ func _ready() -> void:
 
 	await get_tree().process_frame
 	await  get_tree().process_frame
-	insufficient_ram_container = get_parent().get_parent().get_parent().get_parent().get_node("insufficient_ram_container")
+	insufficient_ram_container = get_tree().get_first_node_in_group("insufficient_ram")
 	container_original_pos = insufficient_ram_container.position
-	
-	print("pos: ",container_original_pos)
+	insufficient_ram_container.position = Vector2(757.0, 413.0)
 
 
 func remove_from_setup():
@@ -45,12 +44,15 @@ func remove_from_setup():
 		GameData.remove_current_ram(ram_stick_data)
 	else:
 		insufficient_ram_container.show()
-		#insufficient_ram_container.get_node("AnimationPlayer").play("shake")
-		
+		insufficient_ram_container.get_node("insufficient_ram_label").text = "Not enough RAM!"
 		anim_shake(insufficient_ram_container)
 
 
+
 func anim_shake(node):
+	insufficient_ram_container.position = Vector2(757.0, 413.0)
+	container_original_pos = insufficient_ram_container.position
+	
 	if shake_tween and shake_tween.is_running():
 		shake_tween.kill()
 		node.position = container_original_pos 
