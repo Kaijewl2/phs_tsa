@@ -16,6 +16,10 @@ var health_enhancer: float
 var gb_size: int
 var cost: int
 var hovering:bool = false
+var is_first_shake = true 
+var shake_tween: Tween = null
+var container_original_pos: Vector2
+var insufficient_ram_container: ColorRect
 
 var card_path: String
 
@@ -23,12 +27,42 @@ var card_path: String
 func _ready() -> void:
 	if ram_stick_data:
 		ram_stick_image.texture = ram_stick_data.ram_stick_image
+		gb_size = ram_stick_data.gb_size
 	button.hide()
+
+	await get_tree().process_frame
+	await  get_tree().process_frame
+	insufficient_ram_container = get_parent().get_parent().get_parent().get_parent().get_node("insufficient_ram_container")
+	container_original_pos = insufficient_ram_container.position
+	
+	print("pos: ",container_original_pos)
 
 
 func remove_from_setup():
-	# You'll need a GameData function to remove RAM from setup
-	GameData.remove_ram_from_setup(ram_stick_data)
+	# Only allow unequip if sufficient RAM remains after
+	if((GameData.current_ram_gb - gb_size) >= 0 ):
+		GameData.remove_ram_from_setup(ram_stick_data)
+		GameData.remove_current_ram(ram_stick_data)
+	else:
+		insufficient_ram_container.show()
+		#insufficient_ram_container.get_node("AnimationPlayer").play("shake")
+		
+		anim_shake(insufficient_ram_container)
+
+
+func anim_shake(node):
+	if shake_tween and shake_tween.is_running():
+		shake_tween.kill()
+		node.position = container_original_pos 
+	
+	shake_tween = create_tween()
+	shake_tween.tween_property(node, "position", container_original_pos + Vector2(-10, 0), 0.05)
+	shake_tween.tween_property(node, "position", container_original_pos + Vector2(10, 0), 0.05)
+	shake_tween.tween_property(node, "position", container_original_pos + Vector2(-5, 0), 0.05)
+	shake_tween.tween_property(node, "position", container_original_pos + Vector2(5, 0), 0.05)
+	shake_tween.tween_property(node, "position", container_original_pos, 0.05)
+	shake_tween.tween_interval(0.5)
+	shake_tween.tween_callback(node.hide)
 
 
 func _on_equip_button_mouse_entered() -> void:
@@ -49,4 +83,4 @@ func _on_ram_stick_image_mouse_exited() -> void:
 
 
 func _on_remove_button_pressed() -> void:
-	GameData.remove_ram_from_setup(ram_stick_data)
+	remove_from_setup()

@@ -4,23 +4,24 @@
 [ext_resource type="Texture2D" uid="uid://co5cigw212hby" path="res://art/cards/linux_card_template.png" id="2_8bbjf"]
 [ext_resource type="Texture2D" uid="uid://d4ewn111rc61p" path="res://art/icons/purrrency.png" id="3_8bbjf"]
 [ext_resource type="Texture2D" uid="uid://ckimedgxf2230" path="res://art/entities/penguin/penguin.png" id="3_apoln"]
-[ext_resource type="FontFile" uid="uid://crdmvv8dc23b3" path="res://art/fonts/blue_winter/Blue Winter.ttf" id="5_1slgu"]
+[ext_resource type="FontFile" uid="uid://5h80votmq54e" path="res://art/fonts/minecraft/Minecraft.ttf" id="4_apoln"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ng2uk"]
 line_spacing = 0.83
-font = ExtResource("5_1slgu")
-font_size = 11
+font = ExtResource("4_apoln")
+font_size = 9
 font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_w3e7i"]
-font = ExtResource("5_1slgu")
-font_size = 12
+line_spacing = 1.11
+font = ExtResource("4_apoln")
+font_size = 9
 font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_apoln"]
-font = ExtResource("5_1slgu")
+font = ExtResource("4_apoln")
 font_size = 147
-font_color = Color(0.84705883, 0.7607843, 0.34117648, 1)
+font_color = Color(1, 0.78431374, 0.40392157, 1)
 
 [node name="sell_card" type="Control" unique_id=378176936]
 custom_minimum_size = Vector2(269.66, 0)
@@ -118,9 +119,9 @@ mouse_filter = 2
 [node name="card_desc" type="Label" parent="card_img" unique_id=592417348]
 layout_mode = 0
 offset_left = 1.8830082
-offset_top = 33.98329
+offset_top = 34.555058
 offset_right = 111.27782
-offset_bottom = 77.538635
+offset_bottom = 76.03125
 scale = Vector2(0.275, 0.275)
 text = "standard issue penguin"
 label_settings = SubResource("LabelSettings_ng2uk")
@@ -130,14 +131,14 @@ autowrap_mode = 3
 
 [node name="card_name" type="Label" parent="card_img" unique_id=592410685]
 z_index = 1
-texture_filter = 2
+texture_filter = 1
 layout_mode = 0
-offset_left = 8.077994
-offset_top = 0.5571031
-offset_right = 73.53219
-offset_bottom = 20.104584
+offset_left = 4.829334
+offset_top = 1.8435736
+offset_right = 94.26994
+offset_bottom = 23.28421
 scale = Vector2(0.275, 0.275)
-text = "penguin"
+text = "Rubber Ducky"
 label_settings = SubResource("LabelSettings_w3e7i")
 horizontal_alignment = 1
 
@@ -155,9 +156,9 @@ stretch_mode = 4
 texture_filter = 1
 layout_mode = 0
 offset_left = 61.0
-offset_top = 159.23512
+offset_top = 168.09877
 offset_right = 264.0
-offset_bottom = 386.2351
+offset_bottom = 400.18793
 scale = Vector2(0.275, 0.275)
 text = "67"
 label_settings = SubResource("LabelSettings_apoln")
@@ -166,9 +167,9 @@ label_settings = SubResource("LabelSettings_apoln")
 texture_filter = 1
 layout_mode = 0
 offset_left = -207.27272
-offset_top = 7.2727165
+offset_top = -35.645927
 offset_right = -7.2727203
-offset_bottom = 207.27272
+offset_bottom = 164.35406
 texture = ExtResource("3_8bbjf")
 
 [connection signal="mouse_entered" from="card_img" to="." method="_on_card_img_mouse_entered"]

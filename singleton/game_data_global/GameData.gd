@@ -6,6 +6,7 @@ signal hand_changed(new_card)
 signal backpack_changed()
 signal deck_changed()
 signal setup_changed()
+signal ram_changed()
 
 
 const MAX_BACKPACK_SIZE = 15
@@ -19,6 +20,7 @@ const BACKPACK_GPU_SCENE_PATH: String = "res://scenes/backpack_gpu_scene/backpac
 const BACKPACK_CPU_SCENE_PATH: String = "res://scenes/backpack_cpu/backpack_cpu.tscn"
 const MAX_GPU_SLOTS: int = 1
 const MAX_CPU_SLOTS: int = 1
+const MAX_RAM_GB:int = 64
 
 
 var setup_gpus = []
@@ -40,17 +42,27 @@ var backpack_card_types = []
 var battle_number:int = 1
 var current_security_sweep:int = 1
 var added_starting_card:bool = false
+var added_starting_ram: bool = true
 var balance: int = 676767
+var current_ram_gb: int
 var PlayerClass: String
 var unit_types = {
-	"penguin": preload("uid://1p5h1g0b1o30"),
-	"cat": preload("uid://dd8sqowg4kx7p"),
-	"Geeno": preload("uid://baft574watmnq")
+	"Tux": preload("uid://1p5h1g0b1o30"),
+	"Firecat": preload("uid://dd8sqowg4kx7p"),
+	"GNU": preload("uid://baft574watmnq"),
+	"Rubber Ducky": preload("uid://bcr6xqbvc4ute"),
+	"Red Hat": preload("uid://bbmitl70fosjs"),
+	"White Hat": preload("uid://6o1dwqoutta7"),
+	"Trojan Horse": preload("uid://de314auxcnjap")
 }
 var sell_card_types = {
-	"penguin": preload("uid://ctslcvel45hud"),
-	"cat": preload("uid://2kvmrlos8s2h"),
-	"Geeno": preload("uid://c7s7gv5or1lrs"),
+	"Tux": preload("uid://ctslcvel45hud"),
+	"Firecat": preload("uid://2kvmrlos8s2h"),
+	"GNU": preload("uid://c7s7gv5or1lrs"),
+	"Rubber Ducky": preload("uid://cgqbgddys2rng"),
+	"Red Hat": preload("uid://broqflxgwfqus"),
+	"White Hat": preload("uid://dxtpcwur872cf"),
+	"Trojan Horse": preload("uid://ctie5077o8jbp")
 }
 var harware_part_types = {
 	"damage_ram": preload("uid://d1yj44foo08a0"),
@@ -114,24 +126,25 @@ func is_final_boss_encounter() -> bool:
 	return battle_number % FINAL_BOSS_ROUND == 0
 
 
-func add_starting_card():
+func add_starting_gear():
+	add_ram_stick_to_backpack(BACKPACK_RAM_STICK_SCENE_PATH, preload("uid://c8mwxgju7ai6q"))
+	
 	if player_hand_cards.is_empty():
-		print("Player class: ", PlayerClass)
-		#add_card_to_backpack(SETUP_CARD_SCENE_PATH, sell_card_types["cat"])
 		if(PlayerClass == "linux"):
-			add_card_to_setup(SETUP_CARD_SCENE_PATH, sell_card_types["penguin"])
+			add_card_to_backpack(SETUP_CARD_SCENE_PATH, sell_card_types["Tux"])
 		elif(PlayerClass == "mac"):
-			add_card_to_setup(SETUP_CARD_SCENE_PATH, sell_card_types["cat"])
+			add_card_to_backpack(SETUP_CARD_SCENE_PATH, sell_card_types["Firecat"])
 		else:
-			add_card_to_setup(SETUP_CARD_SCENE_PATH, sell_card_types["cat"])
-			
+			add_card_to_backpack(SETUP_CARD_SCENE_PATH, sell_card_types["GNU"])
+		
 		added_starting_card = true
+		added_starting_ram = true
 
 
 # Add sell correct sell card to backpack when purchased
 func add_card_to_backpack(card_path:String, card_type:SellCardData):
-	print("adding card to backpack: ", card_type)
 	backpack_items.append({ "path": card_path, "data": card_type, "type": "card" })
+	
 	backpack_changed.emit()
 
 
@@ -177,12 +190,38 @@ func add_card_to_deck(card_path:String):
 		deck_changed.emit()
 		return true
 	return false
+
+
+func add_card_to_array(card_path:String):
+	player_hand_cards.push_back(card_path)
 	
+	var card_scene = load(card_path)
+	var card = card_scene.instantiate()
+	
+	# Emit most recently added card as argument
+	hand_changed.emit(card)
+
+
+func add_current_ram(ram_data:RamData):
+	var ram_gb = ram_data.gb_size
+	
+	current_ram_gb += ram_gb
+	
+	ram_changed.emit()
+
+
+func add_card_ram(card_data: SellCardData):
+	var ram_gb = card_data.ram_cost
+	print("card_data: ", card_data)
+	current_ram_gb += ram_gb
+	
+	ram_changed.emit()
+
 
 func remove_card_from_deck(card_path: String):
 	deck_cards.erase(card_path)
 	deck_changed.emit()
-	
+
 
 func remove_card_from_setup(card_type: SellCardData):
 	var index = setup_card_types.find(card_type)
@@ -216,14 +255,21 @@ func remove_card_from_backpack(card_path: String):
 	backpack_changed.emit()
 
 
-func add_card_to_array(card_path:String):
-	player_hand_cards.push_back(card_path)
+func remove_current_ram(ram_data: RamData):
+	var ram_gb = ram_data.gb_size
 	
-	var card_scene = load(card_path)
-	var card = card_scene.instantiate()
+	current_ram_gb -= ram_gb
 	
-	# Emit most recently added card as argument
-	hand_changed.emit(card)
+	ram_changed.emit()
+
+
+
+func remove_card_ram(card_data: SellCardData):
+	var ram_gb = card_data.ram_cost
+	print("card_data: ", card_data)
+	current_ram_gb -= ram_gb
+	
+	ram_changed.emit()
 
 
 func get_ram_stat_bonuses() -> Dictionary:

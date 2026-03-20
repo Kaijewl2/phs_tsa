@@ -22,6 +22,7 @@ var health: float
 var damage: int
 var speed: int
 var value: int
+var ram_cost: int
 var hovering: bool
 
 
@@ -36,6 +37,7 @@ func _ready() -> void:
 		damage = sell_card_data.damage
 		speed = sell_card_data.speed
 		value = sell_card_data.value
+		ram_cost = sell_card_data.ram_cost
 		card_desc.text = sell_card_data.sell_card_desc
 		card_name.text = sell_card_data.sell_card_name
 
@@ -62,6 +64,7 @@ func _on_button_mouse_exited() -> void:
 
 func _on_button_pressed() -> void:
 	GameData.remove_card_from_setup(sell_card_data)
+	GameData.add_card_ram(sell_card_data)
 	GameData.add_card_to_backpack(SELF_PATH, sell_card_data)
 
 

@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://cs3wsbc77dnuc"]
 
 [ext_resource type="Script" uid="uid://8848v30ix6y1" path="res://scenes/backpack_cpu/backpack_cpu.gd" id="1_few7b"]
-[ext_resource type="FontFile" uid="uid://crdmvv8dc23b3" path="res://art/fonts/blue_winter/Blue Winter.ttf" id="2_few7b"]
 [ext_resource type="Texture2D" uid="uid://c3346g0d31l8d" path="res://art/misc/health_cpu.png" id="2_sxhwv"]
 
 [node name="backpack_cpu" type="Control" unique_id=1232808357]
@@ -34,7 +33,6 @@ offset_left = 30.0
 offset_top = 172.0
 offset_right = 122.0
 offset_bottom = 220.0
-theme_override_fonts/font = ExtResource("2_few7b")
 theme_override_font_sizes/font_size = 30
 text = "equip"
 

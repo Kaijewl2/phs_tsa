@@ -40,6 +40,7 @@ func setup(path: String):
 func add_to_setup():
 	if GameData.move_ram_stick_to_setup(ram_stick_data):
 		print("Added ram to deck!")
+		GameData.add_current_ram(ram_stick_data)
 		queue_free()
 	else:
 		print("Deck full of ram!")

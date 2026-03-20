@@ -54,7 +54,6 @@ func handle_purchase():
 		GameData.change_balance(cost, "subtract")
 
 		# Add CPU to player's backpack
-		print("CPU type: ", cpu_data)
 		cpu_sold.emit(cpu_data.cpu_name)
 		
 		GameData.add_cpu_to_backpack(CPU_PATH, cpu_data)

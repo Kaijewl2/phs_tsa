@@ -2,7 +2,6 @@
 
 [ext_resource type="Texture2D" uid="uid://dh2w4xryaj7nb" path="res://art/misc/start_scene_background.png" id="1_60ej6"]
 [ext_resource type="Script" uid="uid://xs8mnq6kivrs" path="res://scenes/start_scene/start_scene.gd" id="1_a77uh"]
-[ext_resource type="FontFile" uid="uid://crdmvv8dc23b3" path="res://art/fonts/blue_winter/Blue Winter.ttf" id="2_a77uh"]
 
 [node name="start_scene" type="Control" unique_id=1689922006]
 layout_mode = 3
@@ -41,18 +40,15 @@ theme_override_constants/separation = 26
 [node name="play_button" type="Button" parent="buttons_container" unique_id=535623981]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.44313726, 0.44313726, 0.44313726, 1)
-theme_override_fonts/font = ExtResource("2_a77uh")
-theme_override_font_sizes/font_size = 76
+theme_override_font_sizes/font_size = 82
 text = "Play"
 flat = true
 alignment = 0
 
 [node name="settings_button" type="Button" parent="buttons_container" unique_id=2039753254]
-visible = false
 layout_mode = 2
 theme_override_colors/font_color = Color(0.44313726, 0.44313726, 0.44313726, 1)
-theme_override_fonts/font = ExtResource("2_a77uh")
-theme_override_font_sizes/font_size = 76
+theme_override_font_sizes/font_size = 82
 text = "Settings"
 flat = true
 alignment = 0
@@ -60,8 +56,7 @@ alignment = 0
 [node name="quit_button" type="Button" parent="buttons_container" unique_id=665063177]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.44313726, 0.44313726, 0.44313726, 1)
-theme_override_fonts/font = ExtResource("2_a77uh")
-theme_override_font_sizes/font_size = 76
+theme_override_font_sizes/font_size = 82
 text = "Quit"
 flat = true
 alignment = 0

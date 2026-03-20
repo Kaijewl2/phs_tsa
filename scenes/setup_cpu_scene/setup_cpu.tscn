@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://pdm5u8cp66dw" path="res://scenes/setup_cpu_scene/setup_cpu.gd" id="1_1v6ap"]
 [ext_resource type="Texture2D" uid="uid://h2sq0fw2n224" path="res://art/misc/damage_cpu.png" id="2_lqn41"]
-[ext_resource type="FontFile" uid="uid://crdmvv8dc23b3" path="res://art/fonts/blue_winter/Blue Winter.ttf" id="3_jl0dq"]
+[ext_resource type="FontFile" uid="uid://5h80votmq54e" path="res://art/fonts/minecraft/Minecraft.ttf" id="3_lqn41"]
 
 [node name="setup_cpu" type="Control" unique_id=2050249283]
 layout_mode = 3
@@ -32,7 +32,7 @@ offset_left = 49.0
 offset_top = 175.0
 offset_right = 155.0
 offset_bottom = 214.0
-theme_override_fonts/font = ExtResource("3_jl0dq")
+theme_override_fonts/font = ExtResource("3_lqn41")
 theme_override_font_sizes/font_size = 23
 text = "remove"
 

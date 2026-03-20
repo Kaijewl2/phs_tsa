@@ -52,7 +52,6 @@ func handle_purchase():
 		GameData.change_balance(cost, "subtract")
 
 		# Add RAM to player's backpack
-		print("RAM type: ", ram_stick_data)
 		ram_sold.emit(ram_stick_data.ram_stick_name)
 		
 		GameData.add_ram_stick_to_backpack(RAM_STICK_PATH, ram_stick_data)

@@ -37,6 +37,10 @@ enemies=""
 commrades=""
 player_hand=""
 
+[gui]
+
+theme/custom_font="uid://5h80votmq54e"
+
 [input]
 
 w={

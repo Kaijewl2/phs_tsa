@@ -25,7 +25,8 @@ var current_speed: float
 enum Context { IDLE, BATTLE, DEATH }
 var current_context = Context.IDLE
 var target = null
-var attack_timer: float = 0.0
+var attack_timer:float = 0.0
+var ram_cost:int
 
 
 func _ready() -> void:
@@ -35,6 +36,7 @@ func _ready() -> void:
 		base_damage = unit_data.damage
 		base_speed = unit_data.speed
 		attack_cooldown = unit_data.attack_cooldown
+		ram_cost = unit_data.ram_cost
 		animated_sprite_2d.sprite_frames = unit_data.sprite_animations
 
 	# Apply RAM buffs first, which sets current_health/damage/speed

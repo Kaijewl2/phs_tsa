@@ -5,11 +5,12 @@
 
 [resource]
 script = ExtResource("1_48jbh")
-unit_name = "Geeno"
-health = 100.0
-damage = 5
-speed = 2
+unit_name = "GNU"
+health = 180.0
+damage = 50
+speed = 20
 attack_cooldown = 5.0
-death_value = 5
+death_value = 210
+ram_cost = 12
 sprite_animations = ExtResource("2_6jqf0")
 metadata/_custom_type_script = "uid://bo4u7fiofkecs"

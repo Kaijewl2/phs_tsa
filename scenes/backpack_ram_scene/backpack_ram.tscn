@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://ctmx523j7xcrl" path="res://scenes/backpack_ram_scene/backpack_ram.gd" id="1_7i5pf"]
 [ext_resource type="Texture2D" uid="uid://ckyams8bw0x00" path="res://art/misc/damage_ram_stick.png" id="2_xghr7"]
-[ext_resource type="FontFile" uid="uid://crdmvv8dc23b3" path="res://art/fonts/blue_winter/Blue Winter.ttf" id="3_xghr7"]
 
 [node name="backpack_ram" type="Control" unique_id=548070670]
 custom_minimum_size = Vector2(237.975, 267)
@@ -34,13 +33,11 @@ offset_left = -16.0
 offset_top = 140.0
 offset_right = 130.0
 offset_bottom = 181.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("3_xghr7")
-theme_override_font_sizes/font_size = 25
+theme_override_font_sizes/font_size = 27
 text = "equip RAM"
 
 [connection signal="mouse_entered" from="ram_stick_image" to="." method="_on_ram_stick_image_mouse_entered"]

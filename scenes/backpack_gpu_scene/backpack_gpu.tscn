@@ -2,7 +2,6 @@
 
 [ext_resource type="Texture2D" uid="uid://ctky17av0k51a" path="res://art/misc/base_gpu.png" id="1_bt4m5"]
 [ext_resource type="Script" uid="uid://q08umli16wgu" path="res://scenes/backpack_gpu_scene/backpack_gpu.gd" id="1_on144"]
-[ext_resource type="FontFile" uid="uid://crdmvv8dc23b3" path="res://art/fonts/blue_winter/Blue Winter.ttf" id="2_on144"]
 
 [node name="backpack_gpu" type="Control" unique_id=501742269]
 custom_minimum_size = Vector2(237, 267)
@@ -36,7 +35,6 @@ offset_top = 87.27273
 offset_right = 220.45454
 offset_bottom = 183.27274
 scale = Vector2(0.345, 0.345)
-theme_override_fonts/font = ExtResource("2_on144")
 theme_override_font_sizes/font_size = 67
 text = "equip"
 

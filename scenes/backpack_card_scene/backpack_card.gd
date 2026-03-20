@@ -18,6 +18,7 @@ var health: float = 6.7
 var damage: int = 67
 var speed: int = 67
 var value: int = 76
+var ram_cost: int
 
 var card_path: String
 
@@ -34,6 +35,7 @@ func _ready() -> void:
 		damage = backpack_card_data.damage
 		speed = backpack_card_data.speed
 		value = backpack_card_data.value
+		ram_cost = backpack_card_data.ram_cost
 
 
 func setup(path: String):
@@ -42,11 +44,15 @@ func setup(path: String):
 
 	
 func add_to_setup():
-	if GameData.move_backpack_card_to_setup(backpack_card_data):
-		print("Added to deck!")
-		queue_free()
-	else:
-		print("Deck full!")
+	# Add allow card be added if sufficient RAM and not at max cards
+	if((GameData.current_ram_gb - ram_cost) >= 0) and GameData.setup_cards.size() < GameData.MAX_SETUP_SIZE:
+		GameData.remove_card_ram(backpack_card_data)
+		if GameData.move_backpack_card_to_setup(backpack_card_data):
+			print("Added to deck!")
+			
+			queue_free()
+		else:
+			print("Deck full!")
 
 
 func _on_button_mouse_entered() -> void:

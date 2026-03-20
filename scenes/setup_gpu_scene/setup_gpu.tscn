@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://c7qwrjqkkpgc1" path="res://scenes/setup_gpu_scene/setup_gpu.gd" id="1_3oo8o"]
 [ext_resource type="Texture2D" uid="uid://ctky17av0k51a" path="res://art/misc/base_gpu.png" id="1_3y7p3"]
-[ext_resource type="FontFile" uid="uid://crdmvv8dc23b3" path="res://art/fonts/blue_winter/Blue Winter.ttf" id="2_3oo8o"]
 
 [node name="setup_gpu" type="Control" unique_id=1886166878]
 layout_mode = 3
@@ -31,7 +30,6 @@ offset_top = 247.0
 offset_right = 732.00024
 offset_bottom = 367.0
 scale = Vector2(0.425, 0.425)
-theme_override_fonts/font = ExtResource("2_3oo8o")
 theme_override_font_sizes/font_size = 85
 text = "remove"
 

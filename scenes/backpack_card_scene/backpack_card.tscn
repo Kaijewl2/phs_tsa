@@ -3,22 +3,22 @@
 [ext_resource type="Script" uid="uid://1ct3lecet6sw" path="res://scenes/backpack_card_scene/backpack_card.gd" id="1_u6bpu"]
 [ext_resource type="Resource" uid="uid://ctslcvel45hud" path="res://data/sell_cards/penguin/penguin_sell.tres" id="2_c4ux8"]
 [ext_resource type="Texture2D" uid="uid://co5cigw212hby" path="res://art/cards/linux_card_template.png" id="2_j4dn1"]
-[ext_resource type="FontFile" uid="uid://crdmvv8dc23b3" path="res://art/fonts/blue_winter/Blue Winter.ttf" id="3_5tngm"]
 [ext_resource type="Texture2D" uid="uid://ckimedgxf2230" path="res://art/entities/penguin/penguin.png" id="3_c4ux8"]
+[ext_resource type="FontFile" uid="uid://5h80votmq54e" path="res://art/fonts/minecraft/Minecraft.ttf" id="6_pdpf5"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_j4dn1"]
-font = ExtResource("3_5tngm")
+font = ExtResource("6_pdpf5")
 font_size = 15
 font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_c4ux8"]
-font = ExtResource("3_5tngm")
-font_size = 12
+font = ExtResource("6_pdpf5")
+font_size = 9
 font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_pdpf5"]
 line_spacing = 0.83
-font = ExtResource("3_5tngm")
+font = ExtResource("6_pdpf5")
 font_size = 10
 font_color = Color(0, 0, 0, 1)
 
@@ -138,21 +138,23 @@ anchor_left = 0.074
 anchor_top = 0.091000006
 anchor_right = 0.938
 anchor_bottom = 0.86
-offset_left = 0.012000084
-offset_top = -0.004000187
-offset_right = -29.864006
-offset_bottom = -8.170002
+offset_left = 0.85999966
+offset_top = 1.6340003
+offset_right = -0.33200073
+offset_bottom = 1.2779999
 text = "add to deck"
 label_settings = SubResource("LabelSettings_j4dn1")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="card_name" type="Label" parent="." unique_id=1135186055]
 texture_filter = 1
 layout_mode = 0
 offset_left = 20.0
-offset_top = 1.0
-offset_right = 104.0
+offset_top = 6.0
+offset_right = 103.0
 offset_bottom = 23.0
-text = "penguin"
+text = "Rubber Ducky"
 label_settings = SubResource("LabelSettings_c4ux8")
 horizontal_alignment = 1
 

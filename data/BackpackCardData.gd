@@ -10,3 +10,4 @@ class_name BackpackCardData
 @export var damage: int = 67
 @export var speed: int = 67
 @export var value: int = 67
+@export var ram_cost: int

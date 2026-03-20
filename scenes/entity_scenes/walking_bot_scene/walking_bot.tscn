@@ -3,7 +3,6 @@
 [ext_resource type="SpriteFrames" uid="uid://dtkw6o2emhqpj" path="res://data/units/anubis/anubis_sprite_frames.tres" id="2_67sjn"]
 [ext_resource type="Script" uid="uid://bnhgs45iwn7es" path="res://scenes/entity_scenes/walking_bot_scene/walking_bot.gd" id="2_i7no5"]
 [ext_resource type="PackedScene" uid="uid://bes6m6c7gdswg" path="res://scenes/health_bar_scene/health_bar.tscn" id="3_qpbe0"]
-[ext_resource type="FontFile" uid="uid://crdmvv8dc23b3" path="res://art/fonts/blue_winter/Blue Winter.ttf" id="5_0rvqr"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qpbe0"]
 radius = 13.785467
@@ -12,8 +11,7 @@ radius = 13.785467
 radius = 14.035672
 
 [sub_resource type="LabelSettings" id="LabelSettings_i7no5"]
-font = ExtResource("5_0rvqr")
-font_size = 19
+font_size = 26
 font_color = Color(0, 0, 0, 1)
 outline_color = Color(0, 0, 0, 1)
 

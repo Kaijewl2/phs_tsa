@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://cokxu5s3j506v" path="res://scenes/gpu_scene/gpu_scene.gd" id="1_6wpbj"]
 [ext_resource type="Texture2D" uid="uid://ctky17av0k51a" path="res://art/misc/base_gpu.png" id="1_wg65o"]
-[ext_resource type="FontFile" uid="uid://crdmvv8dc23b3" path="res://art/fonts/blue_winter/Blue Winter.ttf" id="2_6wpbj"]
 [ext_resource type="Texture2D" uid="uid://d4ewn111rc61p" path="res://art/icons/purrrency.png" id="3_01cop"]
 
 [node name="gpu_scene" type="Control" unique_id=1477814000]
@@ -30,21 +29,21 @@ stretch_mode = 4
 [node name="currency_label" type="Label" parent="." unique_id=86531191]
 texture_filter = 1
 layout_mode = 0
-offset_left = 29.085
-offset_top = 253.0
-offset_right = 128.08499
-offset_bottom = 356.0
+offset_left = 29.000002
+offset_top = 263.0
+offset_right = 127.99999
+offset_bottom = 366.0
 scale = Vector2(0.37, 0.37)
 theme_override_colors/font_color = Color(1, 0.78431374, 0.40392157, 1)
-theme_override_fonts/font = ExtResource("2_6wpbj")
 theme_override_font_sizes/font_size = 78
 text = "32"
 
 [node name="currency_image" type="TextureRect" parent="currency_label" unique_id=2132661332]
 layout_mode = 0
-offset_left = -100.0
-offset_top = 6.0
-offset_bottom = 106.0
+offset_left = -100.22973
+offset_top = -24.324327
+offset_right = -0.2297287
+offset_bottom = 75.675674
 texture = ExtResource("3_01cop")
 
 [connection signal="mouse_entered" from="gpu_image" to="." method="_on_gpu_image_mouse_entered"]

@@ -2,17 +2,13 @@
 
 [ext_resource type="Script" uid="uid://bun1yugwwxyl3" path="res://scenes/battle_scene/battle_scene.gd" id="1_5o34f"]
 [ext_resource type="Texture2D" uid="uid://28s3ifkaora" path="res://art/maps/sas_map.png" id="2_5vyks"]
-[ext_resource type="FontFile" uid="uid://gmv3du7nrgom" path="res://art/fonts/blue_winter/Blue Winter.otf" id="3_qc2rq"]
 [ext_resource type="PackedScene" uid="uid://bsnxlsarich36" path="res://scenes/coin_counter_ui_scene/coin_counter.tscn" id="3_t2c54"]
 [ext_resource type="Script" uid="uid://bqxw15htkt78r" path="res://scenes/enter_shop_button_scene/button.gd" id="4_t2c54"]
-[ext_resource type="Texture2D" uid="uid://cw0hc4y8bi0l4" path="res://art/misc/basic_frame.png" id="5_8r7ii"]
 [ext_resource type="FontFile" uid="uid://crdmvv8dc23b3" path="res://art/fonts/blue_winter/Blue Winter.ttf" id="7_dle0h"]
 [ext_resource type="Script" uid="uid://cu6eb6lmq630d" path="res://scenes/battle_scene/button.gd" id="8_dle0h"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_niihm"]
-font = ExtResource("3_qc2rq")
-font_size = 97
-outline_size = 22
+font_size = 106
 outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_8r7ii"]
@@ -45,13 +41,11 @@ outline_color = Color(0, 0, 0, 1)
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lox8n"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_joy3q"]
-font = ExtResource("7_dle0h")
-font_size = 55
+font_size = 63
 outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_dle0h"]
-font = ExtResource("7_dle0h")
-font_size = 38
+font_size = 43
 
 [node name="battle_scene" type="Node2D" unique_id=713771731]
 script = ExtResource("1_5o34f")
@@ -126,7 +120,6 @@ offset_top = 650.0
 offset_right = 1151.3699
 offset_bottom = 769.0
 pivot_offset = Vector2(191.71, 58.61)
-texture = ExtResource("5_8r7ii")
 
 [node name="Button" type="Button" parent="enter_shop_button" unique_id=21095005]
 layout_mode = 1
@@ -159,10 +152,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -154.43
-offset_top = -40.8
-offset_right = 156.57
-offset_bottom = 35.199997
+offset_left = -161.86993
+offset_top = -32.50001
+offset_right = 164.13007
+offset_bottom = 43.499985
 grow_horizontal = 2
 grow_vertical = 2
 text = "enter shop"
@@ -176,7 +169,6 @@ offset_top = 659.0
 offset_right = 1099.0
 offset_bottom = 745.0
 scale = Vector2(1.19, 1.19)
-texture = ExtResource("5_8r7ii")
 
 [node name="Button" type="Button" parent="enter_win_scene_button" unique_id=575512093]
 layout_mode = 1

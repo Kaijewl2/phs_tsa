@@ -81,6 +81,7 @@ func anim_shake(node):
 	shake_tween.tween_property(node, "position", coin_counter_original_pos + Vector2(-5, 0), 0.05)
 	shake_tween.tween_property(node, "position", coin_counter_original_pos + Vector2(5, 0), 0.05)
 	shake_tween.tween_property(node, "position", coin_counter_original_pos, 0.05)
+	
 	press_count+=1
 
 func handle_purchase():
@@ -89,7 +90,6 @@ func handle_purchase():
 		GameData.change_balance(value, "subtract")
 
 		# Add card to player's backpack
-		print("card type: ", sell_card_data)
 		card_sold.emit(sell_card_data.sell_card_name)
 		GameData.add_card_to_backpack(SETUP_CARD_PATH, sell_card_data)
 

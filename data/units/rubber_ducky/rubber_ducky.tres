@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="UnitData" format=3 uid="uid://bcr6xqbvc4ute"]
+
+[ext_resource type="Script" uid="uid://bo4u7fiofkecs" path="res://data/UnitData.gd" id="1_i6onq"]
+[ext_resource type="SpriteFrames" uid="uid://c20v3vqb4tud1" path="res://data/units/rubber_ducky/rubber_ducky_sprite_sheet.tres" id="2_78oyk"]
+
+[resource]
+script = ExtResource("1_i6onq")
+unit_name = "Rubber Ducky"
+health = 300.0
+damage = 8
+speed = 15
+attack_cooldown = 1.0
+death_value = 180
+sprite_animations = ExtResource("2_78oyk")
+metadata/_custom_type_script = "uid://bo4u7fiofkecs"

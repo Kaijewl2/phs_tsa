@@ -35,7 +35,7 @@ func _ready() -> void:
 			gpu.gpu_data = GameData.get_random_gpu_data()
 			hardware_container.add_child(gpu)
 		else:
-			print("Shi won't work")
+			print("Err")
 
 	for i in range(4):
 		var sell_card = SELL_CARD.instantiate()

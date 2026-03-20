@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://btkue8bp4g5xk" path="res://scenes/ram_stick_scene/ram_stick_scene.gd" id="1_og02v"]
 [ext_resource type="Texture2D" uid="uid://ckyams8bw0x00" path="res://art/misc/damage_ram_stick.png" id="2_og02v"]
-[ext_resource type="FontFile" uid="uid://crdmvv8dc23b3" path="res://art/fonts/blue_winter/Blue Winter.ttf" id="3_p0lc6"]
 [ext_resource type="Texture2D" uid="uid://d4ewn111rc61p" path="res://art/icons/purrrency.png" id="4_x5oly"]
 
 [node name="ram_stick_scene" type="Control" unique_id=548070670]
@@ -28,11 +27,10 @@ stretch_mode = 4
 texture_filter = 1
 layout_mode = 0
 offset_left = 44.0
-offset_top = 244.0
+offset_top = 254.0
 offset_right = 95.0
-offset_bottom = 297.0
-theme_override_colors/font_color = Color(0.84705883, 0.7607843, 0.34117648, 1)
-theme_override_fonts/font = ExtResource("3_p0lc6")
+offset_bottom = 307.0
+theme_override_colors/font_color = Color(1, 0.78431374, 0.40392157, 1)
 theme_override_font_sizes/font_size = 40
 text = "32"
 
@@ -40,9 +38,9 @@ text = "32"
 texture_filter = 1
 layout_mode = 0
 offset_left = -60.0
-offset_top = -3.0
+offset_top = -16.0
 offset_right = -20.0
-offset_bottom = 37.0
+offset_bottom = 24.0
 scale = Vector2(1.615, 1.615)
 texture = ExtResource("4_x5oly")
 

@@ -22,7 +22,6 @@ func _ready() -> void:
 	balance_label.get_node("Label").text = str(GameData.get_balance())
 	spawn_commrades()
 	spawn_enemy()
-	print("current battle: ", GameData.battle_number)
 
 
 func _process(_delta: float) -> void:
@@ -110,8 +109,6 @@ func spawn_boss_virus():
 	boss.HEALTH *= 3
 	boss.DAMAGE *= 2
 	
-	print("boss health: ", boss.HEALTH)
-	print("boss dmg: ", boss.DAMAGE)
 	enemy_type = "boss"
 
 
@@ -131,8 +128,6 @@ func spawn_final_boss_virus():
 	final_boss.DAMAGE *= 3
 	final_boss.modulate = Color(1.0, 0.118, 0.078, 1.0)
 	
-	print("final boss health: ", final_boss.HEALTH)
-	print("final boss dmg: ", final_boss.DAMAGE)
 	enemy_type = "final_boss"
 
 
