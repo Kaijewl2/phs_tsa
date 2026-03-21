@@ -48,7 +48,7 @@ func _input(event: InputEvent) -> void:
 
 func handle_purchase():
 	# Successful purchase
-	if GameData.get_balance() >= cost && GameData.backpack_cards.size() < GameData.MAX_BACKPACK_SIZE:
+	if GameData.get_balance() >= cost && GameData.backpack_items.size() < GameData.MAX_BACKPACK_SIZE:
 		GameData.change_balance(cost, "subtract")
 
 		# Add RAM to player's backpack

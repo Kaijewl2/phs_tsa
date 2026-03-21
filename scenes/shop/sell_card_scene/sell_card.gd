@@ -86,7 +86,7 @@ func anim_shake(node):
 
 func handle_purchase():
 	# Successful purchase
-	if GameData.get_balance() >= value && GameData.backpack_cards.size() < GameData.MAX_BACKPACK_SIZE:
+	if GameData.get_balance() >= value && GameData.backpack_items.size() < GameData.MAX_BACKPACK_SIZE:
 		GameData.change_balance(value, "subtract")
 
 		# Add card to player's backpack

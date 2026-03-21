@@ -54,9 +54,9 @@ offset_bottom = 35.0
 [node name="ColorRect" type="ColorRect" parent="stats_UI" unique_id=1570183427]
 layout_mode = 0
 offset_left = 0.22006017
-offset_top = -0.016346455
-offset_right = 62.279938
-offset_bottom = 43.69623
+offset_top = -1.1899991
+offset_right = 100.27994
+offset_bottom = 44.869884
 scale = Vector2(0.5, 0.5)
 color = Color(1, 1, 1, 0.42745098)
 
@@ -64,9 +64,9 @@ color = Color(1, 1, 1, 0.42745098)
 texture_filter = 1
 layout_mode = 0
 offset_left = 2.0598805
-offset_top = -0.34730405
-offset_right = 167.77417
-offset_bottom = 125.36697
+offset_top = 1.9999967
+offset_right = 273.05988
+offset_bottom = 122.0
 scale = Vector2(0.35, 0.35)
 
 [node name="name_text" type="Label" parent="stats_UI/ColorRect/stats_container" unique_id=1727807319]
