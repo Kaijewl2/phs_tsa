@@ -21,8 +21,10 @@ const BACKPACK_CPU_SCENE_PATH: String = "res://scenes/backpack_cpu/backpack_cpu.
 const MAX_GPU_SLOTS: int = 1
 const MAX_CPU_SLOTS: int = 1
 const MAX_RAM_GB:int = 64
+enum Context {NORMAL, REMOVE}
 
 
+var current_context = Context.NORMAL
 var setup_gpus = []
 var setup_cpus = []
 var setup_gpu_types = []
@@ -143,9 +145,10 @@ func add_starting_gear():
 
 # Add sell correct sell card to backpack when purchased
 func add_card_to_backpack(card_path:String, card_type:SellCardData):
-	backpack_items.append({ "path": card_path, "data": card_type, "type": "card" })
-	
-	backpack_changed.emit()
+		backpack_items.append({ "path": card_path, "data": card_type, "type": "card" })
+		
+		backpack_changed.emit()
+
 
 
 # Add correct RAM stick to backpack when purchased
@@ -365,8 +368,44 @@ func move_ram_stick_to_setup(ram_stick_type: RamData):
 	return false
 
 
-func change_player_class(new_class:String):
-	PlayerClass = new_class
+func remove_backpack_card_from_backpack(card_type: SellCardData):
+	for i in range(backpack_items.size()):
+		var item = backpack_items[i]
+		if item["type"] == "card" and item["data"] == card_type:
+			backpack_items.remove_at(i)
+			backpack_changed.emit()
+			return true
+	return false
+	
+
+func remove_backpack_ram_from_backpack(ram_type: RamData):
+	for i in range(backpack_items.size()):
+		var item = backpack_items[i]
+		if item["type"] == "ram" and item["data"] == ram_type:
+			backpack_items.remove_at(i)
+			backpack_changed.emit()
+			return true
+	return false
+
+
+func remove_backpack_gpu_from_backpack(gpu_type: GpuData):
+	for i in range(backpack_items.size()):
+		var item = backpack_items[i]
+		if item["type"] == "gpu" and item["data"] == gpu_type:
+			backpack_items.remove_at(i)
+			backpack_changed.emit()
+			return true
+	return false
+
+
+func remove_backpack_cpu_from_backpack(cpu_type: CpuData):
+	for i in range(backpack_items.size()):
+		var item = backpack_items[i]
+		if item["type"] == "cpu" and item["data"] == cpu_type:
+			backpack_items.remove_at(i)
+			backpack_changed.emit()
+			return true
+	return false
 
 
 func add_gpu_to_setup(gpu_path: String, gpu_type: GpuData):
@@ -389,7 +428,7 @@ func add_cpu_to_setup(cpu_path: String, cpu_type: CpuData):
 
 func remove_gpu_from_setup(index: int):
 	if index < 0 or index >= setup_gpu_types.size():
-		print("remove_gpu_from_setup: invalid index ", index)
+		print("remove_gpu_from_setup with invalid index at:  ", index)
 		return
 	var gpu_type = setup_gpu_types[index]
 	setup_gpus.remove_at(index)
@@ -447,3 +486,17 @@ func get_cpu_stat_bonuses() -> Dictionary:
 		bonuses["speed"] += cpu.speed_enhancer
 		bonuses["health"] += cpu.health_enhancer
 	return bonuses
+
+
+func change_player_class(new_class:String):
+	PlayerClass = new_class
+	
+	#END: DON'T LET PLAYER REM RAM IF THEY CAN'T ADD CARD AFTER
+func can_remove_ram(ram_type: RamData) -> bool:
+	var ram_after_removal = current_ram_gb - ram_type.gb_size
+	
+	var total_card_ram_cost = 0
+	for card_type in setup_card_types:
+		total_card_ram_cost += card_type.ram_cost
+	
+	return ram_after_removal >= total_card_ram_cost

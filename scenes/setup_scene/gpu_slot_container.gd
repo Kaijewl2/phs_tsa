@@ -4,6 +4,7 @@ const SETUP_GPU_SCENE = preload("res://scenes/setup_gpu_scene/setup_gpu.tscn")
 
 
 @onready var gpu_image: TextureRect = $gpu_slot_image/gpu_image
+@onready var gpu_info_container: ColorRect = $gpu_info_container
 
 
 func _ready() -> void:
@@ -21,3 +22,12 @@ func refresh_gpu_slot():
 		setup_gpu.gpu_data = GameData.setup_gpu_types[0]
 		setup_gpu.slot_index = 0
 		gpu_image.add_child(setup_gpu)
+
+
+func _on_mouse_entered() -> void:
+	if GameData.setup_gpus.size() <= 0:
+		gpu_info_container.show()
+
+
+func _on_mouse_exited() -> void:
+	gpu_info_container.hide()

@@ -32,7 +32,8 @@ func remove_from_setup():
 
 
 func _on_remove_button_pressed() -> void:
-	GameData.remove_cpu_from_setup(0)
+	if(GameData.backpack_items.size() + 1 <= GameData.MAX_BACKPACK_SIZE):
+		GameData.remove_cpu_from_setup(0)
 
 
 func _on_remove_button_mouse_entered() -> void:

@@ -39,13 +39,14 @@ func _ready() -> void:
 
 func remove_from_setup():
 	# Only allow unequip if sufficient RAM remains after
-	if((GameData.current_ram_gb - gb_size) >= 0 ):
-		GameData.remove_ram_from_setup(ram_stick_data)
-		GameData.remove_current_ram(ram_stick_data)
-	else:
-		insufficient_ram_container.show()
-		insufficient_ram_container.get_node("insufficient_ram_label").text = "Not enough RAM!"
-		anim_shake(insufficient_ram_container)
+	if(GameData.backpack_items.size() + 1 <= GameData.MAX_BACKPACK_SIZE):
+		if((GameData.current_ram_gb - gb_size) >= 0 ):
+			GameData.remove_ram_from_setup(ram_stick_data)
+			GameData.remove_current_ram(ram_stick_data)
+		else:
+			insufficient_ram_container.show()
+			insufficient_ram_container.get_node("insufficient_ram_label").text = "Not enough RAM!"
+			anim_shake(insufficient_ram_container)
 
 
 

@@ -28,12 +28,12 @@ func _ready() -> void:
 
 
 func remove_from_setup():
-	# You'll need a GameData function to remove RAM from setup
 	GameData.remove_gpu_from_setup(0)
 
 
 func _on_remove_button_pressed() -> void:
-	GameData.remove_gpu_from_setup(0)
+	if(GameData.backpack_items.size() + 1 <= GameData.MAX_BACKPACK_SIZE):
+		GameData.remove_gpu_from_setup(0)
 
 
 func _on_setup_gpu_image_mouse_entered() -> void:

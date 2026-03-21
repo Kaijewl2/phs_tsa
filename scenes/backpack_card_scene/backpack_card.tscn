@@ -6,11 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://ckimedgxf2230" path="res://art/entities/penguin/penguin.png" id="3_c4ux8"]
 [ext_resource type="FontFile" uid="uid://5h80votmq54e" path="res://art/fonts/minecraft/Minecraft.ttf" id="6_pdpf5"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_j4dn1"]
-font = ExtResource("6_pdpf5")
-font_size = 15
-font_color = Color(0, 0, 0, 1)
-
 [sub_resource type="LabelSettings" id="LabelSettings_c4ux8"]
 font = ExtResource("6_pdpf5")
 font_size = 9
@@ -123,29 +118,31 @@ scale = Vector2(0.59, 0.59)
 texture = ExtResource("3_c4ux8")
 stretch_mode = 4
 
-[node name="Button" type="Button" parent="." unique_id=796278141]
+[node name="equip_button" type="Button" parent="." unique_id=796278141]
 visible = false
 layout_mode = 0
-offset_left = 6.0
-offset_top = 178.0
-offset_right = 116.0
-offset_bottom = 204.0
-
-[node name="Label" type="Label" parent="Button" unique_id=488570580]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.074
-anchor_top = 0.091000006
-anchor_right = 0.938
-anchor_bottom = 0.86
-offset_left = 0.85999966
-offset_top = 1.6340003
-offset_right = -0.33200073
-offset_bottom = 1.2779999
+offset_left = -16.0
+offset_top = 181.0
+offset_right = 150.0
+offset_bottom = 217.0
+theme_override_font_sizes/font_size = 28
 text = "add to deck"
-label_settings = SubResource("LabelSettings_j4dn1")
-horizontal_alignment = 1
-vertical_alignment = 1
+
+[node name="remove_button" type="Button" parent="." unique_id=1075460823]
+visible = false
+layout_mode = 0
+offset_left = -24.0
+offset_top = 178.0
+offset_right = 155.0
+offset_bottom = 232.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0.3254902, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.23566154, 6.617978e-07, 4.2716042e-07, 1)
+theme_override_colors/font_hover_color = Color(0.7059392, 3.5376102e-06, 3.85046e-07, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.4862745, 0, 0, 1)
+theme_override_font_sizes/font_size = 22
+text = "Remove from backpack"
+autowrap_mode = 2
 
 [node name="card_name" type="Label" parent="." unique_id=1135186055]
 texture_filter = 1
@@ -172,5 +169,7 @@ autowrap_mode = 3
 
 [connection signal="mouse_entered" from="card_frame" to="." method="_on_texture_rect_mouse_entered"]
 [connection signal="mouse_exited" from="card_frame" to="." method="_on_texture_rect_mouse_exited"]
-[connection signal="mouse_entered" from="Button" to="." method="_on_button_mouse_entered"]
-[connection signal="mouse_exited" from="Button" to="." method="_on_button_mouse_exited"]
+[connection signal="mouse_entered" from="equip_button" to="." method="_on_equip_button_mouse_entered"]
+[connection signal="mouse_exited" from="equip_button" to="." method="_on_equip_button_mouse_exited"]
+[connection signal="mouse_entered" from="remove_button" to="." method="_on_remove_button_mouse_entered"]
+[connection signal="mouse_exited" from="remove_button" to="." method="_on_remove_button_mouse_exited"]

@@ -14,6 +14,7 @@ var current_health: float
 var current_damage: float
 var current_speed: float
 
+
 @onready var stats_ui: Control = $stats_UI
 @onready var health_text: Label = $stats_UI/ColorRect/stats_container/health_text
 @onready var damage_text: Label = $stats_UI/ColorRect/stats_container/damage_text
@@ -21,6 +22,8 @@ var current_speed: float
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var name_text: Label = $stats_UI/ColorRect/stats_container/name_text
 @onready var health_bar: CustomHealthBar = $health_bar
+@onready var death_sound: AudioStreamPlayer2D = $death_sound
+
 
 enum Context { IDLE, BATTLE, DEATH }
 var current_context = Context.IDLE
@@ -125,6 +128,7 @@ func find_target() -> void:
 
 func death_logic() -> void:
 	current_context = Context.DEATH
+	death_sound.play()
 	animated_sprite_2d.rotation = -20
 	animated_sprite_2d.play("death")
 	GameData.active_commrades.erase(self)

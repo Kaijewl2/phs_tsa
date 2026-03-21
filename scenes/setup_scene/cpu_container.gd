@@ -5,6 +5,7 @@ const SETUP_CPU_SCENE = preload("uid://brbsyxris1py7")
 
 
 @onready var cpu_slot_image: TextureRect = $cpu_slot_image
+@onready var cpu_info_container: ColorRect = $cpu_info_container
 
 
 func _ready() -> void:
@@ -22,3 +23,13 @@ func refresh_cpu_slot():
 		setup_cpu.cpu_data = GameData.setup_cpu_types[0]
 		setup_cpu.slot_index = 0
 		cpu_slot_image.add_child(setup_cpu)
+
+
+func _on_mouse_entered() -> void:
+	if GameData.setup_cpus.size() <= 0:
+		cpu_info_container.show()
+
+
+func _on_mouse_exited() -> void:
+	cpu_info_container.hide()
+	

@@ -22,6 +22,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 GameData="*uid://buqr53hg67mmb"
+BackgroundMusic="*uid://dmw47tdlj0uai"
 
 [display]
 

@@ -3,6 +3,7 @@
 [ext_resource type="SpriteFrames" uid="uid://dtkw6o2emhqpj" path="res://data/units/anubis/anubis_sprite_frames.tres" id="2_67sjn"]
 [ext_resource type="Script" uid="uid://bnhgs45iwn7es" path="res://scenes/entity_scenes/walking_bot_scene/walking_bot.gd" id="2_i7no5"]
 [ext_resource type="PackedScene" uid="uid://bes6m6c7gdswg" path="res://scenes/health_bar_scene/health_bar.tscn" id="3_qpbe0"]
+[ext_resource type="AudioStream" uid="uid://cvw70fac5l3qs" path="res://sounds/retro_player_death_sound.mp3" id="4_67sjn"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qpbe0"]
 radius = 13.785467
@@ -95,6 +96,11 @@ offset_left = -8.383233
 offset_top = -18.562874
 offset_right = 71.61677
 offset_bottom = -8.562874
+
+[node name="death_sound" type="AudioStreamPlayer2D" parent="." unique_id=1363793032]
+stream = ExtResource("4_67sjn")
+volume_db = 1.944
+pitch_scale = 1.4
 
 [connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
 [connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]

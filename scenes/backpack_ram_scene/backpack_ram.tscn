@@ -29,18 +29,38 @@ stretch_mode = 4
 visible = false
 texture_filter = 1
 layout_mode = 0
-offset_left = -16.0
-offset_top = 140.0
-offset_right = 130.0
-offset_bottom = 181.0
+offset_left = -74.0
+offset_top = 155.0
+offset_right = 206.0
+offset_bottom = 219.0
 theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 27
+theme_override_font_sizes/font_size = 55
 text = "equip RAM"
+
+[node name="remove_button" type="Button" parent="." unique_id=1661094748]
+visible = false
+layout_mode = 0
+offset_left = -102.0
+offset_top = 155.0
+offset_right = 232.0
+offset_bottom = 257.0
+theme_override_colors/font_color = Color(0.8745098, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0.8745098, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.8745098, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0.8745098, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.8745098, 0, 0, 1)
+theme_override_colors/font_disabled_color = Color(0.875, 0.875, 0.875, 0.5)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 46
+text = "remove from backpack"
+autowrap_mode = 2
 
 [connection signal="mouse_entered" from="ram_stick_image" to="." method="_on_ram_stick_image_mouse_entered"]
 [connection signal="mouse_exited" from="ram_stick_image" to="." method="_on_ram_stick_image_mouse_exited"]
 [connection signal="mouse_entered" from="equip_button" to="." method="_on_equip_button_mouse_entered"]
 [connection signal="mouse_exited" from="equip_button" to="." method="_on_equip_button_mouse_exited"]
+[connection signal="mouse_entered" from="remove_button" to="." method="_on_remove_button_mouse_entered"]
+[connection signal="mouse_exited" from="remove_button" to="." method="_on_remove_button_mouse_exited"]

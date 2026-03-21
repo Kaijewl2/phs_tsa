@@ -3,6 +3,7 @@ extends Control
 
 @onready var ram_info_rect: ColorRect = $ram_bar/ram_info_rect
 @onready var available_ram_label: Label = $ram_bar/ram_info_rect/available_ram_label
+@onready var ram_info_container: ColorRect = $"../../ram_sticks_container/ram_info_container"
 
 
 

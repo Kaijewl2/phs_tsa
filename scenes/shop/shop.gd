@@ -25,7 +25,7 @@ var harware_types = [RAM_STICK, GPU_SCENE, CPU_SCENE]
 func _ready() -> void:
 	storage_bar.max_value = GameData.MAX_BACKPACK_SIZE
 	storage_bar.value = GameData.backpack_items.size()
-	storage_info_container.get_node("storage_info_label").text = str(int(storage_bar.value)) + " / " + str(int(storage_bar.max_value))
+	storage_info_container.get_node("storage_info_label").text = str(int(GameData.MAX_BACKPACK_SIZE - (GameData.backpack_items.size()))) + " / " + str(int(GameData.MAX_BACKPACK_SIZE))
 	GameData.backpack_changed.connect(update_storage_bar)
 	
 	for i in range(HARDWARE_ITEMS_AVAILABLE):
@@ -54,7 +54,7 @@ func _ready() -> void:
 
 func update_storage_bar():
 	storage_bar.value = GameData.backpack_items.size()
-	storage_info_container.get_node("storage_info_label").text = str(int(storage_bar.value)) + " / " + str(int(storage_bar.max_value))
+	storage_info_container.get_node("storage_info_label").text = str(int(GameData.MAX_BACKPACK_SIZE - (GameData.backpack_items.size()))) + " / " + str(int(GameData.MAX_BACKPACK_SIZE))
 
 
 func _on_brick_img_mouse_entered() -> void:

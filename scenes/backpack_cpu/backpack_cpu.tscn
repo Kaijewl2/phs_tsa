@@ -29,14 +29,32 @@ stretch_mode = 4
 visible = false
 texture_filter = 1
 layout_mode = 0
-offset_left = 30.0
-offset_top = 172.0
-offset_right = 122.0
-offset_bottom = 220.0
-theme_override_font_sizes/font_size = 30
+offset_left = 4.0
+offset_top = 183.0
+offset_right = 152.0
+offset_bottom = 247.0
+theme_override_font_sizes/font_size = 56
 text = "equip"
+
+[node name="remove_button" type="Button" parent="." unique_id=720384560]
+visible = false
+layout_mode = 0
+offset_left = -86.0
+offset_top = 183.0
+offset_right = 258.0
+offset_bottom = 289.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(1, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(1, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 0, 0, 1)
+theme_override_font_sizes/font_size = 44
+text = "Remove from backpack"
+autowrap_mode = 2
 
 [connection signal="mouse_entered" from="backpack_cpu_image" to="." method="_on_backpack_cpu_image_mouse_entered"]
 [connection signal="mouse_exited" from="backpack_cpu_image" to="." method="_on_backpack_cpu_image_mouse_exited"]
-[connection signal="mouse_entered" from="backpack_cpu_button" to="." method="_on_backpack_cpu_button_mouse_entered"]
-[connection signal="mouse_exited" from="backpack_cpu_button" to="." method="_on_backpack_cpu_button_mouse_exited"]
+[connection signal="mouse_entered" from="backpack_cpu_button" to="." method="_on_equip_button_mouse_entered"]
+[connection signal="mouse_exited" from="backpack_cpu_button" to="." method="_on_equip_button_mouse_exited"]
+[connection signal="mouse_entered" from="remove_button" to="." method="_on_remove_button_mouse_entered"]
+[connection signal="mouse_exited" from="remove_button" to="." method="_on_remove_button_mouse_exited"]

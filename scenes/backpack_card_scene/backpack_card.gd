@@ -11,7 +11,8 @@ extends Control
 @onready var card_desc: Label = $card_desc
 @onready var card_borders: Control = $card_frame/card_borders
 
-@onready var button: Button = $Button
+@onready var equip_button: Button = $equip_button
+@onready var remove_button: Button = $remove_button
 
 
 var health: float = 6.7
@@ -23,6 +24,7 @@ var is_first_shake = true
 var shake_tween: Tween = null
 var container_original_pos: Vector2
 var insufficient_ram_container: ColorRect
+var remove_mode:bool = false
 
 var card_path: String
 
@@ -49,29 +51,56 @@ func _ready() -> void:
 	container_original_pos = insufficient_ram_container.position
 
 
-func setup(path: String):
+func setup(path: String, remove_mode:bool = false):
 	card_path = path
-	button.pressed.connect(add_to_setup)
+	set_mode(remove_mode)
 
+
+func set_mode(p_remove_mode: bool):
+	remove_mode = p_remove_mode
+	if equip_button.pressed.is_connected(add_to_setup):
+		equip_button.pressed.disconnect(add_to_setup)
+	if remove_button.pressed.is_connected(remove_from_backpack):
+		remove_button.pressed.disconnect(remove_from_backpack)
+		
+	equip_button.hide()
+	remove_button.hide()
 	
+	if remove_mode:
+		remove_button.pressed.connect(remove_from_backpack)
+	else:
+		equip_button.pressed.connect(add_to_setup)
+
+
+func remove_from_backpack():
+	print("active units: ", GameData.active_units.size())
+	if GameData.active_units.size() <= 1:
+		print("Need at least 1 card")
+	else:
+		GameData.remove_backpack_card_from_backpack(backpack_card_data)
+
+
 func add_to_setup():
 	# Add allow card be added if sufficient RAM and not at max cards
-	if((GameData.current_ram_gb - ram_cost) >= 0) and GameData.setup_cards.size() < GameData.MAX_SETUP_SIZE:
-		GameData.remove_card_ram(backpack_card_data)
-		if GameData.move_backpack_card_to_setup(backpack_card_data):
-			print("Added to deck!")
-			
-			queue_free()
+	if GameData.current_context == GameData.Context.NORMAL:
+		if((GameData.current_ram_gb - ram_cost) >= 0) and GameData.setup_cards.size() < GameData.MAX_SETUP_SIZE:
+			GameData.remove_card_ram(backpack_card_data)
+			if GameData.move_backpack_card_to_setup(backpack_card_data):
+				print("Added to deck!")
+				
+				queue_free()
+			else:
+				print("Deck full!")
+		elif GameData.setup_cards.size() >= GameData.MAX_SETUP_SIZE:
+			insufficient_ram_container.show()
+			insufficient_ram_container.get_node("insufficient_ram_label").text = "Hand full!"
+			anim_shake(insufficient_ram_container)
 		else:
-			print("Deck full!")
-	elif GameData.setup_cards.size() >= GameData.MAX_SETUP_SIZE:
-		insufficient_ram_container.show()
-		insufficient_ram_container.get_node("insufficient_ram_label").text = "Hand full!"
-		anim_shake(insufficient_ram_container)
+			insufficient_ram_container.show()
+			insufficient_ram_container.get_node("insufficient_ram_label").text = "Not enough RAM!"
+			anim_shake(insufficient_ram_container)
 	else:
-		insufficient_ram_container.show()
-		insufficient_ram_container.get_node("insufficient_ram_label").text = "Not enough RAM!"
-		anim_shake(insufficient_ram_container)
+		GameData.remove_backpack_card_from_backpack(backpack_card_data)
 
 
 func anim_shake(node):
@@ -92,18 +121,37 @@ func anim_shake(node):
 	shake_tween.tween_callback(node.hide)
 
 
-func _on_button_mouse_entered() -> void:
-	button.show()
+func _on_equip_button_mouse_entered() -> void:
+	if not remove_button.visible:
+		equip_button.show()
 
 
-func _on_button_mouse_exited() -> void:
-	button.hide()
+func _on_equip_button_mouse_exited() -> void:
+	if not equip_button.is_hovered():
+		equip_button.hide()
+
+
+func _on_remove_button_mouse_entered() -> void:
+	if not equip_button.visible:
+		remove_button.show()
+
+
+func _on_remove_button_mouse_exited() -> void:
+	if not remove_button.is_hovered():
+		remove_button.show()
 
 
 func _on_texture_rect_mouse_entered() -> void:
-	button.show()
+	if remove_mode:
+		remove_button.show()
+	else:
+		equip_button.show()
 
 
 func _on_texture_rect_mouse_exited() -> void:
-	if not button.is_hovered():
-		button.hide()
+	if remove_mode:
+		if not remove_button.is_hovered():
+			remove_button.hide()
+	else:
+		if not equip_button.is_hovered():
+			equip_button.hide()
