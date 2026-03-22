@@ -7,6 +7,8 @@ extends Control
 @onready var ram_stick_image: TextureRect = $ram_stick_image
 @onready var equip_button: Button = $equip_button
 @onready var remove_button: Button = $remove_button
+@onready var item_info_container: ColorRect = $item_info_container
+@onready var item_info_label: RichTextLabel = $item_info_container/item_info_label
 
 
 var ram_stick_name: String
@@ -32,6 +34,14 @@ func _ready() -> void:
 		health_enhancer = ram_stick_data.health_enhancer
 		gb_size = ram_stick_data.gb_size
 		cost = ram_stick_data.cost 
+		
+	if(ram_stick_name == "Health RAM"):
+		item_info_label.text = "Health RAM\n\n[color=green]+" + str(int(health_enhancer * 100)) + "%[/color] Health Boost"
+	elif(ram_stick_name == "Damage RAM"):
+		item_info_label.text = "Damage RAM\n\n[color=red]+" + str(int(damage_enhancer * 100)) + "%[/color] Damage Boost"
+	else:
+		item_info_label.text = "Speed RAM\n\n[color=blue]+" + str(int(speed_enhancer * 100)) + "%[/color] Speed Boost"
+
 
 
 func setup(path: String, remove_mode:bool = false):
@@ -93,6 +103,8 @@ func _on_remove_button_mouse_exited() -> void:
 
 
 func _on_ram_stick_image_mouse_entered() -> void:
+	item_info_container.show()
+	
 	if remove_mode:
 		remove_button.show()
 	else:
@@ -100,6 +112,8 @@ func _on_ram_stick_image_mouse_entered() -> void:
 
 
 func _on_ram_stick_image_mouse_exited() -> void:
+	item_info_container.hide()
+	
 	if remove_mode:
 		if not remove_button.is_hovered():
 			remove_button.hide()

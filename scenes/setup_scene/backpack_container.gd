@@ -28,12 +28,12 @@ func toggle_remove_mode():
 	is_remove_mode = !is_remove_mode
 	
 	if is_remove_mode:
-		print("rem mode")
+		available_slots_label.modulate = Color(1.0, 0.0, 0.0)
 		manage_button.text = "Mode - 
 		remove from backpack"
 		manage_button_container.modulate = Color.DARK_RED
 	else:
-		print("add mode")
+		available_slots_label.modulate = Color(1.0, 1.0, 1.0)
 		manage_button.text = "Mode - 
 		add to setup"
 		manage_button_container.modulate = Color.WHITE

@@ -23,6 +23,7 @@ expand_mode = 2
 stretch_mode = 4
 
 [node name="remove_button" type="Button" parent="." unique_id=158333871]
+visible = false
 texture_filter = 1
 layout_mode = 0
 offset_left = 379.0
@@ -32,6 +33,32 @@ offset_bottom = 367.0
 scale = Vector2(0.425, 0.425)
 theme_override_font_sizes/font_size = 85
 text = "remove"
+
+[node name="item_info_container" type="ColorRect" parent="." unique_id=945807717]
+visible = false
+z_index = 26
+layout_mode = 0
+offset_left = 762.0
+offset_top = 204.0
+offset_right = 1056.0
+offset_bottom = 424.0
+mouse_filter = 2
+color = Color(1, 1, 1, 0.6392157)
+
+[node name="item_info_label" type="RichTextLabel" parent="item_info_container" unique_id=881657463]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 4.0
+offset_right = 291.0
+offset_bottom = 225.0
+mouse_filter = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_colors/font_selected_color = Color(0, 0, 0, 0)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 40
+bbcode_enabled = true
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="mouse_entered" from="setup_gpu_image" to="." method="_on_setup_gpu_image_mouse_entered"]
 [connection signal="mouse_exited" from="setup_gpu_image" to="." method="_on_setup_gpu_image_mouse_exited"]

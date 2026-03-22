@@ -6,6 +6,8 @@ extends Control
 
 @onready var setup_cpu_image: TextureRect = $setup_cpu_image
 @onready var button: Button = $remove_button
+@onready var item_info_container: ColorRect = $item_info_container
+@onready var item_info_label: RichTextLabel = $item_info_container/item_info_label
 
 
 var ram_stick_name: String
@@ -16,6 +18,8 @@ var health_enhancer: float
 var gb_size: int
 var cost: int
 var hovering:bool = false
+var cpu_name: String
+var cpu_desc: String
 var slot_index = 0
 
 var card_path: String
@@ -24,7 +28,22 @@ var card_path: String
 func _ready() -> void:
 	if cpu_data:
 		setup_cpu_image.texture = cpu_data.cpu_image
+		cpu_name = cpu_data.cpu_name
+		cpu_desc = cpu_data.cpu_desc
+		speed_enhancer = cpu_data.speed_enhancer
+		damage_enhancer = cpu_data.damage_enhancer
+		health_enhancer = cpu_data.health_enhancer
+		gb_size = cpu_data.gb_size
+		cost = cpu_data.cost 
 	button.hide()
+	
+	if(cpu_name == "Health CPU"):
+		item_info_label.text = "Health CPU\n\n[color=green]+" + str(int(health_enhancer * 100)) + "%[/color] Health Boost"
+	elif(cpu_name == "Damage CPU"):
+		item_info_label.text = "Damage CPU\n\n[color=red]+" + str(int(damage_enhancer * 100)) + "%[/color] Damage Boost"
+	else:
+		item_info_label.text = "Speed CPU\n\n[color=blue]+" + str(int(speed_enhancer * 100)) + "%[/color] Speed Boost"
+
 
 
 func remove_from_setup():
@@ -45,9 +64,12 @@ func _on_remove_button_mouse_exited() -> void:
 
 
 func _on_setup_cpu_image_mouse_entered() -> void:
+	item_info_container.show()
 	button.show()
 
 
 func _on_setup_cpu_image_mouse_exited() -> void:
+	item_info_container.hide()
+	
 	if not button.is_hovered():
 		button.hide()
