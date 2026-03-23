@@ -14,9 +14,9 @@ extends Node2D
 
 const ENENEMY_SCENE = preload("uid://dd11l81fddnsb")
 const COMMRADE_SCENE = preload("uid://bdpc8podu70pj")
-const CITY_MAP = preload("uid://con4qxwwnri1b")
-const NEIGHBORHOOD_MAP = preload("uid://7jh1drblmlvj")
-const SPACE_ORBITAL_MAP = preload("uid://gqn6f5ei3s7p")
+const CITY_MAP = preload("uid://b5nixpcmsqwfr")
+const NEIGHBORHOOD_MAP = preload("uid://cii80imitrjdf")
+const SPACE_ORBITAL_MAP = preload("uid://dnw66q782x4ar")
 
 var maps = {"first_map" : NEIGHBORHOOD_MAP,
 			"second_map" : CITY_MAP,
