@@ -1,0 +1,84 @@
+[gd_scene format=3 uid="uid://btprfw2nquh3x"]
+
+[ext_resource type="Texture2D" uid="uid://ds65usmhcgwqh" path="res://art/misc/motherboard_layout.png" id="1_8egkc"]
+[ext_resource type="Script" uid="uid://dujiew21aukhh" path="res://scenes/setup_scene/backpack_container.gd" id="2_0u8xd"]
+[ext_resource type="Texture2D" uid="uid://bvoxt0q220sbc" path="res://art/misc/storage_layout.png" id="2_35cec"]
+[ext_resource type="PackedScene" uid="uid://deh5t7xa35jdd" path="res://scenes/backpack_card_scene/backpack_card.tscn" id="4_0u8xd"]
+[ext_resource type="PackedScene" uid="uid://d2dwgl2aubu7e" path="res://scenes/change_scene_button_scene/change_scene_button.tscn" id="4_n1dyv"]
+[ext_resource type="Script" uid="uid://n50oojmw5grn" path="res://scenes/setup_scene/player_setup.gd" id="7_0u8xd"]
+
+[node name="setup_scene" type="Node2D" unique_id=985433820]
+
+[node name="motherboard_layout" type="TextureRect" parent="." unique_id=807965341]
+texture_filter = 1
+offset_right = 1354.0
+offset_bottom = 1080.0
+texture = ExtResource("1_8egkc")
+
+[node name="backpack_container" type="Control" parent="." unique_id=1568474870]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 1355.0
+offset_top = 17.0
+offset_right = 2288.0
+offset_bottom = 1079.0
+script = ExtResource("2_0u8xd")
+
+[node name="storage_img" type="TextureRect" parent="backpack_container" unique_id=1935910072]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.528
+anchor_bottom = 0.63500005
+offset_left = -50.0
+offset_top = -68.0
+offset_right = 468.376
+offset_bottom = 389.62994
+texture = ExtResource("2_35cec")
+
+[node name="GridContainer" type="GridContainer" parent="backpack_container/storage_img" unique_id=55250096]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.13900001
+anchor_top = 0.136
+anchor_right = 0.609
+anchor_bottom = 0.85200006
+offset_left = 0.47097778
+offset_top = 0.04798889
+offset_right = 244.30096
+offset_bottom = 456.29962
+scale = Vector2(0.66, 0.66)
+columns = 3
+
+[node name="backpack_card2" parent="backpack_container/storage_img/GridContainer" unique_id=675617672 instance=ExtResource("4_0u8xd")]
+layout_mode = 2
+
+[node name="active_cards_container" type="Control" parent="." unique_id=1052810598]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 110.0
+offset_top = 751.0
+offset_right = 110.0
+offset_bottom = 751.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="active_cards_container" unique_id=1695121259]
+layout_mode = 0
+offset_left = 66.99999
+offset_top = -10.0
+offset_right = 1102.0366
+offset_bottom = 134.0
+scale = Vector2(0.685, 0.685)
+
+[node name="player_setup" type="Node2D" parent="." unique_id=1242920136]
+script = ExtResource("7_0u8xd")
+
+[node name="change_scene_button" parent="." unique_id=2077746840 instance=ExtResource("4_n1dyv")]
+anchor_right = 0.768
+anchor_bottom = 0.044000003
+offset_left = 1460.0
+offset_top = 984.0
+offset_right = 1662.1659
+offset_bottom = 1048.9819
+scale = Vector2(1.385, 1.385)
+scene_path = "res://scenes/battle_scene/battle_scene.tscn"
+label_text = "remove virus"

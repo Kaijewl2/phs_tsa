@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="SellCardData" format=3 uid="uid://dxtpcwur872cf"]
+
+[ext_resource type="Script" uid="uid://c6rkw8aflunst" path="res://data/SellCardData.gd" id="1_fhu0b"]
+[ext_resource type="Texture2D" uid="uid://co5cigw212hby" path="res://art/cards/linux_card_template.png" id="1_s7lf0"]
+[ext_resource type="Texture2D" uid="uid://cg6e78bwfh3lu" path="res://art/entities/white_hat/white_hat_single.png" id="2_bruwm"]
+
+[resource]
+script = ExtResource("1_fhu0b")
+card_frame = ExtResource("1_s7lf0")
+card_background = Color(0.5568628, 0.5568628, 0.5568628, 1)
+card_borders = Color(1, 1, 1, 1)
+card_icon = ExtResource("2_bruwm")
+sell_card_name = "White Hat"
+sell_card_desc = "Nothing gets past White Hat's intrusion detection system."
+health = 90.0
+damage = 15
+speed = 35
+value = 200
+ram_cost = 8
+metadata/_custom_type_script = "uid://c6rkw8aflunst"

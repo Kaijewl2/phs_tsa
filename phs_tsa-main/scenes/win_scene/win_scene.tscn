@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://mnnkp6xcwlxm"]
+
+[ext_resource type="Texture2D" uid="uid://bsui2yoc7cmyw" path="res://art/icons/brick_mad.png" id="1_1jddt"]
+[ext_resource type="FontFile" uid="uid://crdmvv8dc23b3" path="res://art/fonts/blue_winter/Blue Winter.ttf" id="2_xv7eg"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_tn0gf"]
+font = ExtResource("2_xv7eg")
+font_size = 127
+font_color = Color(0.5908752, 0, 0, 1)
+
+[node name="win_scene" type="Control" unique_id=2105699469]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BRICK" type="TextureRect" parent="." unique_id=1352343612]
+modulate = Color(1, 0.55628604, 0.49291283, 1)
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -298.0
+offset_top = -364.0
+offset_right = 313.0
+offset_bottom = 263.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_1jddt")
+stretch_mode = 4
+
+[node name="BRICK_label" type="Label" parent="BRICK" unique_id=1139509264]
+layout_mode = 0
+offset_left = -439.0
+offset_top = 609.0
+offset_right = 1125.0
+offset_bottom = 776.0
+text = "A THREAT STILL LOOMS"
+label_settings = SubResource("LabelSettings_tn0gf")

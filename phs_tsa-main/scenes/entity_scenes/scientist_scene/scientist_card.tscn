@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://diot6cwekvcuh"]
+
+[ext_resource type="Script" uid="uid://clwexcdfrdfbd" path="res://scenes/entity_scenes/scientist_scene/scientist_card.gd" id="1_7qw8t"]
+[ext_resource type="Texture2D" uid="uid://cf621x1hvkf8i" path="res://art/cards/Baron.png" id="2_7qw8t"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7qw8t"]
+size = Vector2(142, 191)
+
+[node name="scientist_card" type="Node2D" unique_id=905144927]
+script = ExtResource("1_7qw8t")
+
+[node name="card_image" type="Sprite2D" parent="." unique_id=268161596]
+texture = ExtResource("2_7qw8t")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1361640433]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=159249088]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_7qw8t")
+
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]

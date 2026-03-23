@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://cifwypi1j3oks"]
+
+[ext_resource type="PackedScene" uid="uid://bsnxlsarich36" path="res://scenes/coin_counter_ui_scene/coin_counter.tscn" id="1_hkkgx"]
+
+[node name="ui_elements" type="Control" unique_id=1319210199 groups=["ui"]]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="HBoxContainer" parent="." unique_id=1519714376]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.90500003
+anchor_right = 1.0
+anchor_bottom = 0.068
+offset_left = -94.80005
+offset_right = -121.19995
+offset_bottom = 9.559998
+grow_horizontal = 0
+scale = Vector2(1.77, 1.77)
+
+[node name="coin_counter" parent="VBoxContainer" unique_id=190551430 instance=ExtResource("1_hkkgx")]
+layout_mode = 2

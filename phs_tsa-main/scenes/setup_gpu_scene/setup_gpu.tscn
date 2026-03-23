@@ -1,0 +1,65 @@
+[gd_scene format=3 uid="uid://bhgmgqp4c1yd4"]
+
+[ext_resource type="Script" uid="uid://c7qwrjqkkpgc1" path="res://scenes/setup_gpu_scene/setup_gpu.gd" id="1_3oo8o"]
+[ext_resource type="Texture2D" uid="uid://ctky17av0k51a" path="res://art/misc/base_gpu.png" id="1_3y7p3"]
+
+[node name="setup_gpu" type="Control" unique_id=1886166878]
+layout_mode = 3
+anchor_right = 0.45600003
+anchor_bottom = 0.23400001
+offset_right = 0.47991943
+offset_bottom = 34.279984
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_3oo8o")
+
+[node name="setup_gpu_image" type="TextureRect" parent="." unique_id=1965743812]
+texture_filter = 1
+layout_mode = 0
+offset_right = 871.134
+offset_bottom = 379.0
+texture = ExtResource("1_3y7p3")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="remove_button" type="Button" parent="." unique_id=158333871]
+visible = false
+texture_filter = 1
+layout_mode = 0
+offset_left = 379.0
+offset_top = 247.0
+offset_right = 732.00024
+offset_bottom = 367.0
+scale = Vector2(0.425, 0.425)
+theme_override_font_sizes/font_size = 85
+text = "remove"
+
+[node name="item_info_container" type="ColorRect" parent="." unique_id=945807717]
+visible = false
+z_index = 26
+layout_mode = 0
+offset_left = 762.0
+offset_top = 204.0
+offset_right = 1056.0
+offset_bottom = 301.0
+mouse_filter = 2
+color = Color(1, 1, 1, 0.6392157)
+
+[node name="item_info_label" type="RichTextLabel" parent="item_info_container" unique_id=881657463]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 4.0
+offset_right = 277.0
+offset_bottom = 106.0
+mouse_filter = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_colors/font_selected_color = Color(0, 0, 0, 0)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+bbcode_enabled = true
+vertical_alignment = 1
+
+[connection signal="mouse_entered" from="setup_gpu_image" to="." method="_on_setup_gpu_image_mouse_entered"]
+[connection signal="mouse_exited" from="setup_gpu_image" to="." method="_on_setup_gpu_image_mouse_exited"]
+[connection signal="mouse_entered" from="remove_button" to="." method="_on_remove_button_mouse_entered"]
+[connection signal="mouse_exited" from="remove_button" to="." method="_on_remove_button_mouse_exited"]
+[connection signal="pressed" from="remove_button" to="." method="_on_remove_button_pressed"]

@@ -1,0 +1,52 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://bgupbaexxqini"]
+
+[ext_resource type="Texture2D" uid="uid://tfjbungk5amd" path="res://art/entities/trojan_horse/trojan_horse.png" id="1_cwd6d"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0emgj"]
+atlas = ExtResource("1_cwd6d")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cbjd8"]
+atlas = ExtResource("1_cwd6d")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sjv2r"]
+atlas = ExtResource("1_cwd6d")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ospc2"]
+atlas = ExtResource("1_cwd6d")
+region = Rect2(0, 0, 16, 16)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0emgj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cbjd8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0emgj")
+}],
+"loop": false,
+"name": &"attack",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sjv2r")
+}],
+"loop": true,
+"name": &"death",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ospc2")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]

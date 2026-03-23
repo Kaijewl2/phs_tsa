@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="SellCardData" format=3 uid="uid://2kvmrlos8s2h"]
+
+[ext_resource type="Texture2D" uid="uid://co5cigw212hby" path="res://art/cards/linux_card_template.png" id="1_74lw5"]
+[ext_resource type="Script" uid="uid://c6rkw8aflunst" path="res://data/SellCardData.gd" id="1_pwb7n"]
+[ext_resource type="Texture2D" uid="uid://cqbltcjc6bult" path="res://art/entities/anubis/anubis_single.png" id="2_74lw5"]
+
+[resource]
+script = ExtResource("1_pwb7n")
+card_frame = ExtResource("1_74lw5")
+card_background = Color(0.8509804, 0.32156864, 0.44705883, 1)
+card_borders = Color(0.8352941, 0.70980394, 0.6313726, 1)
+card_icon = ExtResource("2_74lw5")
+sell_card_name = "Firecat"
+sell_card_desc = "Cousins with a famous fox."
+health = 95.0
+damage = 35
+speed = 80
+value = 160
+ram_cost = 4
+metadata/_custom_type_script = "uid://c6rkw8aflunst"

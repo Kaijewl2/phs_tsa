@@ -1,0 +1,52 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://cliy4jvfgi5qy"]
+
+[ext_resource type="Texture2D" uid="uid://bmb1gtfmqaxye" path="res://art/entities/white_hat/white_hat.png" id="1_dkudc"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gdyrj"]
+atlas = ExtResource("1_dkudc")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4t3rs"]
+atlas = ExtResource("1_dkudc")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_poigi"]
+atlas = ExtResource("1_dkudc")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_orqcm"]
+atlas = ExtResource("1_dkudc")
+region = Rect2(0, 0, 16, 16)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gdyrj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4t3rs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gdyrj")
+}],
+"loop": false,
+"name": &"attack",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_poigi")
+}],
+"loop": true,
+"name": &"death",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_orqcm")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]

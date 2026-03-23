@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="UnitData" format=3 uid="uid://1p5h1g0b1o30"]
+
+[ext_resource type="Script" uid="uid://bo4u7fiofkecs" path="res://data/UnitData.gd" id="1_1odnm"]
+[ext_resource type="SpriteFrames" uid="uid://l3xmsvt5c1gq" path="res://data/units/penguin/penguin_sprite_frames.tres" id="2_ohhxv"]
+
+[resource]
+script = ExtResource("1_1odnm")
+unit_name = "Tux"
+health = 110.0
+damage = 30
+speed = 35
+attack_cooldown = 1.0
+death_value = 25
+sprite_animations = ExtResource("2_ohhxv")
+metadata/_custom_type_script = "uid://bo4u7fiofkecs"

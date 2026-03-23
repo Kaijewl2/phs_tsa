@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="GpuData" format=3 uid="uid://bafbjwry44ic5"]
+
+[ext_resource type="Script" uid="uid://cxak8dq6ycube" path="res://data/GpuData.gd" id="1_2ef47"]
+[ext_resource type="Texture2D" uid="uid://bpe2j1xlgn6xx" path="res://art/misc/speed_gpu.png" id="1_eoh8i"]
+
+[resource]
+script = ExtResource("1_2ef47")
+gpu_image = ExtResource("1_eoh8i")
+gpu_name = "Speed GPU"
+speed_enhancer = 0.2
+metadata/_custom_type_script = "uid://cxak8dq6ycube"

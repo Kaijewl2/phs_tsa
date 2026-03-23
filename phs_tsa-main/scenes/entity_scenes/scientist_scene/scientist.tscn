@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://c55piwfaeg7pm"]
+
+[ext_resource type="Texture2D" uid="uid://lxlqdpyh0hpm" path="res://art/LabNPCs.png" id="1_bhnbu"]
+[ext_resource type="PackedScene" uid="uid://bes6m6c7gdswg" path="res://scenes/test/health_bar.tscn" id="2_a8un4"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_i7no5"]
+radius = 25.47097
+
+[node name="scientist" type="Sprite2D" unique_id=1772143264]
+z_index = 86
+texture = ExtResource("1_bhnbu")
+offset = Vector2(5.595, 0)
+hframes = 9
+vframes = 4
+frame = 7
+
+[node name="Area2D" type="Area2D" parent="." unique_id=748125563]
+position = Vector2(-6.135, 5.305)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=655225117]
+position = Vector2(5.92, 0)
+scale = Vector2(0.555, 0.855)
+shape = SubResource("CircleShape2D_i7no5")
+
+[node name="health_bar" parent="." unique_id=1839495860 instance=ExtResource("2_a8un4")]

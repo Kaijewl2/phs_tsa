@@ -1,0 +1,200 @@
+[gd_scene format=3 uid="uid://deh5t7xa35jdd"]
+
+[ext_resource type="Script" uid="uid://1ct3lecet6sw" path="res://scenes/backpack_card_scene/backpack_card.gd" id="1_u6bpu"]
+[ext_resource type="Resource" uid="uid://ctslcvel45hud" path="res://data/sell_cards/penguin/penguin_sell.tres" id="2_c4ux8"]
+[ext_resource type="Texture2D" uid="uid://co5cigw212hby" path="res://art/cards/linux_card_template.png" id="2_j4dn1"]
+[ext_resource type="Texture2D" uid="uid://ckimedgxf2230" path="res://art/entities/penguin/penguin.png" id="3_c4ux8"]
+[ext_resource type="FontFile" uid="uid://5h80votmq54e" path="res://art/fonts/minecraft/Minecraft.ttf" id="6_pdpf5"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_c4ux8"]
+font = ExtResource("6_pdpf5")
+font_size = 9
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_pdpf5"]
+line_spacing = 0.83
+font = ExtResource("6_pdpf5")
+font_size = 10
+font_color = Color(0, 0, 0, 1)
+
+[node name="backpack_card" type="Control" unique_id=1231329556]
+custom_minimum_size = Vector2(234, 267)
+layout_mode = 3
+anchor_right = 0.066
+anchor_bottom = 0.19000001
+offset_right = 143.28
+offset_bottom = 61.799988
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_u6bpu")
+backpack_card_data = ExtResource("2_c4ux8")
+
+[node name="card_frame" type="TextureRect" parent="." unique_id=1261989855]
+texture_filter = 1
+layout_mode = 0
+offset_right = 34.0
+offset_bottom = 57.381615
+scale = Vector2(3.59, 3.59)
+texture = ExtResource("2_j4dn1")
+stretch_mode = 2
+
+[node name="card_background" type="ColorRect" parent="card_frame" unique_id=105876419]
+layout_mode = 0
+offset_left = 3.8997207
+offset_top = 6.963787
+offset_right = 30.083565
+offset_bottom = 30.083565
+color = Color(0.3328807, 0.33288068, 0.33288068, 1)
+
+[node name="card_borders" type="Control" parent="card_frame" unique_id=145303682]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+
+[node name="ColorRect" type="ColorRect" parent="card_frame/card_borders" unique_id=1805507262]
+layout_mode = 0
+offset_left = 1.1142061
+offset_top = 1.9498606
+offset_right = 2.2284122
+offset_bottom = 45.961002
+mouse_filter = 2
+
+[node name="ColorRect2" type="ColorRect" parent="card_frame/card_borders" unique_id=794532640]
+layout_mode = 0
+offset_left = 32.019
+offset_top = 1.95
+offset_right = 33.033
+offset_bottom = 45.961002
+mouse_filter = 2
+
+[node name="ColorRect3" type="ColorRect" parent="card_frame/card_borders" unique_id=801610272]
+layout_mode = 0
+offset_left = 1.1142061
+offset_top = 1.3927578
+offset_right = 33.127205
+offset_bottom = 2.5067577
+mouse_filter = 2
+
+[node name="ColorRect4" type="ColorRect" parent="card_frame/card_borders" unique_id=2026014496]
+layout_mode = 0
+offset_left = 1.114
+offset_top = 46.148
+offset_right = 33.112
+offset_bottom = 47.14
+mouse_filter = 2
+
+[node name="ColorRect5" type="ColorRect" parent="card_frame/card_borders" unique_id=1979230691]
+layout_mode = 0
+offset_left = 1.004
+offset_top = 32.108
+offset_right = 33.027
+offset_bottom = 34.173
+mouse_filter = 2
+
+[node name="ColorRect6" type="ColorRect" parent="card_frame/card_borders" unique_id=635307046]
+layout_mode = 0
+offset_left = 8.077994
+offset_top = 2.2284122
+offset_right = 26.183994
+offset_bottom = 4.2634125
+mouse_filter = 2
+
+[node name="ColorRect7" type="ColorRect" parent="card_frame/card_borders" unique_id=1878381732]
+layout_mode = 0
+offset_left = 8.91365
+offset_top = 4.178273
+offset_right = 25.069637
+offset_bottom = 5.2924795
+mouse_filter = 2
+
+[node name="card_image" type="TextureRect" parent="card_frame" unique_id=356638567]
+layout_mode = 0
+offset_left = 4.4568243
+offset_top = 6.128134
+offset_right = 49.780464
+offset_bottom = 46.73056
+scale = Vector2(0.59, 0.59)
+texture = ExtResource("3_c4ux8")
+stretch_mode = 4
+
+[node name="equip_button" type="Button" parent="." unique_id=796278141]
+visible = false
+layout_mode = 0
+offset_left = -16.0
+offset_top = 181.0
+offset_right = 150.0
+offset_bottom = 217.0
+theme_override_font_sizes/font_size = 28
+text = "add to deck"
+
+[node name="remove_button" type="Button" parent="." unique_id=1075460823]
+visible = false
+layout_mode = 0
+offset_left = -24.0
+offset_top = 178.0
+offset_right = 155.0
+offset_bottom = 232.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0.3254902, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.23566154, 6.617978e-07, 4.2716042e-07, 1)
+theme_override_colors/font_hover_color = Color(0.7059392, 3.5376102e-06, 3.85046e-07, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.4862745, 0, 0, 1)
+theme_override_font_sizes/font_size = 22
+text = "Remove from backpack"
+autowrap_mode = 2
+
+[node name="card_name" type="Label" parent="." unique_id=1135186055]
+texture_filter = 1
+layout_mode = 0
+offset_left = 20.0
+offset_top = 6.0
+offset_right = 103.0
+offset_bottom = 23.0
+text = "Rubber Ducky"
+label_settings = SubResource("LabelSettings_c4ux8")
+horizontal_alignment = 1
+
+[node name="card_desc" type="Label" parent="." unique_id=761700902]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 122.0
+offset_right = 115.0
+offset_bottom = 165.0
+text = "standard issue penguin "
+label_settings = SubResource("LabelSettings_pdpf5")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="item_info_container" type="ColorRect" parent="." unique_id=1958047512]
+visible = false
+z_index = 26
+layout_mode = 0
+offset_left = -275.0
+offset_top = -152.0
+offset_right = 33.0
+offset_bottom = 94.0
+mouse_filter = 2
+color = Color(1, 1, 1, 0.6392157)
+
+[node name="item_info_label" type="RichTextLabel" parent="item_info_container" unique_id=2088150849]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 14.0
+offset_right = 295.0
+offset_bottom = 241.0
+mouse_filter = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_colors/font_selected_color = Color(0, 0, 0, 0)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 24
+bbcode_enabled = true
+vertical_alignment = 1
+
+[connection signal="mouse_entered" from="card_frame" to="." method="_on_texture_rect_mouse_entered"]
+[connection signal="mouse_exited" from="card_frame" to="." method="_on_texture_rect_mouse_exited"]
+[connection signal="mouse_entered" from="equip_button" to="." method="_on_equip_button_mouse_entered"]
+[connection signal="mouse_exited" from="equip_button" to="." method="_on_equip_button_mouse_exited"]
+[connection signal="mouse_entered" from="remove_button" to="." method="_on_remove_button_mouse_entered"]
+[connection signal="mouse_exited" from="remove_button" to="." method="_on_remove_button_mouse_exited"]

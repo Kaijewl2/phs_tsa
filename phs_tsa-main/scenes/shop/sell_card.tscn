@@ -1,0 +1,200 @@
+[gd_scene format=3 uid="uid://cwfnhwgq5hgi7"]
+
+[ext_resource type="Script" uid="uid://c068yktpo27e8" path="res://scenes/shop/sell_card_scene/sell_card.gd" id="1_yoeyb"]
+[ext_resource type="Texture2D" uid="uid://co5cigw212hby" path="res://art/cards/linux_card_template.png" id="2_8bbjf"]
+[ext_resource type="Texture2D" uid="uid://d4ewn111rc61p" path="res://art/icons/purrrency.png" id="3_8bbjf"]
+[ext_resource type="Texture2D" uid="uid://ckimedgxf2230" path="res://art/entities/penguin/penguin.png" id="3_apoln"]
+[ext_resource type="FontFile" uid="uid://5h80votmq54e" path="res://art/fonts/minecraft/Minecraft.ttf" id="4_apoln"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ng2uk"]
+line_spacing = 0.83
+font = ExtResource("4_apoln")
+font_size = 9
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_w3e7i"]
+line_spacing = 1.11
+font = ExtResource("4_apoln")
+font_size = 9
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_apoln"]
+font = ExtResource("4_apoln")
+font_size = 147
+font_color = Color(1, 0.78431374, 0.40392157, 1)
+
+[node name="sell_card" type="Control" unique_id=378176936]
+custom_minimum_size = Vector2(269.66, 0)
+layout_mode = 3
+anchor_right = 0.14
+anchor_bottom = 0.20600002
+offset_left = -32.0
+offset_top = -77.0
+offset_right = -31.139984
+offset_bottom = -77.48001
+script = ExtResource("1_yoeyb")
+
+[node name="card_img" type="TextureRect" parent="." unique_id=1934516013]
+texture_filter = 1
+layout_mode = 0
+offset_left = 44.706326
+offset_top = 47.810905
+offset_right = 79.45841
+offset_bottom = 109.24977
+scale = Vector2(3.59, 3.59)
+pivot_offset = Vector2(17.46, 23.47)
+texture = ExtResource("2_8bbjf")
+stretch_mode = 2
+
+[node name="card_background" type="ColorRect" parent="card_img" unique_id=1726521614]
+layout_mode = 0
+offset_left = 4.4568243
+offset_top = 6.685237
+offset_right = 30.640667
+offset_bottom = 29.805012
+color = Color(0.13682577, 0.13682574, 0.13682571, 1)
+
+[node name="card_borders" type="Control" parent="card_img" unique_id=233632782]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+
+[node name="ColorRect" type="ColorRect" parent="card_img/card_borders" unique_id=1645606327]
+layout_mode = 0
+offset_left = 1.1142063
+offset_top = 0.5571041
+offset_right = 2.2284124
+offset_bottom = 46.239555
+mouse_filter = 2
+
+[node name="ColorRect2" type="ColorRect" parent="card_img/card_borders" unique_id=1326393382]
+layout_mode = 0
+offset_left = 1.1142063
+offset_top = 0.8356552
+offset_right = 33.147636
+offset_bottom = 1.9498613
+mouse_filter = 2
+
+[node name="ColorRect3" type="ColorRect" parent="card_img/card_borders" unique_id=598905471]
+layout_mode = 0
+offset_left = 32.039
+offset_top = 0.5569992
+offset_right = 33.15327
+offset_bottom = 46.23945
+mouse_filter = 2
+
+[node name="ColorRect4" type="ColorRect" parent="card_img/card_borders" unique_id=199545660]
+layout_mode = 0
+offset_left = 8.356545
+offset_top = 2.3360004
+offset_right = 26.462395
+offset_bottom = 4.456825
+mouse_filter = 2
+
+[node name="ColorRect5" type="ColorRect" parent="card_img/card_borders" unique_id=1015484874]
+layout_mode = 0
+offset_left = 8.913648
+offset_top = 4.1782722
+offset_right = 25.069637
+offset_bottom = 5.2924786
+mouse_filter = 2
+
+[node name="ColorRect6" type="ColorRect" parent="card_img/card_borders" unique_id=92417880]
+layout_mode = 0
+offset_left = 1.1142063
+offset_top = 45.682446
+offset_right = 33.14763
+offset_bottom = 46.79665
+mouse_filter = 2
+
+[node name="ColorRect7" type="ColorRect" parent="card_img/card_borders" unique_id=1809205838]
+layout_mode = 0
+offset_left = 1.1142063
+offset_top = 32.03343
+offset_right = 33.14763
+offset_bottom = 34.261837
+mouse_filter = 2
+
+[node name="card_desc" type="Label" parent="card_img" unique_id=592417348]
+layout_mode = 0
+offset_left = 1.8830082
+offset_top = 34.555058
+offset_right = 111.27782
+offset_bottom = 76.03125
+scale = Vector2(0.275, 0.275)
+text = "standard issue penguin"
+label_settings = SubResource("LabelSettings_ng2uk")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="card_name" type="Label" parent="card_img" unique_id=592410685]
+z_index = 1
+texture_filter = 1
+layout_mode = 0
+offset_left = 4.829334
+offset_top = 1.8435736
+offset_right = 94.26994
+offset_bottom = 23.28421
+scale = Vector2(0.275, 0.275)
+text = "Rubber Ducky"
+label_settings = SubResource("LabelSettings_w3e7i")
+horizontal_alignment = 1
+
+[node name="card_icon" type="TextureRect" parent="card_img" unique_id=165231949]
+layout_mode = 0
+offset_left = 4.0348225
+offset_top = 6.100113
+offset_right = 48.685852
+offset_bottom = 47.595406
+scale = Vector2(0.59, 0.59)
+texture = ExtResource("3_apoln")
+stretch_mode = 4
+
+[node name="price_label" type="Label" parent="." unique_id=705920495]
+texture_filter = 1
+layout_mode = 0
+offset_left = 61.0
+offset_top = 168.09877
+offset_right = 264.0
+offset_bottom = 400.18793
+scale = Vector2(0.275, 0.275)
+text = "67"
+label_settings = SubResource("LabelSettings_apoln")
+
+[node name="purrrency_img" type="TextureRect" parent="price_label" unique_id=1084031942]
+texture_filter = 1
+layout_mode = 0
+offset_left = -207.27272
+offset_top = -35.645927
+offset_right = -7.2727203
+offset_bottom = 164.35406
+texture = ExtResource("3_8bbjf")
+
+[node name="item_info_container" type="ColorRect" parent="." unique_id=1828605802]
+visible = false
+z_index = 26
+layout_mode = 0
+offset_left = 100.20657
+offset_top = -184.54544
+offset_right = 408.20657
+offset_bottom = 39.45456
+mouse_filter = 2
+color = Color(1, 1, 1, 0.6392157)
+
+[node name="item_info_label" type="RichTextLabel" parent="item_info_container" unique_id=560782860]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 14.0
+offset_right = 295.0
+offset_bottom = 226.69998
+mouse_filter = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_colors/font_selected_color = Color(0, 0, 0, 0)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+bbcode_enabled = true
+vertical_alignment = 1
+
+[connection signal="mouse_entered" from="card_img" to="." method="_on_card_img_mouse_entered"]
+[connection signal="mouse_exited" from="card_img" to="." method="_on_card_img_mouse_exited"]

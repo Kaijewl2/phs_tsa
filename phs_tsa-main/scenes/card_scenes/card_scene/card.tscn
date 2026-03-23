@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://ca4hvw8h8yhmk"]
+
+[ext_resource type="Texture2D" uid="uid://p11xswjgse0q" path="res://art/cards/Hiker.png" id="1_30311"]
+[ext_resource type="Script" uid="uid://dxcxgr726x1ut" path="res://scenes/card_scenes/card_scene/card.gd" id="1_r6f7m"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r6f7m"]
+size = Vector2(211, 282)
+
+[node name="walking_bot_card" type="Node2D" unique_id=905144927]
+script = ExtResource("1_r6f7m")
+unit_scene_path = "res://scenes/entity_scenes/walking_bot_scene/walking_bot.tscn"
+
+[node name="card_image" type="Sprite2D" parent="." unique_id=268161596]
+scale = Vector2(2.67, 2.67)
+texture = ExtResource("1_30311")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1361640433]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=159249088]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_r6f7m")
+
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]

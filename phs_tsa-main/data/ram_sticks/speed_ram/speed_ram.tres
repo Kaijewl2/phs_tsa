@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="RamData" format=3 uid="uid://djv75ht8apx3y"]
+
+[ext_resource type="Script" uid="uid://csts7gyo8l4sn" path="res://data/RamData.gd" id="1_e16pt"]
+[ext_resource type="Texture2D" uid="uid://bqv6h6q0hkkvk" path="res://art/misc/speed_ram_stick.png" id="1_f6j2f"]
+
+[resource]
+script = ExtResource("1_e16pt")
+ram_stick_image = ExtResource("1_f6j2f")
+ram_stick_name = "Speed RAM"
+speed_enhancer = 0.5
+damage_enhancer = 0.0
+health_enhancer = 0.0
+cost = 5
+metadata/_custom_type_script = "uid://csts7gyo8l4sn"

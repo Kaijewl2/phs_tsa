@@ -1,0 +1,72 @@
+[gd_scene format=3 uid="uid://b11vc6ohy6mxh"]
+
+[ext_resource type="Script" uid="uid://btkue8bp4g5xk" path="res://scenes/ram_stick_scene/ram_stick_scene.gd" id="1_og02v"]
+[ext_resource type="Texture2D" uid="uid://ckyams8bw0x00" path="res://art/misc/damage_ram_stick.png" id="2_og02v"]
+[ext_resource type="Texture2D" uid="uid://d4ewn111rc61p" path="res://art/icons/purrrency.png" id="4_x5oly"]
+
+[node name="ram_stick_scene" type="Control" unique_id=548070670]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_og02v")
+
+[node name="ram_stick_image" type="TextureRect" parent="." unique_id=848850964]
+texture_filter = 1
+layout_mode = 0
+offset_right = 90.048004
+offset_bottom = 231.0
+pivot_offset = Vector2(42.885, 124.57)
+texture = ExtResource("2_og02v")
+expand_mode = 4
+stretch_mode = 4
+
+[node name="currency_label" type="Label" parent="." unique_id=1790942934]
+texture_filter = 1
+layout_mode = 0
+offset_left = 44.0
+offset_top = 254.0
+offset_right = 95.0
+offset_bottom = 307.0
+theme_override_colors/font_color = Color(1, 0.78431374, 0.40392157, 1)
+theme_override_font_sizes/font_size = 40
+text = "32"
+
+[node name="currency_image" type="TextureRect" parent="currency_label" unique_id=1692547652]
+texture_filter = 1
+layout_mode = 0
+offset_left = -60.0
+offset_top = -16.0
+offset_right = -20.0
+offset_bottom = 24.0
+scale = Vector2(1.615, 1.615)
+texture = ExtResource("4_x5oly")
+
+[node name="item_info_container" type="ColorRect" parent="." unique_id=1421652245]
+visible = false
+z_index = 26
+layout_mode = 0
+offset_left = -265.0
+offset_top = -126.0
+offset_right = 29.0
+offset_bottom = 29.0
+mouse_filter = 2
+color = Color(1, 1, 1, 0.6392157)
+
+[node name="item_info_label" type="RichTextLabel" parent="item_info_container" unique_id=205995584]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 4.0
+offset_right = 277.0
+offset_bottom = 150.0
+mouse_filter = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_colors/font_selected_color = Color(0, 0, 0, 0)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+bbcode_enabled = true
+vertical_alignment = 1
+
+[connection signal="mouse_entered" from="ram_stick_image" to="." method="_on_ram_stick_image_mouse_entered"]
+[connection signal="mouse_exited" from="ram_stick_image" to="." method="_on_ram_stick_image_mouse_exited"]
