@@ -1,17 +1,26 @@
 extends Node2D
 
 
-@onready var label: Label = $Label
 @onready var enter_shop_button: Control = $enter_shop_button
 @onready var balance_label: Control = $VBoxContainer/coin_counter
-@onready var final_boss_win_label: Label = $final_boss_win_label
+@onready var label: Label = $system_breach_container/system_breach_label
+@onready var final_boss_win_label: Label = $final_boss_win_container/final_boss_win_label
 @onready var enter_win_scene_button: TextureRect = $enter_win_scene_button
 @onready var loss_restart_button: TextureRect = $loss_restart_button
+@onready var level_image: TextureRect = $level_image
+
+
 
 
 const ENENEMY_SCENE = preload("uid://dd11l81fddnsb")
 const COMMRADE_SCENE = preload("uid://bdpc8podu70pj")
+const CITY_MAP = preload("uid://con4qxwwnri1b")
+const NEIGHBORHOOD_MAP = preload("uid://7jh1drblmlvj")
+const SPACE_ORBITAL_MAP = preload("uid://gqn6f5ei3s7p")
 
+var maps = {"first_map" : NEIGHBORHOOD_MAP,
+			"second_map" : CITY_MAP,
+			"third_map" : SPACE_ORBITAL_MAP}
 var active_units
 var active_commrades
 var active_enemies
@@ -19,6 +28,14 @@ var battle_over: bool = false
 var enemy_type: String
 
 func _ready() -> void:
+	if GameData.battle_number <= 3:
+		level_image.texture = NEIGHBORHOOD_MAP
+	elif GameData.battle_number <= 6:
+		level_image.texture = CITY_MAP
+	else:
+		level_image.texture = SPACE_ORBITAL_MAP
+		
+	
 	GameData.balance_changed.connect(update_balance_display)
 	balance_label.get_node("Label").text = str(GameData.get_balance())
 	spawn_commrades()
@@ -62,7 +79,7 @@ func spawn_commrades():
 	
 		commrade.unit_data = commrade_type
 		
-		commrade.position = Vector2(randi_range(400, 700), randi_range(730, 870))
+		commrade.position = Vector2(randi_range(500, 700), randi_range(530, 900))
 		commrade.scale = Vector2(5.75,5.75)
 	
 		add_child(commrade)
@@ -86,7 +103,7 @@ func spawn_minor_virus():
 	for i in enemy_count:
 		var enemy = ENENEMY_SCENE.instantiate()
 		enemy.unit_data = GameData.get_random_entity_data()
-		enemy.position = Vector2(randi_range(1200, 1550), randi_range(805, 850))
+		enemy.position = Vector2(randi_range(1200, 1350), randi_range(530, 900))
 		enemy.scale = Vector2(6.325, 6.325)
 
 		enemy.add_to_group("enemies")

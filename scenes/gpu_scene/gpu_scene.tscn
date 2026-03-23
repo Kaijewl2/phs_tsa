@@ -46,5 +46,29 @@ offset_right = -0.2297287
 offset_bottom = 75.675674
 texture = ExtResource("3_01cop")
 
+[node name="item_info_container" type="ColorRect" parent="." unique_id=89240663]
+visible = false
+z_index = 26
+layout_mode = 0
+offset_left = -271.0
+offset_top = -96.0
+offset_right = 23.0
+offset_bottom = 79.0
+mouse_filter = 2
+color = Color(1, 1, 1, 0.6392157)
+
+[node name="item_info_label" type="RichTextLabel" parent="item_info_container" unique_id=938931836]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 4.0
+offset_right = 277.0
+offset_bottom = 178.0
+mouse_filter = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_colors/font_selected_color = Color(0, 0, 0, 0)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+bbcode_enabled = true
+vertical_alignment = 1
+
 [connection signal="mouse_entered" from="gpu_image" to="." method="_on_gpu_image_mouse_entered"]
 [connection signal="mouse_exited" from="gpu_image" to="." method="_on_gpu_image_mouse_exited"]

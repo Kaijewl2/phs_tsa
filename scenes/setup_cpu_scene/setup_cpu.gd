@@ -35,15 +35,23 @@ func _ready() -> void:
 		health_enhancer = cpu_data.health_enhancer
 		gb_size = cpu_data.gb_size
 		cost = cpu_data.cost 
+		
+		if cpu_name == "Health CPU":
+			item_info_label.text = (
+			"[b]Health CPU[/b]\n\n" +
+			"[color=#00ff7f]+ HP[/color]      +" + str(int(health_enhancer * 100)) + "%\n"
+			)
+		elif cpu_name == "Damage CPU":
+			item_info_label.text = (
+				"[b]Damage CPU[/b]\n\n" +
+				"[color=#ff4444]+ DMG[/color]    +" + str(int(damage_enhancer * 100)) + "%\n"
+			)
+		else:
+			item_info_label.text = (
+				"[b]Speed CPU[/b]\n\n" +
+				"[color=#4fc3f7]+ SPD[/color]    +" + str(int(speed_enhancer * 100)) + "%\n"
+			)
 	button.hide()
-	
-	if(cpu_name == "Health CPU"):
-		item_info_label.text = "Health CPU\n\n[color=green]+" + str(int(health_enhancer * 100)) + "%[/color] Health Boost"
-	elif(cpu_name == "Damage CPU"):
-		item_info_label.text = "Damage CPU\n\n[color=red]+" + str(int(damage_enhancer * 100)) + "%[/color] Damage Boost"
-	else:
-		item_info_label.text = "Speed CPU\n\n[color=blue]+" + str(int(speed_enhancer * 100)) + "%[/color] Speed Boost"
-
 
 
 func remove_from_setup():

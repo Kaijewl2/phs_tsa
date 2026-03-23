@@ -35,13 +35,24 @@ func _ready() -> void:
 		gb_size = gpu_data.gb_size
 		cost = gpu_data.cost 
 		
-	if(gpu_name == "Health GPU"):
-		item_info_label.text = "Health GPU\n\n[color=green]+" + str(int(health_enhancer * 100)) + "%[/color] Health Boost"
-	elif(gpu_name == "Damage GPU"):
-		item_info_label.text = "Damage GPU\n\n[color=red]+" + str(int(damage_enhancer * 100)) + "%[/color] Damage Boost"
-	else:
-		item_info_label.text = "Speed GPU\n\n[color=blue]+" + str(int(speed_enhancer * 100)) + "%[/color] Speed Boost"
-
+		if gpu_name == "Health GPU":
+			item_info_label.text = (
+				"[b]Health GPU[/b]\n\n" +
+				"[font_size=14][i]" + gpu_desc + "[/i][/font_size]\n\n" +
+				"[color=#00ff7f]+ HP[/color]      +" + str(int(health_enhancer * 100)) + "%\n"
+			)
+		elif gpu_name == "Damage GPU":
+			item_info_label.text = (
+				"[b]Damage GPU[/b]\n\n" +
+				"[font_size=14][i]" + gpu_desc + "[/i][/font_size]\n\n" +
+				"[color=#ff4444]+ DMG[/color]    +" + str(int(damage_enhancer * 100)) + "%\n"
+			)
+		else:
+			item_info_label.text = (
+				"[b]Speed GPU[/b]\n\n" +
+				"[font_size=14][i]" + gpu_desc + "[/i][/font_size]\n\n" +
+				"[color=#4fc3f7]+ SPD[/color]    +" + str(int(speed_enhancer * 100)) + "%\n"
+			)
 
 func setup(path: String, remove_mode:bool = false):
 	card_path = path

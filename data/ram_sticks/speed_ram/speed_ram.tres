@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_e16pt")
 ram_stick_image = ExtResource("1_f6j2f")
-ram_stick_name = "Speed RAM stick"
+ram_stick_name = "Speed RAM"
 speed_enhancer = 0.5
 damage_enhancer = 0.0
 health_enhancer = 0.0

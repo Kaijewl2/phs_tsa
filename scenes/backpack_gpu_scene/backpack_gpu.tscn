@@ -67,17 +67,15 @@ color = Color(1, 1, 1, 0.6392157)
 
 [node name="item_info_label" type="RichTextLabel" parent="item_info_container" unique_id=864691415]
 layout_mode = 0
-offset_left = 2.0
+offset_left = 10.909058
 offset_top = 4.0
-offset_right = 291.0
+offset_right = 280.0
 offset_bottom = 225.0
 mouse_filter = 2
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_colors/font_selected_color = Color(0, 0, 0, 0)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/normal_font_size = 40
 bbcode_enabled = true
-horizontal_alignment = 1
 vertical_alignment = 1
 
 [connection signal="mouse_entered" from="backpack_gpu_image" to="." method="_on_backpack_gpu_image_mouse_entered"]

@@ -41,7 +41,7 @@ visible = false
 z_index = 26
 layout_mode = 0
 offset_left = 146.0
-offset_top = 12.0
+offset_top = 30.0
 offset_right = 330.0
 offset_bottom = 142.0
 mouse_filter = 2
@@ -49,17 +49,15 @@ color = Color(1, 1, 1, 0.6392157)
 
 [node name="item_info_label" type="RichTextLabel" parent="item_info_container" unique_id=2085076570]
 layout_mode = 0
-offset_left = 2.0
-offset_top = -1.0
-offset_right = 183.0
-offset_bottom = 132.0
+offset_left = 8.0
+offset_top = 9.0
+offset_right = 175.0
+offset_bottom = 114.0
 mouse_filter = 2
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_colors/font_selected_color = Color(0, 0, 0, 0)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/normal_font_size = 24
 bbcode_enabled = true
-horizontal_alignment = 1
 vertical_alignment = 1
 
 [connection signal="mouse_entered" from="setup_cpu_image" to="." method="_on_setup_cpu_image_mouse_entered"]

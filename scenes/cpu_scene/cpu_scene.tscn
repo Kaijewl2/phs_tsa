@@ -45,5 +45,29 @@ offset_bottom = 26.000002
 scale = Vector2(1.355, 1.355)
 texture = ExtResource("4_1m26v")
 
+[node name="item_info_container" type="ColorRect" parent="." unique_id=513977030]
+visible = false
+z_index = 26
+layout_mode = 0
+offset_left = -284.0
+offset_top = -73.0
+offset_right = 10.0
+offset_bottom = 87.0
+mouse_filter = 2
+color = Color(1, 1, 1, 0.6392157)
+
+[node name="item_info_label" type="RichTextLabel" parent="item_info_container" unique_id=683751895]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 12.0
+offset_right = 274.0
+offset_bottom = 159.0
+mouse_filter = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_colors/font_selected_color = Color(0, 0, 0, 0)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+bbcode_enabled = true
+vertical_alignment = 1
+
 [connection signal="mouse_entered" from="cpu_image" to="." method="_on_cpu_image_mouse_entered"]
 [connection signal="mouse_exited" from="cpu_image" to="." method="_on_cpu_image_mouse_exited"]

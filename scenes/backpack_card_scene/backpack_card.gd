@@ -13,6 +13,8 @@ extends Control
 
 @onready var equip_button: Button = $equip_button
 @onready var remove_button: Button = $remove_button
+@onready var item_info_container: ColorRect = $item_info_container
+@onready var item_info_label: RichTextLabel = $item_info_container/item_info_label
 
 
 var health: float = 6.7
@@ -43,6 +45,15 @@ func _ready() -> void:
 		value = backpack_card_data.value
 		ram_cost = backpack_card_data.ram_cost
 	
+	
+	item_info_label.text = (
+		"[b]" + backpack_card_data.sell_card_name + "[/b]\n\n" +
+		"[font_size=20][i]" + backpack_card_data.sell_card_desc + "[/i][/font_size]\n\n" +
+		"[color=#00ff7f]HP[/color]      " + str(int(health)) + "\n" +
+		"[color=#ff4444]DMG[/color]    " + str(damage) + "\n" +
+		"[color=#4fc3f7]SPD[/color]    " + str(speed) + "\n" +
+		"[color=#b06fd4]RAM[/color]    " + str(ram_cost) + "GB"
+	)
 	
 	await get_tree().process_frame
 	await  get_tree().process_frame
@@ -75,7 +86,12 @@ func set_mode(p_remove_mode: bool):
 func remove_from_backpack():
 	print("active units: ", GameData.active_units.size())
 	if GameData.active_units.size() <= 1:
-		print("Need at least 1 card")
+		insufficient_ram_container = get_tree().get_first_node_in_group("insufficient_ram")
+		var insufficient_ram_label = insufficient_ram_container.get_node("insufficient_ram_label")
+		insufficient_ram_label.add_theme_font_size_override("font_size", 54)
+		insufficient_ram_label.text = "Need at least 1 card!"
+		insufficient_ram_container.show()
+		anim_shake(insufficient_ram_container)
 	else:
 		GameData.remove_backpack_card_from_backpack(backpack_card_data)
 
@@ -138,10 +154,12 @@ func _on_remove_button_mouse_entered() -> void:
 
 func _on_remove_button_mouse_exited() -> void:
 	if not remove_button.is_hovered():
-		remove_button.show()
+		remove_button.hide()
 
 
 func _on_texture_rect_mouse_entered() -> void:
+	item_info_container.show()
+	
 	if remove_mode:
 		remove_button.show()
 	else:
@@ -149,6 +167,8 @@ func _on_texture_rect_mouse_entered() -> void:
 
 
 func _on_texture_rect_mouse_exited() -> void:
+	item_info_container.hide()
+	
 	if remove_mode:
 		if not remove_button.is_hovered():
 			remove_button.hide()

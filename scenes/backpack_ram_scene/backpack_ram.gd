@@ -20,6 +20,10 @@ var gb_size: int
 var cost: int
 var hovering:bool = false
 var remove_mode:bool = false
+var is_first_shake = true 
+var shake_tween: Tween = null
+var container_original_pos: Vector2
+var insufficient_ram_container: ColorRect
 
 var card_path: String
 
@@ -35,13 +39,33 @@ func _ready() -> void:
 		gb_size = ram_stick_data.gb_size
 		cost = ram_stick_data.cost 
 		
-	if(ram_stick_name == "Health RAM"):
-		item_info_label.text = "Health RAM\n\n[color=green]+" + str(int(health_enhancer * 100)) + "%[/color] Health Boost"
-	elif(ram_stick_name == "Damage RAM"):
-		item_info_label.text = "Damage RAM\n\n[color=red]+" + str(int(damage_enhancer * 100)) + "%[/color] Damage Boost"
+	if ram_stick_name == "Health RAM":
+		item_info_label.text = (
+			"[b]Health RAM[/b]\n\n" +
+			"[font_size=20][i]" + ram_stick_desc + "[/i][/font_size]\n\n" +
+			"[color=#00ff7f]+ HP[/color]      +" + str(int(health_enhancer * 100)) + "%\n" +
+			"[color=#b06fd4]GB[/color]       " + str(gb_size) + "GB"
+		)
+	elif ram_stick_name == "Damage RAM":
+		item_info_label.text = (
+			"[b]Damage RAM[/b]\n\n" +
+			"[font_size=20][i]" + ram_stick_desc + "[/i][/font_size]\n\n" +
+			"[color=#ff4444]+ DMG[/color]    +" + str(int(damage_enhancer * 100)) + "%\n" +
+			"[color=#b06fd4]GB[/color]       " + str(gb_size) + "GB"
+		)
+	elif ram_stick_name == "Speed RAM":
+		item_info_label.text = (
+			"[b]Speed RAM[/b]\n\n" +
+			"[font_size=20][i]" + ram_stick_desc + "[/i][/font_size]\n\n" +
+			"[color=#4fc3f7]+ SPD[/color]    +" + str(int(speed_enhancer * 100)) + "%\n" +
+			"[color=#b06fd4]GB[/color]       " + str(gb_size) + "GB"
+		)
 	else:
-		item_info_label.text = "Speed RAM\n\n[color=blue]+" + str(int(speed_enhancer * 100)) + "%[/color] Speed Boost"
-
+		item_info_label.text = (
+			"[b]Base RAM[/b]\n\n" +
+			"[font_size=20][i]" + ram_stick_desc + "[/i][/font_size]\n\n" +
+			"[color=#b06fd4]GB[/color]       " + str(gb_size) + "GB"
+		)
 
 
 func setup(path: String, remove_mode:bool = false):
@@ -66,7 +90,34 @@ func set_mode(p_remove_mode: bool):
 
 
 func remove_from_backpack():
-	GameData.remove_backpack_ram_from_backpack(ram_stick_data)
+	if GameData.can_remove_ram(ram_stick_data):
+		GameData.remove_backpack_ram_from_backpack(ram_stick_data)
+	else:
+		# Reuse your insufficient_ram pattern
+		insufficient_ram_container = get_tree().get_first_node_in_group("insufficient_ram")
+		var insufficient_ram_label = insufficient_ram_container.get_node("insufficient_ram_label")
+		insufficient_ram_label.add_theme_font_size_override("font_size", 54)
+		insufficient_ram_label.text = "Cards need this RAM!"
+		insufficient_ram_container.show()
+		anim_shake(insufficient_ram_container)
+
+
+func anim_shake(node):
+	insufficient_ram_container.position = Vector2(757.0, 413.0)
+	container_original_pos = insufficient_ram_container.position
+	
+	if shake_tween and shake_tween.is_running():
+		shake_tween.kill()
+		node.position = container_original_pos 
+	
+	shake_tween = create_tween()
+	shake_tween.tween_property(node, "position", container_original_pos + Vector2(-10, 0), 0.05)
+	shake_tween.tween_property(node, "position", container_original_pos + Vector2(10, 0), 0.05)
+	shake_tween.tween_property(node, "position", container_original_pos + Vector2(-5, 0), 0.05)
+	shake_tween.tween_property(node, "position", container_original_pos + Vector2(5, 0), 0.05)
+	shake_tween.tween_property(node, "position", container_original_pos, 0.05)
+	shake_tween.tween_interval(0.5)
+	shake_tween.tween_callback(node.hide)
 
 
 func add_to_setup():
@@ -99,7 +150,7 @@ func _on_remove_button_mouse_entered() -> void:
 
 func _on_remove_button_mouse_exited() -> void:
 	if not remove_button.is_hovered():
-		remove_button.show()
+		remove_button.hide()
 
 
 func _on_ram_stick_image_mouse_entered() -> void:

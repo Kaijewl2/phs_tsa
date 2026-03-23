@@ -23,6 +23,8 @@ var current_speed: float
 @onready var name_text: Label = $stats_UI/ColorRect/stats_container/name_text
 @onready var health_bar: CustomHealthBar = $health_bar
 @onready var death_sound: AudioStreamPlayer2D = $death_sound
+@onready var item_info_container: ColorRect = $item_info_container
+@onready var item_info_label: RichTextLabel = $item_info_container/item_info_label
 
 
 enum Context { IDLE, BATTLE, DEATH }
@@ -53,6 +55,15 @@ func _ready() -> void:
 	name_text.text += str(unit_name)
 
 	health_bar._setup_health_bar(current_health)
+	
+	
+	item_info_label.text = (
+		"[b]" + unit_name + "[/b]\n\n" +
+		"[color=#00ff7f]HP[/color]      " + str(int(current_health)) + "\n" +
+		"[color=#ff4444]DMG[/color]    " + str(current_damage) + "\n" +
+		"[color=#4fc3f7]SPD[/color]    " + str(current_speed) + "\n"
+	)
+	
 
 	await get_tree().create_timer(randf_range(0.5, 1.5)).timeout
 	current_context = Context.BATTLE
@@ -79,7 +90,7 @@ func apply_hardware_buffs() -> void:
 	var cpu_bonuses = GameData.get_cpu_stat_bonuses()
 
 	current_damage = base_damage + (base_damage * (ram_bonuses["damage"] + gpu_bonuses["damage"] + cpu_bonuses["damage"]))
-	current_speed = base_speed + (base_speed * (ram_bonuses["speed"] + gpu_bonuses["speed"]) + cpu_bonuses["speed"])
+	current_speed = base_speed + (base_speed * (ram_bonuses["speed"] + gpu_bonuses["speed"] + cpu_bonuses["speed"]))
 
 	var damage_taken = (base_health - current_health) if current_health > 0 else 0.0
 	var new_max_health = base_health + (base_health * (ram_bonuses["health"] + gpu_bonuses["health"] + cpu_bonuses["health"]))
@@ -138,7 +149,9 @@ func death_logic() -> void:
 
 
 func _on_area_2d_mouse_entered() -> void:
+	#item_info_container.show()
 	stats_ui.show()
 
 func _on_area_2d_mouse_exited() -> void:
+	#item_info_container.hide()
 	stats_ui.hide()

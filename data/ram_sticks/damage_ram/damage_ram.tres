@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_itvlv")
 ram_stick_image = ExtResource("1_boh34")
-ram_stick_name = "Damage RAM Stick"
+ram_stick_name = "Damage RAM"
 speed_enhancer = 0.0
 damage_enhancer = 0.5
 health_enhancer = 0.0

@@ -167,6 +167,31 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 
+[node name="item_info_container" type="ColorRect" parent="." unique_id=1958047512]
+visible = false
+z_index = 26
+layout_mode = 0
+offset_left = -275.0
+offset_top = -152.0
+offset_right = 33.0
+offset_bottom = 94.0
+mouse_filter = 2
+color = Color(1, 1, 1, 0.6392157)
+
+[node name="item_info_label" type="RichTextLabel" parent="item_info_container" unique_id=2088150849]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 14.0
+offset_right = 295.0
+offset_bottom = 241.0
+mouse_filter = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_colors/font_selected_color = Color(0, 0, 0, 0)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 24
+bbcode_enabled = true
+vertical_alignment = 1
+
 [connection signal="mouse_entered" from="card_frame" to="." method="_on_texture_rect_mouse_entered"]
 [connection signal="mouse_exited" from="card_frame" to="." method="_on_texture_rect_mouse_exited"]
 [connection signal="mouse_entered" from="equip_button" to="." method="_on_equip_button_mouse_entered"]

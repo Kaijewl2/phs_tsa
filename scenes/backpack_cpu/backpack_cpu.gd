@@ -35,13 +35,27 @@ func _ready() -> void:
 		gb_size = cpu_data.gb_size
 		cost = cpu_data.cost 
 		
-		if(cpu_name == "Health CPU"):
-			item_info_label.text = "Health CPU\n\n[color=green]+" + str(int(health_enhancer * 100)) + "%[/color] Health Boost"
-		elif(cpu_name == "Damage CPU"):
-			item_info_label.text = "Damage CPU\n\n[color=red]+" + str(int(damage_enhancer * 100)) + "%[/color] Damage Boost"
+		if cpu_name == "Health CPU":
+			item_info_label.text = (
+			"[b]Health CPU[/b]\n\n" +
+			"[font_size=16][i]" + cpu_desc + "[/i][/font_size]\n\n" +
+			"[color=#00ff7f]+ HP[/color]      +" + str(int(health_enhancer * 100)) + "%\n" +
+			"[color=#b06fd4]Slots[/color]    " + str(gb_size) + " CPU Slot"
+			)
+		elif cpu_name == "Damage CPU":
+			item_info_label.text = (
+				"[b]Damage CPU[/b]\n\n" +
+				"[font_size=16][i]" + cpu_desc + "[/i][/font_size]\n\n" +
+				"[color=#ff4444]+ DMG[/color]    +" + str(int(damage_enhancer * 100)) + "%\n" +
+				"[color=#b06fd4]Slots[/color]    " + str(gb_size) + " CPU Slot"
+			)
 		else:
-			item_info_label.text = "Speed CPU\n\n[color=blue]+" + str(int(speed_enhancer * 100)) + "%[/color] Speed Boost"
-
+			item_info_label.text = (
+				"[b]Speed CPU[/b]\n\n" +
+				"[font_size=16][i]" + cpu_desc + "[/i][/font_size]\n\n" +
+				"[color=#4fc3f7]+ SPD[/color]    +" + str(int(speed_enhancer * 100)) + "%\n" +
+				"[color=#b06fd4]Slots[/color]    " + str(gb_size) + " CPU Slot"
+			)
 func setup(path: String, remove_mode:bool = false):
 	card_path = path
 	set_mode(remove_mode)

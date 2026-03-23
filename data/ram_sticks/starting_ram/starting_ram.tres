@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_qs8n1")
 ram_stick_image = ExtResource("1_bhux2")
-ram_stick_name = "Starter Ram"
+ram_stick_name = "Base Ram"
 ram_stick_desc = "Everyones got to start somewhere"
 speed_enhancer = 0.0
 damage_enhancer = 0.0

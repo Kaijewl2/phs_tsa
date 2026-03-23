@@ -6,6 +6,8 @@ extends Control
 
 @onready var ram_stick_image: TextureRect = $ram_stick_image
 @onready var button: Button = $remove_button
+@onready var item_info_container: ColorRect = $item_info_container
+@onready var item_info_label: RichTextLabel = $item_info_container/item_info_label
 
 
 var ram_stick_name: String
@@ -27,8 +29,38 @@ var card_path: String
 func _ready() -> void:
 	if ram_stick_data:
 		ram_stick_image.texture = ram_stick_data.ram_stick_image
+		ram_stick_name = ram_stick_data.ram_stick_name
+		ram_stick_desc = ram_stick_data.ram_stick_desc
+		speed_enhancer = ram_stick_data.speed_enhancer
+		damage_enhancer = ram_stick_data.damage_enhancer
+		health_enhancer = ram_stick_data.health_enhancer
 		gb_size = ram_stick_data.gb_size
+		cost = ram_stick_data.cost 
 	button.hide()
+	
+	if ram_stick_name == "Health RAM":
+		item_info_label.text = (
+			"[b]Health RAM[/b]\n\n" +
+			"[color=#00ff7f]+ HP[/color]      +" + str(int(health_enhancer * 100)) + "%\n" +
+			"[color=#b06fd4]GB[/color]       " + str(gb_size) + "GB"
+		)
+	elif ram_stick_name == "Damage RAM":
+		item_info_label.text = (
+			"[b]Damage RAM[/b]\n\n" +
+			"[color=#ff4444]+ DMG[/color]    +" + str(int(damage_enhancer * 100)) + "%\n" +
+			"[color=#b06fd4]GB[/color]       " + str(gb_size) + "GB"
+		)
+	elif ram_stick_name == "Speed RAM":
+		item_info_label.text = (
+			"[b]Speed RAM[/b]\n\n" +
+			"[color=#4fc3f7]+ SPD[/color]    +" + str(int(speed_enhancer * 100)) + "%\n" +
+			"[color=#b06fd4]GB[/color]       " + str(gb_size) + "GB"
+		)
+	else:
+		item_info_label.text = (
+			"[b]Base RAM[/b]\n\n" +
+			"[color=#b06fd4]GB[/color]       " + str(gb_size) + "GB"
+		)
 
 	await get_tree().process_frame
 	await  get_tree().process_frame
@@ -77,10 +109,13 @@ func _on_equip_button_mouse_exited() -> void:
 
 
 func _on_ram_stick_image_mouse_entered() -> void:
+	item_info_container.show()
 	button.show()
 
 
 func _on_ram_stick_image_mouse_exited() -> void:
+	item_info_container.hide()
+	
 	if not button.is_hovered():
 		button.hide()
 
