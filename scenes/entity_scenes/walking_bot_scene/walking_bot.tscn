@@ -3,7 +3,7 @@
 [ext_resource type="SpriteFrames" uid="uid://dtkw6o2emhqpj" path="res://data/units/anubis/anubis_sprite_frames.tres" id="2_67sjn"]
 [ext_resource type="Script" uid="uid://bnhgs45iwn7es" path="res://scenes/entity_scenes/walking_bot_scene/walking_bot.gd" id="2_i7no5"]
 [ext_resource type="PackedScene" uid="uid://bes6m6c7gdswg" path="res://scenes/health_bar_scene/health_bar.tscn" id="3_qpbe0"]
-[ext_resource type="FontFile" uid="uid://crdmvv8dc23b3" path="res://art/fonts/blue_winter/Blue Winter.ttf" id="5_0rvqr"]
+[ext_resource type="AudioStream" uid="uid://cvw70fac5l3qs" path="res://sounds/retro_player_death_sound.mp3" id="4_67sjn"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qpbe0"]
 radius = 13.785467
@@ -12,8 +12,7 @@ radius = 13.785467
 radius = 14.035672
 
 [sub_resource type="LabelSettings" id="LabelSettings_i7no5"]
-font = ExtResource("5_0rvqr")
-font_size = 19
+font_size = 26
 font_color = Color(0, 0, 0, 1)
 outline_color = Color(0, 0, 0, 1)
 
@@ -43,6 +42,35 @@ scale = Vector2(0.99999976, 0.99999976)
 shape = SubResource("CircleShape2D_i7no5")
 debug_color = Color(0, 0.59763116, 0.7153533, 0.41960785)
 
+[node name="item_info_container" type="ColorRect" parent="." unique_id=1184652625]
+visible = false
+z_index = 26
+offset_left = 15.0
+offset_top = 12.0
+offset_right = 65.0
+offset_bottom = 35.0
+mouse_filter = 2
+color = Color(1, 1, 1, 0.6392157)
+
+[node name="item_info_label" type="RichTextLabel" parent="item_info_container" unique_id=1901025060]
+texture_filter = 1
+layout_mode = 0
+offset_left = 2.0
+offset_top = 1.0
+offset_right = 49.0
+offset_bottom = 23.0
+mouse_filter = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_colors/font_selected_color = Color(0, 0, 0, 0)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 4
+theme_override_font_sizes/bold_font_size = 4
+theme_override_font_sizes/bold_italics_font_size = 4
+theme_override_font_sizes/italics_font_size = 4
+theme_override_font_sizes/mono_font_size = 4
+bbcode_enabled = true
+vertical_alignment = 1
+
 [node name="stats_UI" type="Control" parent="." unique_id=1977458941]
 visible = false
 texture_filter = 2
@@ -56,9 +84,9 @@ offset_bottom = 35.0
 [node name="ColorRect" type="ColorRect" parent="stats_UI" unique_id=1570183427]
 layout_mode = 0
 offset_left = 0.22006017
-offset_top = -0.016346455
-offset_right = 62.279938
-offset_bottom = 43.69623
+offset_top = -1.1899991
+offset_right = 100.27994
+offset_bottom = 44.869884
 scale = Vector2(0.5, 0.5)
 color = Color(1, 1, 1, 0.42745098)
 
@@ -66,9 +94,9 @@ color = Color(1, 1, 1, 0.42745098)
 texture_filter = 1
 layout_mode = 0
 offset_left = 2.0598805
-offset_top = -0.34730405
-offset_right = 167.77417
-offset_bottom = 125.36697
+offset_top = 1.9999967
+offset_right = 273.05988
+offset_bottom = 122.0
 scale = Vector2(0.35, 0.35)
 
 [node name="name_text" type="Label" parent="stats_UI/ColorRect/stats_container" unique_id=1727807319]
@@ -97,6 +125,12 @@ offset_left = -8.383233
 offset_top = -18.562874
 offset_right = 71.61677
 offset_bottom = -8.562874
+
+[node name="death_sound" type="AudioStreamPlayer2D" parent="." unique_id=1363793032]
+stream = ExtResource("4_67sjn")
+volume_db = 1.944
+pitch_scale = 1.4
+bus = &"SFX"
 
 [connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
 [connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]

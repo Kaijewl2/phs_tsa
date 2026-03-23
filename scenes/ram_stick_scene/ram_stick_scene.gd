@@ -9,6 +9,8 @@ signal ram_sold(ram_type)
 
 @onready var ram_stick_image: TextureRect = $ram_stick_image
 @onready var currency_label: Label = $currency_label
+@onready var item_info_container: ColorRect = $item_info_container
+@onready var item_info_label: RichTextLabel = $item_info_container/item_info_label
 
 
 const RAM_STICK_PATH = "res://scenes/ram_stick_scene/ram_stick_scene.tscn"
@@ -36,7 +38,35 @@ func _ready() -> void:
 		cost = ram_stick_data.cost
 		
 		currency_label.text = str(cost)
-		currency_label.show()
+		currency_label.show() 
+		
+	if ram_stick_name == "Health RAM":
+		item_info_label.text = (
+			"[b]Health RAM[/b]\n\n" +
+			"[font_size=12][i]" + ram_stick_desc + "[/i][/font_size]\n\n" +
+			"[color=#00ff7f]+ HP[/color]      +" + str(int(health_enhancer * 100)) + "%\n" +
+			"[color=#b06fd4]GB[/color]       " + str(gb_size) + "GB"
+		)
+	elif ram_stick_name == "Damage RAM":
+		item_info_label.text = (
+			"[b]Damage RAM[/b]\n\n" +
+			"[font_size=14][i]" + ram_stick_desc + "[/i][/font_size]\n\n" +
+			"[color=#ff4444]+ DMG[/color]    +" + str(int(damage_enhancer * 100)) + "%\n" +
+			"[color=#b06fd4]GB[/color]       " + str(gb_size) + "GB"
+		)
+	elif ram_stick_name == "Speed RAM":
+		item_info_label.text = (
+			"[b]Speed RAM[/b]\n\n" +
+			"[font_size=14][i]" + ram_stick_desc + "[/i][/font_size]\n\n" +
+			"[color=#4fc3f7]+ SPD[/color]    +" + str(int(speed_enhancer * 100)) + "%\n" +
+			"[color=#b06fd4]GB[/color]       " + str(gb_size) + "GB"
+		)
+	else:
+		item_info_label.text = (
+			"[b]Base RAM[/b]\n\n" +
+			"[font_size=10][i]" + ram_stick_desc + "[/i][/font_size]\n\n" +
+			"[color=#b06fd4]GB[/color]       " + str(gb_size) + "GB"
+		)
 
 
 func _input(event: InputEvent) -> void:
@@ -48,11 +78,10 @@ func _input(event: InputEvent) -> void:
 
 func handle_purchase():
 	# Successful purchase
-	if GameData.get_balance() >= cost && GameData.backpack_cards.size() < GameData.MAX_BACKPACK_SIZE:
+	if GameData.get_balance() >= cost && GameData.backpack_items.size() < GameData.MAX_BACKPACK_SIZE:
 		GameData.change_balance(cost, "subtract")
 
 		# Add RAM to player's backpack
-		print("RAM type: ", ram_stick_data)
 		ram_sold.emit(ram_stick_data.ram_stick_name)
 		
 		GameData.add_ram_stick_to_backpack(RAM_STICK_PATH, ram_stick_data)
@@ -62,10 +91,12 @@ func handle_purchase():
 
 
 func _on_ram_stick_image_mouse_entered() -> void:
+	item_info_container.show()
 	hovering = true
 	ram_stick_image.scale = Vector2(1.05, 1.05)
 
 
 func _on_ram_stick_image_mouse_exited() -> void:
+	item_info_container.hide()
 	hovering = false
 	ram_stick_image.scale = Vector2(1.0, 1.0)

@@ -14,7 +14,7 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 
 [application]
 
-config/name="phs_tsa"
+config/name="phs_tsa_backup03-23"
 run/main_scene="uid://bsk1nsiqx4g3j"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
@@ -22,6 +22,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 GameData="*uid://buqr53hg67mmb"
+BackgroundMusic="*uid://dmw47tdlj0uai"
 
 [display]
 
@@ -36,6 +37,12 @@ active_entity=""
 enemies=""
 commrades=""
 player_hand=""
+insufficient_ram=""
+add_card_message=""
+
+[gui]
+
+theme/custom_font="uid://5h80votmq54e"
 
 [input]
 

@@ -1,13 +1,12 @@
 [gd_scene format=3 uid="uid://cwfnhwgq5hgi7"]
 
-[ext_resource type="Script" uid="uid://c068yktpo27e8" path="res://scenes/shop/sell_card.gd" id="1_yoeyb"]
 [ext_resource type="Texture2D" uid="uid://cf621x1hvkf8i" path="res://art/cards/Baron.png" id="2_bliam"]
-[ext_resource type="Texture2D" uid="uid://d4ewn111rc61p" path="res://art/misc/purrrency(1).png" id="3_8bbjf"]
+[ext_resource type="Texture2D" uid="uid://d4ewn111rc61p" path="res://art/icons/purrrency.png" id="3_8bbjf"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_apoln"]
 font_size = 44
 
-[node name="sell_card" type="Control" unique_id=378176936 node_paths=PackedStringArray("card_frame")]
+[node name="sell_card" type="Control" unique_id=378176936]
 custom_minimum_size = Vector2(142, 190)
 layout_mode = 3
 anchors_preset = 15
@@ -15,8 +14,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_yoeyb")
-card_frame = NodePath("card_img")
 
 [node name="card_img" type="TextureRect" parent="." unique_id=1059001722]
 layout_mode = 0

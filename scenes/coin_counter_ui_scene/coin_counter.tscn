@@ -2,12 +2,10 @@
 
 [ext_resource type="Script" uid="uid://0jxqvxid178u" path="res://scenes/coin_counter_ui_scene/coin_counter.gd" id="1_58kiw"]
 [ext_resource type="Texture2D" uid="uid://d4ewn111rc61p" path="res://art/icons/purrrency.png" id="1_xl5ug"]
-[ext_resource type="FontFile" uid="uid://crdmvv8dc23b3" path="res://art/fonts/blue_winter/Blue Winter.ttf" id="3_v25xt"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_28bky"]
-font = ExtResource("3_v25xt")
 font_size = 49
-font_color = Color(0.8478096, 0.76048464, 0.34048545, 1)
+font_color = Color(1, 0.78431374, 0.40392157, 1)
 outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="Animation" id="Animation_58kiw"]
@@ -74,7 +72,7 @@ expand_mode = 2
 texture_filter = 1
 layout_mode = 0
 offset_left = 100.0
-offset_top = 7.0
+offset_top = 23.0
 offset_right = 128.0
 offset_bottom = 75.0
 text = "0"

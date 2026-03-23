@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://d2dwgl2aubu7e"]
 
 [ext_resource type="Script" uid="uid://dy0ittwq4k0rs" path="res://scenes/change_scene_button_scene/change_scene_button.gd" id="1_mvww8"]
-[ext_resource type="FontFile" uid="uid://crdmvv8dc23b3" path="res://art/fonts/blue_winter/Blue Winter.ttf" id="2_mvww8"]
+[ext_resource type="FontFile" uid="uid://5h80votmq54e" path="res://art/fonts/minecraft/Minecraft.ttf" id="2_yyfpi"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ow0st"]
-font = ExtResource("2_mvww8")
+font = ExtResource("2_yyfpi")
 font_size = 80
 font_color = Color(0, 0, 0, 1)
 outline_size = 5
@@ -14,7 +14,7 @@ outline_color = Color(0, 0, 0, 1)
 layout_mode = 3
 anchor_right = 0.12200001
 anchor_bottom = 0.05
-offset_right = 28.75998
+offset_right = 21.75998
 script = ExtResource("1_mvww8")
 
 [node name="Button" type="Button" parent="." unique_id=1490372151]
@@ -22,8 +22,8 @@ layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.004716981
 anchor_top = 0.037037037
-anchor_right = 1.095057
-anchor_bottom = 0.9120001
+anchor_right = 1.0117188
+anchor_bottom = 0.87039346
 offset_bottom = -0.001247406
 metadata/_edit_use_anchors_ = true
 
@@ -34,10 +34,12 @@ anchor_right = 1.07
 anchor_bottom = 0.87000006
 offset_left = 12.0
 offset_top = 3.0
-offset_right = 448.89987
+offset_right = 321.17862
 offset_bottom = 79.96365
 scale = Vector2(0.355, 0.355)
 text = "placeholder"
 label_settings = SubResource("LabelSettings_ow0st")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

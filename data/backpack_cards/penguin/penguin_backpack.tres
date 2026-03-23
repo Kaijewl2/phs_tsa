@@ -9,6 +9,4 @@ script = ExtResource("1_57hdm")
 card_frame = ExtResource("1_qr5tt")
 card_background = Color(0.14117648, 0.627451, 1, 1)
 card_icon = ExtResource("2_mk33a")
-backpack_card_name = "penguin"
-backpack_card_desc = "straight off the iceberg"
 metadata/_custom_type_script = "uid://c2jw8hy2bi36y"

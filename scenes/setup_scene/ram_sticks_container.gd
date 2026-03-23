@@ -2,6 +2,7 @@ extends Control
 
 const SETUP_RAM_SCENE = preload("res://scenes/setup_ram_scene/setup_ram.tscn")
 
+@onready var ram_info_container: ColorRect = $ram_info_container
 @onready var ram_slots = [
 	$ram_sticks_container/ram_slot_1_image,
 	$ram_sticks_container/ram_slot_2_image,
@@ -23,3 +24,12 @@ func refresh_ram_slots():
 		var setup_ram = SETUP_RAM_SCENE.instantiate()
 		setup_ram.ram_stick_data = GameData.setup_ram_types[i]
 		ram_slots[i].add_child(setup_ram)
+
+
+func _on_mouse_entered() -> void:
+	if GameData.setup_rams.size() <= 0:
+		ram_info_container.show()
+
+
+func _on_mouse_exited() -> void:
+	ram_info_container.hide()

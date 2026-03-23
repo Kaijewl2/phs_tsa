@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="SellCardData" format=3 uid="uid://ctie5077o8jbp"]
+
+[ext_resource type="Texture2D" uid="uid://co5cigw212hby" path="res://art/cards/linux_card_template.png" id="1_2evdt"]
+[ext_resource type="Script" uid="uid://c6rkw8aflunst" path="res://data/SellCardData.gd" id="1_3iw71"]
+[ext_resource type="Texture2D" uid="uid://c8brie37x2y11" path="res://art/entities/trojan_horse/trojan_horse_single.png" id="2_fr5aj"]
+
+[resource]
+script = ExtResource("1_3iw71")
+card_frame = ExtResource("1_2evdt")
+card_background = Color(0.8745098, 0.654902, 0.43529412, 1)
+card_borders = Color(0.4392157, 0.32156864, 0.20784314, 1)
+card_icon = ExtResource("2_fr5aj")
+sell_card_name = "Trojan Horse"
+sell_card_desc = "It's a gift. Open it."
+health = 150.0
+damage = 55
+speed = 25
+value = 225
+ram_cost = 8
+metadata/_custom_type_script = "uid://c6rkw8aflunst"

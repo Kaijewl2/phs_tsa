@@ -7,4 +7,5 @@ class_name UnitData
 @export var speed: int = 67
 @export var attack_cooldown: float = 6.7
 @export var death_value: int = 67
+@export var ram_cost: int
 @export var sprite_animations: SpriteFrames

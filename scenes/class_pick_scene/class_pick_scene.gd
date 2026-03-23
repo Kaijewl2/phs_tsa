@@ -19,10 +19,6 @@ func _ready() -> void:
 	animation_player.play("rotate_star")
 
 
-func _process(delta: float) -> void:
-	pass
-
-
 # Change scene to setup when class is chosen
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and hovering == true:

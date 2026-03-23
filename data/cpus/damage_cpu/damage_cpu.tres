@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="CpuData" format=3 uid="uid://cmyb285lel60r"]
+
+[ext_resource type="Script" uid="uid://cx3iiy5udxwdm" path="res://data/CpuData.gd" id="1_t2d5l"]
+[ext_resource type="Texture2D" uid="uid://h2sq0fw2n224" path="res://art/misc/damage_cpu.png" id="1_tpahk"]
+
+[resource]
+script = ExtResource("1_t2d5l")
+cpu_image = ExtResource("1_tpahk")
+cpu_name = "Damage CPU"
+damage_enhancer = 0.2
+cost = 12
+metadata/_custom_type_script = "uid://cx3iiy5udxwdm"

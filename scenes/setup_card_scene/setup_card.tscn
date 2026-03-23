@@ -1,25 +1,24 @@
 [gd_scene format=3 uid="uid://cqstt17qkpirl"]
 
 [ext_resource type="Script" uid="uid://dx6yd2uou04vn" path="res://scenes/setup_card_scene/setup_card.gd" id="1_q26v0"]
-[ext_resource type="Resource" uid="uid://ctslcvel45hud" path="res://data/sell_cards/penguin/penguin_sell.tres" id="2_on6wq"]
-[ext_resource type="FontFile" uid="uid://crdmvv8dc23b3" path="res://art/fonts/blue_winter/Blue Winter.ttf" id="2_q26v0"]
+[ext_resource type="FontFile" uid="uid://5h80votmq54e" path="res://art/fonts/minecraft/Minecraft.ttf" id="4_8br7c"]
 [ext_resource type="Texture2D" uid="uid://co5cigw212hby" path="res://art/cards/linux_card_template.png" id="4_on6wq"]
 [ext_resource type="Texture2D" uid="uid://ckimedgxf2230" path="res://art/entities/penguin/penguin.png" id="5_s5ekk"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_8br7c"]
-font = ExtResource("2_q26v0")
+font = ExtResource("4_8br7c")
 font_size = 22
 font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_axgru"]
-font = ExtResource("2_q26v0")
-font_size = 12
+font = ExtResource("4_8br7c")
+font_size = 9
 font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_2arc3"]
 line_spacing = 0.83
-font = ExtResource("2_q26v0")
-font_size = 11
+font = ExtResource("4_8br7c")
+font_size = 10
 font_color = Color(0, 0, 0, 1)
 
 [node name="setup_card" type="Control" unique_id=1758279345]
@@ -30,24 +29,6 @@ anchor_bottom = 0.20600002
 offset_right = 132.51999
 offset_bottom = 0.3249817
 script = ExtResource("1_q26v0")
-sell_card_data = ExtResource("2_on6wq")
-
-[node name="Button" type="Button" parent="." unique_id=2873125]
-visible = false
-layout_mode = 0
-offset_left = 5.0
-offset_top = 177.0
-offset_right = 122.0
-offset_bottom = 220.0
-
-[node name="Label" type="Label" parent="Button" unique_id=1192261053]
-layout_mode = 0
-offset_left = 13.0
-offset_top = 5.0
-offset_right = 102.0
-offset_bottom = 35.0
-text = "remove"
-label_settings = SubResource("LabelSettings_8br7c")
 
 [node name="card_frame" type="TextureRect" parent="." unique_id=556071561]
 texture_filter = 1
@@ -61,26 +42,18 @@ stretch_mode = 2
 
 [node name="card_background" type="ColorRect" parent="card_frame" unique_id=514951065]
 layout_mode = 0
-offset_left = 4.4998703
-offset_top = 7.332661
+offset_left = 4.49987
+offset_top = 7.3326607
 offset_right = 30.55208
 offset_bottom = 30.324375
 color = Color(0.21230483, 0.21230483, 0.21230483, 1)
 
-[node name="card_icon" type="TextureRect" parent="card_frame" unique_id=29853150]
-layout_mode = 0
-offset_left = 3.899723
-offset_top = 7.7994423
-offset_right = 43.899723
-offset_bottom = 47.799442
-scale = Vector2(0.59, 0.59)
-texture = ExtResource("5_s5ekk")
-
 [node name="card_borders" type="Control" parent="card_frame" unique_id=1967648839]
 anchors_preset = 0
-offset_top = 0.557103
+offset_top = 0.5571029
 offset_right = 40.0
 offset_bottom = 40.557102
+mouse_filter = 2
 
 [node name="ColorRect" type="ColorRect" parent="card_frame/card_borders" unique_id=1741523552]
 layout_mode = 0
@@ -131,14 +104,45 @@ offset_top = 3.4694095
 offset_right = 25.290102
 offset_bottom = 4.4686413
 
+[node name="card_icon" type="TextureRect" parent="card_frame" unique_id=29853150]
+layout_mode = 0
+offset_left = 4.4963965
+offset_top = 5.912623
+offset_right = 50.707924
+offset_bottom = 46.541298
+scale = Vector2(0.59, 0.59)
+texture = ExtResource("5_s5ekk")
+stretch_mode = 4
+
+[node name="Button" type="Button" parent="." unique_id=2873125]
+visible = false
+layout_mode = 0
+offset_left = 5.0
+offset_top = 176.99998
+offset_right = 122.0
+offset_bottom = 219.99998
+
+[node name="Label" type="Label" parent="Button" unique_id=1192261053]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 5.0
+offset_right = 104.05264
+offset_bottom = 38.592102
+text = "remove"
+label_settings = SubResource("LabelSettings_8br7c")
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="card_name" type="Label" parent="." unique_id=1272388267]
 texture_filter = 1
 layout_mode = 0
-offset_left = 38.0
-offset_right = 106.0
-offset_bottom = 22.0
-text = "penguin"
+offset_left = 21.4711
+offset_right = 102.92105
+offset_bottom = 19.947372
+text = "Tux"
 label_settings = SubResource("LabelSettings_axgru")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="card_desc" type="Label" parent="." unique_id=699097831]
 layout_mode = 0
@@ -152,8 +156,32 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 
+[node name="item_info_container" type="ColorRect" parent="." unique_id=46845687]
+visible = false
+z_index = 26
+layout_mode = 0
+offset_left = 100.20657
+offset_top = -206.54544
+offset_right = 408.20657
+offset_bottom = 39.45456
+mouse_filter = 2
+color = Color(1, 1, 1, 0.6392157)
+
+[node name="item_info_label" type="RichTextLabel" parent="item_info_container" unique_id=1342909394]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 14.0
+offset_right = 295.0
+offset_bottom = 241.0
+mouse_filter = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_colors/font_selected_color = Color(0, 0, 0, 0)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+bbcode_enabled = true
+vertical_alignment = 1
+
+[connection signal="mouse_entered" from="card_frame" to="." method="_on_texture_rect_mouse_entered"]
+[connection signal="mouse_exited" from="card_frame" to="." method="_on_texture_rect_mouse_exited"]
 [connection signal="mouse_entered" from="Button" to="." method="_on_button_mouse_entered"]
 [connection signal="mouse_exited" from="Button" to="." method="_on_button_mouse_exited"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
-[connection signal="mouse_entered" from="card_frame" to="." method="_on_texture_rect_mouse_entered"]
-[connection signal="mouse_exited" from="card_frame" to="." method="_on_texture_rect_mouse_exited"]

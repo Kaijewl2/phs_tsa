@@ -16,6 +16,8 @@ signal card_sold(card_type)
 @onready var price_label: Label = $price_label
 @onready var card_desc: Label = $card_img/card_desc
 @onready var card_name: Label = $card_img/card_name
+@onready var item_info_container: ColorRect = $item_info_container
+@onready var item_info_label: RichTextLabel = $item_info_container/item_info_label
 
 
 const SELL_CARD_PATH: String = "res://scenes/shop/sell_card_scene/sell_card.tscn"
@@ -28,7 +30,7 @@ var unit_name: String
 var health: float
 var damage: int
 var speed: int
-
+var ram_cost: int
 var value: int
 var hovering: bool
 var press_count: int
@@ -51,9 +53,18 @@ func _ready() -> void:
 		value = sell_card_data.value
 		card_desc.text = sell_card_data.sell_card_desc
 		card_name.text = sell_card_data.sell_card_name
+		ram_cost = sell_card_data.ram_cost
 	
 	price_label.text = str(value)
 	
+	item_info_label.text = (
+		"[b]" + sell_card_data.sell_card_name + "[/b]\n\n" +
+		"[font_size=20][i]" + sell_card_data.sell_card_desc + "[/i][/font_size]\n\n" +
+		"[color=#00ff7f]HP[/color]      " + str(int(health)) + "\n" +
+		"[color=#ff4444]DMG[/color]    " + str(damage) + "\n" +
+		"[color=#4fc3f7]SPD[/color]    " + str(speed) + "\n" +
+		"[color=#b06fd4]RAM[/color]    " + str(ram_cost) + "GB"
+	)
 
 	card_frame_scale = card_frame.scale
 
@@ -81,15 +92,15 @@ func anim_shake(node):
 	shake_tween.tween_property(node, "position", coin_counter_original_pos + Vector2(-5, 0), 0.05)
 	shake_tween.tween_property(node, "position", coin_counter_original_pos + Vector2(5, 0), 0.05)
 	shake_tween.tween_property(node, "position", coin_counter_original_pos, 0.05)
+	
 	press_count+=1
 
 func handle_purchase():
 	# Successful purchase
-	if GameData.get_balance() >= value && GameData.backpack_cards.size() < GameData.MAX_BACKPACK_SIZE:
+	if GameData.get_balance() >= value && GameData.backpack_items.size() < GameData.MAX_BACKPACK_SIZE:
 		GameData.change_balance(value, "subtract")
 
 		# Add card to player's backpack
-		print("card type: ", sell_card_data)
 		card_sold.emit(sell_card_data.sell_card_name)
 		GameData.add_card_to_backpack(SETUP_CARD_PATH, sell_card_data)
 
@@ -111,10 +122,12 @@ func handle_purchase():
 
 
 func _on_card_img_mouse_entered() -> void:
+	item_info_container.show()
 	hovering = true
 	card_frame.scale = Vector2(card_frame_scale.x + 0.15, card_frame_scale.y + 0.15)
 
 
 func _on_card_img_mouse_exited() -> void:
+	item_info_container.hide()
 	hovering = false
 	card_frame.scale = card_frame_scale
