@@ -2,16 +2,36 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<< HEAD:phs_tsa-main/art/maps/neighborhood_map.png.import
 uid="uid://7jh1drblmlvj"
 path="res://.godot/imported/neighborhood_map.png-45a03cd8893838a543e14c3fd9b5366f.ctex"
+=======
+<<<<<<<< HEAD:phs_tsa-main/art/entities/red_hat/red_hat.png.import
+uid="uid://dlprx6yq1kqqr"
+path="res://.godot/imported/red_hat.png-fc203528487b8c90cdd112441e6f04c7.ctex"
+========
+uid="uid://7jh1drblmlvj"
+path="res://.godot/imported/neighborhood_map.png-45a03cd8893838a543e14c3fd9b5366f.ctex"
+>>>>>>>> 3d100f0e3c16ad1548c3d8412e21e52c4a9ce713:phs_tsa-main/art/maps/neighborhood_map.png.import
+>>>>>>> 3d100f0e3c16ad1548c3d8412e21e52c4a9ce713:art/maps/neighborhood_map.png.import
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
+<<<<<<< HEAD:phs_tsa-main/art/maps/neighborhood_map.png.import
 source_file="res://art/maps/neighborhood_map.png"
 dest_files=["res://.godot/imported/neighborhood_map.png-45a03cd8893838a543e14c3fd9b5366f.ctex"]
+=======
+<<<<<<<< HEAD:phs_tsa-main/art/entities/red_hat/red_hat.png.import
+source_file="res://art/entities/red_hat/red_hat.png"
+dest_files=["res://.godot/imported/red_hat.png-fc203528487b8c90cdd112441e6f04c7.ctex"]
+========
+source_file="res://art/maps/neighborhood_map.png"
+dest_files=["res://.godot/imported/neighborhood_map.png-45a03cd8893838a543e14c3fd9b5366f.ctex"]
+>>>>>>>> 3d100f0e3c16ad1548c3d8412e21e52c4a9ce713:phs_tsa-main/art/maps/neighborhood_map.png.import
+>>>>>>> 3d100f0e3c16ad1548c3d8412e21e52c4a9ce713:art/maps/neighborhood_map.png.import
 
 [params]
 

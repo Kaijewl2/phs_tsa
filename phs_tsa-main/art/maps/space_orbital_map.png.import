@@ -2,16 +2,36 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<< HEAD:phs_tsa-main/art/maps/space_orbital_map.png.import
 uid="uid://gqn6f5ei3s7p"
 path="res://.godot/imported/space_orbital_map.png-fee17d0873a4ed445dedb6f77ea8b9fe.ctex"
+=======
+<<<<<<<< HEAD:phs_tsa-main/art/entities/trojan_horse/trojan_horse.png.import
+uid="uid://tfjbungk5amd"
+path="res://.godot/imported/trojan_horse.png-3f4ed8f0b0eede416a403751ebf2e4ae.ctex"
+========
+uid="uid://gqn6f5ei3s7p"
+path="res://.godot/imported/space_orbital_map.png-fee17d0873a4ed445dedb6f77ea8b9fe.ctex"
+>>>>>>>> 3d100f0e3c16ad1548c3d8412e21e52c4a9ce713:phs_tsa-main/art/maps/space_orbital_map.png.import
+>>>>>>> 3d100f0e3c16ad1548c3d8412e21e52c4a9ce713:art/maps/space_orbital_map.png.import
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
+<<<<<<< HEAD:phs_tsa-main/art/maps/space_orbital_map.png.import
 source_file="res://art/maps/space_orbital_map.png"
 dest_files=["res://.godot/imported/space_orbital_map.png-fee17d0873a4ed445dedb6f77ea8b9fe.ctex"]
+=======
+<<<<<<<< HEAD:phs_tsa-main/art/entities/trojan_horse/trojan_horse.png.import
+source_file="res://art/entities/trojan_horse/trojan_horse.png"
+dest_files=["res://.godot/imported/trojan_horse.png-3f4ed8f0b0eede416a403751ebf2e4ae.ctex"]
+========
+source_file="res://art/maps/space_orbital_map.png"
+dest_files=["res://.godot/imported/space_orbital_map.png-fee17d0873a4ed445dedb6f77ea8b9fe.ctex"]
+>>>>>>>> 3d100f0e3c16ad1548c3d8412e21e52c4a9ce713:phs_tsa-main/art/maps/space_orbital_map.png.import
+>>>>>>> 3d100f0e3c16ad1548c3d8412e21e52c4a9ce713:art/maps/space_orbital_map.png.import
 
 [params]
 

@@ -1,0 +1,104 @@
+[gd_scene format=3 uid="uid://c12lsliojkgbf"]
+
+[ext_resource type="Script" uid="uid://b5edehcetrni" path="res://scenes/settings_scene/settings_scene.gd" id="1_c8af2"]
+
+[node name="settings_scene" type="Control" unique_id=1598889328]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_c8af2")
+
+[node name="settings_container" type="ColorRect" parent="." unique_id=1932439449]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0.10980392, 0.10980392, 0.10980392, 1)
+
+[node name="settings_header_label" type="Label" parent="settings_container" unique_id=951996387]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -248.0
+offset_top = 43.0
+offset_right = 248.0
+offset_bottom = 396.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 128
+text = "Settings
+"
+
+[node name="volume_label" type="Label" parent="settings_container" unique_id=1954066914]
+layout_mode = 0
+offset_left = 571.0
+offset_top = 294.0
+offset_right = 1092.0
+offset_bottom = 391.0
+theme_override_font_sizes/font_size = 71
+text = "Master Volume"
+
+[node name="volume_control_slider" type="HSlider" parent="settings_container/volume_label" unique_id=567449099]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 49.000015
+offset_right = 480.05243
+offset_bottom = 156.63849
+scale = Vector2(1.715, 1.715)
+max_value = 1.0
+step = 0.01
+value = 1.0
+
+[node name="music_label" type="Label" parent="settings_container" unique_id=842749498]
+layout_mode = 0
+offset_left = 564.0
+offset_top = 530.0
+offset_right = 1044.0
+offset_bottom = 627.0
+theme_override_font_sizes/font_size = 71
+text = "Music Volume"
+
+[node name="music_slider" type="HSlider" parent="settings_container/music_label" unique_id=704002950]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 20.0
+offset_right = 484.7172
+offset_bottom = 181.51602
+scale = Vector2(1.715, 1.715)
+max_value = 1.0
+step = 0.01
+value = 1.0
+
+[node name="sfx_label" type="Label" parent="settings_container" unique_id=1697309644]
+layout_mode = 0
+offset_left = 570.0
+offset_top = 768.0
+offset_right = 971.0
+offset_bottom = 865.0
+theme_override_font_sizes/font_size = 71
+text = "SFX Volume"
+
+[node name="sfx_slider" type="HSlider" parent="settings_container/sfx_label" unique_id=489988853]
+layout_mode = 0
+offset_left = -2.0
+offset_top = -30.0
+offset_right = 479.04956
+offset_bottom = 187.0
+scale = Vector2(1.715, 1.715)
+max_value = 1.0
+step = 0.01
+value = 1.0
+
+[node name="back_button" type="Button" parent="settings_container" unique_id=1127870572]
+layout_mode = 0
+offset_left = 1575.0
+offset_top = 67.0
+offset_right = 1779.0
+offset_bottom = 171.0
+theme_override_font_sizes/font_size = 70
+text = "Back"
+flat = true
+
+[connection signal="pressed" from="settings_container/back_button" to="." method="_on_back_button_pressed"]
