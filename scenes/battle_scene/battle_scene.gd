@@ -28,9 +28,9 @@ var battle_over: bool = false
 var enemy_type: String
 
 func _ready() -> void:
-	if GameData.battle_number <= 3:
+	if GameData.battle_number == 1:
 		level_image.texture = NEIGHBORHOOD_MAP
-	elif GameData.battle_number <= 6:
+	elif GameData.battle_number == 2:
 		level_image.texture = CITY_MAP
 	else:
 		level_image.texture = SPACE_ORBITAL_MAP

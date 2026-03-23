@@ -12,8 +12,8 @@ signal ram_changed()
 const MAX_BACKPACK_SIZE = 15
 const MAX_SETUP_SIZE = 4
 const MAX_RAM_SLOTS:int = 4
-const BOSS_INTERVAL:int = 4
-const FINAL_BOSS_ROUND:int = 5
+const BOSS_INTERVAL:int = 2
+const FINAL_BOSS_ROUND:int = 3
 const SETUP_CARD_SCENE_PATH:String = "res://scenes/setup_card_scene/setup_card.tscn"
 const BACKPACK_RAM_STICK_SCENE_PATH:String = "res://scenes/backpack_ram_scene/backpack_ram.tscn"
 const BACKPACK_GPU_SCENE_PATH: String = "res://scenes/backpack_gpu_scene/backpack_gpu.tscn"
