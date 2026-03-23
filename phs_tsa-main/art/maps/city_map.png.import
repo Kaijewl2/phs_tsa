@@ -2,36 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-<<<<<<< HEAD:phs_tsa-main/art/maps/city_map.png.import
-uid="uid://con4qxwwnri1b"
+uid="uid://b5nixpcmsqwfr"
 path="res://.godot/imported/city_map.png-aba3a718b715bfafbc50e990ce7995a4.ctex"
-=======
-<<<<<<<< HEAD:phs_tsa-main/art/entities/ox/ox.png.import
-uid="uid://d0sofiblrl73l"
-path="res://.godot/imported/ox.png-b52fbc009639da7cc5aa98f45c4a32aa.ctex"
-========
-uid="uid://con4qxwwnri1b"
-path="res://.godot/imported/city_map.png-aba3a718b715bfafbc50e990ce7995a4.ctex"
->>>>>>>> 3d100f0e3c16ad1548c3d8412e21e52c4a9ce713:phs_tsa-main/art/maps/city_map.png.import
->>>>>>> 3d100f0e3c16ad1548c3d8412e21e52c4a9ce713:art/maps/city_map.png.import
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-<<<<<<< HEAD:phs_tsa-main/art/maps/city_map.png.import
 source_file="res://art/maps/city_map.png"
 dest_files=["res://.godot/imported/city_map.png-aba3a718b715bfafbc50e990ce7995a4.ctex"]
-=======
-<<<<<<<< HEAD:phs_tsa-main/art/entities/ox/ox.png.import
-source_file="res://art/entities/ox/ox.png"
-dest_files=["res://.godot/imported/ox.png-b52fbc009639da7cc5aa98f45c4a32aa.ctex"]
-========
-source_file="res://art/maps/city_map.png"
-dest_files=["res://.godot/imported/city_map.png-aba3a718b715bfafbc50e990ce7995a4.ctex"]
->>>>>>>> 3d100f0e3c16ad1548c3d8412e21e52c4a9ce713:phs_tsa-main/art/maps/city_map.png.import
->>>>>>> 3d100f0e3c16ad1548c3d8412e21e52c4a9ce713:art/maps/city_map.png.import
 
 [params]
 

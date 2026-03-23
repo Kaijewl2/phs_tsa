@@ -2,26 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-<<<<<<<< HEAD:phs_tsa-main/art/entities/ox/ox_single.png.import
-uid="uid://ekyvwuwcujbr"
+uid="uid://c0qvm2787ira3"
 path="res://.godot/imported/ox_single.png-0970617c4d286a5290f413695e1d5dec.ctex"
-========
-uid="uid://d2foellh5m7e0"
-path="res://.godot/imported/base_cpu.png-949b7922b03bd9a08e3ce7a8f8e14a3c.ctex"
->>>>>>>> 3d100f0e3c16ad1548c3d8412e21e52c4a9ce713:phs_tsa-main/art/misc/base_cpu.png.import
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-<<<<<<<< HEAD:phs_tsa-main/art/entities/ox/ox_single.png.import
 source_file="res://art/entities/ox/ox_single.png"
 dest_files=["res://.godot/imported/ox_single.png-0970617c4d286a5290f413695e1d5dec.ctex"]
-========
-source_file="res://art/misc/base_cpu.png"
-dest_files=["res://.godot/imported/base_cpu.png-949b7922b03bd9a08e3ce7a8f8e14a3c.ctex"]
->>>>>>>> 3d100f0e3c16ad1548c3d8412e21e52c4a9ce713:phs_tsa-main/art/misc/base_cpu.png.import
 
 [params]
 
