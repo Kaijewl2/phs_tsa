@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://orr85gyvv7eu"
-path="res://.godot/imported/trojan_horse.png-3f4ed8f0b0eede416a403751ebf2e4ae.ctex"
+uid="uid://x1av715b5tvt"
+path="res://.godot/imported/phony_phisherman_0001.png-da5a34e194d7a0d0c202b1eb97490c66.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/entities/trojan_horse/trojan_horse.png"
-dest_files=["res://.godot/imported/trojan_horse.png-3f4ed8f0b0eede416a403751ebf2e4ae.ctex"]
+source_file="res://art/viruses/normal/phony_phisherman/phony_phisherman_0001.png"
+dest_files=["res://.godot/imported/phony_phisherman_0001.png-da5a34e194d7a0d0c202b1eb97490c66.ctex"]
 
 [params]
 

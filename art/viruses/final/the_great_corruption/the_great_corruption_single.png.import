@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://orr85gyvv7eu"
-path="res://.godot/imported/trojan_horse.png-3f4ed8f0b0eede416a403751ebf2e4ae.ctex"
+uid="uid://twnwn1k4kr7k"
+path="res://.godot/imported/the_great_corruption_single.png-1943b3918aff4e7e1333dcc6f3c26804.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/entities/trojan_horse/trojan_horse.png"
-dest_files=["res://.godot/imported/trojan_horse.png-3f4ed8f0b0eede416a403751ebf2e4ae.ctex"]
+source_file="res://art/viruses/final/the_great_corruption/the_great_corruption_single.png"
+dest_files=["res://.godot/imported/the_great_corruption_single.png-1943b3918aff4e7e1333dcc6f3c26804.ctex"]
 
 [params]
 

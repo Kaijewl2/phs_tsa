@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="UnitData" format=3 uid="uid://2wj5vnnkqmh"]
+
+[ext_resource type="Script" uid="uid://bo4u7fiofkecs" path="res://data/UnitData.gd" id="1_7blgt"]
+[ext_resource type="SpriteFrames" uid="uid://dgkbqe3w0vox2" path="res://data/viruses/normal/phony_phisherman/phony_phisherman_ss.tres" id="2_y6bvj"]
+
+[resource]
+script = ExtResource("1_7blgt")
+unit_name = "Phony Phisherman"
+health = 45.0
+damage = 18
+speed = 50
+attack_cooldown = 2.0
+death_value = 25
+sprite_animations = ExtResource("2_y6bvj")
+metadata/_custom_type_script = "uid://bo4u7fiofkecs"

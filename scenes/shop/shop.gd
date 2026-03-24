@@ -10,6 +10,8 @@ class_name Shop
 @onready var storage_bar: ProgressBar = $storage_bar
 @onready var ram_bar: ProgressBar = $ram_bar
 @onready var storage_info_container: ColorRect = $storage_bar/storage_info_container
+@onready var ram_info_container: ColorRect = $ram_bar/ram_info_container
+@onready var ram_info_label: Label = $ram_bar/ram_info_container/ram_info_label
 
 
 const SELL_CARD = preload("uid://cwfnhwgq5hgi7")
@@ -27,6 +29,11 @@ func _ready() -> void:
 	storage_bar.value = GameData.backpack_items.size()
 	storage_info_container.get_node("storage_info_label").text = str(int(GameData.MAX_BACKPACK_SIZE - (GameData.backpack_items.size()))) + " / " + str(int(GameData.MAX_BACKPACK_SIZE))
 	GameData.backpack_changed.connect(update_storage_bar)
+	
+	ram_bar.max_value = GameData.MAX_RAM_GB
+	ram_bar.value = GameData.current_ram_gb
+	GameData.ram_changed.connect(refresh_available_ram)
+	refresh_available_ram()
 	
 	for i in range(HARDWARE_ITEMS_AVAILABLE):
 		var random_hardware_type = harware_types.pick_random()
@@ -51,6 +58,17 @@ func _ready() -> void:
 		sell_card.sell_card_data = GameData.get_random_sell_card_data()
 		card_container.add_child(sell_card)
 
+# FIX INCORRECT TOTAL RAM AND NOT GETTING RAM AFTER PURCHASE
+func refresh_available_ram():
+	var backpack_ram = GameData.get_backpack_ram()
+	var total_ram = GameData.current_ram_gb + backpack_ram
+	ram_bar.max_value = GameData.MAX_RAM_GB
+	ram_bar.value = GameData.current_ram_gb
+	ram_info_label.text = str(total_ram) + " GB available RAM"
+	print("current_ram: ", GameData.current_ram_gb)
+	print("ram_bar.value: ", ram_bar.value)
+
+
 
 func update_storage_bar():
 	storage_bar.value = GameData.backpack_items.size()
@@ -71,3 +89,11 @@ func _on_storage_bar_mouse_entered() -> void:
 
 func _on_storage_bar_mouse_exited() -> void:
 	storage_info_container.hide()
+
+
+func _on_ram_bar_mouse_entered() -> void:
+	ram_info_container.show()
+
+
+func _on_ram_bar_mouse_exited() -> void:
+	ram_info_container.hide()

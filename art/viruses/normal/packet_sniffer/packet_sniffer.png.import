@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://orr85gyvv7eu"
-path="res://.godot/imported/trojan_horse.png-3f4ed8f0b0eede416a403751ebf2e4ae.ctex"
+uid="uid://c0xfajn7x77nl"
+path="res://.godot/imported/packet_sniffer.png-a36a27f7f07225ef58bd3db516e051ca.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/entities/trojan_horse/trojan_horse.png"
-dest_files=["res://.godot/imported/trojan_horse.png-3f4ed8f0b0eede416a403751ebf2e4ae.ctex"]
+source_file="res://art/viruses/normal/packet_sniffer/packet_sniffer.png"
+dest_files=["res://.godot/imported/packet_sniffer.png-a36a27f7f07225ef58bd3db516e051ca.ctex"]
 
 [params]
 

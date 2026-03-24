@@ -1,0 +1,66 @@
+[gd_scene format=3 uid="uid://o20hswvwfbsb"]
+
+[ext_resource type="Script" uid="uid://br3v16li3ilnu" path="res://scenes/class_pick_scene/class_pick_scene.gd" id="1_iltxe"]
+[ext_resource type="Texture2D" uid="uid://p0r5io4couf" path="res://art/misc/four_sided_star.png" id="2_gi736"]
+[ext_resource type="Texture2D" uid="uid://cqbltcjc6bult" path="res://art/entities/anubis/anubis_single.png" id="3_iltxe"]
+
+[sub_resource type="Animation" id="Animation_iltxe"]
+resource_name = "rotate_star"
+length = 7.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("background_img:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [6.2831855, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gi736"]
+_data = {
+&"rotate_star": SubResource("Animation_iltxe")
+}
+
+[node name="class_pick_scene" type="Control" unique_id=1016465311]
+layout_mode = 3
+anchor_right = 0.536
+anchor_bottom = 1.0
+offset_right = -0.11999512
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_iltxe")
+
+[node name="background_img" type="TextureRect" parent="." unique_id=175451320]
+modulate = Color(1, 0, 0, 1)
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.99500006
+anchor_bottom = 0.9250001
+offset_right = 0.1449585
+offset_bottom = -6.1035156e-05
+rotation = 6.2831855
+pivot_offset = Vector2(512, 499.5)
+texture = ExtResource("2_gi736")
+
+[node name="icon_img" type="TextureRect" parent="." unique_id=2056045065]
+texture_filter = 1
+layout_mode = 0
+offset_left = 311.00003
+offset_top = 238.0
+offset_right = 753.0
+offset_bottom = 750.0
+scale = Vector2(1.57, 1.57)
+pivot_offset = Vector2(221, 256)
+texture = ExtResource("3_iltxe")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1899947097]
+libraries/ = SubResource("AnimationLibrary_gi736")
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

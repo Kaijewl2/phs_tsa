@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://orr85gyvv7eu"
-path="res://.godot/imported/trojan_horse.png-3f4ed8f0b0eede416a403751ebf2e4ae.ctex"
+uid="uid://06ohcs4cf5k3"
+path="res://.godot/imported/backdoor_kingpin_single.png-5f55c2eb0c22adeca1b9f5480157e6ac.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/entities/trojan_horse/trojan_horse.png"
-dest_files=["res://.godot/imported/trojan_horse.png-3f4ed8f0b0eede416a403751ebf2e4ae.ctex"]
+source_file="res://art/viruses/boss/backdoor_kingpin/backdoor_kingpin_single.png"
+dest_files=["res://.godot/imported/backdoor_kingpin_single.png-5f55c2eb0c22adeca1b9f5480157e6ac.ctex"]
 
 [params]
 

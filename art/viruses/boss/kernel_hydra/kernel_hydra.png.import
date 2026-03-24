@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://orr85gyvv7eu"
-path="res://.godot/imported/trojan_horse.png-3f4ed8f0b0eede416a403751ebf2e4ae.ctex"
+uid="uid://b6pmati475jg8"
+path="res://.godot/imported/kernel_hydra.png-608d5760d0234b4d652ecd9d317b9552.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/entities/trojan_horse/trojan_horse.png"
-dest_files=["res://.godot/imported/trojan_horse.png-3f4ed8f0b0eede416a403751ebf2e4ae.ctex"]
+source_file="res://art/viruses/boss/kernel_hydra/kernel_hydra.png"
+dest_files=["res://.godot/imported/kernel_hydra.png-608d5760d0234b4d652ecd9d317b9552.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://orr85gyvv7eu"
-path="res://.godot/imported/trojan_horse.png-3f4ed8f0b0eede416a403751ebf2e4ae.ctex"
+uid="uid://bw4hw6mruudli"
+path="res://.godot/imported/ransomware_tyrant_single.png-738b0432bff98b5cb8e6410be5fd0fe4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/entities/trojan_horse/trojan_horse.png"
-dest_files=["res://.godot/imported/trojan_horse.png-3f4ed8f0b0eede416a403751ebf2e4ae.ctex"]
+source_file="res://art/viruses/boss/ransomware_tyrant/ransomware_tyrant_single.png"
+dest_files=["res://.godot/imported/ransomware_tyrant_single.png-738b0432bff98b5cb8e6410be5fd0fe4.ctex"]
 
 [params]
 
