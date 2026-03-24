@@ -31,9 +31,8 @@ func _ready() -> void:
 	GameData.backpack_changed.connect(update_storage_bar)
 	
 	ram_bar.max_value = GameData.MAX_RAM_GB
-	ram_bar.value = GameData.current_ram_gb
-	GameData.ram_changed.connect(refresh_available_ram)
-	refresh_available_ram()
+	GameData.backpack_changed.connect(update_ram_bar)
+	update_ram_bar()
 	
 	for i in range(HARDWARE_ITEMS_AVAILABLE):
 		var random_hardware_type = harware_types.pick_random()
@@ -59,13 +58,14 @@ func _ready() -> void:
 		card_container.add_child(sell_card)
 
 # FIX INCORRECT TOTAL RAM AND NOT GETTING RAM AFTER PURCHASE
-func refresh_available_ram():
-	var backpack_ram = GameData.get_backpack_ram()
-	var total_ram = GameData.current_ram_gb + backpack_ram
+func update_ram_bar():
+	var total_ram = GameData.get_total_ram()
+	
 	ram_bar.max_value = GameData.MAX_RAM_GB
-	ram_bar.value = GameData.current_ram_gb
-	ram_info_label.text = str(total_ram) + " GB available RAM"
-	print("current_ram: ", GameData.current_ram_gb)
+	ram_bar.value = total_ram
+	ram_info_label.text = str(total_ram) + " GB total available RAM"
+	
+	print("total_ram: ", total_ram)
 	print("ram_bar.value: ", ram_bar.value)
 
 

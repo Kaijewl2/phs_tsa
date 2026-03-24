@@ -29,16 +29,12 @@ stretch_mode = 4
 visible = false
 texture_filter = 1
 layout_mode = 0
-offset_left = -74.0
-offset_top = 155.0
-offset_right = 206.0
-offset_bottom = 219.0
-theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
-theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
-theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
-theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 55
-text = "equip RAM"
+offset_left = 3.0
+offset_top = 144.0
+offset_right = 114.0
+offset_bottom = 185.0
+theme_override_font_sizes/font_size = 28
+text = "equip"
 
 [node name="remove_button" type="Button" parent="." unique_id=1661094748]
 visible = false
@@ -79,7 +75,8 @@ mouse_filter = 2
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_colors/font_selected_color = Color(0, 0, 0, 0)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/normal_font_size = 22
+theme_override_font_sizes/normal_font_size = 25
+theme_override_font_sizes/bold_font_size = 22
 bbcode_enabled = true
 vertical_alignment = 1
 

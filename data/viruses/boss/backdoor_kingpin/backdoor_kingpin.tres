@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="UnitData" format=3 uid="uid://d4gtehvklamj4"]
+
+[ext_resource type="Script" uid="uid://bo4u7fiofkecs" path="res://data/UnitData.gd" id="1_oghsk"]
+[ext_resource type="SpriteFrames" uid="uid://blh0aftjuhc20" path="res://data/viruses/boss/backdoor_kingpin/backdoor_kingpin_ss.tres" id="2_wdmtc"]
+
+[resource]
+script = ExtResource("1_oghsk")
+unit_name = "Backdoor Kingpin"
+health = 260.0
+damage = 30
+speed = 25
+attack_cooldown = 2.2
+death_value = 85
+sprite_animations = ExtResource("2_wdmtc")
+metadata/_custom_type_script = "uid://bo4u7fiofkecs"

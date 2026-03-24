@@ -38,19 +38,19 @@ func _ready() -> void:
 		if cpu_name == "Health CPU":
 			item_info_label.text = (
 			"[b]Health CPU[/b]\n\n" +
-			"[font_size=16][i]" + cpu_desc + "[/i][/font_size]\n\n" +
+			"[font_size=20][i]" + cpu_desc + "[/i][/font_size]\n\n" +
 			"[color=#00ff7f]+ HP[/color]      +" + str(int(health_enhancer * 100)) + "%\n"
 			)
 		elif cpu_name == "Damage CPU":
 			item_info_label.text = (
 				"[b]Damage CPU[/b]\n\n" +
-				"[font_size=16][i]" + cpu_desc + "[/i][/font_size]\n\n" +
+				"[font_size=20][i]" + cpu_desc + "[/i][/font_size]\n\n" +
 				"[color=#ff4444]+ DMG[/color]    +" + str(int(damage_enhancer * 100)) + "%\n"
 			)
 		else:
 			item_info_label.text = (
 				"[b]Speed CPU[/b]\n\n" +
-				"[font_size=16][i]" + cpu_desc + "[/i][/font_size]\n\n" +
+				"[font_size=20][i]" + cpu_desc + "[/i][/font_size]\n\n" +
 				"[color=#4fc3f7]+ SPD[/color]    +" + str(int(speed_enhancer * 100)) + "%\n"
 			)
 func setup(path: String, remove_mode:bool = false):

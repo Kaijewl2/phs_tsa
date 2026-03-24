@@ -50,13 +50,10 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 		if current_context == Context.BATTLE:
-			# Enemy is eliminated
 			if not is_instance_valid(target) or not target.is_in_group("commrades"):
 				find_target()
 			else:
 				battle_logic(delta)
-		elif current_context == Context.DEATH:
-			death_logic()
 
 
 func battle_logic(delta):
@@ -69,20 +66,22 @@ func battle_logic(delta):
 
 
 func death_logic():
-	if(animated_sprite_2d.animation != "death"):
-		current_context = Context.DEATH
-		
-		var coin = COIN_SCENE.instantiate()
-		get_parent().add_child(coin)
-		coin.global_position = Vector2(randf_range(self.global_position.x - 50, self.global_position.x + 50), randi_range(self.global_position.y - 50, self.global_position.y + 50))
-		GameData.change_balance(DEATH_VALUE, "add")
+	var coin = COIN_SCENE.instantiate()
+	get_parent().add_child(coin)
+	coin.global_position = Vector2(
+		randf_range(global_position.x - 50, global_position.x + 50),
+		randi_range(global_position.y - 50, global_position.y + 50)
+	)
+	GameData.change_balance(DEATH_VALUE, "add")
+	print(unit_data.unit_name)
+	if(unit_data.unit_name != "The Great Corruption"):
 		animated_sprite_2d.rotation = 20
-		animated_sprite_2d.play("death")
-		GameData.active_enemies.erase(self)
-		remove_from_group("enemies")
-		
-		await animated_sprite_2d.animation_finished
-		queue_free()
+	animated_sprite_2d.play("death")
+	GameData.active_enemies.erase(self)
+	remove_from_group("enemies")
+	
+	await animated_sprite_2d.animation_finished
+	queue_free()
 
 
 func attack(commrade):
@@ -97,7 +96,6 @@ func take_damage(damage):
 	HEALTH -= damage
 	if current_context != Context.DEATH:
 		health_bar.change_value(HEALTH)
-	# Bot dies
 	if HEALTH <= 0 and current_context != Context.DEATH:
 		current_context = Context.DEATH
 		death_logic()

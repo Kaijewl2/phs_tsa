@@ -146,9 +146,9 @@ autowrap_mode = 2
 [node name="storage_bar" type="ProgressBar" parent="." unique_id=1800086943]
 layout_mode = 0
 offset_left = 510.0
-offset_top = 51.0
-offset_right = 1229.9995
-offset_bottom = 169.0
+offset_top = 50.44
+offset_right = 1229.9994
+offset_bottom = 170.0
 theme_override_styles/background = SubResource("StyleBoxFlat_ge4d2")
 theme_override_styles/fill = SubResource("StyleBoxFlat_xcdpw")
 value = 84.98

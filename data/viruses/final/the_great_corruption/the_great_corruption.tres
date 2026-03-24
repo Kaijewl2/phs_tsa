@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="UnitData" format=3 uid="uid://cxehqlbcpi28"]
+
+[ext_resource type="Script" uid="uid://bo4u7fiofkecs" path="res://data/UnitData.gd" id="1_5qnni"]
+[ext_resource type="SpriteFrames" uid="uid://b886rbsj0dwnf" path="res://data/viruses/final/the_great_corruption/the_great_corruption_ss.tres" id="2_lw2es"]
+
+[resource]
+script = ExtResource("1_5qnni")
+unit_name = "The Great Corruption"
+health = 650.0
+damage = 55
+speed = 35
+attack_cooldown = 2.0
+death_value = 250
+sprite_animations = ExtResource("2_lw2es")
+metadata/_custom_type_script = "uid://bo4u7fiofkecs"
