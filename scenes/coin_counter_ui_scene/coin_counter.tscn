@@ -6,6 +6,7 @@
 [sub_resource type="LabelSettings" id="LabelSettings_28bky"]
 font_size = 49
 font_color = Color(1, 0.78431374, 0.40392157, 1)
+outline_size = 12
 outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="Animation" id="Animation_58kiw"]

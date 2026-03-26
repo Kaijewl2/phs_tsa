@@ -49,6 +49,8 @@ var battle_number:int = 1
 var current_security_sweep:int = 1
 var added_starting_card:bool = false
 var added_starting_ram: bool = true
+var tutorial_played: bool = false
+var user_skipped_tutorial: bool = false
 var balance: int = 676767
 var current_ram_gb: int
 var PlayerClass: String
