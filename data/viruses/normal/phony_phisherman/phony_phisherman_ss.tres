@@ -1,0 +1,46 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://dgkbqe3w0vox2"]
+
+[ext_resource type="Texture2D" uid="uid://x1av715b5tvt" path="res://art/viruses/normal/phony_phisherman/phony_phisherman_0001.png" id="1_xe3h6"]
+[ext_resource type="Texture2D" uid="uid://3q2x1mw3f5m6" path="res://art/viruses/normal/phony_phisherman/phony_phisherman_0002.png" id="2_n7c2o"]
+[ext_resource type="Texture2D" uid="uid://b8ulu8ir7ilhy" path="res://art/viruses/normal/phony_phisherman/phony_phisherman_single.png" id="3_vi6to"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xe3h6"]
+atlas = ExtResource("3_vi6to")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jecr2"]
+atlas = ExtResource("3_vi6to")
+region = Rect2(0, 0, 16, 16)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_xe3h6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_n7c2o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_xe3h6")
+}],
+"loop": false,
+"name": &"attack",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xe3h6")
+}],
+"loop": true,
+"name": &"death",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jecr2")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]

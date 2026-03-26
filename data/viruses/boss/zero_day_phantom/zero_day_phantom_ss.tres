@@ -1,0 +1,74 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://byn17mqenw8x4"]
+
+[ext_resource type="Texture2D" uid="uid://b0v0jfkp2mj2l" path="res://art/viruses/boss/ransomware_tyrant/ransomware_tyrant.png" id="1_sl4wp"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ai8ge"]
+atlas = ExtResource("1_sl4wp")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j3dpd"]
+atlas = ExtResource("1_sl4wp")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_32t74"]
+atlas = ExtResource("1_sl4wp")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_opcua"]
+atlas = ExtResource("1_sl4wp")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ejil7"]
+atlas = ExtResource("1_sl4wp")
+region = Rect2(64, 0, 16, 16)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ai8ge")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j3dpd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_32t74")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_opcua")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ejil7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_opcua")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_32t74")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j3dpd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ai8ge")
+}],
+"loop": false,
+"name": &"attack",
+"speed": 11.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ai8ge")
+}],
+"loop": true,
+"name": &"death",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ai8ge")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]

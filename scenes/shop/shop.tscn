@@ -15,15 +15,16 @@ bg_color = Color(0, 0.6901961, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_xcdpw"]
 font_size = 69
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tp26b"]
-bg_color = Color(0.23529412, 0.23529412, 0.23529412, 1)
+outline_size = 15
+outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vk20h"]
 bg_color = Color(0.16470589, 0.4392157, 0.5019608, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_tp26b"]
 font_size = 84
+outline_size = 15
+outline_color = Color(0, 0, 0, 1)
 
 [node name="shop" type="Control" unique_id=821942042]
 layout_mode = 3
@@ -131,7 +132,7 @@ offset_left = -691.0
 offset_top = -388.0
 offset_right = -345.0
 offset_bottom = -280.0
-color = Color(0.1254902, 0.1254902, 0.1254902, 0.9098039)
+color = Color(1, 1, 1, 0.6431373)
 
 [node name="Label" type="Label" parent="brick/brick_hover_container" unique_id=1628099370]
 layout_mode = 0
@@ -139,6 +140,7 @@ offset_left = 4.0
 offset_top = 3.0
 offset_right = 342.0
 offset_bottom = 107.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 41
 text = "I've been selling here since 86'"
 horizontal_alignment = 1
@@ -148,9 +150,9 @@ autowrap_mode = 2
 [node name="storage_bar" type="ProgressBar" parent="." unique_id=1800086943]
 layout_mode = 0
 offset_left = 510.0
-offset_top = 51.0
-offset_right = 1229.9995
-offset_bottom = 169.0
+offset_top = 50.44
+offset_right = 1229.9994
+offset_bottom = 170.0
 theme_override_styles/background = SubResource("StyleBoxFlat_ge4d2")
 theme_override_styles/fill = SubResource("StyleBoxFlat_xcdpw")
 value = 84.98
@@ -185,7 +187,7 @@ offset_top = 0.01399231
 offset_right = 0.04005432
 offset_bottom = -0.03199768
 mouse_filter = 2
-color = Color(0.1254902, 0.1254902, 0.1254902, 0.7529412)
+color = Color(1, 1, 1, 0.6431373)
 
 [node name="storage_info_label" type="Label" parent="storage_bar/storage_info_container" unique_id=236367747]
 layout_mode = 0
@@ -193,7 +195,7 @@ offset_left = 3.0
 offset_top = 8.0
 offset_right = 242.0
 offset_bottom = 93.0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 67
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -205,9 +207,8 @@ offset_top = 50.0
 offset_right = 1740.0
 offset_bottom = 152.0
 theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
-theme_override_styles/background = SubResource("StyleBoxFlat_tp26b")
 theme_override_styles/fill = SubResource("StyleBoxFlat_vk20h")
-value = 100.0
+value = 83.77
 show_percentage = false
 
 [node name="ram_label" type="Label" parent="ram_bar" unique_id=222346944]
@@ -217,15 +218,36 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -89.5
-offset_top = -41.5
-offset_right = 89.5
-offset_bottom = 42.5
+offset_left = -89.0
+offset_top = -34.0
+offset_right = 90.0
+offset_bottom = 50.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
 text = "RAM"
 label_settings = SubResource("LabelSettings_tp26b")
+
+[node name="ram_info_container" type="ColorRect" parent="ram_bar" unique_id=1910316131]
+visible = false
+layout_mode = 0
+offset_left = -446.0
+offset_top = 73.0
+offset_right = 55.0
+offset_bottom = 200.0
+mouse_filter = 2
+color = Color(1, 1, 1, 0.6431373)
+
+[node name="ram_info_label" type="Label" parent="ram_bar/ram_info_container" unique_id=1973406679]
+layout_mode = 0
+offset_left = -1.0
+offset_right = 501.0
+offset_bottom = 126.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 38
+text = "12 / 64 GB available RAM"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="hardware_container" type="HBoxContainer" parent="." unique_id=1055839060]
 layout_mode = 1
@@ -244,5 +266,7 @@ theme_override_constants/separation = 211
 [connection signal="mouse_exited" from="brick/brick_img" to="." method="_on_brick_img_mouse_exited"]
 [connection signal="mouse_entered" from="storage_bar" to="." method="_on_storage_bar_mouse_entered"]
 [connection signal="mouse_exited" from="storage_bar" to="." method="_on_storage_bar_mouse_exited"]
+[connection signal="mouse_entered" from="ram_bar" to="." method="_on_ram_bar_mouse_entered"]
+[connection signal="mouse_exited" from="ram_bar" to="." method="_on_ram_bar_mouse_exited"]
 
 [editable path="change_scene_button"]

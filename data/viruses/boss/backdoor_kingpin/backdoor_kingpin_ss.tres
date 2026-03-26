@@ -1,0 +1,54 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://blh0aftjuhc20"]
+
+[ext_resource type="Texture2D" uid="uid://bp7lrgmf2t0oo" path="res://art/viruses/boss/backdoor_kingpin/backdoor_kingpin.png" id="1_e4nx2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jk0ip"]
+atlas = ExtResource("1_e4nx2")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cb3aa"]
+atlas = ExtResource("1_e4nx2")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ef2h"]
+atlas = ExtResource("1_e4nx2")
+region = Rect2(32, 0, 16, 16)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jk0ip")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cb3aa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8ef2h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cb3aa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jk0ip")
+}],
+"loop": false,
+"name": &"attack",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jk0ip")
+}],
+"loop": true,
+"name": &"death",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jk0ip")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]

@@ -83,6 +83,7 @@ func handle_purchase():
 
 		# Add RAM to player's backpack
 		ram_sold.emit(ram_stick_data.ram_stick_name)
+		GameData.ram_changed.emit()
 		
 		GameData.add_ram_stick_to_backpack(RAM_STICK_PATH, ram_stick_data)
 

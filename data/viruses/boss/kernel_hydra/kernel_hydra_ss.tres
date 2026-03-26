@@ -1,0 +1,54 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://djskvtcv0f82p"]
+
+[ext_resource type="Texture2D" uid="uid://b6pmati475jg8" path="res://art/viruses/boss/kernel_hydra/kernel_hydra.png" id="1_1vjya"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d6vbv"]
+atlas = ExtResource("1_1vjya")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3p8vo"]
+atlas = ExtResource("1_1vjya")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uthmi"]
+atlas = ExtResource("1_1vjya")
+region = Rect2(32, 0, 16, 16)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d6vbv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3p8vo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uthmi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3p8vo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d6vbv")
+}],
+"loop": false,
+"name": &"attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d6vbv")
+}],
+"loop": true,
+"name": &"death",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d6vbv")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]

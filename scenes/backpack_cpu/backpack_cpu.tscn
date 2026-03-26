@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://c3346g0d31l8d" path="res://art/misc/health_cpu.png" id="2_sxhwv"]
 
 [node name="backpack_cpu" type="Control" unique_id=1232808357]
-custom_minimum_size = Vector2(237, 0)
+custom_minimum_size = Vector2(237, 267)
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -29,26 +29,26 @@ stretch_mode = 4
 visible = false
 texture_filter = 1
 layout_mode = 0
-offset_left = 4.0
-offset_top = 183.0
-offset_right = 152.0
-offset_bottom = 247.0
-theme_override_font_sizes/font_size = 56
+offset_left = 15.0
+offset_top = 166.0
+offset_right = 135.0
+offset_bottom = 213.0
+theme_override_font_sizes/font_size = 33
 text = "equip"
 
 [node name="remove_button" type="Button" parent="." unique_id=720384560]
 visible = false
 layout_mode = 0
-offset_left = -86.0
-offset_top = 183.0
-offset_right = 258.0
-offset_bottom = 289.0
+offset_left = -18.0
+offset_top = 168.0
+offset_right = 166.0
+offset_bottom = 235.0
 theme_override_colors/font_color = Color(1, 0, 0, 1)
 theme_override_colors/font_focus_color = Color(1, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(1, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(1, 0, 0, 1)
 theme_override_colors/font_hover_pressed_color = Color(1, 0, 0, 1)
-theme_override_font_sizes/font_size = 44
+theme_override_font_sizes/font_size = 22
 text = "Remove from backpack"
 autowrap_mode = 2
 
@@ -73,6 +73,8 @@ mouse_filter = 2
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_colors/font_selected_color = Color(0, 0, 0, 0)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 24
+theme_override_font_sizes/bold_font_size = 26
 bbcode_enabled = true
 vertical_alignment = 1
 

@@ -1,6 +1,7 @@
 extends ProgressBar
 class_name CustomHealthBar
 
+
 @onready var progress_bar: ProgressBar = $ProgressBar
 @onready var reset_visibility: Timer = $ResetVisibility
 

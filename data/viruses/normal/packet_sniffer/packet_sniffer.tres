@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="UnitData" format=3 uid="uid://i6pn4tgjed20"]
+
+[ext_resource type="Script" uid="uid://bo4u7fiofkecs" path="res://data/UnitData.gd" id="1_ncnlt"]
+[ext_resource type="SpriteFrames" uid="uid://cptu5h2y1oxi6" path="res://data/viruses/normal/packet_sniffer/packet_sniffer_ss.tres" id="2_wfpnx"]
+
+[resource]
+script = ExtResource("1_ncnlt")
+unit_name = "Packet Sniffer"
+health = 60.0
+damage = 12
+speed = 70
+attack_cooldown = 1.8
+death_value = 20
+sprite_animations = ExtResource("2_wfpnx")
+metadata/_custom_type_script = "uid://bo4u7fiofkecs"

@@ -8,6 +8,7 @@ extends Node2D
 @onready var ram_bar: ProgressBar = $motherboard_layout/stats_container/ram_bar_container/ram_bar
 @onready var change_scene_button: Control = $change_scene_button
 @onready var to_encounter_button: Button = $to_encounter_button
+@onready var tutorial_container: Control = $tutorial_container
 
 
 var is_first_shake = true 
@@ -35,6 +36,12 @@ func _ready() -> void:
 	if !GameData.added_starting_card:
 		GameData.add_starting_gear()
 	
+	if !GameData.tutorial_played:
+		tutorial_container.show()
+		GameData.tutorial_played = true
+	else:
+		tutorial_container.hide()
+		tutorial_container.queue_free()
 	
 	security_sweep_label.text += str(GameData.current_security_sweep)
 	
@@ -65,7 +72,6 @@ func _ready() -> void:
 func update_ram_bar():
 	ram_bar.max_value = GameData.MAX_RAM_GB
 	ram_bar.value = GameData.current_ram_gb
-	print(ram_bar.value)
 
 
 func choose_minor_virus_name():

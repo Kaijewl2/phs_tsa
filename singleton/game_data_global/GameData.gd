@@ -12,8 +12,8 @@ signal ram_changed()
 const MAX_BACKPACK_SIZE = 15
 const MAX_SETUP_SIZE = 4
 const MAX_RAM_SLOTS:int = 4
-const BOSS_INTERVAL:int = 2
-const FINAL_BOSS_ROUND:int = 3
+const BOSS_INTERVAL:int = 3
+const FINAL_BOSS_ROUND:int = 10
 const SETUP_CARD_SCENE_PATH:String = "res://scenes/setup_card_scene/setup_card.tscn"
 const BACKPACK_RAM_STICK_SCENE_PATH:String = "res://scenes/backpack_ram_scene/backpack_ram.tscn"
 const BACKPACK_GPU_SCENE_PATH: String = "res://scenes/backpack_gpu_scene/backpack_gpu.tscn"
@@ -21,10 +21,15 @@ const BACKPACK_CPU_SCENE_PATH: String = "res://scenes/backpack_cpu/backpack_cpu.
 const MAX_GPU_SLOTS: int = 1
 const MAX_CPU_SLOTS: int = 1
 const MAX_RAM_GB:int = 64
+const BASE_RAM_STICK_DATA = preload("uid://c8mwxgju7ai6q")
+const HEALTH_RAM_STICK_DATA = preload("uid://dtqn1dmjrrb1g")
+const DAMAGE_RAM_STICK_DATA = preload("uid://d1yj44foo08a0")
+const SPEED_RAM_STICK_DATA = preload("uid://djv75ht8apx3y")
 enum Context {NORMAL, REMOVE}
 
 
 var current_context = Context.NORMAL
+var current_cutscene:int = 0
 var setup_gpus = []
 var setup_cpus = []
 var setup_gpu_types = []
@@ -45,6 +50,8 @@ var battle_number:int = 1
 var current_security_sweep:int = 1
 var added_starting_card:bool = false
 var added_starting_ram: bool = true
+var tutorial_played: bool = false
+var user_skipped_tutorial: bool = false
 var balance: int = 676767
 var current_ram_gb: int
 var PlayerClass: String
@@ -56,6 +63,20 @@ var unit_types = {
 	"Red Hat": preload("uid://bbmitl70fosjs"),
 	"White Hat": preload("uid://6o1dwqoutta7"),
 	"Trojan Horse": preload("uid://de314auxcnjap")
+}
+var normal_virus_types = {
+	"Packet Sniffer": preload("uid://i6pn4tgjed20"),
+	"Phony Phisherman": preload("uid://2wj5vnnkqmh"),
+	"Keylogger Grunt": preload("uid://c583jidam0ntk"),
+	"Malware Minion": preload("uid://ctjr6w40k7jkc")
+}
+var boss_virus_types = {
+	"Ransomware Tyrant": preload("uid://ctg5o3qcackfs"),
+	"Kernel Hydra": preload("uid://0geme0386ctt"),
+	"Backdoor Kingpin": preload("uid://d4gtehvklamj4")
+}
+var final_virus_types = {
+	"The Great Corruption": preload("uid://cxehqlbcpi28")
 }
 var sell_card_types = {
 	"Tux": preload("uid://ctslcvel45hud"),
@@ -82,8 +103,8 @@ var cpu_types = {
 	"health_cpu": preload("uid://fsrci6pogw1b"),
 }
 var minor_virus_names = ["Trojan Commanders", "Spyware Syndicates", "Botnet Breachers", "Adware Swarm"]
-var boss_virus_names = ["Ransomware Tyrant", "Kernel Hydra", "Malware Prime", "Backdoor Kingpin"]
-var final_virus_names = ["Singularity Virus", "Root Admin", "Black Hat", "Eternal Botnet"]
+var boss_virus_names = ["Ransomware Tyrant", "Kernel Hydra", "Zero Day Phantom", "Backdoor Kingpin"]
+var final_virus_names = ["The Great Corruption"]
 
 func _ready() -> void:
 	load_audio_settings()
@@ -132,15 +153,16 @@ func is_final_boss_encounter() -> bool:
 
 
 func add_starting_gear():
-	add_ram_stick_to_backpack(BACKPACK_RAM_STICK_SCENE_PATH, preload("uid://c8mwxgju7ai6q"))
-	
 	if player_hand_cards.is_empty():
-		if(PlayerClass == "linux"):
-			add_card_to_backpack(SETUP_CARD_SCENE_PATH, sell_card_types["Tux"])
-		elif(PlayerClass == "mac"):
+		if(PlayerClass == "cat"):
+			add_ram_stick_to_backpack(BACKPACK_RAM_STICK_SCENE_PATH, DAMAGE_RAM_STICK_DATA)
 			add_card_to_backpack(SETUP_CARD_SCENE_PATH, sell_card_types["Firecat"])
+		elif(PlayerClass == "penguin"):
+			add_ram_stick_to_backpack(BACKPACK_RAM_STICK_SCENE_PATH, SPEED_RAM_STICK_DATA)
+			add_card_to_backpack(SETUP_CARD_SCENE_PATH, sell_card_types["Tux"])
 		else:
-			add_card_to_backpack(SETUP_CARD_SCENE_PATH, sell_card_types["GNU"])
+			add_ram_stick_to_backpack(BACKPACK_RAM_STICK_SCENE_PATH, HEALTH_RAM_STICK_DATA)
+			add_card_to_backpack(SETUP_CARD_SCENE_PATH, sell_card_types["Rubber Ducky"])
 		
 		added_starting_card = true
 		added_starting_ram = true
@@ -308,6 +330,25 @@ func get_random_entity_data():
 	return unit_list.pick_random()
 
 
+func get_random_normal_enemy_data():
+	var normal_enemy_list = normal_virus_types.values()
+	
+	return normal_enemy_list.pick_random()
+
+
+func get_random_boss_enemy_data():
+	var boss_enemy_list = boss_virus_types.values()
+	
+	return boss_enemy_list.pick_random()
+
+
+func get_final_boss_enemy_data():
+	var final_enemy_list = final_virus_types.values()
+	
+	return final_enemy_list.pick_random()
+
+
+
 func get_random_sell_card_data():
 	var sell_card_list = sell_card_types.values()
 	
@@ -364,6 +405,22 @@ func get_backpack_ram()->int:
 		if item["type"] == "ram":
 				total_ram+=item["data"].gb_size
 	return total_ram
+
+
+func get_setup_ram()->int:
+	var total_ram:int = 0
+	
+	for item in setup_ram_types:
+		total_ram+=item.gb_size
+		
+	return total_ram
+
+
+func get_total_ram()->int:
+	var total_ram:int = get_setup_ram() + get_backpack_ram()
+	
+	return total_ram
+
 
 
 func get_min_card_ram()->int:
@@ -527,7 +584,6 @@ func change_player_class(new_class:String):
 	PlayerClass = new_class
 
 
-#END: DON'T LET PLAYER REM RAM IF THEY CAN'T ADD CARD AFTER
 func can_remove_ram(ram_type: RamData) -> bool:
 	
 	var backpack_ram = get_backpack_ram()

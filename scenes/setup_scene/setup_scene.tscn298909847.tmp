@@ -71,6 +71,10 @@ offset_right = 1271.0
 offset_bottom = 1047.0
 
 [node name="storage_bar" type="ProgressBar" parent="motherboard_layout/stats_container" unique_id=1237934672]
+<<<<<<< HEAD:phs_tsa-main/scenes/setup_scene/setup_scene.tscn298909847.tmp
+visible = false
+=======
+>>>>>>> 3d100f0e3c16ad1548c3d8412e21e52c4a9ce713:scenes/setup_scene/setup_scene.tscn298909847.tmp
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.08800001
@@ -78,9 +82,21 @@ anchor_top = 0.059000004
 anchor_right = 0.90300006
 anchor_bottom = 0.124000005
 offset_left = 0.015996933
+<<<<<<< HEAD:phs_tsa-main/scenes/setup_scene/setup_scene.tscn298909847.tmp
+<<<<<<<< HEAD:phs_tsa-main/scenes/setup_scene/setup_scene.tscn298909847.tmp
 offset_top = 0.35399628
 offset_right = -0.15402222
 offset_bottom = -0.25600433
+========
+offset_top = 190.354
+offset_right = -0.15402222
+offset_bottom = 189.74399
+>>>>>>>> 3d100f0e3c16ad1548c3d8412e21e52c4a9ce713:scenes/setup_scene/setup_scene.tscn
+=======
+offset_top = 0.35399628
+offset_right = -0.15402222
+offset_bottom = -0.25600433
+>>>>>>> 3d100f0e3c16ad1548c3d8412e21e52c4a9ce713:scenes/setup_scene/setup_scene.tscn298909847.tmp
 theme_override_styles/background = SubResource("StyleBoxFlat_ikacj")
 theme_override_styles/fill = SubResource("StyleBoxFlat_8xhab")
 max_value = 128.0
@@ -106,15 +122,31 @@ label_settings = SubResource("LabelSettings_oyk4i")
 z_index = 2
 anchors_preset = 0
 offset_left = 21.0
+<<<<<<< HEAD:phs_tsa-main/scenes/setup_scene/setup_scene.tscn298909847.tmp
+<<<<<<<< HEAD:phs_tsa-main/scenes/setup_scene/setup_scene.tscn298909847.tmp
 offset_top = 166.0
 offset_right = 295.0
 offset_bottom = 250.0
+========
+offset_top = 36.0
+offset_right = 295.0
+offset_bottom = 128.0
+>>>>>>>> 3d100f0e3c16ad1548c3d8412e21e52c4a9ce713:scenes/setup_scene/setup_scene.tscn
+=======
+offset_top = 166.0
+offset_right = 295.0
+offset_bottom = 250.0
+>>>>>>> 3d100f0e3c16ad1548c3d8412e21e52c4a9ce713:scenes/setup_scene/setup_scene.tscn298909847.tmp
 script = ExtResource("4_c1pce")
 
 [node name="ram_bar" type="ProgressBar" parent="motherboard_layout/stats_container/ram_bar_container" unique_id=1574355758]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.022000002
+<<<<<<< HEAD:phs_tsa-main/scenes/setup_scene/setup_scene.tscn298909847.tmp
+<<<<<<<< HEAD:phs_tsa-main/scenes/setup_scene/setup_scene.tscn298909847.tmp
+=======
+>>>>>>> 3d100f0e3c16ad1548c3d8412e21e52c4a9ce713:scenes/setup_scene/setup_scene.tscn298909847.tmp
 anchor_top = 0.08400001
 anchor_right = 0.97800004
 anchor_bottom = 0.91600007
@@ -122,6 +154,15 @@ offset_left = 0.03799963
 offset_top = 0.027999401
 offset_right = -0.038024902
 offset_bottom = -0.028007507
+<<<<<<< HEAD:phs_tsa-main/scenes/setup_scene/setup_scene.tscn298909847.tmp
+========
+anchor_right = 0.97800004
+anchor_bottom = 1.0
+offset_left = -0.027979374
+offset_right = -0.104003906
+>>>>>>>> 3d100f0e3c16ad1548c3d8412e21e52c4a9ce713:scenes/setup_scene/setup_scene.tscn
+=======
+>>>>>>> 3d100f0e3c16ad1548c3d8412e21e52c4a9ce713:scenes/setup_scene/setup_scene.tscn298909847.tmp
 mouse_filter = 2
 theme_override_styles/background = SubResource("StyleBoxFlat_lrgj0")
 theme_override_styles/fill = SubResource("StyleBoxFlat_2nera")
@@ -136,9 +177,21 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -136.5
+<<<<<<< HEAD:phs_tsa-main/scenes/setup_scene/setup_scene.tscn298909847.tmp
+<<<<<<<< HEAD:phs_tsa-main/scenes/setup_scene/setup_scene.tscn298909847.tmp
 offset_top = -36.5
 offset_right = 138.5
 offset_bottom = 39.0
+========
+offset_top = -47.0
+offset_right = 138.5
+offset_bottom = 47.0
+>>>>>>>> 3d100f0e3c16ad1548c3d8412e21e52c4a9ce713:scenes/setup_scene/setup_scene.tscn
+=======
+offset_top = -36.5
+offset_right = 138.5
+offset_bottom = 39.0
+>>>>>>> 3d100f0e3c16ad1548c3d8412e21e52c4a9ce713:scenes/setup_scene/setup_scene.tscn298909847.tmp
 grow_horizontal = 2
 grow_vertical = 2
 text = "RAM"
@@ -329,6 +382,33 @@ layout_mode = 2
 texture = ExtResource("6_ikacj")
 expand_mode = 3
 
+<<<<<<< HEAD:phs_tsa-main/scenes/setup_scene/setup_scene.tscn298909847.tmp
+[node name="ram_info_container" type="ColorRect" parent="motherboard_layout/ram_sticks_container" unique_id=1497809734]
+visible = false
+z_index = 3
+layout_mode = 0
+offset_left = 227.0
+offset_top = 140.0
+offset_right = 762.0
+offset_bottom = 482.0
+mouse_filter = 2
+color = Color(0.7372549, 0.7372549, 0.7372549, 0.9137255)
+
+[node name="ram_info_label" type="Label" parent="motherboard_layout/ram_sticks_container/ram_info_container" unique_id=1046943453]
+layout_mode = 0
+offset_right = 534.0
+offset_bottom = 344.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 0, 0, 1)
+theme_override_font_sizes/font_size = 49
+text = "RAM provides temporary system memory. 
+Increases the number of cards you can play at once."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+=======
+>>>>>>> 3d100f0e3c16ad1548c3d8412e21e52c4a9ce713:scenes/setup_scene/setup_scene.tscn298909847.tmp
 [node name="gpu_slot_container" type="Control" parent="motherboard_layout" unique_id=1237887167]
 anchors_preset = 0
 offset_left = 125.0
@@ -351,6 +431,35 @@ offset_top = -28.329
 offset_right = 849.425
 offset_bottom = 164.77101
 
+<<<<<<< HEAD:phs_tsa-main/scenes/setup_scene/setup_scene.tscn298909847.tmp
+<<<<<<<< HEAD:phs_tsa-main/scenes/setup_scene/setup_scene.tscn298909847.tmp
+========
+[node name="gpu_info_container" type="ColorRect" parent="motherboard_layout/gpu_slot_container" unique_id=1815040958]
+visible = false
+z_index = 4
+layout_mode = 0
+offset_left = 492.0
+offset_top = 78.0
+offset_right = 1223.0
+offset_bottom = 311.0
+mouse_filter = 2
+color = Color(0.7372549, 0.7372549, 0.7372549, 0.9137255)
+
+[node name="gpu_info_label" type="Label" parent="motherboard_layout/gpu_slot_container/gpu_info_container" unique_id=821941575]
+layout_mode = 0
+offset_right = 727.0
+offset_bottom = 232.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 48
+text = "GPUs render complex operations and visual effects. 
+Enhances card performance, increasing their stats."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+>>>>>>>> 3d100f0e3c16ad1548c3d8412e21e52c4a9ce713:scenes/setup_scene/setup_scene.tscn
+=======
+>>>>>>> 3d100f0e3c16ad1548c3d8412e21e52c4a9ce713:scenes/setup_scene/setup_scene.tscn298909847.tmp
 [node name="cpu_container" type="Control" parent="motherboard_layout" unique_id=1739386764]
 anchors_preset = 0
 offset_left = 86.0
@@ -382,10 +491,90 @@ offset_left = -0.63
 offset_top = -0.53
 offset_right = -0.6300049
 offset_bottom = -0.5299988
+<<<<<<< HEAD:phs_tsa-main/scenes/setup_scene/setup_scene.tscn298909847.tmp
+<<<<<<<< HEAD:phs_tsa-main/scenes/setup_scene/setup_scene.tscn298909847.tmp
+========
+mouse_filter = 2
+
+[node name="cpu_info_container" type="ColorRect" parent="motherboard_layout/cpu_container" unique_id=1168367020]
+visible = false
+layout_mode = 0
+offset_left = 143.0
+offset_top = 158.0
+offset_right = 873.0
+offset_bottom = 399.0
+mouse_filter = 2
+color = Color(0.7372549, 0.7372549, 0.7372549, 0.9137255)
+
+[node name="cpu_info_label" type="Label" parent="motherboard_layout/cpu_container/cpu_info_container" unique_id=727772070]
+layout_mode = 0
+offset_right = 725.0
+offset_bottom = 244.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 49
+text = "CPUs handle instruction execution and system control.
+Enhances your system with various performance boosts."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="add_card_message_container" type="ColorRect" parent="motherboard_layout" unique_id=1982255904 groups=["add_card_message"]]
+visible = false
+z_index = 2
+layout_mode = 0
+offset_left = 349.0
+offset_top = 413.0
+offset_right = 1477.0
+offset_bottom = 567.0
+color = Color(0.7137255, 0, 0, 0.46666667)
+
+[node name="add_card_message_label" type="Label" parent="motherboard_layout/add_card_message_container" unique_id=942976209]
+layout_mode = 0
+offset_right = 1129.0
+offset_bottom = 156.0
+theme_override_font_sizes/font_size = 75
+text = "Add at least one card to hand"
+horizontal_alignment = 1
+vertical_alignment = 1
+>>>>>>>> 3d100f0e3c16ad1548c3d8412e21e52c4a9ce713:scenes/setup_scene/setup_scene.tscn
+=======
+>>>>>>> 3d100f0e3c16ad1548c3d8412e21e52c4a9ce713:scenes/setup_scene/setup_scene.tscn298909847.tmp
 
 [node name="insufficient_ram_container" parent="motherboard_layout" unique_id=1975654364 groups=["insufficient_ram"] instance=ExtResource("13_kwufy")]
 visible = false
 layout_mode = 0
+<<<<<<< HEAD:phs_tsa-main/scenes/setup_scene/setup_scene.tscn298909847.tmp
+<<<<<<<< HEAD:phs_tsa-main/scenes/setup_scene/setup_scene.tscn298909847.tmp
+========
+
+[node name="manage_button_container" type="ColorRect" parent="motherboard_layout" unique_id=1627438824]
+layout_mode = 0
+offset_left = 979.0
+offset_top = 233.0
+offset_right = 1242.0
+offset_bottom = 319.0
+pivot_offset = Vector2(128.43, 36.975)
+
+[node name="manage_button" type="Button" parent="motherboard_layout/manage_button_container" unique_id=577854479]
+layout_mode = 0
+offset_left = -1.0
+offset_right = 264.0
+offset_bottom = 89.0
+theme_override_colors/font_color = Color(0.06879827, 0.06879828, 0.06879828, 1)
+theme_override_colors/font_focus_color = Color(0.06053026, 0.060530372, 0.060530573, 1)
+theme_override_colors/font_pressed_color = Color(0.05882353, 0.05882353, 0.05882353, 1)
+theme_override_colors/font_hover_color = Color(0.033853278, 0.033853278, 0.033853274, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_disabled_color = Color(0.875, 0.875, 0.875, 0.5)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 26
+text = "Mode - 
+add to setup"
+flat = true
+autowrap_mode = 2
+>>>>>>>> 3d100f0e3c16ad1548c3d8412e21e52c4a9ce713:scenes/setup_scene/setup_scene.tscn
+=======
+>>>>>>> 3d100f0e3c16ad1548c3d8412e21e52c4a9ce713:scenes/setup_scene/setup_scene.tscn298909847.tmp
 
 [node name="backpack_container" type="Control" parent="." unique_id=1568474870]
 layout_mode = 3
@@ -427,6 +616,31 @@ layout_mode = 2
 
 [node name="backpack_gpu" parent="backpack_container/storage_img/GridContainer" unique_id=501742269 instance=ExtResource("16_kwufy")]
 layout_mode = 2
+<<<<<<< HEAD:phs_tsa-main/scenes/setup_scene/setup_scene.tscn298909847.tmp
+<<<<<<<< HEAD:phs_tsa-main/scenes/setup_scene/setup_scene.tscn298909847.tmp
+========
+
+[node name="available_slots_container" type="ColorRect" parent="backpack_container" unique_id=847996832]
+layout_mode = 0
+offset_left = 200.0
+offset_top = 13.0
+offset_right = 373.0
+offset_bottom = 58.0
+color = Color(0.1254902, 0.1254902, 0.1254902, 1)
+
+[node name="available_slots_label" type="Label" parent="backpack_container/available_slots_container" unique_id=101459087]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 2.0
+offset_right = 173.0
+offset_bottom = 47.0
+theme_override_font_sizes/font_size = 30
+text = "15 / 15 "
+horizontal_alignment = 1
+vertical_alignment = 1
+>>>>>>>> 3d100f0e3c16ad1548c3d8412e21e52c4a9ce713:scenes/setup_scene/setup_scene.tscn
+=======
+>>>>>>> 3d100f0e3c16ad1548c3d8412e21e52c4a9ce713:scenes/setup_scene/setup_scene.tscn298909847.tmp
 
 [node name="active_cards_container" type="Control" parent="." unique_id=1052810598]
 layout_mode = 3
@@ -470,4 +684,20 @@ flat = true
 
 [connection signal="mouse_entered" from="motherboard_layout/stats_container/ram_bar_container" to="motherboard_layout/stats_container/ram_bar_container" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="motherboard_layout/stats_container/ram_bar_container" to="motherboard_layout/stats_container/ram_bar_container" method="_on_mouse_exited"]
+<<<<<<< HEAD:phs_tsa-main/scenes/setup_scene/setup_scene.tscn298909847.tmp
+<<<<<<<< HEAD:phs_tsa-main/scenes/setup_scene/setup_scene.tscn298909847.tmp
+========
+[connection signal="mouse_entered" from="motherboard_layout/ram_sticks_container" to="motherboard_layout/ram_sticks_container" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="motherboard_layout/ram_sticks_container" to="motherboard_layout/ram_sticks_container" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="motherboard_layout/ram_sticks_container/ram_sticks_container/ram_slot_1_image" to="." method="_on_ram_slot_1_image_mouse_entered"]
+[connection signal="mouse_exited" from="motherboard_layout/ram_sticks_container/ram_sticks_container/ram_slot_1_image" to="." method="_on_ram_slot_1_image_mouse_exited"]
+[connection signal="mouse_entered" from="motherboard_layout/gpu_slot_container" to="motherboard_layout/gpu_slot_container" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="motherboard_layout/gpu_slot_container" to="motherboard_layout/gpu_slot_container" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="motherboard_layout/cpu_container" to="motherboard_layout/cpu_container" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="motherboard_layout/cpu_container" to="motherboard_layout/cpu_container" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="motherboard_layout/manage_button_container/manage_button" to="backpack_container" method="_on_manage_button_mouse_entered"]
+[connection signal="mouse_exited" from="motherboard_layout/manage_button_container/manage_button" to="backpack_container" method="_on_manage_button_mouse_exited"]
+>>>>>>>> 3d100f0e3c16ad1548c3d8412e21e52c4a9ce713:scenes/setup_scene/setup_scene.tscn
+=======
+>>>>>>> 3d100f0e3c16ad1548c3d8412e21e52c4a9ce713:scenes/setup_scene/setup_scene.tscn298909847.tmp
 [connection signal="pressed" from="to_encounter_button" to="." method="_on_to_encounter_button_pressed"]

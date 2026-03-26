@@ -10,13 +10,11 @@ extends Node2D
 @onready var level_image: TextureRect = $level_image
 
 
-
-
 const ENENEMY_SCENE = preload("uid://dd11l81fddnsb")
 const COMMRADE_SCENE = preload("uid://bdpc8podu70pj")
-const CITY_MAP = preload("uid://con4qxwwnri1b")
-const NEIGHBORHOOD_MAP = preload("uid://7jh1drblmlvj")
-const SPACE_ORBITAL_MAP = preload("uid://gqn6f5ei3s7p")
+const CITY_MAP = preload("uid://b5nixpcmsqwfr")
+const NEIGHBORHOOD_MAP = preload("uid://cii80imitrjdf")
+const SPACE_ORBITAL_MAP = preload("uid://dnw66q782x4ar")
 
 var maps = {"first_map" : NEIGHBORHOOD_MAP,
 			"second_map" : CITY_MAP,
@@ -28,9 +26,9 @@ var battle_over: bool = false
 var enemy_type: String
 
 func _ready() -> void:
-	if GameData.battle_number == 1:
+	if GameData.battle_number < 3:
 		level_image.texture = NEIGHBORHOOD_MAP
-	elif GameData.battle_number == 2:
+	elif GameData.battle_number < 7:
 		level_image.texture = CITY_MAP
 	else:
 		level_image.texture = SPACE_ORBITAL_MAP
@@ -79,7 +77,7 @@ func spawn_commrades():
 	
 		commrade.unit_data = commrade_type
 		
-		commrade.position = Vector2(randi_range(500, 700), randi_range(530, 900))
+		commrade.position = Vector2(randi_range(400, 700), randi_range(450, 900))
 		commrade.scale = Vector2(5.75,5.75)
 	
 		add_child(commrade)
@@ -102,9 +100,9 @@ func spawn_minor_virus():
 	
 	for i in enemy_count:
 		var enemy = ENENEMY_SCENE.instantiate()
-		enemy.unit_data = GameData.get_random_entity_data()
-		enemy.position = Vector2(randi_range(1200, 1350), randi_range(530, 900))
-		enemy.scale = Vector2(6.325, 6.325)
+		enemy.unit_data = GameData.get_random_normal_enemy_data()
+		enemy.position = Vector2(randi_range(1200, 1350), randi_range(450, 900))
+		enemy.scale = Vector2(9.0, 9.0)
 
 		enemy.add_to_group("enemies")
 		GameData.active_enemies.push_back(enemy)
@@ -115,8 +113,8 @@ func spawn_minor_virus():
 func spawn_boss_virus():
 	var boss = ENENEMY_SCENE.instantiate()
 
-	boss.unit_data = GameData.get_random_entity_data()
-	boss.position = Vector2(1350,830)
+	boss.unit_data = GameData.get_random_boss_enemy_data()
+	boss.position = Vector2(randi_range(1200, 1350), randi_range(530, 870))
 	boss.scale = Vector2(20,20)
 
 
@@ -127,13 +125,15 @@ func spawn_boss_virus():
 	boss.HEALTH *= 3
 	boss.DAMAGE *= 2
 	
+	boss.health_bar._setup_health_bar(boss.HEALTH)
+	
 	enemy_type = "boss"
 
 
 func spawn_final_boss_virus():
 	var final_boss = ENENEMY_SCENE.instantiate()
 
-	final_boss.unit_data = GameData.get_random_entity_data()
+	final_boss.unit_data = GameData.get_final_boss_enemy_data()
 	final_boss.position = Vector2(1350,660)
 	final_boss.scale = Vector2(25,25)
 
@@ -144,7 +144,8 @@ func spawn_final_boss_virus():
 	
 	final_boss.HEALTH *= 5
 	final_boss.DAMAGE *= 3
-	final_boss.modulate = Color(1.0, 0.118, 0.078, 1.0)
+	
+	final_boss.health_bar._setup_health_bar(final_boss.HEALTH)
 	
 	enemy_type = "final_boss"
 
@@ -160,3 +161,14 @@ func clear_commrades():
 
 func update_balance_display(new_balance):
 	balance_label.get_node("Label").text = str(new_balance)
+
+
+func determine_next_scene():
+	if GameData.battle_number == (GameData.BOSS_INTERVAL) + 1 or GameData.battle_number == (GameData.FINAL_BOSS_ROUND) + 1:
+		get_tree().change_scene_to_file("res://scenes/cutscene_scene/cutscene_scene.tscn")
+	else:
+		get_tree().change_scene_to_file("res://scenes/shop/shop.tscn")
+
+
+func _on_button_pressed() -> void:
+	determine_next_scene()

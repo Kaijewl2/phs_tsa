@@ -1,0 +1,49 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://cptu5h2y1oxi6"]
+
+[ext_resource type="Texture2D" uid="uid://b46w2i31y1w5q" path="res://art/viruses/normal/packet_sniffer/packet_sniffer_ss.png" id="1_6kvw6"]
+[ext_resource type="Texture2D" uid="uid://c0xfajn7x77nl" path="res://art/viruses/normal/packet_sniffer/packet_sniffer.png" id="2_0nrnd"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l3d8s"]
+atlas = ExtResource("1_6kvw6")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ek2er"]
+atlas = ExtResource("1_6kvw6")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qms37"]
+atlas = ExtResource("2_0nrnd")
+region = Rect2(0, 0, 16, 16)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l3d8s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ek2er")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l3d8s")
+}],
+"loop": false,
+"name": &"attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qms37")
+}],
+"loop": true,
+"name": &"death",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qms37")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]

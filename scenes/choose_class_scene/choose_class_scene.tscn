@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://cbvm4jjmhb7le"]
 
-[ext_resource type="Texture2D" uid="uid://xhdc6tds456w" path="res://art/icons/windows.png" id="3_0plyd"]
+[ext_resource type="Texture2D" uid="uid://bjvcfef5f25ln" path="res://art/entities/rubber_ducky/rubber_ducky_single.png" id="2_aflmc"]
 [ext_resource type="PackedScene" uid="uid://o20hswvwfbsb" path="res://scenes/class_pick_scene/class_pick_scene.tscn" id="3_aflmc"]
-[ext_resource type="Texture2D" uid="uid://b15bel56vuxkc" path="res://art/icons/apple.png" id="5_vbc54"]
+[ext_resource type="Texture2D" uid="uid://ckimedgxf2230" path="res://art/entities/penguin/penguin.png" id="3_jpwuq"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_jpwuq"]
-font_size = 103
+font_size = 67
 
 [node name="choose_class_scene" type="Control" unique_id=1433978546]
 layout_mode = 3
@@ -26,36 +26,47 @@ color = Color(0.11874751, 0.11874729, 0.11696043, 1)
 
 [node name="Label" type="Label" parent="." unique_id=1483643020]
 layout_mode = 1
-anchors_preset = 8
+anchors_preset = 5
 anchor_left = 0.5
-anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -741.0
-offset_top = -385.0
-offset_right = 741.0
-offset_bottom = -265.0
+offset_left = -505.0
+offset_top = 184.0
+offset_right = 506.0
+offset_bottom = 252.0
 grow_horizontal = 2
-grow_vertical = 2
+theme_override_font_sizes/font_size = 16
 text = "Choose your Operating System"
 label_settings = SubResource("LabelSettings_jpwuq")
 
 [node name="class_pick_scene" parent="." unique_id=1016465311 instance=ExtResource("3_aflmc")]
 layout_mode = 1
 anchor_bottom = 0.642
-offset_left = 51.0
-offset_top = 384.0
-offset_right = 50.880005
-offset_bottom = 384.0727
+offset_left = 53.0
+offset_top = 383.0
+offset_right = 52.880005
+offset_bottom = 383.0727
 scale = Vector2(0.515, 0.515)
-node_class_type = "windows"
+node_class_type = "rubber ducky"
+
+[node name="background_img" parent="class_pick_scene" index="0" unique_id=175451320]
+modulate = Color(0, 1, 0, 1)
+offset_left = 27.184467
+offset_top = -33.009712
+offset_right = 103.32941
+offset_bottom = 425.56488
 
 [node name="icon_img" parent="class_pick_scene" index="1" unique_id=2056045065]
-offset_left = 248.5437
-offset_top = 264.0777
-offset_right = 690.5437
-offset_bottom = 776.0777
-texture = ExtResource("3_0plyd")
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.246
+anchor_top = 0.21800001
+anchor_right = 0.73600006
+anchor_bottom = 1.0020001
+offset_left = 195.4097
+offset_top = 136.21031
+offset_right = 12.607849
+offset_bottom = -60.95807
+texture = ExtResource("2_aflmc")
 
 [node name="class_pick_scene2" parent="." unique_id=1380742104 instance=ExtResource("3_aflmc")]
 layout_mode = 1
@@ -65,34 +76,38 @@ anchor_right = 0.637
 anchor_bottom = 0.68600005
 offset_left = -0.12005615
 offset_top = -0.480011
-offset_right = 498.95996
-offset_bottom = 336.55267
+offset_right = 569.95996
+offset_bottom = 743.11993
 scale = Vector2(0.515, 0.515)
-node_class_type = "linux"
+node_class_type = "cat"
 
 [node name="class_pick_scene3" parent="." unique_id=2015309116 instance=ExtResource("3_aflmc")]
 layout_mode = 1
 anchor_bottom = 0.642
-offset_left = 1335.0
-offset_top = 384.0
-offset_right = 1334.88
-offset_bottom = 384.0727
+offset_left = 1307.0001
+offset_top = 363.00003
+offset_right = 1306.88
+offset_bottom = 363.0727
 scale = Vector2(0.515, 0.515)
-node_class_type = "mac"
+node_class_type = "penguin"
 
 [node name="background_img" parent="class_pick_scene3" index="0" unique_id=175451320]
-rotation = 6.112105
+modulate = Color(0, 0.15658149, 0.99999934, 1)
+offset_right = 76.14496
+offset_bottom = 458.57465
 
 [node name="icon_img" parent="class_pick_scene3" index="1" unique_id=2056045065]
 layout_mode = 1
 anchors_preset = -1
-anchor_right = 0.711
-anchor_bottom = 1.0
-offset_left = 256.3107
-offset_top = 205.82526
-offset_right = -33.30829
-offset_bottom = 24.392517
-texture = ExtResource("5_vbc54")
+anchor_left = 0.149
+anchor_top = 0.19000001
+anchor_right = 0.79800004
+anchor_bottom = 1.1520001
+offset_left = 141.82446
+offset_top = 145.91763
+offset_right = -100.99664
+offset_bottom = -96.164734
+texture = ExtResource("3_jpwuq")
 
 [editable path="class_pick_scene"]
 [editable path="class_pick_scene3"]

@@ -14,7 +14,7 @@ font_color = Color(0, 0, 0, 1)
 [sub_resource type="LabelSettings" id="LabelSettings_pdpf5"]
 line_spacing = 0.83
 font = ExtResource("6_pdpf5")
-font_size = 10
+font_size = 9
 font_color = Color(0, 0, 0, 1)
 
 [node name="backpack_card" type="Control" unique_id=1231329556]
@@ -110,10 +110,10 @@ mouse_filter = 2
 
 [node name="card_image" type="TextureRect" parent="card_frame" unique_id=356638567]
 layout_mode = 0
-offset_left = 4.4568243
-offset_top = 6.128134
-offset_right = 49.780464
-offset_bottom = 46.73056
+offset_left = 3.064067
+offset_top = 4.4568243
+offset_right = 50.748314
+offset_bottom = 49.308342
 scale = Vector2(0.59, 0.59)
 texture = ExtResource("3_c4ux8")
 stretch_mode = 4
@@ -122,7 +122,7 @@ stretch_mode = 4
 visible = false
 layout_mode = 0
 offset_left = -16.0
-offset_top = 181.0
+offset_top = 175.0
 offset_right = 150.0
 offset_bottom = 217.0
 theme_override_font_sizes/font_size = 28
@@ -172,23 +172,24 @@ visible = false
 z_index = 26
 layout_mode = 0
 offset_left = -275.0
-offset_top = -152.0
+offset_top = -142.0
 offset_right = 33.0
-offset_bottom = 94.0
+offset_bottom = 130.0
 mouse_filter = 2
 color = Color(1, 1, 1, 0.6392157)
 
 [node name="item_info_label" type="RichTextLabel" parent="item_info_container" unique_id=2088150849]
 layout_mode = 0
 offset_left = 14.0
-offset_top = 14.0
+offset_top = 3.0
 offset_right = 295.0
-offset_bottom = 241.0
+offset_bottom = 286.0
 mouse_filter = 2
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_colors/font_selected_color = Color(0, 0, 0, 0)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/normal_font_size = 24
+theme_override_font_sizes/bold_font_size = 24
 bbcode_enabled = true
 vertical_alignment = 1
 
