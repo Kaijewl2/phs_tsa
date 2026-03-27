@@ -644,6 +644,7 @@ text = "to encounter"
 flat = true
 
 [node name="tutorial_container" type="Control" parent="." unique_id=519997454]
+visible = false
 texture_filter = 1
 layout_mode = 3
 anchors_preset = 0

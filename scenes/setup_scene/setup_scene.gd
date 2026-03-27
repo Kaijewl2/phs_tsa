@@ -40,6 +40,7 @@ func _ready() -> void:
 		tutorial_container.show()
 		GameData.tutorial_played = true
 	else:
+		tutorial_container.hide()
 		tutorial_container.queue_free()
 	
 	security_sweep_label.text += str(GameData.current_security_sweep)

@@ -8,9 +8,6 @@ extends Control
 @onready var icon_img: TextureRect = $icon_img
 
 
-const scene_path:String = "res://scenes/setup_scene/setup_scene.tscn"
-
-
 var hovering:bool = false
 var starting_scale:Vector2
 
@@ -24,7 +21,7 @@ func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and hovering == true:
 		if event.is_pressed():
 			GameData.change_player_class(node_class_type)
-			get_tree().change_scene_to_file(scene_path)
+			get_tree().change_scene_to_file("res://scenes/cutscene_scene/cutscene_scene.tscn")
 
 
 func _on_mouse_entered() -> void:

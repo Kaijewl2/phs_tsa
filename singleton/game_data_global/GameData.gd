@@ -29,6 +29,7 @@ enum Context {NORMAL, REMOVE}
 
 
 var current_context = Context.NORMAL
+var current_cutscene:int = 0
 var setup_gpus = []
 var setup_cpus = []
 var setup_gpu_types = []

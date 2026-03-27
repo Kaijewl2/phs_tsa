@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://bslie248153ha"]
+
+[ext_resource type="Script" uid="uid://coerxc2ygded4" path="res://scenes/cutscene_scene/cutscene_scene.gd" id="1_12lrb"]
+[ext_resource type="Texture2D" uid="uid://b00si68gdkbtl" path="res://art/maps/scene_1.png" id="2_ng7eg"]
+[ext_resource type="Texture2D" uid="uid://bnbqs7l2rowpc" path="res://art/misc/continue_ui.png" id="3_ng7eg"]
+
+[node name="cutscene_scene" type="Control" unique_id=940830135]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_12lrb")
+
+[node name="current_cutscene_image" type="TextureRect" parent="." unique_id=953108167]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("2_ng7eg")
+
+[node name="advance_cutscene_button" type="Button" parent="." unique_id=538281910]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+flat = true
+
+[node name="continue_ui" type="TextureRect" parent="." unique_id=518272720]
+texture_filter = 1
+layout_mode = 0
+offset_left = 1460.0001
+offset_top = 30.999998
+offset_right = 2859.0
+offset_bottom = 386.55557
+scale = Vector2(0.33, 0.33)
+mouse_filter = 2
+texture = ExtResource("3_ng7eg")
+stretch_mode = 4
+
+[node name="continue_label" type="Label" parent="continue_ui" unique_id=166807545]
+layout_mode = 0
+offset_left = 149.0
+offset_right = 1392.0
+offset_bottom = 348.0
+theme_override_font_sizes/font_size = 84
+text = "Click anywhere to continue"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="advance_cutscene_button" to="." method="_on_advance_cutscene_button_pressed"]

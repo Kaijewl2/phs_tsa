@@ -161,3 +161,14 @@ func clear_commrades():
 
 func update_balance_display(new_balance):
 	balance_label.get_node("Label").text = str(new_balance)
+
+
+func determine_next_scene():
+	if GameData.battle_number == (GameData.BOSS_INTERVAL) + 1 or GameData.battle_number == (GameData.FINAL_BOSS_ROUND) + 1:
+		get_tree().change_scene_to_file("res://scenes/cutscene_scene/cutscene_scene.tscn")
+	else:
+		get_tree().change_scene_to_file("res://scenes/shop/shop.tscn")
+
+
+func _on_button_pressed() -> void:
+	determine_next_scene()
