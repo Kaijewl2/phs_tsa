@@ -42,3 +42,11 @@ func _on_advance_cutscene_button_pressed() -> void:
 	if GameData.current_cutscene == 6:
 		get_tree().change_scene_to_file("res://scenes/shop/shop.tscn")
 		
+	if GameData.current_cutscene == 9:
+		get_tree().change_scene_to_file("res://scenes/shop/shop.tscn")
+	
+	if GameData.current_cutscene == 10:
+		get_tree().change_scene_to_file("res://scenes/shop/shop.tscn")
+	
+	if GameData.current_cutscene == 11:
+		get_tree().change_scene_to_file("res://scenes/win_scene/win_scene.tscn")

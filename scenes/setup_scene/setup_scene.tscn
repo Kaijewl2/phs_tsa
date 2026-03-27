@@ -517,10 +517,6 @@ vertical_alignment = 1
 [node name="insufficient_ram_container" parent="motherboard_layout" unique_id=1975654364 groups=["insufficient_ram"] instance=ExtResource("13_kwufy")]
 visible = false
 layout_mode = 0
-offset_left = 0.0
-offset_top = 0.0
-offset_right = 711.0067
-offset_bottom = 154.0
 
 [node name="manage_button_container" type="ColorRect" parent="motherboard_layout" unique_id=1627438824]
 layout_mode = 0

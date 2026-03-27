@@ -6,10 +6,11 @@
 [resource]
 script = ExtResource("1_yb2a8")
 unit_name = "Trojan Horse"
-health = 150.0
-damage = 55
-speed = 25
-attack_cooldown = 1.0
-death_value = 40
+health = 35.0
+damage = 12
+speed = 20
+attack_cooldown = 2.2
+death_value = 30
+ram_cost = 8
 sprite_animations = ExtResource("2_qsf5c")
 metadata/_custom_type_script = "uid://bo4u7fiofkecs"

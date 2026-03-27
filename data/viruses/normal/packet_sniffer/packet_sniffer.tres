@@ -6,10 +6,11 @@
 [resource]
 script = ExtResource("1_ncnlt")
 unit_name = "Packet Sniffer"
-health = 60.0
-damage = 12
-speed = 70
+health = 15.0
+damage = 4
+speed = 30
 attack_cooldown = 1.8
-death_value = 20
+death_value = 10
+ram_cost = 5
 sprite_animations = ExtResource("2_wfpnx")
 metadata/_custom_type_script = "uid://bo4u7fiofkecs"

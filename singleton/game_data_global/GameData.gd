@@ -10,7 +10,7 @@ signal ram_changed()
 
 
 const MAX_BACKPACK_SIZE = 15
-const MAX_SETUP_SIZE = 4
+const MAX_SETUP_SIZE = 67
 const MAX_RAM_SLOTS:int = 4
 const BOSS_INTERVAL:int = 3
 const FINAL_BOSS_ROUND:int = 10
@@ -20,11 +20,12 @@ const BACKPACK_GPU_SCENE_PATH: String = "res://scenes/backpack_gpu_scene/backpac
 const BACKPACK_CPU_SCENE_PATH: String = "res://scenes/backpack_cpu/backpack_cpu.tscn"
 const MAX_GPU_SLOTS: int = 1
 const MAX_CPU_SLOTS: int = 1
-const MAX_RAM_GB:int = 64
+const MAX_RAM_GB:int = 32
 const BASE_RAM_STICK_DATA = preload("uid://c8mwxgju7ai6q")
 const HEALTH_RAM_STICK_DATA = preload("uid://dtqn1dmjrrb1g")
 const DAMAGE_RAM_STICK_DATA = preload("uid://d1yj44foo08a0")
 const SPEED_RAM_STICK_DATA = preload("uid://djv75ht8apx3y")
+
 enum Context {NORMAL, REMOVE}
 
 
@@ -52,7 +53,7 @@ var added_starting_card:bool = false
 var added_starting_ram: bool = true
 var tutorial_played: bool = false
 var user_skipped_tutorial: bool = false
-var balance: int = 676767
+var balance: int = 50
 var current_ram_gb: int
 var PlayerClass: String
 var unit_types = {
@@ -90,7 +91,8 @@ var sell_card_types = {
 var harware_part_types = {
 	"damage_ram": preload("uid://d1yj44foo08a0"),
 	"speed_ram": preload("uid://djv75ht8apx3y"),
-	"health_ram": preload("uid://dtqn1dmjrrb1g")
+	"health_ram": preload("uid://dtqn1dmjrrb1g"),
+	"base_ram": preload("uid://c8mwxgju7ai6q")
 }
 var gpu_types = {
 	"damage_gpu": preload("uid://dcss64215a6ww"),
@@ -154,14 +156,12 @@ func is_final_boss_encounter() -> bool:
 
 func add_starting_gear():
 	if player_hand_cards.is_empty():
+		add_ram_stick_to_backpack(BACKPACK_RAM_STICK_SCENE_PATH, BASE_RAM_STICK_DATA)
 		if(PlayerClass == "cat"):
-			add_ram_stick_to_backpack(BACKPACK_RAM_STICK_SCENE_PATH, DAMAGE_RAM_STICK_DATA)
 			add_card_to_backpack(SETUP_CARD_SCENE_PATH, sell_card_types["Firecat"])
 		elif(PlayerClass == "penguin"):
-			add_ram_stick_to_backpack(BACKPACK_RAM_STICK_SCENE_PATH, SPEED_RAM_STICK_DATA)
 			add_card_to_backpack(SETUP_CARD_SCENE_PATH, sell_card_types["Tux"])
 		else:
-			add_ram_stick_to_backpack(BACKPACK_RAM_STICK_SCENE_PATH, HEALTH_RAM_STICK_DATA)
 			add_card_to_backpack(SETUP_CARD_SCENE_PATH, sell_card_types["Rubber Ducky"])
 		
 		added_starting_card = true
@@ -626,6 +626,7 @@ func reset() -> void:
 	battle_number = 1
 	current_security_sweep = 1
 	added_starting_card = false
-	balance = 1000
+	balance = 50
 	PlayerClass = ""
 	current_ram_gb = 0
+	current_cutscene = 0

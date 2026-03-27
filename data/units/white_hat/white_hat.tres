@@ -6,10 +6,11 @@
 [resource]
 script = ExtResource("1_4u61k")
 unit_name = "White Hat"
-health = 120.0
-damage = 30
-speed = 40
-attack_cooldown = 1.0
-death_value = 45
+health = 30.0
+damage = 3
+speed = 30
+attack_cooldown = 2.0
+death_value = 30
+ram_cost = 6
 sprite_animations = ExtResource("2_e6rcy")
 metadata/_custom_type_script = "uid://bo4u7fiofkecs"

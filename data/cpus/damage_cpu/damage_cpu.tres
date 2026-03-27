@@ -7,6 +7,7 @@
 script = ExtResource("1_t2d5l")
 cpu_image = ExtResource("1_tpahk")
 cpu_name = "Damage CPU"
-damage_enhancer = 0.2
-cost = 12
+damage_enhancer = 0.3
+gb_size = 4
+cost = 20
 metadata/_custom_type_script = "uid://cx3iiy5udxwdm"

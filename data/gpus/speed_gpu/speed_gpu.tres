@@ -7,5 +7,7 @@
 script = ExtResource("1_2ef47")
 gpu_image = ExtResource("1_eoh8i")
 gpu_name = "Speed GPU"
-speed_enhancer = 0.2
+speed_enhancer = 0.3
+gb_size = 4
+cost = 15
 metadata/_custom_type_script = "uid://cxak8dq6ycube"

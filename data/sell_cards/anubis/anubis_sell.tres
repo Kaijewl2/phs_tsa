@@ -7,14 +7,14 @@
 [resource]
 script = ExtResource("1_pwb7n")
 card_frame = ExtResource("1_74lw5")
-card_background = Color(0.8509804, 0.32156864, 0.44705883, 1)
-card_borders = Color(0.8352941, 0.70980394, 0.6313726, 1)
+card_background = Color(0.2, 0.11764706, 0.32941177, 1)
+card_borders = Color(0.9019608, 0.3764706, 0, 1)
 card_icon = ExtResource("2_74lw5")
 sell_card_name = "Firecat"
 sell_card_desc = "Cousins with a famous fox."
-health = 95.0
-damage = 35
-speed = 80
-value = 160
+health = 20.0
+damage = 10
+speed = 55
+value = 15
 ram_cost = 4
 metadata/_custom_type_script = "uid://c6rkw8aflunst"

@@ -3,7 +3,7 @@ extends CharacterBody2D
 @export var unit_data: UnitData
 
 
-@export var DEATH_VALUE = 5
+@export var DEATH_VALUE = 10
 @export var unit_sprite: Texture2D
 
 
@@ -106,12 +106,13 @@ func find_target():
 	if not commrades.is_empty():
 			target = commrades[0]
 
-
+"""
+Testing func
 func _on_area_2d_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed and current_context != Context.DEATH:
 			take_damage(50)
-
+"""
 
 func _on_area_2d_mouse_entered() -> void:
 	pass

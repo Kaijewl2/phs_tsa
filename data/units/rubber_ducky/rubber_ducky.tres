@@ -6,10 +6,11 @@
 [resource]
 script = ExtResource("1_i6onq")
 unit_name = "Rubber Ducky"
-health = 300.0
-damage = 8
+health = 45.0
+damage = 4
 speed = 15
-attack_cooldown = 1.0
-death_value = 180
+attack_cooldown = 2.5
+death_value = 25
+ram_cost = 4
 sprite_animations = ExtResource("2_78oyk")
 metadata/_custom_type_script = "uid://bo4u7fiofkecs"

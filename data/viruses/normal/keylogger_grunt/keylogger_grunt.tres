@@ -6,10 +6,11 @@
 [resource]
 script = ExtResource("1_03wqi")
 unit_name = "Keylogger Grunt"
-health = 80.0
-damage = 10
-speed = 35
-attack_cooldown = 1.5
-death_value = 20
+health = 15.0
+damage = 4
+speed = 25
+attack_cooldown = 1.8
+death_value = 10
+ram_cost = 5
 sprite_animations = ExtResource("2_fqthc")
 metadata/_custom_type_script = "uid://bo4u7fiofkecs"

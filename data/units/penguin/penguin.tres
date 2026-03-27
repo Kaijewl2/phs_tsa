@@ -6,10 +6,11 @@
 [resource]
 script = ExtResource("1_1odnm")
 unit_name = "Tux"
-health = 110.0
-damage = 30
+health = 25.0
+damage = 8
 speed = 35
-attack_cooldown = 1.0
-death_value = 25
+attack_cooldown = 1.8
+death_value = 15
+ram_cost = 4
 sprite_animations = ExtResource("2_ohhxv")
 metadata/_custom_type_script = "uid://bo4u7fiofkecs"

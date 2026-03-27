@@ -26,9 +26,9 @@ var battle_over: bool = false
 var enemy_type: String
 
 func _ready() -> void:
-	if GameData.battle_number < 3:
+	if GameData.battle_number <= 3:
 		level_image.texture = NEIGHBORHOOD_MAP
-	elif GameData.battle_number < 7:
+	elif GameData.battle_number <= 6:
 		level_image.texture = CITY_MAP
 	else:
 		level_image.texture = SPACE_ORBITAL_MAP
@@ -56,14 +56,14 @@ func _process(_delta: float) -> void:
 		battle_over = true
 		GameData.battle_number += 1
 		
-		if(enemy_type == "boss"):
+		if(enemy_type == "boss" and GameData.current_security_sweep > 3):
 			GameData.increment_security_sweep()
 		elif(enemy_type == "final_boss"):
 			label.hide()
-			enter_shop_button.hide()
+			enter_shop_button.show()
 			
 			final_boss_win_label.show()
-			enter_win_scene_button.show()
+			enter_win_scene_button.hide()
 			
  
 
@@ -77,8 +77,8 @@ func spawn_commrades():
 	
 		commrade.unit_data = commrade_type
 		
-		commrade.position = Vector2(randi_range(400, 700), randi_range(450, 900))
-		commrade.scale = Vector2(5.75,5.75)
+		commrade.position = Vector2(randi_range(300, 700), randi_range(470, 900))
+		commrade.scale = Vector2(6.75,6.75)
 	
 		add_child(commrade)
 	
@@ -102,7 +102,7 @@ func spawn_minor_virus():
 		var enemy = ENENEMY_SCENE.instantiate()
 		enemy.unit_data = GameData.get_random_normal_enemy_data()
 		enemy.position = Vector2(randi_range(1200, 1350), randi_range(450, 900))
-		enemy.scale = Vector2(9.0, 9.0)
+		enemy.scale = Vector2(10.0, 10.0)
 
 		enemy.add_to_group("enemies")
 		GameData.active_enemies.push_back(enemy)
@@ -122,8 +122,8 @@ func spawn_boss_virus():
 	GameData.active_enemies.push_back(boss)
 	add_child(boss)
 	
-	boss.HEALTH *= 3
-	boss.DAMAGE *= 2
+	#boss.HEALTH *= 2
+	#boss.DAMAGE *= 1
 	
 	boss.health_bar._setup_health_bar(boss.HEALTH)
 	
@@ -142,8 +142,8 @@ func spawn_final_boss_virus():
 	GameData.active_enemies.push_back(final_boss)
 	add_child(final_boss)
 	
-	final_boss.HEALTH *= 5
-	final_boss.DAMAGE *= 3
+	#final_boss.HEALTH *= 3
+	#final_boss.DAMAGE *= 2
 	
 	final_boss.health_bar._setup_health_bar(final_boss.HEALTH)
 	
@@ -164,7 +164,7 @@ func update_balance_display(new_balance):
 
 
 func determine_next_scene():
-	if GameData.battle_number == (GameData.BOSS_INTERVAL) + 1 or GameData.battle_number == (GameData.FINAL_BOSS_ROUND) + 1:
+	if GameData.battle_number == (GameData.BOSS_INTERVAL) + 1 or GameData.battle_number == (GameData.BOSS_INTERVAL) + 4 or GameData.battle_number == (GameData.BOSS_INTERVAL) + 7 or GameData.battle_number == (GameData.FINAL_BOSS_ROUND) + 1:
 		get_tree().change_scene_to_file("res://scenes/cutscene_scene/cutscene_scene.tscn")
 	else:
 		get_tree().change_scene_to_file("res://scenes/shop/shop.tscn")

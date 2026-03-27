@@ -6,10 +6,11 @@
 [resource]
 script = ExtResource("1_5qnni")
 unit_name = "The Great Corruption"
-health = 650.0
-damage = 55
+health = 160.0
+damage = 14
 speed = 35
 attack_cooldown = 2.0
-death_value = 250
+death_value = 30
+ram_cost = 30
 sprite_animations = ExtResource("2_lw2es")
 metadata/_custom_type_script = "uid://bo4u7fiofkecs"

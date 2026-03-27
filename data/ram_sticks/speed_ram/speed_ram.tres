@@ -10,5 +10,6 @@ ram_stick_name = "Speed RAM"
 speed_enhancer = 0.5
 damage_enhancer = 0.0
 health_enhancer = 0.0
-cost = 5
+gb_size = 6
+cost = 10
 metadata/_custom_type_script = "uid://csts7gyo8l4sn"

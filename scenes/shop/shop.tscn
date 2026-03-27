@@ -58,10 +58,10 @@ anchor_left = 0.065000005
 anchor_top = 0.223
 anchor_right = 0.15100001
 anchor_bottom = 0.303
-offset_left = 14.199989
-offset_top = 7.1599884
-offset_right = -0.9200134
-offset_bottom = -0.23999023
+offset_left = -3.8000107
+offset_top = 170.15999
+offset_right = -18.920013
+offset_bottom = 162.76001
 
 [node name="change_scene_button" parent="." unique_id=2077746840 instance=ExtResource("7_ge4d2")]
 layout_mode = 1
@@ -78,9 +78,9 @@ label_text = "to motherboard"
 
 [node name="Button" parent="change_scene_button" index="0" unique_id=1490372151]
 anchor_left = -0.16756757
-anchor_top = -0.29354203
+anchor_top = -3.7834308
 anchor_right = 1.4567567
-anchor_bottom = 1.7123286
+anchor_bottom = -1.0763208
 offset_right = 2.0
 offset_bottom = 0.0
 grow_horizontal = 2
@@ -88,14 +88,14 @@ grow_vertical = 2
 flat = true
 
 [node name="Label" parent="change_scene_button" index="1" unique_id=1345280553]
-anchor_left = 0.089
-anchor_top = 0.07700001
-anchor_right = 1.4460001
-anchor_bottom = 1.582
-offset_left = -24.076004
-offset_top = 0.0062127113
-offset_right = 289.5642
-offset_bottom = 50.77722
+anchor_left = -0.081
+anchor_top = -3.164
+anchor_right = 1.3410001
+anchor_bottom = -1.659
+offset_left = -0.030008316
+offset_top = 0.016525269
+offset_right = 289.56018
+offset_bottom = 50.78753
 scale = Vector2(0.645, 0.645)
 text = "to hardware"
 
@@ -116,10 +116,10 @@ anchors_preset = -1
 anchor_left = -0.66700006
 anchor_top = -0.24100001
 anchor_right = -0.43100002
-offset_left = -793.44
-offset_top = -464.16
-offset_right = -761.44
-offset_bottom = -432.16
+offset_left = -792.99994
+offset_top = -397.99994
+offset_right = -760.99994
+offset_bottom = -365.99994
 scale = Vector2(3.45, 3.45)
 texture = ExtResource("5_ctpgp")
 stretch_mode = 4

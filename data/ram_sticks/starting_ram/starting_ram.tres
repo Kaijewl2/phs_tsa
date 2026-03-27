@@ -7,10 +7,9 @@
 script = ExtResource("1_qs8n1")
 ram_stick_image = ExtResource("1_bhux2")
 ram_stick_name = "Base Ram"
-ram_stick_desc = "Everyones got to start somewhere"
 speed_enhancer = 0.0
 damage_enhancer = 0.0
 health_enhancer = 0.0
 gb_size = 4
-cost = 4
+cost = 5
 metadata/_custom_type_script = "uid://csts7gyo8l4sn"

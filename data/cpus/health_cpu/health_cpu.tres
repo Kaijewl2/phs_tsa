@@ -7,6 +7,7 @@
 script = ExtResource("1_0keyy")
 cpu_image = ExtResource("1_eyk4w")
 cpu_name = "Health CPU"
-health_enhancer = 0.2
-cost = 12
+health_enhancer = 0.3
+gb_size = 4
+cost = 20
 metadata/_custom_type_script = "uid://cx3iiy5udxwdm"

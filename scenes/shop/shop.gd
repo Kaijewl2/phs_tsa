@@ -57,17 +57,13 @@ func _ready() -> void:
 		sell_card.sell_card_data = GameData.get_random_sell_card_data()
 		card_container.add_child(sell_card)
 
-# FIX INCORRECT TOTAL RAM AND NOT GETTING RAM AFTER PURCHASE
+
 func update_ram_bar():
 	var total_ram = GameData.get_total_ram()
 	
 	ram_bar.max_value = GameData.MAX_RAM_GB
 	ram_bar.value = total_ram
 	ram_info_label.text = str(total_ram) + " GB total available RAM"
-	
-	print("total_ram: ", total_ram)
-	print("ram_bar.value: ", ram_bar.value)
-
 
 
 func update_storage_bar():

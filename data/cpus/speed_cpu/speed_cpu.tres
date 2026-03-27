@@ -7,6 +7,7 @@
 script = ExtResource("1_c5tnj")
 cpu_image = ExtResource("1_awxr5")
 cpu_name = "Speed CPU"
-speed_enhancer = 0.2
-cost = 8
+speed_enhancer = 0.3
+gb_size = 4
+cost = 20
 metadata/_custom_type_script = "uid://cx3iiy5udxwdm"
