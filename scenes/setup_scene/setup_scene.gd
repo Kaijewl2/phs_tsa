@@ -7,7 +7,7 @@ extends Node2D
 @onready var security_sweep_label: Label = $motherboard_layout/security_sweep_rect/security_sweep_label
 @onready var ram_bar: ProgressBar = $motherboard_layout/stats_container/ram_bar_container/ram_bar
 @onready var change_scene_button: Control = $change_scene_button
-@onready var to_encounter_button: Button = $to_encounter_button
+@onready var to_encounter_button: Button = $to_encounter_image/to_encounter_button
 @onready var tutorial_container: Control = $tutorial_container
 
 

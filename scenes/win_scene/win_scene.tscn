@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://mnnkp6xcwlxm"]
 
 [ext_resource type="Texture2D" uid="uid://2vfb21d5ihyp" path="res://art/maps/scene_12.png" id="1_1jddt"]
+[ext_resource type="Script" uid="uid://bqucpovgiji8o" path="res://scenes/win_scene/win_scene.gd" id="1_xv7eg"]
 [ext_resource type="Texture2D" uid="uid://chkd6tjdgjk2l" path="res://art/misc/button_frame.png" id="2_xv7eg"]
 
 [node name="win_scene" type="Control" unique_id=2105699469]
@@ -10,6 +11,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_xv7eg")
 
 [node name="BRICK" type="TextureRect" parent="." unique_id=1352343612]
 texture_filter = 1
@@ -47,3 +49,5 @@ offset_bottom = 228.0
 theme_override_font_sizes/font_size = 100
 text = "Continue"
 flat = true
+
+[connection signal="pressed" from="BRICK/TextureRect/Button" to="." method="_on_button_pressed"]

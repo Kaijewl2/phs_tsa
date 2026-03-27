@@ -19,6 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://dbrfwjxrddye4" path="res://scenes/insufficient_ram_container/insufficient_ram_container.tscn" id="13_kwufy"]
 [ext_resource type="PackedScene" uid="uid://7yn14yiyxpk6" path="res://scenes/backpack_gpu_scene/backpack_gpu.tscn" id="16_kwufy"]
 [ext_resource type="PackedScene" uid="uid://cs3wsbc77dnuc" path="res://scenes/backpack_cpu/backpack_cpu.tscn" id="17_kwufy"]
+[ext_resource type="Texture2D" uid="uid://chkd6tjdgjk2l" path="res://art/misc/button_frame.png" id="20_28j3e"]
 [ext_resource type="Script" uid="uid://bejd54pt4byf0" path="res://scenes/setup_scene/tutorial_container.gd" id="20_vlk3g"]
 [ext_resource type="Texture2D" uid="uid://bsui2yoc7cmyw" path="res://art/icons/brick_mad.png" id="21_6gvcy"]
 [ext_resource type="Texture2D" uid="uid://cii80imitrjdf" path="res://art/maps/neighborhood_map.png" id="21_28j3e"]
@@ -516,6 +517,10 @@ vertical_alignment = 1
 [node name="insufficient_ram_container" parent="motherboard_layout" unique_id=1975654364 groups=["insufficient_ram"] instance=ExtResource("13_kwufy")]
 visible = false
 layout_mode = 0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 711.0067
+offset_bottom = 154.0
 
 [node name="manage_button_container" type="ColorRect" parent="motherboard_layout" unique_id=1627438824]
 layout_mode = 0
@@ -634,12 +639,19 @@ scale = Vector2(1.385, 1.385)
 scene_path = "res://scenes/battle_scene/battle_scene.tscn"
 label_text = "remove virus"
 
-[node name="to_encounter_button" type="Button" parent="." unique_id=185343312]
-offset_left = 340.0
-offset_top = 939.0
-offset_right = 604.0
-offset_bottom = 996.0
-theme_override_font_sizes/font_size = 41
+[node name="to_encounter_image" type="TextureRect" parent="." unique_id=566051418]
+texture_filter = 1
+offset_left = 274.0
+offset_top = 908.0
+offset_right = 737.0
+offset_bottom = 1011.0
+texture = ExtResource("20_28j3e")
+
+[node name="to_encounter_button" type="Button" parent="to_encounter_image" unique_id=185343312]
+layout_mode = 0
+offset_right = 472.0
+offset_bottom = 106.0
+theme_override_font_sizes/font_size = 63
 text = "to encounter"
 flat = true
 
@@ -733,5 +745,5 @@ flat = true
 [connection signal="mouse_exited" from="motherboard_layout/cpu_container" to="motherboard_layout/cpu_container" method="_on_mouse_exited"]
 [connection signal="mouse_entered" from="motherboard_layout/manage_button_container/manage_button" to="backpack_container" method="_on_manage_button_mouse_entered"]
 [connection signal="mouse_exited" from="motherboard_layout/manage_button_container/manage_button" to="backpack_container" method="_on_manage_button_mouse_exited"]
-[connection signal="pressed" from="to_encounter_button" to="." method="_on_to_encounter_button_pressed"]
+[connection signal="pressed" from="to_encounter_image/to_encounter_button" to="." method="_on_to_encounter_button_pressed"]
 [connection signal="pressed" from="tutorial_container/skip_button" to="tutorial_container" method="_on_skip_button_pressed"]
