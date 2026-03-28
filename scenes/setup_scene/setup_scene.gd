@@ -9,6 +9,9 @@ extends Node2D
 @onready var change_scene_button: Control = $change_scene_button
 @onready var to_encounter_button: Button = $to_encounter_image/to_encounter_button
 @onready var tutorial_container: Control = $tutorial_container
+@onready var to_encounter_image: TextureRect = $to_encounter_image
+@onready var available_slots_label: Label = $backpack_container/available_slots_container/available_slots_label
+@onready var equip_instruction_container: Control = $equip_instruction_container
 
 
 var is_first_shake = true 
@@ -21,6 +24,7 @@ const BATTLE_SCENE_PATH = "res://scenes/battle_scene/battle_scene.tscn"
 const VIRUS_ICON = preload("uid://ctgxc6bxk1yv5")
 const FINAL_VIRUS_ICON = preload("uid://brg8owixn5eja")
 const BOSS_VIRUS_ICON = preload("uid://2eg5npvd305u")
+@onready var grid_container: GridContainer = $backpack_container/storage_img/GridContainer
 
 
 func _ready() -> void:
@@ -42,6 +46,10 @@ func _ready() -> void:
 	else:
 		tutorial_container.hide()
 		tutorial_container.queue_free()
+		equip_instruction_container.hide()
+		available_slots_label.show()
+		grid_container.show()
+		
 	
 	security_sweep_label.text += str(GameData.current_security_sweep)
 	
@@ -124,3 +132,11 @@ func _on_to_encounter_button_pressed() -> void:
 		add_card_message_container.show()
 		
 		anim_shake(add_card_message_container)
+
+
+func _on_to_encounter_button_mouse_entered() -> void:
+	to_encounter_image.scale = Vector2(1.05, 1.05)
+
+
+func _on_to_encounter_button_mouse_exited() -> void:
+	to_encounter_image.scale = Vector2(1.0, 1.0)

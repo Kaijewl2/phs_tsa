@@ -44,19 +44,19 @@ func _ready() -> void:
 		if gpu_name == "Health GPU":
 			item_info_label.text = (
 				"[b]Health GPU[/b]\n\n" +
-				"[font_size=14][i]" + gpu_desc + "[/i][/font_size]\n\n" +
+				"[font_size=18][i]" + gpu_desc + "[/i][/font_size]\n\n" +
 				"[color=#00ff7f]+ HP[/color]      +" + str(int(health_enhancer * 100)) + "%\n"
 			)
 		elif gpu_name == "Damage GPU":
 			item_info_label.text = (
 				"[b]Damage GPU[/b]\n\n" +
-				"[font_size=14][i]" + gpu_desc + "[/i][/font_size]\n\n" +
+				"[font_size=18][i]" + gpu_desc + "[/i][/font_size]\n\n" +
 				"[color=#ff4444]+ DMG[/color]    +" + str(int(damage_enhancer * 100)) + "%\n"
 			)
 		else:
 			item_info_label.text = (
 				"[b]Speed GPU[/b]\n\n" +
-				"[font_size=14][i]" + gpu_desc + "[/i][/font_size]\n\n" +
+				"[font_size=18][i]" + gpu_desc + "[/i][/font_size]\n\n" +
 				"[color=#4fc3f7]+ SPD[/color]    +" + str(int(speed_enhancer * 100)) + "%\n"
 			)
 		currency_label.show()

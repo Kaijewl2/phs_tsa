@@ -15,16 +15,17 @@
 [ext_resource type="Script" uid="uid://cldkglaufaawr" path="res://scenes/setup_scene/gpu_slot_container.gd" id="8_it6vi"]
 [ext_resource type="Script" uid="uid://d1ye6cy6tnqdj" path="res://scenes/setup_scene/cpu_container.gd" id="10_fjxpj"]
 [ext_resource type="Texture2D" uid="uid://bmdylqptfk1jd" path="res://art/misc/cpu_slot.png" id="11_kwufy"]
-[ext_resource type="PackedScene" uid="uid://brbsyxris1py7" path="res://scenes/setup_cpu_scene/setup_cpu.tscn" id="12_it6vi"]
 [ext_resource type="PackedScene" uid="uid://dbrfwjxrddye4" path="res://scenes/insufficient_ram_container/insufficient_ram_container.tscn" id="13_kwufy"]
 [ext_resource type="PackedScene" uid="uid://7yn14yiyxpk6" path="res://scenes/backpack_gpu_scene/backpack_gpu.tscn" id="16_kwufy"]
 [ext_resource type="PackedScene" uid="uid://cs3wsbc77dnuc" path="res://scenes/backpack_cpu/backpack_cpu.tscn" id="17_kwufy"]
 [ext_resource type="Texture2D" uid="uid://chkd6tjdgjk2l" path="res://art/misc/button_frame.png" id="20_28j3e"]
 [ext_resource type="Script" uid="uid://bejd54pt4byf0" path="res://scenes/setup_scene/tutorial_container.gd" id="20_vlk3g"]
 [ext_resource type="Texture2D" uid="uid://bsui2yoc7cmyw" path="res://art/icons/brick_mad.png" id="21_6gvcy"]
-[ext_resource type="Texture2D" uid="uid://cii80imitrjdf" path="res://art/maps/neighborhood_map.png" id="21_28j3e"]
 [ext_resource type="AudioStream" uid="uid://ew4c2h1vn4a8" path="res://sounds/brick_dialog_sfx.mp3" id="22_28j3e"]
+[ext_resource type="Texture2D" uid="uid://kr377ycrtta2" path="res://art/maps/neighborhood_brick_background.png" id="22_aj0cn"]
 [ext_resource type="Texture2D" uid="uid://bps44nyyo0dnb" path="res://art/icons/brick_mouth_open.png" id="23_aj0cn"]
+[ext_resource type="Texture2D" uid="uid://knsjqj3g03lg" path="res://art/maps/arrow.png" id="26_aj0cn"]
+[ext_resource type="Script" uid="uid://c7cl8v3s752h0" path="res://scenes/setup_scene/equip_instruction_container.gd" id="26_mrfqv"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ikacj"]
 bg_color = Color(0.60038817, 0.60038817, 0.60038817, 0)
@@ -44,7 +45,7 @@ bg_color = Color(0.16470589, 0.4392157, 0.5019608, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_it6vi"]
 font = ExtResource("3_fjxpj")
-font_size = 32
+font_size = 26
 
 [sub_resource type="LabelSettings" id="LabelSettings_8xhab"]
 font = ExtResource("3_fjxpj")
@@ -114,6 +115,14 @@ offset_top = 53.0
 offset_right = 1271.0
 offset_bottom = 1047.0
 
+[node name="run_info_background" type="ColorRect" parent="motherboard_layout/stats_container" unique_id=1635670973]
+layout_mode = 0
+offset_left = -1.0
+offset_top = 144.0
+offset_right = 317.0
+offset_bottom = 680.0
+color = Color(0.017732391, 0.017732391, 0.01773239, 1)
+
 [node name="storage_bar" type="ProgressBar" parent="motherboard_layout/stats_container" unique_id=1237934672]
 visible = false
 layout_mode = 1
@@ -177,10 +186,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -136.5
-offset_top = -47.0
-offset_right = 138.5
-offset_bottom = 47.0
+offset_left = -136.93396
+offset_top = -49.0
+offset_right = 138.06604
+offset_bottom = -7.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "RAM"
@@ -203,14 +212,16 @@ offset_right = -0.09399986
 offset_bottom = -0.9920006
 color = Color(1, 1, 1, 0.6431373)
 
-[node name="available_ram_label" type="Label" parent="motherboard_layout/stats_container/ram_bar_container/ram_bar/ram_info_rect" unique_id=766590172]
+[node name="available_ram_label" type="Label" parent="motherboard_layout/stats_container/ram_bar_container/ram_bar" unique_id=766590172]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.989
 anchor_bottom = 1.0
-offset_right = 0.056991577
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 16
+offset_left = 3.0
+offset_top = 6.0
+offset_right = 3.0570068
+offset_bottom = 26.0
+theme_override_font_sizes/font_size = 21
 text = "32.0 / 64.0 gb available"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -222,8 +233,8 @@ anchor_top = 0.252
 anchor_right = 1.0
 anchor_bottom = 0.439
 offset_left = 0.09200001
-offset_top = 109.51199
-offset_bottom = 109.634
+offset_top = -39.488007
+offset_bottom = -39.365997
 
 [node name="next_virus_frame" type="TextureRect" parent="motherboard_layout/stats_container/next_virus_container" unique_id=777456685]
 layout_mode = 1
@@ -287,9 +298,9 @@ autowrap_mode = 3
 [node name="encounter_bar" type="ColorRect" parent="motherboard_layout/stats_container" unique_id=337364771]
 layout_mode = 0
 offset_left = 7.0
-offset_top = 710.0
+offset_top = 561.0
 offset_right = 308.0
-offset_bottom = 818.0
+offset_bottom = 669.0
 color = Color(0.1254902, 0.1254902, 0.1254902, 1)
 
 [node name="encounter_label" type="Label" parent="motherboard_layout/stats_container/encounter_bar" unique_id=521758205]
@@ -314,9 +325,9 @@ autowrap_mode = 3
 [node name="security_sweep_rect" type="ColorRect" parent="motherboard_layout" unique_id=1480926487]
 layout_mode = 0
 offset_left = 958.0
-offset_top = 358.0
+offset_top = 209.0
 offset_right = 1265.0
-offset_bottom = 416.0
+offset_bottom = 267.0
 color = Color(0.1254902, 0.1254902, 0.1254902, 1)
 
 [node name="security_sweep_label" type="Label" parent="motherboard_layout/security_sweep_rect" unique_id=1761879129]
@@ -465,14 +476,6 @@ scale = Vector2(1.325, 1.325)
 texture = ExtResource("11_kwufy")
 stretch_mode = 4
 
-[node name="setup_cpu" parent="motherboard_layout/cpu_container/cpu_slot_image" unique_id=2050249283 instance=ExtResource("12_it6vi")]
-layout_mode = 1
-offset_left = -0.63
-offset_top = -0.53
-offset_right = -0.6300049
-offset_bottom = -0.5299988
-mouse_filter = 2
-
 [node name="cpu_info_container" type="ColorRect" parent="motherboard_layout/cpu_container" unique_id=1168367020]
 visible = false
 layout_mode = 0
@@ -518,13 +521,14 @@ vertical_alignment = 1
 visible = false
 layout_mode = 0
 
-[node name="manage_button_container" type="ColorRect" parent="motherboard_layout" unique_id=1627438824]
+[node name="manage_button_container" type="TextureRect" parent="motherboard_layout" unique_id=341545176]
 layout_mode = 0
 offset_left = 979.0
-offset_top = 233.0
+offset_top = 858.0
 offset_right = 1242.0
-offset_bottom = 319.0
+offset_bottom = 944.0
 pivot_offset = Vector2(128.43, 36.975)
+texture = ExtResource("20_28j3e")
 
 [node name="manage_button" type="Button" parent="motherboard_layout/manage_button_container" unique_id=577854479]
 layout_mode = 0
@@ -538,7 +542,7 @@ theme_override_colors/font_hover_color = Color(0.033853278, 0.033853278, 0.03385
 theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_disabled_color = Color(0.875, 0.875, 0.875, 0.5)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 26
+theme_override_font_sizes/font_size = 22
 text = "Mode - 
 add to setup"
 flat = true
@@ -607,18 +611,19 @@ vertical_alignment = 1
 [node name="active_cards_container" type="Control" parent="." unique_id=1052810598]
 layout_mode = 3
 anchors_preset = 0
-offset_left = 110.0
+offset_left = 108.0
 offset_top = 751.0
-offset_right = 110.0
+offset_right = 108.0
 offset_bottom = 751.0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="active_cards_container" unique_id=1695121259]
+[node name="HBoxContainer" type="GridContainer" parent="active_cards_container" unique_id=1490940039]
 layout_mode = 0
-offset_left = 66.99999
-offset_top = -10.0
-offset_right = 1102.0366
-offset_bottom = 134.0
-scale = Vector2(0.685, 0.685)
+offset_left = -2.0
+offset_top = 5.0
+offset_right = 1608.0
+offset_bottom = 227.0
+scale = Vector2(0.53, 0.53)
+columns = 7
 
 [node name="player_setup" type="Node2D" parent="." unique_id=1242920136]
 script = ExtResource("7_0u8xd")
@@ -641,12 +646,21 @@ offset_left = 274.0
 offset_top = 908.0
 offset_right = 737.0
 offset_bottom = 1011.0
+pivot_offset = Vector2(230.855, 51.655)
 texture = ExtResource("20_28j3e")
 
 [node name="to_encounter_button" type="Button" parent="to_encounter_image" unique_id=185343312]
-layout_mode = 0
-offset_right = 472.0
-offset_bottom = 106.0
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.029
+offset_right = 9.0
+offset_bottom = 0.012992859
+pivot_offset = Vector2(234.905, 52.885)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 63
 text = "to encounter"
 flat = true
@@ -656,9 +670,10 @@ visible = false
 texture_filter = 1
 layout_mode = 3
 anchors_preset = 0
-offset_left = 16.0
-offset_right = 1936.0
-offset_bottom = 1080.0
+offset_left = 3.0
+offset_top = 27.0
+offset_right = 1923.0
+offset_bottom = 1107.0
 mouse_filter = 2
 script = ExtResource("20_vlk3g")
 
@@ -672,11 +687,11 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -587.0
 offset_top = -686.0
-offset_right = 725.0
+offset_right = -9.0
 offset_bottom = -47.0
 grow_horizontal = 0
 grow_vertical = 0
-texture = ExtResource("21_28j3e")
+texture = ExtResource("22_aj0cn")
 stretch_mode = 4
 
 [node name="brick_img" type="TextureRect" parent="tutorial_container/brick_background" unique_id=1576301976]
@@ -688,6 +703,26 @@ offset_bottom = 447.0
 texture = ExtResource("21_6gvcy")
 expand_mode = 4
 stretch_mode = 4
+
+[node name="next_background" type="TextureRect" parent="tutorial_container/brick_background" unique_id=2109438008]
+z_index = 9
+layout_mode = 0
+offset_left = 399.0
+offset_top = 602.0
+offset_right = 537.46155
+offset_bottom = 627.91095
+scale = Vector2(1.235, 1.235)
+texture = ExtResource("20_28j3e")
+
+[node name="next_label" type="Label" parent="tutorial_container/brick_background/next_background" unique_id=1710949541]
+layout_mode = 0
+offset_right = 138.46155
+offset_bottom = 29.959534
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 16
+text = "click to continue"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="dialog_background" type="ColorRect" parent="tutorial_container" unique_id=1852557533]
 layout_mode = 0
@@ -719,15 +754,63 @@ libraries/ = SubResource("AnimationLibrary_aanpi")
 
 [node name="skip_button" type="Button" parent="tutorial_container" unique_id=359747978]
 layout_mode = 0
-offset_left = 1794.0
-offset_top = 409.0
-offset_right = 1885.0
+offset_left = 1799.0
+offset_top = 395.0
+offset_right = 1909.0
 offset_bottom = 461.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 12
 theme_override_font_sizes/font_size = 44
 text = "skip"
 flat = true
+
+[node name="next_button" type="Button" parent="tutorial_container" unique_id=184180846]
+layout_mode = 0
+offset_left = 1332.0
+offset_top = 461.0
+offset_right = 1910.0
+offset_bottom = 1032.0
+flat = true
+
+[node name="equip_instruction_container" type="Control" parent="." unique_id=1519417409]
+visible = false
+texture_filter = 1
+layout_mode = 3
+anchors_preset = 0
+offset_left = 3.0
+offset_top = 27.0
+offset_right = 28.0
+offset_bottom = 76.0
+mouse_filter = 2
+script = ExtResource("26_mrfqv")
+
+[node name="TextureRect" type="TextureRect" parent="equip_instruction_container" unique_id=856839110]
+layout_mode = 0
+offset_left = 1253.0
+offset_top = 36.0
+offset_right = 1278.3558
+offset_bottom = 54.833954
+scale = Vector2(8.46, 8.46)
+texture = ExtResource("26_aj0cn")
+
+[node name="ColorRect" type="ColorRect" parent="equip_instruction_container" unique_id=2079513532]
+z_index = 34
+layout_mode = 0
+offset_left = 421.0
+offset_top = -4.0
+offset_right = 1248.0
+offset_bottom = 167.0
+color = Color(0, 0, 0.7294118, 1)
+
+[node name="Label" type="Label" parent="equip_instruction_container/ColorRect" unique_id=1510184880]
+layout_mode = 0
+offset_right = 828.0
+offset_bottom = 171.0
+theme_override_font_sizes/font_size = 49
+text = "Left-click the RAM stick to gain enough GB to use your card"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
 
 [connection signal="mouse_entered" from="motherboard_layout/stats_container/ram_bar_container" to="motherboard_layout/stats_container/ram_bar_container" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="motherboard_layout/stats_container/ram_bar_container" to="motherboard_layout/stats_container/ram_bar_container" method="_on_mouse_exited"]
@@ -741,5 +824,8 @@ flat = true
 [connection signal="mouse_exited" from="motherboard_layout/cpu_container" to="motherboard_layout/cpu_container" method="_on_mouse_exited"]
 [connection signal="mouse_entered" from="motherboard_layout/manage_button_container/manage_button" to="backpack_container" method="_on_manage_button_mouse_entered"]
 [connection signal="mouse_exited" from="motherboard_layout/manage_button_container/manage_button" to="backpack_container" method="_on_manage_button_mouse_exited"]
+[connection signal="mouse_entered" from="to_encounter_image/to_encounter_button" to="." method="_on_to_encounter_button_mouse_entered"]
+[connection signal="mouse_exited" from="to_encounter_image/to_encounter_button" to="." method="_on_to_encounter_button_mouse_exited"]
 [connection signal="pressed" from="to_encounter_image/to_encounter_button" to="." method="_on_to_encounter_button_pressed"]
 [connection signal="pressed" from="tutorial_container/skip_button" to="tutorial_container" method="_on_skip_button_pressed"]
+[connection signal="pressed" from="tutorial_container/next_button" to="tutorial_container" method="_on_next_button_pressed"]

@@ -63,7 +63,7 @@ func _ready() -> void:
 		"[color=#00ff7f]HP[/color]      " + str(int(health)) + "\n" +
 		"[color=#ff4444]DMG[/color]    " + str(damage) + "\n" +
 		"[color=#4fc3f7]SPD[/color]    " + str(speed) + "\n" +
-		"[color=#b06fd4]RAM[/color]    " + str(ram_cost) + "GB"
+		"[color=#b06fd4]GB COST[/color]    " + str(ram_cost) + "GB"
 	)
 
 	card_frame_scale = card_frame.scale

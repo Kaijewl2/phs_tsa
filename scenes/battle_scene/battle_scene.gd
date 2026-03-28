@@ -103,10 +103,19 @@ func spawn_minor_virus():
 		enemy.unit_data = GameData.get_random_normal_enemy_data()
 		enemy.position = Vector2(randi_range(1200, 1350), randi_range(450, 900))
 		enemy.scale = Vector2(10.0, 10.0)
-
+		if GameData.battle_number > 6:
+			enemy.DAMAGE *= 4
+			enemy.HEALTH *= 4
+		elif GameData.battle_number > 3:
+			enemy.DAMAGE *= 3
+			enemy.HEALTH *= 3
+		
+		
 		enemy.add_to_group("enemies")
 		GameData.active_enemies.push_back(enemy)
 		add_child(enemy)
+		
+		enemy.health_bar._setup_health_bar(enemy.HEALTH)
 		enemy_type = "minor"
 
 
@@ -116,18 +125,31 @@ func spawn_boss_virus():
 	boss.unit_data = GameData.get_random_boss_enemy_data()
 	boss.position = Vector2(randi_range(1200, 1350), randi_range(530, 870))
 	boss.scale = Vector2(20,20)
-
+	boss.DEATH_VALUE = 15
 
 	boss.add_to_group("enemies")
 	GameData.active_enemies.push_back(boss)
 	add_child(boss)
 	
-	#boss.HEALTH *= 2
-	#boss.DAMAGE *= 1
-	
+
 	boss.health_bar._setup_health_bar(boss.HEALTH)
 	
 	enemy_type = "boss"
+	
+	if GameData.battle_number > 5:
+		var enemy = ENENEMY_SCENE.instantiate()
+		enemy.unit_data = GameData.get_random_normal_enemy_data()
+		enemy.position = Vector2(randi_range(1200, 1350), randi_range(450, 900))
+		enemy.scale = Vector2(10.0, 10.0)
+		enemy.DEATH_VALUE = 5
+		enemy.DAMAGE *= 4
+		enemy.HEALTH *= 4
+		
+		enemy.add_to_group("enemies")
+		GameData.active_enemies.push_back(enemy)
+		add_child(enemy)
+		enemy.health_bar._setup_health_bar(enemy.HEALTH)
+		enemy_type = "minor"
 
 
 func spawn_final_boss_virus():
@@ -142,12 +164,25 @@ func spawn_final_boss_virus():
 	GameData.active_enemies.push_back(final_boss)
 	add_child(final_boss)
 	
-	#final_boss.HEALTH *= 3
-	#final_boss.DAMAGE *= 2
-	
 	final_boss.health_bar._setup_health_bar(final_boss.HEALTH)
 	
 	enemy_type = "final_boss"
+	
+	var enemy_count = 2
+
+	for i in enemy_count:
+		var enemy = ENENEMY_SCENE.instantiate()
+		enemy.unit_data = GameData.get_random_normal_enemy_data()
+		enemy.position = Vector2(randi_range(1200, 1350), randi_range(450, 900))
+		enemy.scale = Vector2(10.0, 10.0)
+		enemy.DAMAGE *= 3
+		enemy.HEALTH *= 3
+
+		enemy.add_to_group("enemies")
+		GameData.active_enemies.push_back(enemy)
+		add_child(enemy)
+		enemy.health_bar._setup_health_bar(enemy.HEALTH)
+		enemy_type = "minor"
 
 
 func clear_commrades():

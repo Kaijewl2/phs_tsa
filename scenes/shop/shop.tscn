@@ -14,8 +14,8 @@ bg_color = Color(0.60038817, 0.60038817, 0.60038817, 0)
 bg_color = Color(0, 0.6901961, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_xcdpw"]
-font_size = 69
-outline_size = 15
+font_size = 44
+outline_size = 11
 outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vk20h"]
@@ -77,7 +77,13 @@ pivot_offset = Vector2(184.365, 29.035)
 scene_path = "res://scenes/setup_scene/setup_scene.tscn"
 label_text = "to motherboard"
 
-[node name="Button" parent="change_scene_button" index="0" unique_id=1490372151]
+[node name="TextureRect" parent="change_scene_button" index="0" unique_id=79788724]
+offset_left = -201.0
+offset_top = -262.0
+offset_right = 417.0
+offset_bottom = -84.0
+
+[node name="Button" parent="change_scene_button" index="1" unique_id=1490372151]
 anchor_left = -0.08918919
 anchor_top = -3.7997386
 anchor_right = 1.4567567
@@ -88,9 +94,8 @@ grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(137.54, 50.105)
 theme_override_font_sizes/font_size = 16
-flat = true
 
-[node name="Label" parent="change_scene_button" index="1" unique_id=1345280553]
+[node name="Label" parent="change_scene_button" index="2" unique_id=1345280553]
 anchor_left = -0.081
 anchor_top = -3.164
 anchor_right = 1.3410001
@@ -103,6 +108,7 @@ scale = Vector2(0.645, 0.645)
 text = "to hardware"
 
 [node name="brick" type="Control" parent="." unique_id=482986730]
+texture_filter = 1
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -119,10 +125,10 @@ anchors_preset = -1
 anchor_left = -0.66700006
 anchor_top = -0.24100001
 anchor_right = -0.43100002
-offset_left = -792.99994
-offset_top = -397.99994
-offset_right = -760.99994
-offset_bottom = -365.99994
+offset_left = -791.99994
+offset_top = -410.99994
+offset_right = -750.2608
+offset_bottom = -374.47818
 scale = Vector2(3.45, 3.45)
 texture = ExtResource("5_ctpgp")
 stretch_mode = 4
@@ -132,17 +138,17 @@ visible = false
 z_index = 4
 layout_mode = 0
 offset_left = -691.0
-offset_top = -388.0
+offset_top = -309.0
 offset_right = -345.0
-offset_bottom = -280.0
-color = Color(1, 1, 1, 0.6431373)
+offset_bottom = -125.0
+color = Color(1, 1, 1, 0.8039216)
 
 [node name="Label" type="Label" parent="brick/brick_hover_container" unique_id=1628099370]
 layout_mode = 0
 offset_left = 4.0
 offset_top = 3.0
 offset_right = 342.0
-offset_bottom = 107.0
+offset_bottom = 174.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 41
 text = "I've been selling here since 86'"
@@ -168,17 +174,16 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -109.0
-offset_top = -35.0
-offset_right = 109.0
-offset_bottom = 35.0
+offset_left = -126.999695
+offset_top = -58.219997
+offset_right = 127.000305
+offset_bottom = 11.779999
 grow_horizontal = 2
 grow_vertical = 2
-text = "storage"
 label_settings = SubResource("LabelSettings_xcdpw")
+horizontal_alignment = 1
 
 [node name="storage_info_container" type="ColorRect" parent="storage_bar" unique_id=199375651]
-visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = -0.21900001
@@ -190,16 +195,19 @@ offset_top = 0.01399231
 offset_right = 0.04005432
 offset_bottom = -0.03199768
 mouse_filter = 2
-color = Color(1, 1, 1, 0.6431373)
+color = Color(1, 1, 1, 0)
 
 [node name="storage_info_label" type="Label" parent="storage_bar/storage_info_container" unique_id=236367747]
 layout_mode = 0
-offset_left = 3.0
-offset_top = 8.0
-offset_right = 242.0
-offset_bottom = 93.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 67
+offset_left = 174.99997
+offset_top = -53.418106
+offset_right = 843.0
+offset_bottom = 31.581894
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 11
+theme_override_font_sizes/font_size = 44
+text = "15/15 available backpack slots"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -228,26 +236,26 @@ offset_bottom = 50.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
-text = "RAM"
 label_settings = SubResource("LabelSettings_tp26b")
 
 [node name="ram_info_container" type="ColorRect" parent="ram_bar" unique_id=1910316131]
-visible = false
 layout_mode = 0
 offset_left = -446.0
 offset_top = 73.0
 offset_right = 55.0
 offset_bottom = 200.0
 mouse_filter = 2
-color = Color(1, 1, 1, 0.6431373)
+color = Color(1, 1, 1, 0)
 
 [node name="ram_info_label" type="Label" parent="ram_bar/ram_info_container" unique_id=1973406679]
 layout_mode = 0
-offset_left = -1.0
-offset_right = 501.0
-offset_bottom = 126.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 38
+offset_left = 403.0
+offset_top = -84.0
+offset_right = 905.0
+offset_bottom = 42.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 9
+theme_override_font_sizes/font_size = 31
 text = "12 / 64 GB available RAM"
 horizontal_alignment = 1
 vertical_alignment = 1

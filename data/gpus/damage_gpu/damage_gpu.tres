@@ -7,7 +7,7 @@
 script = ExtResource("1_xvitb")
 gpu_image = ExtResource("1_66s0j")
 gpu_name = "Damage GPU"
-damage_enhancer = 0.3
+damage_enhancer = 0.25
 gb_size = 4
 cost = 15
 metadata/_custom_type_script = "uid://cxak8dq6ycube"

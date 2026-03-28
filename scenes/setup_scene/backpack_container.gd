@@ -3,7 +3,7 @@ extends Control
 
 @onready var card_grid: GridContainer = $storage_img/GridContainer
 @onready var manage_button: Button = $"../motherboard_layout/manage_button_container/manage_button"
-@onready var manage_button_container: ColorRect = $"../motherboard_layout/manage_button_container"
+@onready var manage_button_container: TextureRect = $"../motherboard_layout/manage_button_container"
 @onready var available_slots_label: Label = $available_slots_container/available_slots_label
 
 

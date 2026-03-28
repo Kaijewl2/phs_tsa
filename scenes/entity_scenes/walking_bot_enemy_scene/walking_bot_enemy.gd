@@ -3,7 +3,7 @@ extends CharacterBody2D
 @export var unit_data: UnitData
 
 
-@export var DEATH_VALUE = 10
+@export var DEATH_VALUE = 5
 @export var unit_sprite: Texture2D
 
 

@@ -60,7 +60,7 @@ func _gui_input(event: InputEvent) -> void:
 		"[color=#00ff7f]HP[/color]      " + str(int(health)) + "\n" +
 		"[color=#ff4444]DMG[/color]    " + str(damage) + "\n" +
 		"[color=#4fc3f7]SPD[/color]    " + str(speed) + "\n" +
-		"[color=#b06fd4]RAM[/color]    " + str(ram_cost) + "GB"
+		"[color=#b06fd4]GB COST[/color]    " + str(ram_cost) + "GB"
 	)
 	
 	await get_tree().process_frame

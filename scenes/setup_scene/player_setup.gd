@@ -2,7 +2,7 @@ extends Node2D
 
 
 @onready var active_cards_container: Control = $"../active_cards_container"
-@onready var h_box_container: HBoxContainer = $"../active_cards_container/HBoxContainer"
+@onready var h_box_container: GridContainer = $"../active_cards_container/HBoxContainer"
 
 
 const HAND_COUNT = 3

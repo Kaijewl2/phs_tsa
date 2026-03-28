@@ -15,6 +15,6 @@ sell_card_desc = "The ultimate defense against bugs. Nobody's sure why. Nobody's
 health = 45.0
 damage = 4
 speed = 15
-value = 25
+value = 15
 ram_cost = 4
 metadata/_custom_type_script = "uid://c6rkw8aflunst"

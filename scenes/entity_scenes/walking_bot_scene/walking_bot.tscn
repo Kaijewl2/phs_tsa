@@ -18,6 +18,7 @@ outline_color = Color(0, 0, 0, 1)
 
 [node name="walking_bot" type="CharacterBody2D" unique_id=955721681 groups=["active_entity", "commrades"]]
 z_index = 86
+y_sort_enabled = true
 collision_layer = 128
 collision_mask = 128
 script = ExtResource("2_i7no5")

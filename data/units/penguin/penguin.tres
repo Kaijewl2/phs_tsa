@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_1odnm")
 unit_name = "Tux"
-health = 25.0
+health = 35.0
 damage = 8
 speed = 35
 attack_cooldown = 1.8

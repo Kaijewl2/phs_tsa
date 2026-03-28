@@ -129,6 +129,8 @@ func anim_shake(node):
 
 
 func add_to_setup():
+	GameData.ram_interacted = true
+	
 	if GameData.current_context == GameData.Context.NORMAL:
 		if GameData.move_ram_stick_to_setup(ram_stick_data):
 			print("Added ram to deck!")

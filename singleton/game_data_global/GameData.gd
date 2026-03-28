@@ -53,7 +53,8 @@ var added_starting_card:bool = false
 var added_starting_ram: bool = true
 var tutorial_played: bool = false
 var user_skipped_tutorial: bool = false
-var balance: int = 50
+var ram_interacted: bool = false
+var balance: int = 25
 var current_ram_gb: int
 var PlayerClass: String
 var unit_types = {
@@ -626,7 +627,9 @@ func reset() -> void:
 	battle_number = 1
 	current_security_sweep = 1
 	added_starting_card = false
-	balance = 50
+	ram_interacted = false
+	tutorial_played = false
+	balance = 25
 	PlayerClass = ""
 	current_ram_gb = 0
 	current_cutscene = 0

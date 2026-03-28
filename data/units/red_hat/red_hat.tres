@@ -7,8 +7,8 @@
 script = ExtResource("1_86uky")
 unit_name = "Red Hat"
 health = 15.0
-damage = 14
-speed = 65
+damage = 12
+speed = 45
 attack_cooldown = 1.3
 death_value = 25
 ram_cost = 6

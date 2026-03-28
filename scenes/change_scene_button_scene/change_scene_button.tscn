@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://d2dwgl2aubu7e"]
 
 [ext_resource type="Script" uid="uid://dy0ittwq4k0rs" path="res://scenes/change_scene_button_scene/change_scene_button.gd" id="1_mvww8"]
+[ext_resource type="Texture2D" uid="uid://chkd6tjdgjk2l" path="res://art/misc/button_frame.png" id="2_mvww8"]
 [ext_resource type="FontFile" uid="uid://5h80votmq54e" path="res://art/fonts/minecraft/Minecraft.ttf" id="2_yyfpi"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ow0st"]
@@ -18,15 +19,23 @@ offset_right = 21.75998
 pivot_offset = Vector2(128.185, 24.535)
 script = ExtResource("1_mvww8")
 
+[node name="TextureRect" type="TextureRect" parent="." unique_id=79788724]
+texture_filter = 1
+layout_mode = 0
+offset_right = 258.0
+offset_bottom = 57.0
+texture = ExtResource("2_mvww8")
+
 [node name="Button" type="Button" parent="." unique_id=1490372151]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.004716981
 anchor_top = 0.037037037
-anchor_right = 1.0117188
-anchor_bottom = 0.87039346
+anchor_right = 1.0078125
+anchor_bottom = 1.0555787
 offset_bottom = -0.001247406
 pivot_offset = Vector2(128.545, 20.505)
+flat = true
 metadata/_edit_use_anchors_ = true
 
 [node name="Label" type="Label" parent="." unique_id=1345280553]
@@ -35,10 +44,10 @@ anchors_preset = -1
 anchor_left = 0.047000002
 anchor_right = 1.07
 anchor_bottom = 0.87000006
-offset_left = -185.032
+offset_left = -199.39482
 offset_top = -37.0
-offset_right = 136.17862
-offset_bottom = 39.963654
+offset_right = 276.7454
+offset_bottom = 82.09931
 scale = Vector2(0.355, 0.355)
 pivot_offset = Vector2(290.485, 60.53)
 text = "placeholder"

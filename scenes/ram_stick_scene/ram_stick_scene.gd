@@ -43,28 +43,28 @@ func _ready() -> void:
 	if ram_stick_name == "Health RAM":
 		item_info_label.text = (
 			"[b]Health RAM[/b]\n\n" +
-			"[font_size=12][i]" + ram_stick_desc + "[/i][/font_size]\n\n" +
+			"[font_size=18][i]" + ram_stick_desc + "[/i][/font_size]\n\n" +
 			"[color=#00ff7f]+ HP[/color]      +" + str(int(health_enhancer * 100)) + "%\n" +
 			"[color=#b06fd4]GB[/color]       " + str(gb_size) + "GB"
 		)
 	elif ram_stick_name == "Damage RAM":
 		item_info_label.text = (
 			"[b]Damage RAM[/b]\n\n" +
-			"[font_size=14][i]" + ram_stick_desc + "[/i][/font_size]\n\n" +
+			"[font_size=18][i]" + ram_stick_desc + "[/i][/font_size]\n\n" +
 			"[color=#ff4444]+ DMG[/color]    +" + str(int(damage_enhancer * 100)) + "%\n" +
 			"[color=#b06fd4]GB[/color]       " + str(gb_size) + "GB"
 		)
 	elif ram_stick_name == "Speed RAM":
 		item_info_label.text = (
 			"[b]Speed RAM[/b]\n\n" +
-			"[font_size=14][i]" + ram_stick_desc + "[/i][/font_size]\n\n" +
+			"[font_size=18][i]" + ram_stick_desc + "[/i][/font_size]\n\n" +
 			"[color=#4fc3f7]+ SPD[/color]    +" + str(int(speed_enhancer * 100)) + "%\n" +
 			"[color=#b06fd4]GB[/color]       " + str(gb_size) + "GB"
 		)
 	else:
 		item_info_label.text = (
 			"[b]Base RAM[/b]\n\n" +
-			"[font_size=10][i]" + ram_stick_desc + "[/i][/font_size]\n\n" +
+			"[font_size=18][i]" + ram_stick_desc + "[/i][/font_size]\n\n" +
 			"[color=#b06fd4]GB[/color]       " + str(gb_size) + "GB"
 		)
 
