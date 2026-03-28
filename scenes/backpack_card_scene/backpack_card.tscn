@@ -119,7 +119,6 @@ texture = ExtResource("3_c4ux8")
 stretch_mode = 4
 
 [node name="equip_button" type="Button" parent="." unique_id=796278141]
-visible = false
 layout_mode = 0
 offset_left = -16.0
 offset_top = 175.0

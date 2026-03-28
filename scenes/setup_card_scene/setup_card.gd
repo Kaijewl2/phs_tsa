@@ -53,6 +53,14 @@ func _ready() -> void:
 	)
 
 
+func _gui_input(event: InputEvent) -> void:
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+		if GameData.backpack_items.size() + 1 <= GameData.MAX_BACKPACK_SIZE:
+			GameData.remove_card_from_setup(sell_card_data)
+			GameData.add_card_ram(sell_card_data)
+			GameData.add_card_to_backpack(SELF_PATH, sell_card_data)
+
+
 func setup(path: String):
 	card_path = path
 

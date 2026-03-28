@@ -44,8 +44,16 @@ func _ready() -> void:
 		speed = backpack_card_data.speed
 		value = backpack_card_data.value
 		ram_cost = backpack_card_data.ram_cost
-	
-	
+
+
+func _gui_input(event: InputEvent) -> void:
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+		if remove_mode:
+			remove_from_backpack()
+		else:
+			add_to_setup()
+
+
 	item_info_label.text = (
 		"[b]" + backpack_card_data.sell_card_name + "[/b]\n\n" +
 		"[font_size=20][i]" + backpack_card_data.sell_card_desc + "[/i][/font_size]\n\n" +

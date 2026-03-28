@@ -53,6 +53,16 @@ func _ready() -> void:
 				"[font_size=20][i]" + cpu_desc + "[/i][/font_size]\n\n" +
 				"[color=#4fc3f7]+ SPD[/color]    +" + str(int(speed_enhancer * 100)) + "%\n"
 			)
+
+
+func _gui_input(event: InputEvent) -> void:
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+		if remove_mode:
+			remove_from_backpack()
+		else:
+			add_to_setup()
+
+
 func setup(path: String, remove_mode:bool = false):
 	card_path = path
 	set_mode(remove_mode)

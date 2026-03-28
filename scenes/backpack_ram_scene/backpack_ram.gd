@@ -68,6 +68,14 @@ func _ready() -> void:
 		)
 
 
+func _gui_input(event: InputEvent) -> void:
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+		if remove_mode:
+			remove_from_backpack()
+		else:
+			add_to_setup()
+
+
 func setup(path: String, remove_mode:bool = false):
 	card_path = path
 	set_mode(remove_mode)

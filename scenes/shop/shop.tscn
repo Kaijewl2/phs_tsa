@@ -58,10 +58,10 @@ anchor_left = 0.065000005
 anchor_top = 0.223
 anchor_right = 0.15100001
 anchor_bottom = 0.303
-offset_left = -3.8000107
-offset_top = 170.15999
-offset_right = -18.920013
-offset_bottom = 162.76001
+offset_left = -51.80001
+offset_top = 157.15999
+offset_right = -66.92001
+offset_bottom = 149.76001
 
 [node name="change_scene_button" parent="." unique_id=2077746840 instance=ExtResource("7_ge4d2")]
 layout_mode = 1
@@ -69,22 +69,25 @@ anchor_left = 0.108
 anchor_top = 0.85700005
 anchor_right = 0.30100003
 anchor_bottom = 0.91400003
-offset_left = 0.6399994
-offset_top = 0.4399414
-offset_right = 0.079956055
-offset_bottom = 0.19995117
+offset_left = 137.64
+offset_top = 24.439941
+offset_right = 137.07996
+offset_bottom = 24.199951
+pivot_offset = Vector2(184.365, 29.035)
 scene_path = "res://scenes/setup_scene/setup_scene.tscn"
 label_text = "to motherboard"
 
 [node name="Button" parent="change_scene_button" index="0" unique_id=1490372151]
-anchor_left = -0.16756757
-anchor_top = -3.7834308
+anchor_left = -0.08918919
+anchor_top = -3.7997386
 anchor_right = 1.4567567
 anchor_bottom = -1.0763208
 offset_right = 2.0
 offset_bottom = 0.0
 grow_horizontal = 2
 grow_vertical = 2
+pivot_offset = Vector2(137.54, 50.105)
+theme_override_font_sizes/font_size = 16
 flat = true
 
 [node name="Label" parent="change_scene_button" index="1" unique_id=1345280553]
@@ -92,10 +95,10 @@ anchor_left = -0.081
 anchor_top = -3.164
 anchor_right = 1.3410001
 anchor_bottom = -1.659
-offset_left = -0.030008316
-offset_top = 0.016525269
-offset_right = 289.56018
-offset_bottom = 50.78753
+offset_left = -229.03
+offset_top = -42.983475
+offset_right = 60.56018
+offset_bottom = 7.787529
 scale = Vector2(0.645, 0.645)
 text = "to hardware"
 
@@ -262,6 +265,8 @@ offset_right = 26.319824
 offset_bottom = -27.720032
 theme_override_constants/separation = 211
 
+[connection signal="mouse_entered" from="change_scene_button/Button" to="change_scene_button" method="_on_button_mouse_entered"]
+[connection signal="mouse_exited" from="change_scene_button/Button" to="change_scene_button" method="_on_button_mouse_exited"]
 [connection signal="mouse_entered" from="brick/brick_img" to="." method="_on_brick_img_mouse_entered"]
 [connection signal="mouse_exited" from="brick/brick_img" to="." method="_on_brick_img_mouse_exited"]
 [connection signal="mouse_entered" from="storage_bar" to="." method="_on_storage_bar_mouse_entered"]

@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://d4ewn111rc61p" path="res://art/icons/purrrency.png" id="1_xl5ug"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_28bky"]
-font_size = 49
+font_size = 83
 font_color = Color(1, 0.78431374, 0.40392157, 1)
 outline_size = 12
 outline_color = Color(0, 0, 0, 1)
@@ -63,8 +63,8 @@ script = ExtResource("1_58kiw")
 texture_filter = 1
 layout_mode = 0
 offset_left = 3.999939
-offset_right = 86.99994
-offset_bottom = 83.0
+offset_right = 118.99994
+offset_bottom = 115.0
 size_flags_horizontal = 4
 texture = ExtResource("1_xl5ug")
 expand_mode = 2
@@ -72,10 +72,10 @@ expand_mode = 2
 [node name="Label" type="Label" parent="." unique_id=749578237]
 texture_filter = 1
 layout_mode = 0
-offset_left = 100.0
+offset_left = 133.0
 offset_top = 23.0
-offset_right = 128.0
-offset_bottom = 75.0
+offset_right = 180.0
+offset_bottom = 107.0
 text = "0"
 label_settings = SubResource("LabelSettings_28bky")
 

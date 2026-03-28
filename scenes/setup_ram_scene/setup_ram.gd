@@ -69,6 +69,19 @@ func _ready() -> void:
 	insufficient_ram_container.position = Vector2(757.0, 413.0)
 
 
+func _gui_input(event: InputEvent) -> void:
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+		if(GameData.backpack_items.size() + 1 <= GameData.MAX_BACKPACK_SIZE):
+			if((GameData.current_ram_gb - gb_size) >= 0 ):
+				insufficient_ram_container.hide()
+				GameData.remove_ram_from_setup(ram_stick_data)
+				GameData.remove_current_ram(ram_stick_data)
+			else:
+				insufficient_ram_container.show()
+				insufficient_ram_container.get_node("insufficient_ram_label").text = "Not enough RAM!"
+				anim_shake(insufficient_ram_container)
+
+
 func remove_from_setup():
 	# Only allow unequip if sufficient RAM remains after
 	if(GameData.backpack_items.size() + 1 <= GameData.MAX_BACKPACK_SIZE):
@@ -78,8 +91,8 @@ func remove_from_setup():
 		else:
 			insufficient_ram_container.show()
 			insufficient_ram_container.get_node("insufficient_ram_label").text = "Not enough RAM!"
+			#print("anim_shake")
 			anim_shake(insufficient_ram_container)
-
 
 
 func anim_shake(node):
@@ -96,7 +109,7 @@ func anim_shake(node):
 	shake_tween.tween_property(node, "position", container_original_pos + Vector2(-5, 0), 0.05)
 	shake_tween.tween_property(node, "position", container_original_pos + Vector2(5, 0), 0.05)
 	shake_tween.tween_property(node, "position", container_original_pos, 0.05)
-	shake_tween.tween_interval(0.5)
+	shake_tween.tween_interval(1)
 	shake_tween.tween_callback(node.hide)
 
 

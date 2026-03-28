@@ -54,6 +54,12 @@ func _ready() -> void:
 	button.hide()
 
 
+func _gui_input(event: InputEvent) -> void:
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+		if GameData.backpack_items.size() + 1 <= GameData.MAX_BACKPACK_SIZE:
+			GameData.remove_cpu_from_setup(0)
+
+
 func remove_from_setup():
 	GameData.remove_cpu_from_setup(0)
 
